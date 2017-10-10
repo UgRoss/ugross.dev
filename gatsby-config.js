@@ -13,7 +13,7 @@ module.exports = {
         short_name: 'Ross - FE Dev.',
         icons: [
           {
-            src: '/static/logo.png',
+            src: '/logo.png',
             sizes: '1024x1024',
             type: 'image/png',
           },

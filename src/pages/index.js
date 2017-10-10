@@ -11,7 +11,7 @@ const IndexPage = () => (
       <h2 style={{ fontSize: '40px' }}>👋 Hello there!</h2>
       <WelcomeHeadline />
     </div>
-    <img src="static/robot.svg" alt="" />
+    <img src="/robot.svg" alt="" />
   </div>
 );
 
