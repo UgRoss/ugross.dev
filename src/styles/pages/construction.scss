@@ -1,0 +1,46 @@
+@import '../includes/includes';
+
+/* Content */
+.construction-content {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 50px 0 20px;
+  > img {
+    margin-bottom: 50px;
+  }
+  
+  @include medium {
+    flex: 1 1 auto;
+    height: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    margin: 50px 0;
+    > img {
+      max-width: 300px;
+      width: 100%;
+    }
+  }
+}
+
+.welcome-text__status {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
+  color: #FF5216;
+  text-transform: uppercase;
+}
+
+.welcome-text__headline {
+  font-weight: normal;
+  font-size: 2rem;
+  letter-spacing: -.01em;
+}
+
+.welcome-text__subhead {
+  font-weight: normal;
+  font-size: .85rem;
+  color: #FF5216;
+}

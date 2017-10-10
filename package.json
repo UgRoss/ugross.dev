@@ -1,0 +1,43 @@
+{
+  "name": "ugross.me",
+  "description": "Personal Site",
+  "version": "0.0.1",
+  "author": "Rostyslav Ugryniuk <ug.ross@hotmail.com>",
+  "dependencies": {
+    "gatsby": "^1.9.55",
+    "gatsby-link": "^1.6.20",
+    "gatsby-plugin-manifest": "^1.0.8",
+    "gatsby-plugin-offline": "^1.0.9",
+    "gatsby-plugin-postcss-sass": "^1.0.12",
+    "gatsby-plugin-preact": "^1.0.12",
+    "gatsby-plugin-react-helmet": "^1.0.6",
+    "gatsby-plugin-sass": "^1.0.12",
+    "normalize.css": "^7.0.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-helmet": "^5.2.0",
+    "react-typing-animation": "^1.1.5",
+    "spectre.css": "^0.4.3",
+    "styled-components": "^2.2.1",
+    "es6-object-assign": "^1.1.0"
+  },
+  "keywords": [
+    "gatsby",
+    "blog",
+    "personal",
+    "cv",
+    "portfolio"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "prettier": "^1.7.4"
+  }
+}
