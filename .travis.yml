@@ -2,5 +2,13 @@ language: node_js
 node_js:
   - '10.0'
 
-dist: trusty
-sudo: false
+cache:
+  directories:
+    - node_modules
+
+before_script:
+  - 'npm i -g gatsby'
+  - 'npm i'
+
+script:
+  - 'npm run build'
