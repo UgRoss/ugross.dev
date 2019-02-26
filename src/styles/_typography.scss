@@ -1,0 +1,174 @@
+@import 'variables';
+// Typography
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: inherit;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+  font-weight: 800;
+}
+
+.h4,
+.h5,
+.h6 {
+  font-weight: 700;
+}
+
+h1,
+.h1 {
+  font-size: 2rem;
+}
+h2,
+.h2 {
+  font-size: 1.6rem;
+}
+h3,
+.h3 {
+  font-size: 1.4rem;
+}
+h4,
+.h4 {
+  font-size: 1.2rem;
+}
+h5,
+.h5 {
+  font-size: 1rem;
+}
+h6,
+.h6 {
+  font-size: 0.8rem;
+}
+
+// Paragraphs
+p {
+  margin: 0 0 $line-height / 1.5;
+}
+
+// Semantic text elements
+a,
+ins,
+u {
+  text-decoration-skip: ink edges;
+}
+
+abbr[title] {
+  border-bottom: 0.05rem dotted;
+  cursor: help;
+  text-decoration: none;
+}
+
+kbd {
+  border-radius: 0.1rem;
+  line-height: 1.2;
+  padding: 0.1rem 0.2rem;
+
+  background: #303742;
+  color: #fff;
+
+  font-size: 0.7rem;
+}
+
+mark {
+  background: #ffe9b3;
+  color: $body-font-color;
+
+  border-radius: 0.1rem;
+  padding: 0.05rem;
+}
+
+// Blockquote
+blockquote {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 1.75em 0 1.75em -2.2em;
+  padding: 0 0 0 1.75em;
+  border-left: #4a4a4a 0.4em solid;
+}
+
+blockquote p {
+  margin: 0.8em 0;
+  font-style: italic;
+}
+
+blockquote small {
+  display: inline-block;
+  margin: 0.8em 0 0.8em 1.5em;
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+blockquote small::before {
+  content: '\2014 \00A0';
+}
+
+blockquote cite {
+  font-weight: 700;
+}
+
+blockquote cite a {
+  font-weight: normal;
+}
+
+// Lists
+ul,
+ol {
+  margin: 0.8rem 0 0.8rem 0.8rem;
+  padding: 0;
+
+  ul,
+  ol {
+    margin: 0.8rem 0 0.8rem 0.8rem;
+  }
+
+  li {
+    margin-top: 0.4rem;
+  }
+}
+
+ul {
+  list-style: disc inside;
+
+  ul {
+    list-style-type: circle;
+  }
+}
+
+ol {
+  list-style: decimal inside;
+
+  ol {
+    list-style-type: lower-alpha;
+  }
+}
+
+dl {
+  dt {
+    font-weight: bold;
+  }
+  dd {
+    margin: 0.4rem 0 0.8rem 0;
+  }
+}
+
+li li {
+  margin: 0;
+}
+
+li > p:last-of-type {
+  margin-bottom: 0;
+}

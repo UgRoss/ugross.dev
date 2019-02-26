@@ -1,29 +1,69 @@
+// tslint:disable:object-literal-sort-keys
 module.exports = {
   siteMetadata: {
-    title: `Rostyslav Ugryniuk | Front-end developer`,
     author: 'Rostyslav Ugryniuk',
+    description:
+      'Front-end Developer, JavaScript enthusiast and CS student. Living and coding in Ukraine.',
+    logo: '',
+    siteLanguage: 'en',
+    siteUrl: 'https://ugross.space', // No trailing slash!
+    social: {
+      twitter: '@ug_ross',
+    },
+    socialLinks: {
+      facebook: 'https://www.facebook.com/ugr.ross',
+      github: 'https://github.com/UgRoss',
+      linkedIn: 'https://www.linkedin.com/in/rostyslav-ugryniuk-7b7466102/',
+    },
+    title: '',
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-typescript`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 710,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-responsive-iframe',
+          },
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-autolink-headers`,
+          'gatsby-remark-copy-linked-files',
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/content/posts/`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-stylelint',
+      options: { files: ['**/*.tsx*'] },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Ross | Front-end Dev.',
-        short_name: 'Ross - FE Dev.',
-        icons: [
-          {
-            src: '/logo.png',
-            sizes: '1024x1024',
-            type: 'image/png',
-          },
-        ],
+        name: 'Ross Blog',
+        short_name: 'Ross Blog',
         start_url: '/',
-        background_color: 'white',
-        theme_color: 'white',
+        background_color: '##222',
+        theme_color: '#2691ff',
         display: 'minimal-ui',
+        icon: 'static/favicon.png', // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-offline`
+    'gatsby-plugin-offline',
   ],
 };

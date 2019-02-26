@@ -1,13 +1,38 @@
-# gatsby-starter-default
-The default Gatsby starter
+![license](https://img.shields.io/github/license/ugross/ugross.space.svg?style=flat-square)
+![site status](https://img.shields.io/website-up-down-green-red/https/ugross.space.svg?style=flat-square)
+![dependencies](https://img.shields.io/david/ugross/ugross.space.svg?style=flat-square)
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
+# ugross.space
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
+My personal blog and information about me.
+
+## 🚀 Quick start
+
+Install dependencies:
+
 ```
-gatsby new gatsby-example-site
+npm i
 ```
 
-## Deploy
+Start a development server:
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+```
+npm run dev
+```
+
+Visit `https://localhost:8000`
+
+## License
+
+The following directories and their contents are Copyright Rostyslav Ugryniuk. You may not reuse anything therein without my permission:
+
+```
+content/
+static/
+```
+
+All other directories and files are MIT Licensed (where applicable).
+
+---
+
+_If you noticed any kind of error please let me know [here](https://github.com/UgRoss/ugross.space/issues/new)._

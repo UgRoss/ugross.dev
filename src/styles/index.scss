@@ -1,49 +1,6 @@
-@import '~normalize.css';
-@import 'includes/includes';
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-html {
-  box-sizing: border-box;
-  font-size: 20px;
-  line-height: 1.428571429;
-  -webkit-tap-highlight-color: transparent;
-  height: 100%;
-}
-
-body {
-  background: $body-bg;
-  color: $body-font-color;
-  font-family: $body-font-family;
-  font-size: $font-size;
-  overflow-x: hidden;
-  text-rendering: optimizeLegibility;
-  min-height: 100%;
-}
-
-a {
-  text-decoration: none;
-  position: relative;
-  &:hover {
-    color: $main-color;
-    &:after {
-      width: 100%;
-    }
-  }
-  &:after {
-    position: absolute;
-    content: '';
-    display: block;
-    width: 0;
-    left: 0;
-    height: 2px;
-    background: $main-color;
-    transition: all 0.2s linear;
-  }
-}
-
-@import 'layout';
+@import 'variables';
+@import 'base';
+@import 'code';
+@import 'table';
+@import 'typography';
+@import 'blog';

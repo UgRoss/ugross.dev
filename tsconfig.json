@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "rootDir": "./src",
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
+    "target": "es5",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "jsx": "react",
+    "baseUrl": "src",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "types": ["styled-components/cssprop"]
+  },
+  "include": ["./src"],
+  "exclude": [".cache", "node_modules", "dist", "public", "scripts", "tmp"]
+}
