@@ -11,7 +11,7 @@ colors.set('github', '#181717');
 colors.set('linkedin', '#0077B5');
 
 type socialName = 'facebook' | 'github' | 'twitter' | 'linkedin';
-interface Props {
+interface IProps {
   type: socialName;
 }
 
@@ -19,7 +19,7 @@ interface Props {
  * @name SocialLink
  * @description Styled `Link` component
  */
-const SocialLink = styled(props => <Link {...props} />)<Props>`
+const SocialLink = styled(props => <Link {...props} />)<IProps>`
   color: ${props => colors.get(props.type)};
   font-weight: bold;
   &:visited {

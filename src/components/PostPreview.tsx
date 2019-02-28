@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Link from '../components/Link';
 import { formatReadingTime } from '../utils';
 
-interface Props {
+interface IProps {
   url: string;
   title: string;
   date: string;
@@ -14,7 +14,7 @@ interface Props {
   timeToRead?: number;
 }
 
-const PostPreview: React.FunctionComponent<Props> = ({
+const PostPreview: React.FunctionComponent<IProps> = ({
   url,
   title,
   date,

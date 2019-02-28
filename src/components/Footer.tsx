@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-interface Props {
+interface IProps {
   className?: string;
 }
 
@@ -22,7 +22,7 @@ const Wrapper = styled.footer`
  * @render react
  * @example <Footer />
  */
-export const Footer: React.FunctionComponent<Props> = ({ className }) => (
+export const Footer: React.FunctionComponent<IProps> = ({ className }) => (
   <Wrapper className={className}>
     <p>© Copyright {new Date().getFullYear()} Rostyslav Ugryniuk</p>
   </Wrapper>

@@ -7,7 +7,7 @@ import PostAuthor from '../components/PostAuthor';
 import PrevNextPosts from '../components/PrevNextPosts';
 import SEO from '../components/SEO';
 
-interface Props {
+interface IProps {
   className?: string;
   pageContext: any;
   data: {
@@ -15,7 +15,7 @@ interface Props {
   };
 }
 
-const BlogPost = ({ className, data, pageContext }: Props) => {
+const BlogPost = ({ className, data, pageContext }: IProps) => {
   const { frontmatter, html, timeToRead } = data.markdownRemark;
 
   return (

@@ -6,7 +6,7 @@ import Nav from './Nav';
 
 import '../styles/index.scss';
 
-interface Props {
+interface IProps {
   children: React.ReactNode;
   className?: string;
   /**
@@ -27,8 +27,8 @@ interface Props {
  * @render react
  * @example <Layout>Hello</Layout>
  */
-class Layout extends React.PureComponent<Props> {
-  public static defaultProps: Partial<Props> = {
+class Layout extends React.PureComponent<IProps> {
+  public static defaultProps: Partial<IProps> = {
     footer: true,
     header: true,
   };

@@ -36,11 +36,11 @@ The main purpose of the PC is to play games in my free time or to run Linux when
 
 ##### Other Stuff:
 
-- 🎧 **Headphones**: Apple AirPods. Pretty cool combination to a Mac or iPhone.
-- 🖱 **Mouse**: Logitech MX Master. Simply the best mouse I ever had. It has hot-keys configuration with which you can configure your mouse to switch between windows or desktops same fast as on touchpad or Apple Mouse.
-- ⌨️ **Keyboard**: Logitech K760. Old but still good. The only thing I'm feeling not comfortable with is missing music control keys.
-- 🧰 **Multi-port adapter**: [Satechi Type-C multi-port adapter](https://satechi.net/products/satechi-slim-aluminum-type-c-multi-port-adapter?variant=27296854025). It's still painful to have only type-c ports. Note that it doesn't support 4k@60.
-- 📦 **NAS**: [Synology DiskStation DS218j](https://www.synology.com/en-global/products/DS218j). Backups and Media storage.
-- 🎒 **Bag**: Thule EnRoute Triumph 2 Daypack, Dark Shadow. My must-have thing when I go outside. It has only 24 liters but it’s enough for me to put everything into it even for a small few-days travel.
-- 🖱 **Mouse #2**: Apple Magic Mouse 2. I’m using it rarely as after MX master I don’t find this mouse to be comfortable.
-- **Chair**: Unknown office chair. Going to replace it someday with an orthopedic one.
+-   🎧 **Headphones**: Apple AirPods. Pretty cool combination to a Mac or iPhone.
+-   🖱 **Mouse**: Logitech MX Master. Simply the best mouse I ever had. It has hot-keys configuration with which you can configure your mouse to switch between windows or desktops same fast as on touchpad or Apple Mouse.
+-   ⌨️ **Keyboard**: Logitech K760. Old but still good. The only thing I'm feeling not comfortable with is missing music control keys.
+-   🧰 **Multi-port adapter**: [Satechi Type-C multi-port adapter](https://satechi.net/products/satechi-slim-aluminum-type-c-multi-port-adapter?variant=27296854025). It's still painful to have only type-c ports. Note that it doesn't support 4k@60.
+-   📦 **NAS**: [Synology DiskStation DS218j](https://www.synology.com/en-global/products/DS218j). Backups and Media storage.
+-   🎒 **Bag**: Thule EnRoute Triumph 2 Daypack, Dark Shadow. My must-have thing when I go outside. It has only 24 liters but it’s enough for me to put everything into it even for a small few-days travel.
+-   🖱 **Mouse #2**: Apple Magic Mouse 2. I’m using it rarely as after MX master I don’t find this mouse to be comfortable.
+-   **Chair**: Unknown office chair. Going to replace it someday with an orthopedic one.

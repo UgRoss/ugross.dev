@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import avatar from '../images/avatar.jpg';
 
-interface Props {
+interface IProps {
   className?: string;
 }
 
@@ -20,7 +20,7 @@ const Header = styled.header`
   position: relative;
 `;
 
-const Profile: React.FunctionComponent<Props> = ({ className }) => (
+const Profile: React.FunctionComponent<IProps> = ({ className }) => (
   <Wrapper className={className}>
     <Header>
       <img src={avatar} alt="Rostyslav Ugryniuk" />

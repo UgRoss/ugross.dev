@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-interface SimplifiedArticle {
+interface ISimplifiedArticle {
   fields: {
     slug: string;
   };
@@ -19,9 +19,9 @@ interface SimplifiedArticle {
   };
 }
 
-interface Props {
-  prev: SimplifiedArticle;
-  next: SimplifiedArticle;
+interface IProps {
+  prev: ISimplifiedArticle;
+  next: ISimplifiedArticle;
 }
 
 /**
@@ -33,7 +33,7 @@ interface Props {
  *   prev={ { fields: {slug: '/post-1'}, frontmatter: {title: 'Hello'} } }
  * />
  */
-const PrevNextPosts = ({ prev, next }: Props) => {
+const PrevNextPosts = ({ prev, next }: IProps) => {
   /** Just return nothing if both posts are missing */
   if (!prev && !next) {
     return null;

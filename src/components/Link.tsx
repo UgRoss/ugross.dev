@@ -4,7 +4,7 @@ import { darken } from 'polished';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-interface Props {
+interface IProps {
   className?: string;
   /** If needed to render regular anchor element */
   href?: string;
@@ -90,7 +90,7 @@ const generateUnderlineStyles = (color: string = '#409eff') => css`
  * @render react
  * @example <Link to="/blog" color="#505050" underline={false} />
  */
-const Link: React.FunctionComponent<Props> = ({ href, to, ...props }) => {
+const Link: React.FunctionComponent<IProps> = ({ href, to, ...props }) => {
   return (
     <StyledLink
       component={

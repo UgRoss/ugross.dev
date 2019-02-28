@@ -18,14 +18,14 @@ const query = graphql`
   }
 `;
 
-interface Props {
+interface IProps {
   description?: string;
   image?: string;
   slug?: string;
   title: string;
 }
 
-class SEO extends React.PureComponent<Props> {
+class SEO extends React.PureComponent<IProps> {
   public static defaultProps = {
     slug: '',
   };
