@@ -1,10 +1,10 @@
-![license](https://img.shields.io/github/license/ugross/ugross.space.svg?style=flat-square)
+![license](https://img.shields.io/github/license/ugross/ugross.dev.svg?style=flat-square)
 ![site status](https://img.shields.io/website-up-down-green-red/https/ugross.space.svg?style=flat-square)
-![dependencies](https://img.shields.io/david/ugross/ugross.space.svg?style=flat-square)
+![dependencies](https://img.shields.io/david/ugross/ugross.dev.svg?style=flat-square)
 ![build status](https://travis-ci.org/UgRoss/ugross.space.svg?branch=dev)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2fa2ceda53bf4b688d006b82d8181221)](https://www.codacy.com/app/ugr.ross/ugross.space?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=UgRoss/ugross.space&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9ac535ad84b14490a3719360dd41fa20)](https://www.codacy.com/app/ugr.ross/ugross.dev?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=UgRoss/ugross.dev&amp;utm_campaign=Badge_Grade)
 
-# ugross.space
+# [ugross.dev](https://ugross.dev)
 
 My personal blog and information about me.
 
