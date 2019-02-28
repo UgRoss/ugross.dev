@@ -8,11 +8,11 @@ import {
   topPlacement,
 } from './styles';
 
-export interface Props {
+export interface IProps {
   /**
    * React element to which we will add class to show tooltip
    */
-  children: React.ReactNode;
+  children: React.ReactNode | React.ReactElement<any>;
   /**
    * Tooltip content/text
    * @default undefined
@@ -36,13 +36,13 @@ export interface Props {
  *  <Button>Top Tooltip</Button>
  * </Tooltip>
  */
-export const Index: React.FunctionComponent<Props> = ({
+export const Index: React.FunctionComponent<IProps> = ({
   children,
   placement = 'bottom',
   content,
   className,
 }) => {
-  let childrenCopy;
+  let childrenCopy: any;
   try {
     childrenCopy = React.Children.only(children);
   } catch (err) {
@@ -63,7 +63,7 @@ export const Index: React.FunctionComponent<Props> = ({
 /** Avatar with styles */
 const StyledTooltip = styled(Index)`
   ${tooltipBase}
-  ${(props: Props) => {
+  ${(props: IProps) => {
     switch (props.placement) {
       case 'bottom':
         return bottomPlacement;

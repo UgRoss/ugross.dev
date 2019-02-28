@@ -21,7 +21,7 @@ const NavWrapper = styled.nav`
   }
 `;
 
-interface Props {
+interface IProps {
   className?: string;
 }
 
@@ -31,7 +31,7 @@ interface Props {
  * @render react
  * @example <Nav />
  */
-class Nav extends React.PureComponent<Props> {
+class Nav extends React.PureComponent<IProps> {
   /**
    * @private
    * @description Render nav items

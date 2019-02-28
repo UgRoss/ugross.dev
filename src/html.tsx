@@ -1,12 +1,12 @@
 import React from 'react';
 
-interface Props {
+interface IProps {
   headComponents: any;
   body: any;
   postBodyComponents: any;
 }
 
-export default class HTML extends React.Component<Props> {
+export default class HTML extends React.Component<IProps> {
   public render() {
     return (
       <html lang="en">

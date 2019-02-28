@@ -11,12 +11,12 @@ import reduxImg from '../images/tools/redux.png';
 import sketchImg from '../images/tools/sketch.png';
 import typescriptImg from '../images/tools/typescript.png';
 
-interface Tool {
+interface ITool {
   name: string;
   img: string;
 }
 
-const tools: Tool[] = [
+const tools: ITool[] = [
   { name: 'JavaScript', img: jsImg },
   { name: 'NodeJS', img: nodeImg },
   { name: 'React', img: reactImg },
@@ -27,13 +27,13 @@ const tools: Tool[] = [
   { name: 'Sketch', img: sketchImg },
 ];
 
-interface Props {
+interface IProps {
   className?: string;
 }
 
-class Tools extends React.PureComponent<Props> {
+class Tools extends React.PureComponent<IProps> {
   /** Renders tool item with wrapped Tooltip based on parameters */
-  private renderToolItem({ name, img }: Tool) {
+  private renderToolItem({ name, img }: ITool) {
     return (
       <Tooltip content={name} placement="bottom" key={name}>
         <div key={name}>
@@ -52,7 +52,7 @@ class Tools extends React.PureComponent<Props> {
   }
 }
 
-const StyledTools = styled(Tools)<Props>`
+const StyledTools = styled(Tools)<IProps>`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

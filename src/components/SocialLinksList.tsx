@@ -4,22 +4,22 @@ import React from 'react';
 import { capitalize } from '../utils';
 import SocialLink from './SocialLink';
 
-interface SocialLinks {
+interface ISocialLinks {
   facebook: string;
   github: string;
   linkedIn: string;
 }
 
-interface QueryData {
-  site: { siteMetadata: { socialLinks: SocialLinks } };
+interface IQueryData {
+  site: { siteMetadata: { socialLinks: ISocialLinks } };
 }
 
 class SocialLinksList extends React.PureComponent<{}> {
   /** Content renders here */
-  private renderContent = (data: QueryData) => {
+  private renderContent = (data: IQueryData) => {
     const socialLinks = data.site.siteMetadata.socialLinks;
     return Object.keys(socialLinks).map(
-      (socialKey: keyof SocialLinks, index) => (
+      (socialKey: keyof ISocialLinks, index) => (
         <span key={socialKey}>
           <SocialLink
             href={socialLinks[socialKey]}

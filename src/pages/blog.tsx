@@ -6,13 +6,13 @@ import PostPreview from '../components/PostPreview';
 import Profile from '../components/Profile';
 import SEO from '../components/SEO';
 
-interface Props {
+interface IProps {
   data: {
     posts: IGraphQL.AllMarkdownRemark;
   };
 }
 
-class Blog extends React.PureComponent<Props> {
+class Blog extends React.PureComponent<IProps> {
   private static renderPostPreview({ node }: any) {
     return (
       <PostPreview
