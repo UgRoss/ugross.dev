@@ -6,7 +6,7 @@
   "author": "Rostyslav Ugryniuk <ug.ross@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "npm run lint && gatsby build",
     "dev": "gatsby develop",
     "format": "prettier --write '**/*.js'",
     "lint": "npm run lint:ts && npm run lint:md",
