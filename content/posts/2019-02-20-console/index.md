@@ -1,10 +1,10 @@
 ---
 title: 'JS Console API tips'
 date: '2019-02-20'
-spoiler: console.log is one of the most basic and common debugging tool in JavaScript. But the console object gives us more methods to make debugging easier.
+spoiler: console.log is one of the most basic and common debugging tools in JavaScript. But the console object gives us more methods to make debugging easier.
 ---
 
-`console.log` is one of the most basic and common debugging tool in JavaScript.
+`console.log` is one of the most basic and common debugging tools in JavaScript.
 The `console` object gives us access to the browser’s console and allows to output different types of data that can help to debug code.
 This object has a lot of methods about existence some people even don’t realize. In this article, I want to share some useful methods to make debugging easier and faster.
 
