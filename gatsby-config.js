@@ -53,6 +53,10 @@ module.exports = {
       options: { files: ['**/*.tsx*'] },
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: { trackingId: `UA-135374915-1` },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'Ross Blog',
