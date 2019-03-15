@@ -25,13 +25,13 @@ new Date('date string'); // date string to parse
 
 <br />
 
-**1. new Date()**
+###### 1. new Date()
 
 The first way to create date is to use the `new Date()`, it simply creates a date object with the current date and time by default.
 
 ℹ️ Small tip: In some cases, it might be better to use `Date.now()` instead.
 
-**2. new Date(year, month...)**
+###### 2. new Date(year, month...)
 
 This approach allows us to create a concrete date by specifying values one by one.
 
@@ -46,7 +46,7 @@ new Date(2019, 2); // Fri Mar 01 2019 00:00:00...
 - It's not required to pass all of the parameters, but it should be at least year and month, otherwise `new Date(2019)` will be created using milliseconds (`new Date(milliseconds)`)
 - Month count starts from 0 and ends at 11.
 
-**3. new Date(milliseconds)**
+###### 3. new Date(milliseconds)
 
 Internally, in JavaScript time is expressed in the number of milliseconds that have elapsed since **Jan 1, 1970, 00:00:00 UTC**.
 
@@ -66,7 +66,7 @@ new Date(unixTimestamp * 1000); // Tue Mar 12 2019 20:00:00 GMT+0200
 
 <br/>
 
-**4. new Date('date string')**
+###### 4. new Date('date string')
 
 We can also create dates using a string. To parse a string JavaScript uses the `Date.parse()` method.
 
