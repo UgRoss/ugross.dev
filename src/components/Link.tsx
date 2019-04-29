@@ -30,32 +30,6 @@ interface IProps {
   activeStyle?: React.CSSProperties;
 }
 
-const StyledLink = styled(({ component, ...props }) =>
-  React.cloneElement(component, {
-    ...props,
-    color: undefined,
-    underline: undefined,
-  })
-)`
-  color: ${props => props.color};
-  display: inline-block;
-  position: relative;
-  text-decoration: none !important;
-  transition: all 0.2s;
-  &:visited {
-    color: ${props => props.color};
-  }
-
-  &:hover,
-  &:active,
-  &.active {
-    color: ${props => darken(0.05, props.color)};
-    text-decoration: none;
-  }
-
-  ${props => (!props.underline ? null : generateUnderlineStyles(props.color))};
-`;
-
 /** Util to generate underline styles for our link */
 const generateUnderlineStyles = (color: string = '#409eff') => css`
   /**
@@ -84,6 +58,32 @@ const generateUnderlineStyles = (color: string = '#409eff') => css`
   }
 `;
 
+const StyledLink = styled(({ component, ...props }) =>
+  React.cloneElement(component, {
+    ...props,
+    color: undefined,
+    underline: undefined,
+  })
+)<IProps>`
+  color: ${props => props.color};
+  display: inline-block;
+  position: relative;
+  text-decoration: none !important;
+  transition: all 0.2s;
+  &:visited {
+    color: ${props => props.color};
+  }
+
+  &:hover,
+  &:active,
+  &.active {
+    color: ${props => darken(0.05, props.color)};
+    text-decoration: none;
+  }
+
+  ${props => (!props.underline ? null : generateUnderlineStyles(props.color))};
+`;
+
 /**
  * @name Link
  * Component to create links
@@ -94,6 +94,7 @@ const Link: React.FunctionComponent<IProps> = ({ href, to, ...props }) => {
   return (
     <StyledLink
       component={
+        // eslint-disable-next-line jsx-a11y/anchor-has-content
         typeof to === 'string' ? <GatsbyLink to={to} /> : <a href={href} />
       }
       {...props}

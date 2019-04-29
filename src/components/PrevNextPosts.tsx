@@ -43,12 +43,12 @@ const PrevNextPosts = ({ prev, next }: IProps) => {
     <Wrapper>
       {prev && (
         <Link to={prev.fields.slug} rel="prev">
-          ← {prev.frontmatter.title}
+          {`← ${prev.frontmatter.title}`}
         </Link>
       )}
       {next && (
         <Link to={next.fields.slug} rel="next" style={{ marginLeft: 'auto' }}>
-          {next.frontmatter.title} →
+          {`${next.frontmatter.title} →`}
         </Link>
       )}
     </Wrapper>

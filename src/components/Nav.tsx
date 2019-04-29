@@ -37,7 +37,7 @@ class Nav extends React.PureComponent<IProps> {
    * @description Render nav items
    * @return {React.ReactElement<any>} Links list for navigation
    */
-  private renderNavItems = (): Array<React.ReactElement<any>> =>
+  private renderNavItems = (): React.ReactElement<Link>[] =>
     links.map(({ href, name }) => (
       <Link
         to={href}
@@ -50,10 +50,9 @@ class Nav extends React.PureComponent<IProps> {
     ));
 
   public render() {
+    const { className } = this.props;
     return (
-      <NavWrapper className={this.props.className}>
-        {this.renderNavItems()}
-      </NavWrapper>
+      <NavWrapper className={className}>{this.renderNavItems()}</NavWrapper>
     );
   }
 }

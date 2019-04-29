@@ -34,11 +34,13 @@ class Layout extends React.PureComponent<IProps> {
   };
 
   public render = () => {
+    const { className, header, children, footer } = this.props;
+
     return (
-      <div className={this.props.className}>
-        {this.props.header && <Nav />}
-        <div style={{ paddingTop: '100px' }}>{this.props.children}</div>
-        {this.props.footer && <Footer />}
+      <div className={className}>
+        {header && <Nav />}
+        <div style={{ paddingTop: '100px' }}>{children}</div>
+        {footer && <Footer />}
       </div>
     );
   };

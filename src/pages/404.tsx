@@ -26,10 +26,13 @@ const NotFoundPage = () => (
     <Helmet title="404: The page could not be found" />
     <Wrapper>
       <img src="/404.webp" alt="Shock reaction gif" />
-      <h1>Whoops! This page doesn't exist.</h1>
+      <h1>Whoops! This page doesn&rsquo;t exist.</h1>
       <p>
-        Not to worry. You can return to the <Link to="/">homepage</Link> or to
-        my <Link to="/blog">blog</Link>.
+        {'Not to worry. You can return to the '}
+        <Link to="/">homepage</Link>
+        {'or to my '}
+        <Link to="/blog">blog</Link>
+        {'.'}
       </p>
     </Wrapper>
   </Layout>

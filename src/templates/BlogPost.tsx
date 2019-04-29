@@ -20,13 +20,17 @@ const BlogPost = ({ className, data, pageContext }: IProps) => {
 
   return (
     <Layout className={className} footer={false}>
-      <SEO title={frontmatter.title} description={excerpt || ''} slug={pageContext.slug} />
+      <SEO
+        title={frontmatter.title}
+        description={excerpt || ''}
+        slug={pageContext.slug}
+      />
       <article>
         <header>
           <h1 className="post-title">{frontmatter.title}</h1>
           <section className="post-details">
             <time dateTime={frontmatter.pubDate}>{frontmatter.date}</time>
-            <span>{timeToRead} min to read</span>
+            <span>{`${timeToRead} min to read`}</span>
           </section>
         </header>
         <div className="content" dangerouslySetInnerHTML={{ __html: html }} />

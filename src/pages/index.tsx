@@ -9,6 +9,7 @@ import Profile from '../components/Profile';
 import SEO from '../components/SEO';
 import SocialLinksList from '../components/SocialLinksList';
 import Tools from '../components/Tools';
+import Emoji from '../components/AccessibleEmoji';
 
 const Title = styled.h3`
   margin: 30px 0 10px;
@@ -26,16 +27,22 @@ const IndexPage: React.FunctionComponent<{}> = () => {
       <Profile />
       <div className="wrapper">
         <section className="about">
-          <Title>👨🏼‍💻 Who the hell am I?</Title>
+          <Title>
+            <Emoji value="👨🏼‍💻" description="Laptop Emoji" />
+            {' Who the hell am I?'}
+          </Title>
           <p>
-            I'm Ross, a front-end developer, and CS degree student, currently
+            {`I'm Ross, a front-end developer, and CS degree student, currently
             Living in Ukraine 🇺🇦. On a daily basis, I work on front-end projects
             with up-to-date technologies, and I love what I do. In my free time
-            I enjoy traveling and snowboarding.
+            I enjoy traveling and snowboarding.`}
           </p>
         </section>
         <section className="about">
-          <Title>⚒️ Tools</Title>
+          <Title>
+            <Emoji value="⚒️" description="Tools Emoji" />
+            {' Tools'}
+          </Title>
           <p style={{ marginBottom: '10px' }}>
             Things I know, like and work with:
           </p>
@@ -46,10 +53,14 @@ const IndexPage: React.FunctionComponent<{}> = () => {
           </p>
         </section>
         <section className="about">
-          <Title>📝 Blog</Title>
+          <Title>
+            <Emoji value="📝" description="Notes Emoji" />
+            {' Blog'}
+          </Title>
           <p>
-            My latest blog post can be found on{' '}
-            <Link to="/blog">Blog page</Link>, you can also check my{' '}
+            {'My latest blog post can be found on '}
+            <Link to="/blog">Blog page</Link>
+            {', you can also check my '}
             <Link
               href="https://github.com/UgRoss/TIL"
               target="_blank"
@@ -61,11 +72,16 @@ const IndexPage: React.FunctionComponent<{}> = () => {
           </p>
         </section>
         <section className="about">
-          <Title>✉️ Want to discuss something?</Title>
+          <Title>
+            <Emoji value="✉️" description="Notes Emoji" />
+            {' Want to discuss something?'}
+          </Title>
           <p>
-            Don’t hesitate to drop me an email on{' '}
+            {` Don’t hesitate to drop me an email on `}
             <Mailto email="contact@ugross.dev" />
-            , or contact me via my social profiles: <SocialLinksList />.
+            {', or contact me via my social profiles: '}
+            <SocialLinksList />
+            {'.'}
           </p>
         </section>
       </div>

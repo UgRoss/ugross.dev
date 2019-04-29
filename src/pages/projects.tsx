@@ -8,12 +8,7 @@ const Projects: React.FunctionComponent<{}> = () => {
       <SEO title="My Projects" />
       <div style={{ textAlign: 'center' }}>
         <h2>Whoops!</h2>
-        <h2>I'm sorry, content here will be soon.</h2>
-        <img
-          src="/pulp-fiction.gif"
-          alt="Awkward Emotion"
-          style={{ marginTop: '40px', width: '100%' }}
-        />
+        <h2>I&apos;m sorry, content here will be soon.</h2>
       </div>
     </Layout>
   );
