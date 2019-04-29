@@ -33,7 +33,7 @@ interface IProps {
 
 class Tools extends React.PureComponent<IProps> {
   /** Renders tool item with wrapped Tooltip based on parameters */
-  private renderToolItem({ name, img }: ITool) {
+  private static renderToolItem({ name, img }: ITool) {
     return (
       <Tooltip content={name} placement="bottom" key={name}>
         <div key={name}>
@@ -44,11 +44,9 @@ class Tools extends React.PureComponent<IProps> {
   }
 
   public render() {
-    return (
-      <div className={this.props.className}>
-        {tools.map(this.renderToolItem)}
-      </div>
-    );
+    const { className } = this.props;
+
+    return <div className={className}>{tools.map(Tools.renderToolItem)}</div>;
   }
 }
 

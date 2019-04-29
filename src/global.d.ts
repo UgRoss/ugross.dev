@@ -37,7 +37,7 @@ declare namespace IGraphQL {
   // AllMarkdownRemark
   interface AllMarkdownRemark {
     totalCount: number;
-    edges: Array<{ node: Post }>;
+    edges: { node: Post }[];
   }
 }
 // tslint:enable: interface-name no-namespace

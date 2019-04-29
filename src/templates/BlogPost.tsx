@@ -16,17 +16,21 @@ interface IProps {
 }
 
 const BlogPost = ({ className, data, pageContext }: IProps) => {
-  const { frontmatter, html, timeToRead } = data.markdownRemark;
+  const { frontmatter, html, timeToRead, excerpt } = data.markdownRemark;
 
   return (
     <Layout className={className} footer={false}>
-      <SEO title={frontmatter.title} description={''} slug={pageContext.slug} />
+      <SEO
+        title={frontmatter.title}
+        description={excerpt || ''}
+        slug={pageContext.slug}
+      />
       <article>
         <header>
           <h1 className="post-title">{frontmatter.title}</h1>
           <section className="post-details">
             <time dateTime={frontmatter.pubDate}>{frontmatter.date}</time>
-            <span>{timeToRead} min to read</span>
+            <span>{`${timeToRead} min to read`}</span>
           </section>
         </header>
         <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
@@ -77,6 +81,7 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       timeToRead
+      excerpt
       frontmatter {
         title
         date(formatString: "DD MMMM, YYYY")

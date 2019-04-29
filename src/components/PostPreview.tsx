@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import Link from '../components/Link';
+import Link from './Link';
 import { formatReadingTime } from '../utils';
 
 interface IProps {
@@ -33,7 +33,8 @@ const PostPreview: React.FunctionComponent<IProps> = ({
         </h3>
         <p>
           <small>
-            <time dateTime={pubDate || date}>{date}</time> •{' '}
+            <time dateTime={pubDate || date}>{date}</time>
+            <span> • </span>
           </small>
           <small>{formatReadingTime(timeToRead)}</small>
         </p>

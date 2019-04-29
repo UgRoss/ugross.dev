@@ -31,7 +31,7 @@ class SEO extends React.PureComponent<IProps> {
   };
 
   private renderComponent = (data: any) => {
-    const { image, title, description, slug } = this.props;
+    const { image, title, description, slug, children } = this.props;
 
     const { siteMetadata } = data.site;
     const metaDescription = description || siteMetadata.description;
@@ -60,7 +60,7 @@ class SEO extends React.PureComponent<IProps> {
         {metaImage && <meta property="og:image" content={metaImage} />}
         {metaImage && <meta property="twitter:image" content={metaImage} />}
 
-        {this.props.children}
+        {children}
       </Helmet>
     );
   };

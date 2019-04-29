@@ -22,9 +22,14 @@ const Wrapper = styled.footer`
  * @render react
  * @example <Footer />
  */
-export const Footer: React.FunctionComponent<IProps> = ({ className }) => (
+const currentYear = new Date().getFullYear();
+const Footer: React.FunctionComponent<IProps> = ({ className }) => (
   <Wrapper className={className}>
-    <p>© Copyright {new Date().getFullYear()} Rostyslav Ugryniuk</p>
+    <p>
+      © Copyright
+      {` ${currentYear} `}
+      Rostyslav Ugryniuk
+    </p>
   </Wrapper>
 );
 

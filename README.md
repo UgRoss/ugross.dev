@@ -1,5 +1,4 @@
 ![license](https://img.shields.io/github/license/ugross/ugross.dev.svg)
-![site status](https://img.shields.io/website/https/ugross.dev.svg)
 ![dependencies](https://img.shields.io/david/ugross/ugross.dev.svg)
 [![Build Status](https://travis-ci.org/UgRoss/ugross.dev.svg?branch=master)](https://travis-ci.org/UgRoss/ugross.dev)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9ac535ad84b14490a3719360dd41fa20)](https://www.codacy.com/app/ugr.ross/ugross.dev?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=UgRoss/ugross.dev&amp;utm_campaign=Badge_Grade)

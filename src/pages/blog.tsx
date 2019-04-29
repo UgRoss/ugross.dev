@@ -28,13 +28,17 @@ class Blog extends React.PureComponent<IProps> {
   }
 
   public render() {
-    const posts = this.props.data.posts.edges;
+    const {
+      data: {
+        posts: { edges },
+      },
+    } = this.props;
 
     return (
       <Layout>
         <SEO title="Blog" />
         <Profile />
-        {posts.map(Blog.renderPostPreview)}
+        {edges.map(Blog.renderPostPreview)}
       </Layout>
     );
   }

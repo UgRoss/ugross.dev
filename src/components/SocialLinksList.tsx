@@ -17,7 +17,7 @@ interface IQueryData {
 class SocialLinksList extends React.PureComponent<{}> {
   /** Content renders here */
   private renderContent = (data: IQueryData) => {
-    const socialLinks = data.site.siteMetadata.socialLinks;
+    const { socialLinks } = data.site.siteMetadata;
     return Object.keys(socialLinks).map(
       (socialKey: keyof ISocialLinks, index) => (
         <span key={socialKey}>
