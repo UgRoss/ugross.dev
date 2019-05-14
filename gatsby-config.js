@@ -28,25 +28,22 @@ module.exports = {
         plugins: [
           {
             resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 710,
-            },
+            options: { maxWidth: 710 },
           },
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-          },
+          { resolve: 'gatsby-remark-responsive-iframe' },
           `gatsby-remark-prismjs`,
           `gatsby-remark-autolink-headers`,
           'gatsby-remark-copy-linked-files',
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: { target: '_blank' },
+          },
         ],
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/content/posts/`,
-      },
+      options: { name: `posts`, path: `${__dirname}/content/posts/` },
     },
     {
       resolve: 'gatsby-plugin-stylelint',
@@ -60,10 +57,12 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'Ross Blog',
+        /* eslint-disable @typescript-eslint/camelcase */
         short_name: 'Ross Blog',
         start_url: '/',
         background_color: '##222',
         theme_color: '#2691ff',
+        /* eslint-enable @typescript-eslint/camelcase */
         display: 'minimal-ui',
         icon: 'static/favicon.png', // This path is relative to the root of the site.
       },
