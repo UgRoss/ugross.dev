@@ -1,6 +1,6 @@
 ---
 title: 'Data Structures: Linked List'
-date: '2019-04-29'
+date: '2019-05-14'
 ---
 
 Linked list is a linear data structure if we talk about access strategies, this means that there is a sequence and an order to how they are constructed and traversed.
