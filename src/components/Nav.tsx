@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import Link from './Link';
+import { Link } from 'gatsby';
 
 export const links = [
   { href: '/', name: 'About' },
@@ -37,13 +37,14 @@ class Nav extends React.PureComponent<IProps> {
    * @description Render nav items
    * @return {React.ReactElement<any>} Links list for navigation
    */
-  private renderNavItems = (): React.ReactElement<Link>[] =>
+  private renderNavItems = (): React.ReactElement<Link<{}>>[] =>
     links.map(({ href, name }) => (
       <Link
         to={href}
         key={name}
         activeStyle={{ fontWeight: 'bold' }}
         activeClassName="active"
+        className="with-underline"
       >
         {name}
       </Link>
@@ -52,7 +53,9 @@ class Nav extends React.PureComponent<IProps> {
   public render() {
     const { className } = this.props;
     return (
-      <NavWrapper className={className}>{this.renderNavItems()}</NavWrapper>
+      <div css={{ padding: '50px 60px' }}>
+        <NavWrapper className={className}>{this.renderNavItems()}</NavWrapper>
+      </div>
     );
   }
 }

@@ -78,7 +78,7 @@ const IndexPage: React.FunctionComponent<{}> = () => {
           </Title>
           <p>
             {` Don’t hesitate to drop me an email on `}
-            <Mailto email="contact@ugross.dev" />
+            <Mailto email="contact@ugross.dev" className="with-underline" />
             {', or contact me via my social profiles: '}
             <SocialLinksList />
             {'.'}

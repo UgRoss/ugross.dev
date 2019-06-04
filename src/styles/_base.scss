@@ -1,5 +1,12 @@
 @import 'variables';
 
+:root {
+  --textColor: #fff;
+  --background: #282c35;
+  --linkColor: #37efba;
+  --selectionColor: #90ccf4;
+}
+
 // Base
 *,
 *::before,
@@ -15,8 +22,8 @@ html {
 }
 
 body {
-  background: $body-bg;
-  color: $body-font-color;
+  background: var(--background);
+  color: var(--textColor);
   font-family: $body-font-family;
   font-size: $font-size;
   overflow-x: hidden;
@@ -24,31 +31,57 @@ body {
 }
 
 a {
-  color: $primary-color;
+  display: inline-block;
+  color: var(--linkColor);
   outline: none;
   text-decoration: none;
 
   &:focus {
-    box-shadow: 0 0 0 0.1rem rgba($primary-color, 0.2);
+    box-shadow: 0 0 0 0.05rem var(--linkColor);
   }
 
   &:focus,
   &:hover,
   &:active,
   &.active {
-    color: darken($primary-color, 10%);
+    filter: brightness(90%);
     text-decoration: underline;
   }
 
   &:visited {
-    color: darken($primary-color, 10%);
+    filter: var(--linkColor);
+  }
+
+  &.with-underline {
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: 0;
+      height: 2px;
+      background-color: var(--linkColor);
+      transition: all 0.2s;
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      text-decoration: none;
+      &:after {
+        width: 100%;
+      }
+    }
   }
 }
 
 ::-moz-selection {
-  background: lighten($primary-color, 30%);
+  background: var(--selectionColor);
 }
 
 ::selection {
-  background: lighten($primary-color, 30%);
+  background: var(--selectionColor);
 }
