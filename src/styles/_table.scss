@@ -1,3 +1,6 @@
+$table-dark-base: #343a40;
+$table-light-base: #fff;
+
 table {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -5,19 +8,29 @@ table {
   width: 100%;
   max-width: 100%;
   background-color: transparent;
-}
+  border-collapse: collapse;
+  border: darken($table-light-base, 5) 1px solid;
 
-table th,
-table td {
-  padding: 8px;
-  line-height: 20px;
-  text-align: left;
-  vertical-align: top;
-  border-top: #efefef 1px solid;
-}
+  th,
+  td {
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    border-top: darken($table-light-base, 5) 1px solid;
+  }
 
-table th {
-  color: #000;
+  th {
+    color: #000;
+  }
+
+  thead {
+    background-color: darken($table-light-base, 2);
+  }
+
+  tbody + tbody {
+    border-top: #efefef 2px solid;
+  }
 }
 
 table caption + thead tr:first-child th,
@@ -29,20 +42,25 @@ table thead:first-child tr:first-child td {
   border-top: 0;
 }
 
-table tbody + tbody {
-  border-top: #efefef 2px solid;
-}
+/** 💅 Dark Theme */
+.dark table {
+  background-color: $table-dark-base;
+  border: lighten($table-dark-base, 5) 1px solid;
 
-table table table {
-  background-color: #fff;
-}
+  thead {
+    background-color: darken($table-dark-base, 5);
+  }
 
-table tbody > tr:nth-child(odd) > td,
-table tbody > tr:nth-child(odd) > th {
-  background-color: #f6f6f6;
-}
+  th {
+    color: #fff;
+  }
 
-table.plain tbody > tr:nth-child(odd) > td,
-table.plain tbody > tr:nth-child(odd) > th {
-  background: transparent;
+  tbody + tbody {
+    border-top: #ccc 2px solid;
+  }
+
+  th,
+  td {
+    border-top: lighten($table-dark-base, 5) 1px solid;
+  }
 }

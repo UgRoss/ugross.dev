@@ -3,6 +3,7 @@
 */
 
 .info-block {
+  color: inherit;
   padding: 10px;
   padding-left: 30px;
   border-radius: 4px;
@@ -24,4 +25,8 @@
       margin-bottom: 1em;
     }
   }
+}
+
+.dark .info-block {
+  background-color: #3f4256;
 }

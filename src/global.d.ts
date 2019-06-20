@@ -39,6 +39,12 @@ declare namespace IGraphQL {
     totalCount: number;
     edges: { node: Post }[];
   }
+
+  interface PageContext {
+    previous: Post;
+    next: Post;
+    slug: string;
+  }
 }
 // tslint:enable: interface-name no-namespace
 

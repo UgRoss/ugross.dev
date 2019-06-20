@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from './Link';
+import { Link } from 'gatsby';
 
 const Wrapper = styled.div`
   margin: 20px 0;
@@ -42,12 +42,17 @@ const PrevNextPosts = ({ prev, next }: IProps) => {
   return (
     <Wrapper>
       {prev && (
-        <Link to={prev.fields.slug} rel="prev">
+        <Link to={prev.fields.slug} rel="prev" className="with-underline">
           {`← ${prev.frontmatter.title}`}
         </Link>
       )}
       {next && (
-        <Link to={next.fields.slug} rel="next" style={{ marginLeft: 'auto' }}>
+        <Link
+          to={next.fields.slug}
+          rel="next"
+          style={{ marginLeft: 'auto' }}
+          className="with-underline"
+        >
           {`${next.frontmatter.title} →`}
         </Link>
       )}
