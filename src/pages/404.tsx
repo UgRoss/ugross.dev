@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import Layout from '../components/Layout';
-import Link from '../components/Link';
 
 const Wrapper = styled.div`
   display: flex;
@@ -30,7 +30,7 @@ const NotFoundPage = () => (
       <p>
         {'Not to worry. You can return to the '}
         <Link to="/">homepage</Link>
-        {'or to my '}
+        {' or to my '}
         <Link to="/blog">blog</Link>
         {'.'}
       </p>

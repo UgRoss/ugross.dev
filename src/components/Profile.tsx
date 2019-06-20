@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.header`
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--separatorColor);
   margin-bottom: 40px;
   padding-bottom: 40px;
   text-align: center;
@@ -34,19 +34,12 @@ const StyledProfile = styled(Profile)`
   padding: 0 40px;
   max-width: 600px;
   margin: 0 auto;
-  header {
-    border-bottom: 1px solid #eee;
-    margin-bottom: 40px;
-    padding-bottom: 40px;
-    text-align: center;
-    position: relative;
-  }
 
   img {
     display: block;
     width: 100px;
     height: 100px;
-    background: #ccc;
+    background: var(--mutedColor);
     border-radius: 100%;
     margin: 0 auto;
   }
@@ -54,14 +47,14 @@ const StyledProfile = styled(Profile)`
   h1 {
     font-size: 1.8em;
     text-transform: capitalize;
-    color: #222;
+    color: var(--titleColor);
     margin: 10px 0;
   }
 
   h2 {
     font-size: 20px;
     font-weight: 400;
-    color: #aaa;
+    color: var(--mutedColor);
   }
 `;
 

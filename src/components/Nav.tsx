@@ -2,6 +2,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
+import DarkModeToggle from './DarkModeToggle';
+
 export const links = [
   { href: '/', name: 'About' },
   { href: '/blog', name: 'Blog' },
@@ -9,9 +11,9 @@ export const links = [
 ];
 
 const NavWrapper = styled.nav`
-  padding: 20px 0 0;
   background: transparent;
-  margin: 0 auto;
+  margin: 0;
+  margin-right: 10px;
   text-align: right;
   z-index: 100;
   a {
@@ -53,8 +55,16 @@ class Nav extends React.PureComponent<IProps> {
   public render() {
     const { className } = this.props;
     return (
-      <div css={{ padding: '50px 60px' }}>
+      <div
+        style={{
+          padding: '50px 0',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
         <NavWrapper className={className}>{this.renderNavItems()}</NavWrapper>
+        <DarkModeToggle />
       </div>
     );
   }

@@ -12,7 +12,7 @@ export interface IProps {
   /**
    * React element to which we will add class to show tooltip
    */
-  children: React.ReactNode | React.ReactElement<any>;
+  children: React.ReactElement;
   /**
    * Tooltip content/text
    * @default undefined
@@ -38,17 +38,13 @@ export interface IProps {
  */
 export const Index: React.FunctionComponent<IProps> = ({
   children,
-  placement = 'bottom',
   content,
   className,
 }) => {
-  let childrenCopy: any;
+  let childrenCopy: typeof children;
   try {
     childrenCopy = React.Children.only(children);
-  } catch (err) {
-    // tslint:disable-next-line
-    console.error(`Creating tooltip component error: ${err}`);
-  }
+  } catch (err) {} // eslint-disable-line
 
   if (!childrenCopy) {
     return <span>Wrong Element</span>;

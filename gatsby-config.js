@@ -13,7 +13,7 @@ module.exports = {
     socialLinks: {
       facebook: 'https://www.facebook.com/ugr.ross',
       github: 'https://github.com/UgRoss',
-      linkedIn: 'https://www.linkedin.com/in/rostyslav-ugryniuk-7b7466102/',
+      linkedin: 'https://www.linkedin.com/in/rostyslav-ugryniuk-7b7466102/',
     },
     title: '',
   },

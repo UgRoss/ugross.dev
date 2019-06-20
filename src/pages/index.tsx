@@ -1,10 +1,9 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 import Mailto from 'react-protected-mailto';
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
-import Link from '../components/Link';
 import Profile from '../components/Profile';
 import SEO from '../components/SEO';
 import SocialLinksList from '../components/SocialLinksList';
@@ -59,15 +58,18 @@ const IndexPage: React.FunctionComponent<{}> = () => {
           </Title>
           <p>
             {'My latest blog post can be found on '}
-            <Link to="/blog">Blog page</Link>
+            <Link to="/blog" className="with-underline">
+              Blog page
+            </Link>
             {', you can also check my '}
-            <Link
+            <a
               href="https://github.com/UgRoss/TIL"
               target="_blank"
-              rel="nofollow"
+              rel="noopener noreferrer"
+              className="with-underline"
             >
               TIL
-            </Link>
+            </a>
             .
           </p>
         </section>
@@ -96,7 +98,7 @@ export const query = graphql`
       siteMetadata {
         socialLinks {
           facebook
-          linkedIn
+          linkedin
           github
         }
       }
