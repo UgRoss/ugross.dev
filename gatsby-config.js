@@ -13,7 +13,7 @@ module.exports = {
     socialLinks: {
       facebook: 'https://www.facebook.com/ugr.ross',
       github: 'https://github.com/UgRoss',
-      linkedIn: 'https://www.linkedin.com/in/rostyslav-ugryniuk-7b7466102/',
+      linkedin: 'https://www.linkedin.com/in/rostyslav-ugryniuk-7b7466102/',
     },
     title: '',
   },
@@ -60,7 +60,7 @@ module.exports = {
         /* eslint-disable @typescript-eslint/camelcase */
         short_name: 'Ross Blog',
         start_url: '/',
-        background_color: '#2222',
+        background_color: '#222',
         theme_color: '#2691ff',
         /* eslint-enable @typescript-eslint/camelcase */
         display: 'minimal-ui',

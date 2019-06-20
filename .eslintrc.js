@@ -7,6 +7,10 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:import/typescript',
   ],
+  env: {
+    browser: true,
+    node: true,
+  },
   parserOptions: {
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports

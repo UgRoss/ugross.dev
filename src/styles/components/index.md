@@ -1,3 +1,3 @@
 # Components Folder
 
-Keeps styles for simple components that are using inside markdown files
+Keeps styles for simple components to use inside markdown files

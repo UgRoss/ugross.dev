@@ -3,11 +3,12 @@ import React from 'react';
 
 import { capitalize } from '../utils';
 import SocialLink from './SocialLink';
+import ThemeContext from '../contexts/ThemeContext';
 
 interface ISocialLinks {
   facebook: string;
   github: string;
-  linkedIn: string;
+  linkedin: string;
 }
 
 interface IQueryData {
@@ -15,23 +16,41 @@ interface IQueryData {
 }
 
 class SocialLinksList extends React.PureComponent<{}> {
-  /** Content renders here */
-  private renderContent = (data: IQueryData) => {
-    const { socialLinks } = data.site.siteMetadata;
-    return Object.keys(socialLinks).map(
-      (socialKey: keyof ISocialLinks, index) => (
+  /** Renders social link based on theme */
+  private renderLinks = (socialLinks: ISocialLinks, darkMode: boolean) => {
+    const keys = Object.keys(socialLinks);
+
+    // For dark mode use simple not colored links
+    if (darkMode) {
+      return keys.map((socialKey: keyof ISocialLinks, index: number) => (
         <span key={socialKey}>
-          <SocialLink
+          <a
             href={socialLinks[socialKey]}
-            type={socialKey.toLowerCase()}
             target="_blank"
+            rel="noopener noreferrer"
+            className="with-underline"
           >
             {capitalize(socialKey)}
-          </SocialLink>
-          {Object.keys(socialLinks).length - 1 === index ? '' : ', '}
+          </a>
+          {keys.length - 1 === index ? '' : ', '}
         </span>
-      )
-    );
+      ));
+    }
+
+    // For light mode use the SocialLink component
+    return keys.map((socialKey: keyof ISocialLinks, index: number) => (
+      <span key={socialKey}>
+        <SocialLink
+          href={socialLinks[socialKey]}
+          type={socialKey}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {capitalize(socialKey)}
+        </SocialLink>
+        {keys.length - 1 === index ? '' : ', '}
+      </span>
+    ));
   };
 
   public render() {
@@ -41,7 +60,7 @@ class SocialLinksList extends React.PureComponent<{}> {
           siteMetadata {
             socialLinks {
               facebook
-              linkedIn
+              linkedin
               github
             }
           }
@@ -49,7 +68,18 @@ class SocialLinksList extends React.PureComponent<{}> {
       }
     `;
 
-    return <StaticQuery query={query} render={this.renderContent} />;
+    return (
+      <StaticQuery
+        query={query}
+        render={(data: IQueryData) => (
+          <ThemeContext.Consumer>
+            {theme =>
+              this.renderLinks(data.site.siteMetadata.socialLinks, theme.dark)
+            }
+          </ThemeContext.Consumer>
+        )}
+      />
+    );
   }
 }
 

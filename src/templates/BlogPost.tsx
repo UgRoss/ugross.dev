@@ -9,7 +9,7 @@ import SEO from '../components/SEO';
 
 interface IProps {
   className?: string;
-  pageContext: any;
+  pageContext: IGraphQL.PageContext;
   data: {
     markdownRemark: IGraphQL.Post;
   };
@@ -44,12 +44,12 @@ const BlogPost = ({ className, data, pageContext }: IProps) => {
 const StyledBlogPost = styled(BlogPost)`
   .post-title {
     text-align: center;
-    color: black;
+    color: var(--titleColor);
     font-weight: 800;
   }
 
   .post-details {
-    color: rgba(0, 0, 0, 0.54);
+    color: var(--mutedColor);
     text-align: center;
     time + span,
     span + span {
@@ -57,7 +57,7 @@ const StyledBlogPost = styled(BlogPost)`
       position: relative;
       &:before {
         content: ' ';
-        background: rgba(0, 0, 0, 0.54);
+        background: var(--mutedColor);
         width: 3px;
         height: 3px;
         border-radius: 50%;

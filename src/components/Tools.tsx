@@ -60,7 +60,7 @@ const StyledTools = styled(Tools)<IProps>`
     text-align: center;
     margin: 5px;
     img {
-      border: 1px solid #e2e7f4;
+      border: 1px solid var(--separatorColor);
       max-width: 45px;
       max-height: 45px;
       border-radius: 100%;

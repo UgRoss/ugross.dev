@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import Link from './Link';
+import { Link } from 'gatsby';
+
+import DarkModeToggle from './DarkModeToggle';
 
 export const links = [
   { href: '/', name: 'About' },
@@ -9,9 +11,9 @@ export const links = [
 ];
 
 const NavWrapper = styled.nav`
-  padding: 20px 0 0;
   background: transparent;
-  margin: 0 auto;
+  margin: 0;
+  margin-right: 10px;
   text-align: right;
   z-index: 100;
   a {
@@ -37,13 +39,14 @@ class Nav extends React.PureComponent<IProps> {
    * @description Render nav items
    * @return {React.ReactElement<any>} Links list for navigation
    */
-  private renderNavItems = (): React.ReactElement<Link>[] =>
+  private renderNavItems = (): React.ReactElement<Link<{}>>[] =>
     links.map(({ href, name }) => (
       <Link
         to={href}
         key={name}
         activeStyle={{ fontWeight: 'bold' }}
         activeClassName="active"
+        className="with-underline"
       >
         {name}
       </Link>
@@ -52,7 +55,17 @@ class Nav extends React.PureComponent<IProps> {
   public render() {
     const { className } = this.props;
     return (
-      <NavWrapper className={className}>{this.renderNavItems()}</NavWrapper>
+      <div
+        style={{
+          padding: '50px 0',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <NavWrapper className={className}>{this.renderNavItems()}</NavWrapper>
+        <DarkModeToggle />
+      </div>
     );
   }
 }

@@ -1,7 +1,5 @@
 import { lighten } from 'polished';
-import React from 'react';
 import styled from 'styled-components';
-import Link from './Link';
 
 /** Social networks colors */
 const colors: Map<socialName, string> = new Map();
@@ -10,7 +8,7 @@ colors.set('twitter', '#1DA1F2');
 colors.set('github', '#181717');
 colors.set('linkedin', '#0077B5');
 
-type socialName = 'facebook' | 'github' | 'twitter' | 'linkedin';
+export type socialName = 'facebook' | 'github' | 'twitter' | 'linkedin';
 interface IProps {
   type: socialName;
 }
@@ -19,7 +17,9 @@ interface IProps {
  * @name SocialLink
  * @description Styled `Link` component
  */
-const SocialLink = styled(props => <Link {...props} />)<IProps>`
+const SocialLink = styled.a.attrs({
+  className: 'with-underline',
+})<IProps>`
   color: ${props => colors.get(props.type)};
   font-weight: bold;
   &:visited {

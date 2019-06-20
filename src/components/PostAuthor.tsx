@@ -7,17 +7,16 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--separatorColor);
   padding: 20px 0;
   margin: 40px 0;
-  color: #444;
-  border-bottom: 1px solid #eee;
+  color: var(--textColor);
+  border-bottom: 1px solid var(--separatorColor);
   img {
     border-radius: 100%;
     margin-right: 10px;
     width: 100%;
     max-width: 40px;
-    box-shadow: 0 0 0 3px #fff, 0 0 0 4px #eee;
   }
 `;
 
@@ -34,12 +33,12 @@ const AuthorName = styled.a`
 `;
 
 const AuthorDescription = styled(AuthorName)`
-  color: #aaa;
+  color: var(--mutedColor);
   font-size: 0.8em;
   &:hover,
   &:active,
   &:visited {
-    color: #aaa;
+    color: var(--mutedColor);
   }
 `;
 
