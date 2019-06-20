@@ -60,7 +60,7 @@ module.exports = {
         /* eslint-disable @typescript-eslint/camelcase */
         short_name: 'Ross Blog',
         start_url: '/',
-        background_color: '##222',
+        background_color: '#222',
         theme_color: '#2691ff',
         /* eslint-enable @typescript-eslint/camelcase */
         display: 'minimal-ui',

@@ -10,43 +10,19 @@ interface IProps {
   children: React.ReactNode;
   className?: string;
   /**
-   * Keep showing footer
+   * Display footer
    * @default true
    */
   footer?: boolean;
   /**
-   * Show header
+   * Display header
    * @default true
    */
   header?: boolean;
 }
 
-/**
- * @name Layout
- * @description Main Layout component
- * @render react
- * @example <Layout>Hello</Layout>
- */
-class Layout extends React.PureComponent<IProps> {
-  public static defaultProps: Partial<IProps> = {
-    footer: true,
-    header: true,
-  };
-
-  public render = () => {
-    const { className, header, children, footer } = this.props;
-
-    return (
-      <div className={className}>
-        {header && <Nav />}
-        <div style={{ paddingTop: '100px' }}>{children}</div>
-        {footer && <Footer />}
-      </div>
-    );
-  };
-}
-
-const StyledLayout = styled(Layout)`
+/** Layout Wrapper */
+const Wrapper = styled.div`
   max-width: 720px;
   margin: 0 auto;
   padding: 0 20px 10px;
@@ -55,4 +31,23 @@ const StyledLayout = styled(Layout)`
   }
 `;
 
-export default StyledLayout;
+/**
+ * @name Layout
+ * @description Main Layout component
+ * @render react
+ * @example <Layout>Hello</Layout>
+ */
+const Layout: React.FunctionComponent<IProps> = ({
+  footer = true,
+  header = true,
+  className,
+  children,
+}) => (
+  <Wrapper className={className}>
+    {header && <Nav />}
+    <div style={{ paddingTop: '100px' }}>{children}</div>
+    {footer && <Footer />}
+  </Wrapper>
+);
+
+export default Layout;
