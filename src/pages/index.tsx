@@ -47,8 +47,7 @@ const IndexPage: React.FunctionComponent<{}> = () => {
           </p>
           <Tools />
           <p>
-            Emmet, Vue, GraphQL, MongoDB, Docker, Jest, Next.js, GatsbyJS, Git,
-            Pug, and more...
+            Emmet, Jest, Next.js, GatsbyJS, Git, GraphQL, Pug, SASS, and more...
           </p>
         </section>
         <section className="about">

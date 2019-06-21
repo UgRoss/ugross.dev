@@ -34,7 +34,7 @@ There is also one more difference between _16.3_ and _^16.4_:
 
 ![Image](lifecycle.png)
 
-This image represents React _^16.4_ Components Lifecycle. It would be good if you could spend some time to study this image, I also recommend you to return to this image during the article reading, so it will be easier to understand and to remember many things.
+This image represents React _^16.4_ Components Lifecycle. It would be good if you could spend some time to study it, I also recommend you to return to this image during the article reading, so it will be easier to understand and to remember many things.
 
 As we can see from the image, React component goes through the following phases:
 
