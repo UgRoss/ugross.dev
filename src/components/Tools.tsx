@@ -18,11 +18,11 @@ interface ITool {
 
 const tools: ITool[] = [
   { name: 'JavaScript', img: jsImg },
-  { name: 'NodeJS', img: nodeImg },
   { name: 'React', img: reactImg },
   { name: 'Mobx', img: mobxImg },
   { name: 'Redux', img: reduxImg },
   { name: 'TypeScript', img: typescriptImg },
+  { name: 'NodeJS', img: nodeImg },
   { name: 'Prettier', img: prettierImg },
   { name: 'Sketch', img: sketchImg },
 ];
