@@ -1,15 +1,15 @@
 import React from 'react';
 
 interface IProps {
+  /** Emoji itself 😊 */
   value: string;
+  /** Emoji description */
   description: string;
+  style?: React.CSSProperties;
 }
 
-const Emoji: React.FunctionComponent<IProps> = ({
-  value,
-  description,
-}: IProps) => (
-  <span role="img" aria-label={description}>
+const Emoji: React.FC<IProps> = ({ value, description, ...props }: IProps) => (
+  <span role="img" aria-label={description} {...props}>
     {value}
   </span>
 );

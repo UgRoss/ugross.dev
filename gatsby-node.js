@@ -55,12 +55,11 @@ exports.createPages = ({ graphql, actions }) => {
       const posts = result.data.allMarkdownRemark.edges;
 
       posts.forEach(({ node }, index) => {
-        const previous =
-          index === posts.length - 1 ? null : posts[index + 1].node;
+        const previous = index === posts.length - 1 ? null : posts[index + 1].node;
         const next = index === 0 ? null : posts[index - 1].node;
 
         createPage({
-          component: path.resolve('./src/templates/BlogPost.tsx'),
+          component: path.resolve('./src/templates/Post.tsx'),
           path: node.fields.slug,
           context: {
             // Previous/Next posts
@@ -74,5 +73,15 @@ exports.createPages = ({ graphql, actions }) => {
       });
       resolve();
     });
+  });
+};
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '~': path.resolve(__dirname, 'src'),
+      },
+    },
   });
 };

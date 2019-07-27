@@ -1,7 +1,6 @@
 import React from 'react';
-// import useDarkMode, { ThemeType } from './useDarkMode';
 import Switcher from './Switcher';
-import ThemeContext from '../../contexts/ThemeContext';
+import ThemeContext from '~/context/ThemeContext';
 
 const DarkModeToggle = () => {
   return (

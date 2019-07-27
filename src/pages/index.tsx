@@ -3,12 +3,12 @@ import * as React from 'react';
 import Mailto from 'react-protected-mailto';
 import styled from 'styled-components';
 
-import Layout from '../components/Layout';
-import Profile from '../components/Profile';
-import SEO from '../components/SEO';
-import SocialLinksList from '../components/SocialLinksList';
-import Tools from '../components/Tools';
-import Emoji from '../components/AccessibleEmoji';
+import Layout from '~/components/Layout';
+import Profile from '~/components/Profile';
+import SEO from '~/components/SEO';
+import SocialLinksList from '~/components/SocialLinksList';
+import Tools from '~/components/Tools';
+import Emoji from '~/components/AccessibleEmoji';
 
 const Title = styled.h3`
   margin: 30px 0 10px;
@@ -19,7 +19,7 @@ const Title = styled.h3`
  * @name IndexPage
  * @description Renders index page
  */
-const IndexPage: React.FunctionComponent<{}> = () => {
+const IndexPage: React.FC = () => {
   return (
     <Layout>
       <SEO title="Rostyslav Ugryniuk" />
@@ -42,13 +42,9 @@ const IndexPage: React.FunctionComponent<{}> = () => {
             <Emoji value="⚒️" description="Tools Emoji" />
             {' Tools'}
           </Title>
-          <p style={{ marginBottom: '10px' }}>
-            Things I know, like and work with:
-          </p>
+          <p style={{ marginBottom: '10px' }}>Things I know, like and work with:</p>
           <Tools />
-          <p>
-            Emmet, Jest, Next.js, GatsbyJS, Git, GraphQL, Pug, SASS, and more...
-          </p>
+          <p>Emmet, Jest, Next.js, GatsbyJS, Git, GraphQL, Pug, SASS, and more...</p>
         </section>
         <section className="about">
           <Title>

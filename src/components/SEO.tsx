@@ -39,10 +39,7 @@ class SEO extends React.PureComponent<IProps> {
     const url = `${siteMetadata.siteUrl}${slug}`;
 
     return (
-      <Helmet
-        title={`%s - ${siteMetadata.title}`}
-        defaultTitle={siteMetadata.title}
-      >
+      <Helmet title={`%s - ${siteMetadata.title}`} defaultTitle={siteMetadata.title}>
         <html lang="en" />
 
         {title && <title>{title}</title>}

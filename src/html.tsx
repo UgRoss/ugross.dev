@@ -6,11 +6,7 @@ interface IProps {
   postBodyComponents: React.ReactElement | React.ReactElement[];
 }
 
-const HTML: React.FunctionComponent<IProps> = ({
-  headComponents,
-  body,
-  postBodyComponents,
-}: IProps): React.ReactElement => {
+const HTML: React.FC<IProps> = ({ headComponents, body, postBodyComponents }: IProps): React.ReactElement => {
   return (
     <html lang="en">
       <head>
@@ -18,10 +14,7 @@ const HTML: React.FunctionComponent<IProps> = ({
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
 
         {/* Mobile Meta */}
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="HandheldFriendly" content="True" />
 
         {/* Styles'n'Scripts */}

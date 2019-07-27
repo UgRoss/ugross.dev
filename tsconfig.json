@@ -8,11 +8,14 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "jsx": "react",
-    "baseUrl": "src",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
-    "types": ["styled-components/cssprop"]
+    "types": ["styled-components/cssprop"],
+    "baseUrl": "src",
+    "paths": {
+      "~/*": ["./*"]
+    }
   },
   "include": ["./src"],
   "exclude": [".cache", "node_modules", "dist", "public", "scripts", "tmp"]

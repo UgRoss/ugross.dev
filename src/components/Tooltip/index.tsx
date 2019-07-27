@@ -1,12 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import {
-  bottomPlacement,
-  leftPlacement,
-  rightPlacement,
-  tooltipBase,
-  topPlacement,
-} from './styles';
+import { bottomPlacement, leftPlacement, rightPlacement, tooltipBase, topPlacement } from './styles';
 
 export interface IProps {
   /**
@@ -36,11 +30,7 @@ export interface IProps {
  *  <Button>Top Tooltip</Button>
  * </Tooltip>
  */
-export const Index: React.FunctionComponent<IProps> = ({
-  children,
-  content,
-  className,
-}) => {
+export const Index: React.FunctionComponent<IProps> = ({ children, content, className }) => {
   let childrenCopy: typeof children;
   try {
     childrenCopy = React.Children.only(children);

@@ -54,7 +54,7 @@ const StyledTools = styled(Tools)<IProps>`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   > div {
     text-align: center;

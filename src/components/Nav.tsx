@@ -30,7 +30,6 @@ interface IProps {
 /**
  * @name Nav
  * Header navigation
- * @render react
  * @example <Nav />
  */
 class Nav extends React.PureComponent<IProps> {

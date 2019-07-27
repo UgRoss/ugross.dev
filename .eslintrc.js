@@ -20,7 +20,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    '@typescript-eslint/interface-name-prefix': 'always',
+    '@typescript-eslint/interface-name-prefix': [2, 'always'],
     'react/jsx-filename-extension': [
       1,
       { extensions: ['.js', '.jsx', '.tsx'] },
@@ -37,6 +37,9 @@ module.exports = {
     },
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {},
     },
   },
 };

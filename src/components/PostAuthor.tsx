@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import avatar from '../images/avatar.jpg';
+import avatar from '~/images/avatar.jpg';
 
 const Wrapper = styled.div`
   display: flex;
@@ -55,8 +55,7 @@ const PostAuthor: React.FunctionComponent<{}> = () => {
       <div>
         <AuthorName href="#">Rostyslav Ugryniuk</AuthorName>
         <AuthorDescription href="#">
-          Front-end Developer, JavaScript enthusiast, and CS student. Living and
-          coding in Ukraine.
+          Front-end Developer, JavaScript enthusiast, and CS student. Living and coding in Ukraine.
         </AuthorDescription>
       </div>
     </Wrapper>
