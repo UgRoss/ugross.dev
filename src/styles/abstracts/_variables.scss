@@ -1,0 +1,51 @@
+$html-font-size: 20px;
+$html-line-height: 1.5;
+
+$font-size: 0.8rem;
+$line-height: 1.35rem;
+$font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-color: #404040;
+
+/** Colors */
+$primary-color: #4bbcf4;
+
+/** Containers */
+$x-small: 720px;
+$small: 800px;
+$medium: 1200px;
+$large: 1300px;
+
+/* Breakpoints */
+$mobile: 850px;
+$tablet: $small;
+$desktop: $medium;
+
+/* Borders */
+$border-width: 2px;
+$border-style: solid;
+$border-color: #ccc;
+$border-radius: 4px;
+$borders: $border-width $border-style $border-color;
+$box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.16);
+
+/** Code */
+$code-font-color: #b3b9c5;
+$code-font-family: Menlo, 'Roboto Mono', Courier New, monospace;
+$code-font-size: 14px;
+$code-family: Menlo, monospace;
+$code-background: transparent;
+$code-borders: $borders;
+
+$code-color-string: #92d192;
+$code-color-variable: #f2777a;
+$code-color-property: #abb2bf;
+$code-color-number: #fca369;
+$code-color-operator: #ac8d58;
+$code-color-punctuation: #d5d8df;
+$code-color-comment: #777c85;
+$code-color-function: #62cfcf;
+$code-color-keyword: #ffeead;
+$code-color-attribute: #ffd479;
+$code-color-class: #e1a6f2;
+$code-color-tag: #6ab0f3;
+$code-color-error: #f2777a;

@@ -19,7 +19,7 @@ const NavWrapper = styled.nav`
   a {
     margin: 0 12px;
     padding: 8px 0;
-    font-size: 13px;
+    font-size: 0.75rem;
   }
 `;
 

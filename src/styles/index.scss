@@ -1,8 +1,11 @@
-@import 'variables';
-@import 'base';
-@import 'code';
-@import 'table';
-@import 'typography';
-@import 'blog';
+@import 'abstracts/variables';
+@import 'abstracts/mixins.scss';
 
-@import './components/index'
+@import 'base/base';
+@import 'base/typography';
+
+@import 'components/code';
+@import 'components/table';
+@import 'components/info-block';
+
+@import 'theme/dark';

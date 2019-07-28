@@ -14,6 +14,7 @@ interface IProps {
   /** Article HTML Content */
   html: string;
   children: React.ReactElement | React.ReactElement[];
+  className?: string;
 }
 
 const PostWrapper = styled.article`
@@ -36,9 +37,9 @@ const PostWrapper = styled.article`
   }
 `;
 
-const BlogPost: React.FC<IProps> = ({ children, title, pubDate, date, timeToRead, html }) => {
+const BlogPost: React.FC<IProps> = ({ children, title, pubDate, date, timeToRead, html, ...props }) => {
   return (
-    <PostWrapper>
+    <PostWrapper {...props}>
       <header>
         <h1>{title}</h1>
         <section>
