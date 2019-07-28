@@ -42,7 +42,6 @@ const IndexPage: React.FC = () => {
             <Emoji value="⚒️" description="Tools Emoji" />
             {' Tools'}
           </Title>
-          <p style={{ marginBottom: '10px' }}>Things I know, like and work with:</p>
           <Tools />
           <p>Emmet, Jest, Next.js, GatsbyJS, Git, GraphQL, Pug, SASS, and more...</p>
         </section>

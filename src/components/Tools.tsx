@@ -54,7 +54,7 @@ const StyledTools = styled(Tools)<IProps>`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   > div {
     text-align: center;
@@ -75,6 +75,10 @@ const StyledTools = styled(Tools)<IProps>`
         max-height: 60px;
       }
     }
+  }
+
+  @media (min-width: 800px) {
+    justify-content: space-around;
   }
 `;
 
