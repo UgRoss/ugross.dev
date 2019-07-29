@@ -5,19 +5,10 @@
 .info-block {
   color: inherit;
   padding: .7rem;
-  // padding-left: 30px;
   border-radius: $border-radius;
   background-color: #ebf8ff;
   position: relative;
   margin: 10px 0;
-
-  // &:before {
-  //   content: 'ℹ️';
-  //   position: absolute;
-  //   left: 6px;
-  //   top: 10px;
-  //   font-size: 1em;
-  // }
 
   p {
     margin: 0;
@@ -25,4 +16,8 @@
       margin-bottom: 1em;
     }
   }
+}
+
+.dark .info-block {
+  background-color: #3f4256;
 }
