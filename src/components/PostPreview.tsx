@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { Link } from 'gatsby';
-import { formatReadingTime } from '../utils';
+import TimeToRead from '~/components/TimeToRead';
 
 interface IProps {
   url: string;
@@ -14,15 +14,7 @@ interface IProps {
   timeToRead?: number;
 }
 
-const PostPreview: React.FunctionComponent<IProps> = ({
-  url,
-  title,
-  date,
-  pubDate,
-  excerpt,
-  className,
-  timeToRead,
-}) => {
+const PostPreview: React.FC<IProps> = ({ url, title, date, pubDate, excerpt, className, timeToRead }) => {
   return (
     <article className={className}>
       <header>
@@ -32,9 +24,11 @@ const PostPreview: React.FunctionComponent<IProps> = ({
         <p>
           <small>
             <time dateTime={pubDate || date}>{date}</time>
-            <span> • </span>
           </small>
-          <small>{formatReadingTime(timeToRead)}</small>
+          <span className="separator"> • </span>
+          <small>
+            <TimeToRead minutes={timeToRead} />
+          </small>
         </p>
       </header>
       <section className="content">
@@ -55,6 +49,10 @@ const StyledPostPreview = styled(PostPreview)`
   h3 {
     margin-bottom: 5px;
     color: var(--titleColor);
+  }
+
+  .separator {
+    margin: 0 5px;
   }
 
   a {

@@ -1,10 +1,10 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
 
-import Layout from '../components/Layout';
-import PostPreview from '../components/PostPreview';
-import Profile from '../components/Profile';
-import SEO from '../components/SEO';
+import Layout from '~/components/Layout';
+import PostPreview from '~/components/PostPreview';
+import Profile from '~/components/Profile';
+import SEO from '~/components/SEO';
 
 interface IProps {
   data: {
@@ -29,16 +29,14 @@ class Blog extends React.PureComponent<IProps> {
 
   public render() {
     const {
-      data: {
-        posts: { edges },
-      },
+      data: { posts },
     } = this.props;
 
     return (
       <Layout>
         <SEO title="Blog" />
         <Profile />
-        {edges.map(Blog.renderPostPreview)}
+        {posts.edges.map(Blog.renderPostPreview)}
       </Layout>
     );
   }
@@ -46,9 +44,7 @@ class Blog extends React.PureComponent<IProps> {
 
 export const query = graphql`
   query {
-    posts: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
+    posts: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
         node {

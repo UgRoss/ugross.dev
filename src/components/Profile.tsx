@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import avatar from '../images/avatar.jpg';
+import avatar from '~/images/avatar.jpg';
 
 interface IProps {
   className?: string;

@@ -1,11 +1,9 @@
-@import 'variables';
-
 :root {
   --textColor: #3b4351;
   --background: #fff;
   --linkColor: #1baaf1;
   --selectionColor: #90ccf4;
-  --mutedColor: #aaa;
+  --mutedColor: rgba(0,0,0,.6);
   --separatorColor: #eee;
   --titleColor: #222;
   --titleLinkColor: #505050;
@@ -14,23 +12,6 @@
   --inlineCode-text: #1a1a1a;
 }
 
-body.dark {
-  -webkit-font-smoothing: antialiased;
-
-  --textColor: rgba(255, 255, 255, 0.9);
-  --background: #282c35;
-  --linkColor: #5bd1d7;
-  --selectionColor: #90ccf4;
-  --mutedColor: #aaa;
-  --separatorColor: #454d66;
-  --titleColor: #fff;
-  --titleLinkColor: #5bd1d7;
-
-  --inlineCode-bg: #797979;
-  --inlineCode-text: #e6e6e6;
-}
-
-// Base
 *,
 *::before,
 *::after {
@@ -47,10 +28,18 @@ html {
 body {
   background: var(--background);
   color: var(--textColor);
-  font-family: $body-font-family;
+  font-family: $font-family;
   font-size: $font-size;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
+}
+
+::-moz-selection {
+  background: var(--selectionColor);
+}
+
+::selection {
+  background: var(--selectionColor);
 }
 
 a {
@@ -99,12 +88,4 @@ a {
       }
     }
   }
-}
-
-::-moz-selection {
-  background: var(--selectionColor);
-}
-
-::selection {
-  background: var(--selectionColor);
 }

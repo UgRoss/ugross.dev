@@ -47,12 +47,7 @@ const PrevNextPosts = ({ prev, next }: IProps) => {
         </Link>
       )}
       {next && (
-        <Link
-          to={next.fields.slug}
-          rel="next"
-          style={{ marginLeft: 'auto' }}
-          className="with-underline"
-        >
+        <Link to={next.fields.slug} rel="next" style={{ marginLeft: 'auto' }} className="with-underline">
           {`${next.frontmatter.title} →`}
         </Link>
       )}

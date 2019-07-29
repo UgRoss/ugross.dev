@@ -4,20 +4,11 @@
 
 .info-block {
   color: inherit;
-  padding: 10px;
-  padding-left: 30px;
-  border-radius: 4px;
+  padding: .7rem;
+  border-radius: $border-radius;
   background-color: #ebf8ff;
   position: relative;
   margin: 10px 0;
-
-  &:before {
-    content: 'ℹ️';
-    position: absolute;
-    left: 6px;
-    top: 5px;
-    font-size: 1.2em;
-  }
 
   p {
     margin: 0;

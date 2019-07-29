@@ -14,15 +14,9 @@ I'm going to talk about React version 16.4+. But before we will dive in, let's d
 From the React 16.3 and above a few lifecycle methods were deprecated. They are still available to use with the
 prefix `UNSAFE_`, but will be removed in the next major release.
 
-- **componentWillMount**
-  <br>
-  Renamed to `UNSAFE_ComponentWillMount`. You can use the `constructor` to replace this method.
-- **componentWillReceiveProps**
-  <br>
-  Renamed to `UNSAFE_ComponentWillReceiveProps`. You can use `static getDerivedStateFromProps` instead.
-- **componentWillUpdate**
-  <br>
-  Renamed to `UNSAFE_ComponentWillUpdate`. You can use `getSnapshotBeforeUpdate` instead.
+- `componentWillMount` renamed to `UNSAFE_ComponentWillMount`. You can use the `constructor` to replace this method.
+- `componentWillReceiveProps` renamed to `UNSAFE_ComponentWillReceiveProps`. You can use `static getDerivedStateFromProps` instead.
+- `componentWillUpdate` renamed to `UNSAFE_ComponentWillUpdate`. You can use `getSnapshotBeforeUpdate` instead.
 
 There is also one more difference between _16.3_ and _^16.4_:
 
@@ -196,8 +190,9 @@ It's also possible to manually run the component updating phase by using _this.f
 The behavior of this method is the same as described [above](#2️⃣-static-getderivedstatefromprops). You can update your state based on props here.
 
 <div class="info-block">
-  <p>It's not recommended to keep your state updated based on props, as it makes your component difficult to think about. Try to think first if you really need this inside the state, or you can just derive functionality from the props directly because <code>getDerivedStateFromProps</code> should be used in <a href="https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state" target="_blank" rel="nofollow noopener noreferrer">rare cases</a>.
   <p>
+  It's not recommended to keep your state updated based on props, as it makes your component difficult to think about. Try to think first if you really need this inside the state, or you can just derive functionality from the props directly because <code>getDerivedStateFromProps</code> should be used in <a href="https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state" target="_blank" rel="nofollow noopener noreferrer">rare cases</a>.
+  </p>
 </div>
 
 <br>

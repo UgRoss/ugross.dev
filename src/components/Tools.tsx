@@ -19,7 +19,7 @@ interface ITool {
 const tools: ITool[] = [
   { name: 'JavaScript', img: jsImg },
   { name: 'React', img: reactImg },
-  { name: 'Mobx', img: mobxImg },
+  { name: 'MobX', img: mobxImg },
   { name: 'Redux', img: reduxImg },
   { name: 'TypeScript', img: typescriptImg },
   { name: 'NodeJS', img: nodeImg },
@@ -75,6 +75,10 @@ const StyledTools = styled(Tools)<IProps>`
         max-height: 60px;
       }
     }
+  }
+
+  @media (min-width: 800px) {
+    justify-content: space-around;
   }
 `;
 

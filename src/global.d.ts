@@ -14,8 +14,8 @@ declare module '*.svg' {
 }
 
 // TODO: maybe replace with apollo client:codegen or graphql-code-generator
-// tslint:disable: interface-name no-namespace
 declare namespace IGraphQL {
+  /* eslint-disable @typescript-eslint/interface-name-prefix */
   // Frontmatter
   interface Frontmatter {
     date: string;
@@ -45,7 +45,7 @@ declare namespace IGraphQL {
     next: Post;
     slug: string;
   }
+  /* eslint-enable @typescript-eslint/interface-name-prefix */
 }
-// tslint:enable: interface-name no-namespace
 
 declare module 'react-protected-mailto';

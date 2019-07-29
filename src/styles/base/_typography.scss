@@ -1,5 +1,6 @@
-@import 'variables';
-// Typography
+/* Typography
+  =============== */
+
 // Headings
 h1,
 h2,
@@ -7,7 +8,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: inherit;
+  color: var(--titleColor);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0.5em;
@@ -56,7 +57,8 @@ h6,
 
 // Paragraphs
 p {
-  margin: 0 0 $line-height / 1.5;
+  margin: 0 0 $line-height / 1.4;
+  line-height: $line-height;
 }
 
 // Semantic text elements
@@ -85,7 +87,7 @@ kbd {
 
 mark {
   background: #ffe9b3;
-  color: $body-font-color;
+  color: $font-color;
 
   border-radius: 0.1rem;
   padding: 0.05rem;

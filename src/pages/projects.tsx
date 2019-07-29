@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Layout from '~/components/Layout';
+import SEO from '~/components/SEO';
 
-const Projects: React.FunctionComponent<{}> = () => {
+const Projects: React.FC = () => {
   return (
     <Layout>
       <SEO title="My Projects" />
