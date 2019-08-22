@@ -210,9 +210,7 @@ const months = [
 
 const convertDate = dateString => {
   const date = new Date(dateString);
-  return `${pad(date.getDate())}.${
-    months[date.getMonth()]
-  }.${date.getFullYear()}`;
+  return `${pad(date.getDate())}.${months[date.getMonth()]}.${date.getFullYear()}`;
 };
 ```
 
@@ -321,9 +319,7 @@ const usersArr = [
 We can use the `Array.sort()` here:
 
 ```javascript
-usersArr.sort(
-  (firstEl, secondEl) => new Date(firstEl.date) - new Date(secondEl.date)
-);
+usersArr.sort((firstEl, secondEl) => new Date(firstEl.date) - new Date(secondEl.date));
 ```
 
 </details>

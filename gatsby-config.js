@@ -2,8 +2,7 @@
 module.exports = {
   siteMetadata: {
     author: 'Rostyslav Ugryniuk',
-    description:
-      'Front-end Developer, JavaScript enthusiast and CS student. Living and coding in Ukraine.',
+    description: 'Front-end Developer, JavaScript enthusiast and CS student. Living and coding in Ukraine.',
     logo: '',
     siteLanguage: 'en',
     siteUrl: 'https://ugross.space', // No trailing slash!
@@ -18,6 +17,7 @@ module.exports = {
     title: '',
   },
   plugins: [
+    `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-typescript`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
