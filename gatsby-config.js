@@ -25,12 +25,22 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
+      resolve: `gatsby-source-filesystem`,
+      options: { name: `images`, path: `${__dirname}/static/uploads/` },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: { name: `posts`, path: `${__dirname}/content/posts/` },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          // gatsby-remark-relative-images must go before gatsby-remark-images
+          { resolve: `gatsby-remark-relative-images` },
           {
             resolve: 'gatsby-remark-images',
-            options: { maxWidth: 710 },
+            options: { maxWidth: 800 },
           },
           { resolve: 'gatsby-remark-responsive-iframe' },
           `gatsby-remark-prismjs`,
@@ -42,10 +52,6 @@ module.exports = {
           },
         ],
       },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: { name: `posts`, path: `${__dirname}/content/posts/` },
     },
     {
       resolve: 'gatsby-plugin-stylelint',

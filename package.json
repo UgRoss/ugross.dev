@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npm run lint && gatsby build",
-    "dev": "gatsby develop",
+    "start": "gatsby develop",
     "format": "prettier --write 'src/**/*.{js,ts,tsx}'",
     "lint": "npm run lint:ts && npm run lint:md",
     "lint:ts": "tsc --noEmit --skipLibCheck && eslint 'src/*/**.{js,ts,tsx}' --quiet --fix",
@@ -32,6 +32,7 @@
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-remark-images": "^3.1.16",
     "gatsby-remark-prismjs": "^3.3.8",
+    "gatsby-remark-relative-images": "^0.2.3",
     "gatsby-remark-responsive-iframe": "^2.2.7",
     "gatsby-source-filesystem": "^2.1.14",
     "gatsby-transformer-remark": "^2.6.18",

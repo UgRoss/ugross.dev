@@ -4,7 +4,7 @@ date: '2019-02-01'
 slug: 'desk'
 ---
 
-![My Workspace](./workspace.jpg 'My Workspace')
+![My Workspace](/blog-images/workspace.jpg 'My Workspace')
 
 Inspired by other people sharing their workspace photos and description, I thought it'd be fun to share my own setup of home-office workstation.
 I find very interesting to read what people use to do their work, it allows to find ideas or refresh own setup.
