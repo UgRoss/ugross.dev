@@ -20,16 +20,16 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
+    // e.g. "@typescript-eslint/explicit-function-return-type": "off",
     '@typescript-eslint/interface-name-prefix': [2, 'always'],
-    'react/jsx-filename-extension': [
-      1,
-      { extensions: ['.js', '.jsx', '.tsx'] },
-    ],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
     'react/no-danger': 0,
     'react/prop-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-    // e.g. "@typescript-eslint/explicit-function-return-type": "off",
+    'react/jsx-props-no-spreading': 0,
+    'react/static-property-placement': [2, 'static public field'],
+    'react/state-in-constructor': [2, 'never'],
   },
   settings: {
     react: {
