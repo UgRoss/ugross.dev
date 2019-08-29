@@ -17,7 +17,14 @@ module.exports = {
     title: '',
   },
   plugins: [
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        modulePath: `${__dirname}/src/CMS/cms.js`,
+        htmlTitle: `Ross - Content Manager`,
+        htmlFavicon: `${__dirname}/static/favicon.png`,
+      },
+    },
     `gatsby-plugin-typescript`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',

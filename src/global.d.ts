@@ -13,6 +13,9 @@ declare module '*.svg' {
   export default value;
 }
 
+declare module 'netlify-cms-app';
+declare module 'react-protected-mailto';
+
 // TODO: maybe replace with apollo client:codegen or graphql-code-generator
 declare namespace IGraphQL {
   /* eslint-disable @typescript-eslint/interface-name-prefix */
@@ -47,5 +50,3 @@ declare namespace IGraphQL {
   }
   /* eslint-enable @typescript-eslint/interface-name-prefix */
 }
-
-declare module 'react-protected-mailto';
