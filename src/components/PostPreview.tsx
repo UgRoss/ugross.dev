@@ -19,7 +19,9 @@ const PostPreview: React.FC<IProps> = ({ url, title, date, pubDate, excerpt, cla
     <article className={className}>
       <header>
         <h3>
-          <Link to={url}>{title}</Link>
+          <Link to={url} className="with-underline">
+            {title}
+          </Link>
         </h3>
         <p>
           <small>
@@ -35,7 +37,9 @@ const PostPreview: React.FC<IProps> = ({ url, title, date, pubDate, excerpt, cla
         <p>{excerpt}</p>
       </section>
       <footer>
-        <Link to={url}>Read this article →</Link>
+        <Link to={url} className="with-underline">
+          Read this article →
+        </Link>
       </footer>
     </article>
   );
