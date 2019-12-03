@@ -31,6 +31,7 @@ module.exports = {
     'react/static-property-placement': [2, 'static public field'],
     'react/state-in-constructor': [2, 'never'],
   },
+  ignorePatterns: ["gatsby-node.js"],
   settings: {
     react: {
       version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use

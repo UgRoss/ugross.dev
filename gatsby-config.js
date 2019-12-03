@@ -17,15 +17,15 @@ module.exports = {
     title: '',
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     {
-      resolve: `gatsby-plugin-netlify-cms`,
+      resolve: `gatsby-plugin-alias-imports`,
       options: {
-        modulePath: `${__dirname}/src/CMS/cms.js`,
-        htmlTitle: `Ross - Content Manager`,
-        htmlFavicon: `${__dirname}/static/favicon.png`,
+        alias: {
+          '~': 'src',
+        },
       },
     },
-    `gatsby-plugin-typescript`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     `gatsby-plugin-sass`,
@@ -83,5 +83,13 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        modulePath: `${__dirname}/src/CMS/cms.tsx`,
+        htmlTitle: `Ross - Content Manager`,
+        htmlFavicon: `${__dirname}/static/favicon.png`,
+      },
+    },
   ],
 };

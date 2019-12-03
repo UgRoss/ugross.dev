@@ -13,8 +13,25 @@ declare module '*.svg' {
   export default value;
 }
 
+declare module '*.scss' {
+  const content: any;
+  export default content;
+}
+
+declare module '*.css' {
+  const content: any;
+  export default content;
+}
+
 declare module 'netlify-cms-app';
 declare module 'react-protected-mailto';
+
+declare module 'snarkdown' {
+  interface Links {
+    [index: string]: string;
+  }
+  export default function(urlStr: string, prevLinks?: Links): string;
+}
 
 // TODO: maybe replace with apollo client:codegen or graphql-code-generator
 declare namespace IGraphQL {

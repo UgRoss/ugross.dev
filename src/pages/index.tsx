@@ -43,7 +43,7 @@ const IndexPage: React.FC = () => {
             {' Tools'}
           </Title>
           <Tools />
-          <p>Emmet, Jest, Next.js, GatsbyJS, Git, GraphQL, Pug, SASS, and more...</p>
+          <p>Emmet, Jest, Next.js, GatsbyJS, Git, MobX, GraphQL, Pug, SASS, and more...</p>
         </section>
         <section className="about">
           <Title>
