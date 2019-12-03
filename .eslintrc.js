@@ -27,6 +27,7 @@ module.exports = {
     'react/no-danger': 0,
     'react/prop-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
     'react/jsx-props-no-spreading': 0,
     'react/static-property-placement': [2, 'static public field'],
     'react/state-in-constructor': [2, 'never'],
