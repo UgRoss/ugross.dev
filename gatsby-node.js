@@ -3,7 +3,6 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-
 const path = require('path');
 const { kebabCase, get } = require('lodash');
 const { createFilePath } = require(`gatsby-source-filesystem`);
@@ -73,12 +72,17 @@ exports.createPages = ({ graphql, actions }) => {
   });
 };
 
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        '~': path.resolve(__dirname, 'src'),
-      },
-    },
-  });
-};
+/**
+ * ⚠️ Aliasing replaced with the 'gatsby-plugin-alias-imports' plugin, because somehow
+ * this part of code doesn't work with 'gatsby-plugin-netlify-cms'. Seems it's applied
+ * later than this plugin, so it can't resolve files properly.
+ */
+// exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
+//   actions.setWebpackConfig({
+//     resolve: {
+//       alias: {
+//         '~': path.resolve(__dirname, 'src'),
+//       },
+//     },
+//   });
+// };

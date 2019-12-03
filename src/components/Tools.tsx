@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Tooltip from './Tooltip';
 
 import jsImg from '../images/tools/js.png';
-import mobxImg from '../images/tools/mobx.svg';
 import nodeImg from '../images/tools/nodejs.png';
 import prettierImg from '../images/tools/prettier.png';
 import reactImg from '../images/tools/react.png';
@@ -19,7 +18,6 @@ interface ITool {
 const tools: ITool[] = [
   { name: 'JavaScript', img: jsImg },
   { name: 'React', img: reactImg },
-  { name: 'MobX', img: mobxImg },
   { name: 'Redux', img: reduxImg },
   { name: 'TypeScript', img: typescriptImg },
   { name: 'NodeJS', img: nodeImg },

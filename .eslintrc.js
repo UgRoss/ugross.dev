@@ -3,9 +3,9 @@ module.exports = {
   extends: [
     'airbnb',
     'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+    'plugin:import/typescript',
     'prettier/@typescript-eslint', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
     'plugin:prettier/recommended',
-    'plugin:import/typescript',
   ],
   env: {
     browser: true,
@@ -27,10 +27,12 @@ module.exports = {
     'react/no-danger': 0,
     'react/prop-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
     'react/jsx-props-no-spreading': 0,
     'react/static-property-placement': [2, 'static public field'],
     'react/state-in-constructor': [2, 'never'],
   },
+  ignorePatterns: ['gatsby-node.js'],
   settings: {
     react: {
       version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use

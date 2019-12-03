@@ -1,56 +1,40 @@
-import React from 'react';
-
-enum Source {
-  User = 'user',
-  API = 'api',
-}
+import React, { useState, useEffect } from 'react';
 
 const ThemeContext = React.createContext({
   dark: false,
-  toggleTheme: () => null,
+  toggleTheme: (): void => {},
 });
 
 /** Detect if the user has requested the system use a light or dark color theme */
 const supportsDarkMode = () => window.matchMedia('(prefers-color-scheme: dark)').matches === true;
 
-class ThemeProvider extends React.Component<{}, { dark: boolean }> {
-  public state = {
-    dark: false,
-  };
+interface IProps {
+  children: React.ReactElement | React.ReactElement[] | null;
+}
 
-  public componentDidMount() {
-    // Getting dark mode value from localStorage!
+const ThemeProvider: React.FC<IProps> = ({ children }) => {
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
     const isDark = JSON.parse(localStorage.getItem('dark'));
     if (typeof isDark === 'boolean') {
-      this.setDarkMode(isDark);
+      setDark(isDark);
     } else if (supportsDarkMode() === true) {
-      this.setDarkMode(true, Source.API);
+      setDark(true);
     }
-  }
+  }, []);
 
-  /** Set dark mode */
-  private setDarkMode = (enabled: boolean, source: Source = Source.User): void => {
-    this.setState({ dark: enabled });
+  useEffect(() => {
+    document.body.classList[dark ? 'add' : 'remove']('dark');
+  }, [dark]);
 
-    if (source === Source.User) {
-      window.localStorage.setItem('dark', enabled.toString());
-    }
-    document.body.classList[enabled ? 'add' : 'remove']('dark');
+  const toggleTheme = () => {
+    window.localStorage.setItem('dark', String(!dark));
+    setDark(!dark);
   };
 
-  /** Toggle Dark mode */
-  public toggleDark = (): void => {
-    const { dark } = this.state;
-    this.setDarkMode(!dark);
-  };
-
-  public render() {
-    const { children } = this.props;
-    const { dark } = this.state;
-
-    return <ThemeContext.Provider value={{ dark, toggleTheme: this.toggleDark }}>{children}</ThemeContext.Provider>;
-  }
-}
+  return <ThemeContext.Provider value={{ dark, toggleTheme }}>{children}</ThemeContext.Provider>;
+};
 
 export default ThemeContext;
 

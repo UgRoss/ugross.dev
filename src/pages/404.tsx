@@ -25,7 +25,7 @@ const NotFoundPage = () => (
         <Link to="/">homepage</Link>
         {' or to my '}
         <Link to="/blog">blog</Link>
-        {'.'}
+        <span>.</span>
       </p>
     </Wrapper>
   </Layout>

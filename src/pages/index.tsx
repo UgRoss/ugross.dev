@@ -43,7 +43,7 @@ const IndexPage: React.FC = () => {
             {' Tools'}
           </Title>
           <Tools />
-          <p>Emmet, Jest, Next.js, GatsbyJS, Git, GraphQL, Pug, SASS, and more...</p>
+          <p>Emmet, Jest, Next.js, GatsbyJS, Git, MobX, GraphQL, Pug, SASS, and more...</p>
         </section>
         <section className="about">
           <Title>
@@ -73,11 +73,11 @@ const IndexPage: React.FC = () => {
             {' Want to discuss something?'}
           </Title>
           <p>
-            {` Don’t hesitate to drop me an email on `}
+            Don’t hesitate to drop me an email on
             <Mailto email="contact@ugross.dev" className="with-underline" />
             {', or contact me via my social profiles: '}
             <SocialLinksList />
-            {'.'}
+            <span>.</span>
           </p>
         </section>
       </div>
