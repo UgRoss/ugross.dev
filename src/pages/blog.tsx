@@ -1,46 +1,43 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
 
-import Layout from '~/components/Layout';
-import PostPreview from '~/components/PostPreview';
-import Profile from '~/components/Profile';
-import SEO from '~/components/SEO';
+import { Layout } from '~/components/Layout';
+import { PostPreview } from '~/components/PostPreview';
+import { SEO } from '~/components/SEO';
 
-interface IProps {
+interface BlogProps {
   data: {
     posts: IGraphQL.AllMarkdownRemark;
   };
 }
 
-class Blog extends React.PureComponent<IProps> {
-  private static renderPostPreview({ node }: any) {
-    return (
-      <PostPreview
-        key={node.fields.slug}
-        url={node.fields.slug}
-        title={node.frontmatter.title}
-        excerpt={node.frontmatter.spoiler || node.excerpt}
-        date={node.frontmatter.date}
-        pubDate={node.frontmatter.pubDate}
-        timeToRead={node.timeToRead}
-      />
-    );
-  }
-
-  public render() {
-    const {
-      data: { posts },
-    } = this.props;
-
-    return (
-      <Layout>
-        <SEO title="Blog" />
-        <Profile />
-        {posts.edges.map(Blog.renderPostPreview)}
-      </Layout>
-    );
-  }
-}
+export const Blog: React.FC<BlogProps> = ({ data: { posts } }) => {
+  return (
+    <Layout>
+      <SEO title="Blog" />
+      <div className="hero mb-0">
+        <div className="container">
+          <h1 className="text-center font-jetbrains">
+            <span className="text-secondary">{'<'}</span>
+            <span className="text-tertiary">Blog</span>
+            <span className="text-secondary">{' />'}</span>
+          </h1>
+        </div>
+      </div>
+      {posts.edges.map(({ node }) => (
+        <PostPreview
+          key={node.fields.slug}
+          url={node.fields.slug}
+          title={node.frontmatter.title}
+          excerpt={node.frontmatter.spoiler || node.excerpt}
+          date={node.frontmatter.date}
+          pubDate={node.frontmatter.pubDate}
+          timeToRead={node.timeToRead}
+        />
+      ))}
+    </Layout>
+  );
+};
 
 export const query = graphql`
   query {

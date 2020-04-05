@@ -30,7 +30,7 @@ declare module 'snarkdown' {
   interface Links {
     [index: string]: string;
   }
-  export default function(urlStr: string, prevLinks?: Links): string;
+  export default function (urlStr: string, prevLinks?: Links): string;
 }
 
 // TODO: maybe replace with apollo client:codegen or graphql-code-generator
@@ -41,6 +41,7 @@ declare namespace IGraphQL {
     date: string;
     pubDate?: string;
     title: string;
+    spoiler?: string;
     // tags: string[];
   }
   // POST

@@ -1,12 +1,12 @@
 import React from 'react';
 
-interface IProps {
+interface HTMLProps {
   headComponents: React.ReactElement | React.ReactElement[];
   body: string;
   postBodyComponents: React.ReactElement | React.ReactElement[];
 }
 
-const HTML: React.FC<IProps> = ({ headComponents, body, postBodyComponents }: IProps): React.ReactElement => {
+const HTML: React.FC<HTMLProps> = ({ headComponents, body, postBodyComponents }) => {
   return (
     <html lang="en">
       <head>

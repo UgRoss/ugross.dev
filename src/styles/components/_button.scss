@@ -1,0 +1,50 @@
+.button {
+  color: #363636;
+  background-color: #fff;
+  padding: 0.4em 0.6rem;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 0.35rem;
+  text-decoration: none;
+  transition: background, background-color 0.2s ease;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+
+  /** Remove link styles */
+  &:after {
+    display: none;
+  }
+
+  &:visited {
+    color: #363636;
+  }
+}
+
+.button--tint {
+  background-color: transparent;
+  border: none;
+
+  &.button--active,
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited {
+    background-color: var(--link-hover-background);
+    color: var(--link-color);
+  }
+}
+
+.button--with-active-color {
+  color: var(--link-color);
+
+  &:visited {
+    color: var(--link-color);
+  }
+}

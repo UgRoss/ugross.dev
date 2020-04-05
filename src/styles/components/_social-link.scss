@@ -1,0 +1,39 @@
+$facebook: #3b5998;
+$twitter: #1da1f2;
+$github: #181717;
+$linkedin: #0077b5;
+
+@mixin social-link-style($brand) {
+  color: $brand;
+  &:visited {
+    color: $brand;
+  }
+  &:hover {
+    color: lighten($color: $brand, $amount: 0.1);
+    &:after {
+      background-color: lighten($color: $brand, $amount: 0.1);
+    }
+  }
+}
+
+.social-link {
+  font-weight: bold;
+}
+
+body:not(.dark) {
+  .social-link--facebook {
+    @include social-link-style($facebook);
+  }
+
+  .social-link--github {
+    @include social-link-style($github);
+  }
+
+  .social-link--linkedin {
+    @include social-link-style($linkedin);
+  }
+
+  .social-link--twitter {
+    @include social-link-style($twitter);
+  }
+}

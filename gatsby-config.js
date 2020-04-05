@@ -1,20 +1,8 @@
 // tslint:disable:object-literal-sort-keys
 module.exports = {
   siteMetadata: {
-    author: 'Rostyslav Ugryniuk',
-    description: 'Front-end Developer, JavaScript enthusiast and CS student. Living and coding in Ukraine.',
-    logo: '',
     siteLanguage: 'en',
-    siteUrl: 'https://ugross.space', // No trailing slash!
-    social: {
-      twitter: '@ug_ross',
-    },
-    socialLinks: {
-      facebook: 'https://www.facebook.com/ugr.ross',
-      github: 'https://github.com/UgRoss',
-      linkedin: 'https://www.linkedin.com/in/rostyslav-ugryniuk-7b7466102/',
-    },
-    title: '',
+    siteUrl: 'https://ugross.space',
   },
   plugins: [
     `gatsby-plugin-typescript`,
@@ -83,6 +71,8 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    `gatsby-plugin-graphql-loader`,
+    `gatsby-plugin-graphql-codegen`,
     {
       resolve: `gatsby-plugin-netlify-cms`,
       options: {

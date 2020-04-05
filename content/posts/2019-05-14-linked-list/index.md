@@ -27,6 +27,8 @@ The last Node in a linked list is called the **Tail**, this part isn't necessary
 
 First of all, we need to create a **Node** class for our list:
 
+<div class="filename">Node.js</div>
+
 ```javascript
 class Node {
   /**
@@ -41,6 +43,8 @@ class Node {
 ```
 
 Next, let's create a class called `LinkedList` that contains the head and the tail with the values `null` by default.
+
+<div class="filename">LinkedList.js</div>
 
 ```javascript
 class LinkedList {
@@ -61,6 +65,8 @@ Now, let's add some methods one by one to our `LinkedList` class. The main actio
 
 Based on requirements linked list insertion methods can be different.
 For example, if you need to insert values only to the start of the linked list, we simply need to update the **head** of our list, and **tail** if it's empty:
+
+<div class="filename">LinkedList.js</div>
 
 ```javascript
 /**
@@ -280,7 +286,6 @@ Full code implementation is available at the end of the article.
 | Deletion                        | O(n)       |
 
 <sup>**N** is the length of Linked List</sup>
-
 
 Code:
 

@@ -1,0 +1,23 @@
+.text-center {
+  text-align: center;
+}
+
+.font-jetbrains {
+  @include font-jetbrains;
+}
+
+.text-xs {
+  font-size: $font-size - 0.2;
+}
+
+.text-base {
+  font-size: $font-size;
+}
+
+.text-lg {
+  font-size: $font-size + 0.2;
+}
+
+.text-xl {
+  font-size: $font-size + 0.3;
+}

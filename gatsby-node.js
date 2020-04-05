@@ -12,11 +12,14 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
+    const postSlug = get(node, 'frontmatter.slug', null);
+    const postTitle = get(node, 'frontmatter.title', null);
+
     let slug;
-    if (get(node, 'frontmatter.slug', false)) {
-      slug = `/${kebabCase(node.frontmatter.slug)}`;
-    } else if (get(node, 'frontmatter.title', false)) {
-      slug = `/blog/${kebabCase(node.frontmatter.title)}`;
+    if (postSlug) {
+      slug = `/${kebabCase(postSlug)}`;
+    } else if (postTitle) {
+      slug = `/blog/${kebabCase(postTitle)}`;
     } else {
       slug = createFilePath({ node, getNode, basePath: `posts` });
     }
@@ -43,7 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `).then(result => {
+    `).then((result) => {
       if (result.errors) {
         reject(result.errors);
       }

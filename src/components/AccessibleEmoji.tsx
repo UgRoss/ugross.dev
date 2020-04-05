@@ -1,17 +1,17 @@
 import React from 'react';
 
-interface IProps {
-  /** Emoji itself 😊 */
-  value: string;
-  /** Emoji description */
+interface AccessibleEmojiProps {
+  emoji: string;
   description: string;
   style?: React.CSSProperties;
 }
 
-const Emoji: React.FC<IProps> = ({ value, description, ...props }: IProps) => (
+export const AccessibleEmoji: React.FC<AccessibleEmojiProps> = ({
+  emoji,
+  description,
+  ...props
+}) => (
   <span role="img" aria-label={description} {...props}>
-    {value}
+    {emoji}
   </span>
 );
-
-export default Emoji;
