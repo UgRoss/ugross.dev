@@ -1,0 +1,36 @@
+.ProfileHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include small-breakpoint {
+    flex-direction: row;
+  }
+}
+
+.ProfileHeader__avatar {
+  width: 100%;
+  max-width: 8rem;
+  border-radius: 100%;
+  margin-right: 2rem;
+}
+
+.ProfileHeader__title {
+  font-size: 1.5rem;
+  color: var(--tertiary-color);
+
+  @include medium-breakpoint {
+    font-size: 2rem;
+  }
+}
+
+.ProfileHeader__subtitle {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  font-weight: normal;
+  @include font-jetbrains;
+
+  @include medium-breakpoint {
+    font-size: 1rem;
+  }
+}

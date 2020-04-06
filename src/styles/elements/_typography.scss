@@ -1,0 +1,94 @@
+/* Typography
+  =============== */
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--title-color);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+  font-weight: 800;
+}
+
+.h4,
+.h5,
+.h6 {
+  font-weight: 700;
+}
+
+h1,
+.h1 {
+  font-size: 2rem;
+}
+h2,
+.h2 {
+  font-size: 1.6rem;
+}
+h3,
+.h3 {
+  font-size: 1.4rem;
+}
+h4,
+.h4 {
+  font-size: 1.2rem;
+}
+h5,
+.h5 {
+  font-size: 1rem;
+}
+h6,
+.h6 {
+  font-size: 0.8rem;
+}
+
+// Paragraphs
+p {
+  margin: 0 0 $line-height / 1.4;
+  line-height: $line-height;
+}
+
+// Semantic text elements
+a,
+ins,
+u {
+  text-decoration-skip: ink edges;
+}
+
+abbr[title] {
+  border-bottom: 0.05rem dotted;
+  cursor: help;
+  text-decoration: none;
+}
+
+kbd {
+  border-radius: 0.1rem;
+  line-height: 1.2;
+  padding: 0.1rem 0.2rem;
+
+  background: #303742;
+  color: #fff;
+
+  font-size: 0.7rem;
+}
+
+mark {
+  background: #ffe9b3;
+  color: var(--text-color);
+
+  border-radius: 0.1rem;
+  padding: 0.05rem;
+}

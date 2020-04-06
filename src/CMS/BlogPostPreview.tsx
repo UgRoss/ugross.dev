@@ -1,18 +1,18 @@
 import React from 'react';
 import snarkdown from 'snarkdown';
-import BlogPost from '../components/BlogPost';
-import PostAuthor from '../components/PostAuthor';
+import { Post } from '~/components/Post';
+import { PostAuthor } from '~/components/PostAuthor';
 
-interface IProps {
+interface BlogPostPreviewProps {
   entry: {
     getIn: (path: string[]) => string;
   };
   widgetFor: (widgetName: string) => any;
 }
 
-const BlogPostPreview: React.FC<IProps> = ({ entry }) => {
+const BlogPostPreview: React.FC<BlogPostPreviewProps> = ({ entry }) => {
   return (
-    <BlogPost
+    <Post
       html={snarkdown(entry.getIn(['data', 'body']))}
       title={entry.getIn(['data', 'title'])}
       pubDate="now"
@@ -20,7 +20,7 @@ const BlogPostPreview: React.FC<IProps> = ({ entry }) => {
       timeToRead={0}
     >
       <PostAuthor />
-    </BlogPost>
+    </Post>
   );
 };
 

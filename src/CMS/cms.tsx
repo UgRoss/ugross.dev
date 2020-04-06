@@ -1,5 +1,4 @@
 import CMS from 'netlify-cms-app';
-import React from 'react';
 import siteStyles from '../styles/index.scss';
 import localPreviewStyles from './style.css';
 // Preview Templates

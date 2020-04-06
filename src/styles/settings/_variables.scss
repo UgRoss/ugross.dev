@@ -1,0 +1,92 @@
+:root {
+  /** Base colors **/
+  --primary-color: hsl(200, 88%, 51%);
+  --secondary-color: hsl(47, 91%, 66%);
+  --tertiary-color: hsl(209, 86%, 20%);
+
+  --text-color: hsl(218, 16%, 27%);
+  --title-color: hsl(0, 0%, 13%);
+  --link-color: var(--primary-color);
+  --link-hover-background: hsla(200, 88%, 50%, 0.1);
+  --selection-color: hsla(47, 91%, 66%, 0.5);
+  --muted-text-color: hsla(0, 0%, 0%, 0.6);
+  --background: hsl(0, 0%, 100%);
+  --separator-color: hsl(0, 0%, 93%);
+  --hero-background: hsl(0, 0%, 98%);
+  --nav-background: hsl(0, 0%, 100%);
+
+  /** Tooltips */
+  --tooltip-background: #303742;
+  --tooltip-color: #fff;
+
+  /** Navigation **/
+  --nav-shadow: 1px 2px 18px rgba(0, 0, 0, 0.1);
+
+  /** Other **/
+  --font-size-small: 0.7rem;
+  --border-radius: 0.35rem;
+
+  /** Code **/
+  --inline-code-background: rgba(0, 0, 0, 0.06);
+  --inline-code-color: #111;
+}
+
+body.dark {
+  -webkit-font-smoothing: antialiased;
+
+  --primary-color: hsl(205, 94%, 75%);
+  --secondary-color: hsl(45, 100%, 51%);
+  --tertiary-color: hsl(0, 0%, 90%);
+
+  --text-color: #b3b9c5;
+  --link-color: var(--primary-color);
+  --link-hover-background: rgba(33, 38, 41, 0.8);
+  --selection-color: #90ccf4;
+  --muted-text-color: #aaa;
+  --title-color: hsl(0, 0%, 90%);
+
+  --background: hsl(0, 0%, 12%);
+  --hero-background: hsl(0, 0%, 10%);
+  --nav-background: hsl(0, 0%, 5%);
+  --separator-color: hsl(0, 0%, 20%);
+
+  /** Code **/
+  --inline-code-background: hsla(0, 0%, 100%, 0.1);
+  --inline-code-color: #b3b9c5;
+}
+
+/* =============================================
+********************** SCSS ********************
+============================================= */
+$html-font-size: 20px;
+$html-line-height: 1.5;
+$font-size: 0.8rem;
+$line-height: 1.35rem;
+$font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Helvetica, Arial,
+  sans-serif;
+
+/* Breakpoints */
+$mobile: 850px;
+$tablet: 800px;
+$desktop: 1200px;
+
+/** Code */
+$code-font-color: #b3b9c5;
+$code-font-family: 'Jetbrains Mono', Menlo, 'Roboto Mono', Courier New, monospace;
+$code-font-size: 15px;
+$code-family: Menlo, monospace;
+$code-background: transparent;
+
+$code-color-string: #92d192;
+$code-color-variable: #f2777a;
+$code-color-property: #abb2bf;
+$code-color-number: #fca369;
+$code-color-operator: #ac8d58;
+$code-color-punctuation: #d5d8df;
+$code-color-comment: #777c85;
+$code-color-function: #62cfcf;
+$code-color-keyword: #ffeead;
+$code-color-attribute: #ffd479;
+$code-color-class: #e1a6f2;
+$code-color-tag: #6ab0f3;
+$code-color-error: #f2777a;

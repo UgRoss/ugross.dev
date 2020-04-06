@@ -1,10 +1,8 @@
 import * as React from 'react';
-import styled from 'styled-components';
-
 import { Link } from 'gatsby';
-import TimeToRead from '~/components/TimeToRead';
+import { TimeToRead } from '~/components/TimeToRead';
 
-interface IProps {
+interface PostPreviewProps {
   url: string;
   title: string;
   date: string;
@@ -14,62 +12,39 @@ interface IProps {
   timeToRead?: number;
 }
 
-const PostPreview: React.FC<IProps> = ({ url, title, date, pubDate, excerpt, className, timeToRead }) => {
+export const PostPreview: React.FC<PostPreviewProps> = ({
+  url,
+  title,
+  date,
+  pubDate,
+  excerpt,
+  className = '',
+  timeToRead,
+}) => {
   return (
-    <article className={className}>
-      <header>
-        <h3>
-          <Link to={url} className="with-underline">
-            {title}
-          </Link>
-        </h3>
-        <p>
-          <small>
+    <div className={`PostPreview ${className}`}>
+      <article className="container">
+        <header>
+          <h3 className="PostPreview__title">
+            <Link to={url} className="unstyled">
+              {title}
+            </Link>
+          </h3>
+          <p className="PostPreview__meta">
             <time dateTime={pubDate || date}>{date}</time>
-          </small>
-          <span className="separator"> • </span>
-          <small>
+            <span className="separator">{' • '}</span>
             <TimeToRead minutes={timeToRead} />
-          </small>
-        </p>
-      </header>
-      <section className="content">
-        <p>{excerpt}</p>
-      </section>
-      <footer>
-        <Link to={url} className="with-underline">
-          Read this article →
-        </Link>
-      </footer>
-    </article>
+          </p>
+        </header>
+        <section>
+          <p>{excerpt}</p>
+        </section>
+        <footer>
+          <Link to={url} className="button button--tint button--with-active-color">
+            Read this article →
+          </Link>
+        </footer>
+      </article>
+    </div>
   );
 };
-
-const StyledPostPreview = styled(PostPreview)`
-  position: relative;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-
-  h3 {
-    margin-bottom: 5px;
-    color: var(--titleColor);
-  }
-
-  .separator {
-    margin: 0 5px;
-  }
-
-  a {
-    color: var(--titleLinkColor);
-  }
-
-  p {
-    margin-bottom: 10px;
-  }
-
-  &:not(:last-child) {
-    border-bottom: 1px solid var(--separatorColor);
-  }
-`;
-
-export default StyledPostPreview;

@@ -1,0 +1,34 @@
+$toggle-width: 2.5rem;
+$clip-size: 1rem;
+$clip-space-from-edge: 0.15rem;
+
+.toggle {
+  display: inline-block;
+  position: relative;
+  width: $toggle-width;
+  height: $clip-size + ($clip-space-from-edge * 2);
+  border-radius: 15px;
+  overflow: hidden;
+  background: #bcc3ce;
+  z-index: 2;
+  cursor: pointer;
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    left: $clip-space-from-edge;
+    bottom: $clip-space-from-edge;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px #f2f5f9;
+    background: #fff;
+    width: $clip-size;
+    height: $clip-size;
+    transition: transform 0.5s ease;
+  }
+}
+
+.toggle--toggled {
+  &::before {
+    transform: translateX($toggle-width - $clip-size - ($clip-space-from-edge * 2));
+  }
+}

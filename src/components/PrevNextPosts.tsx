@@ -1,16 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'gatsby';
+import { PrevNextPostLink, POST_DIRECTION } from '~/components/PrevNextPostLink';
 
-const Wrapper = styled.div`
-  margin: 20px 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-interface ISimplifiedArticle {
+interface SimplifiedArticle {
   fields: {
     slug: string;
   };
@@ -19,40 +10,33 @@ interface ISimplifiedArticle {
   };
 }
 
-interface IProps {
-  prev: ISimplifiedArticle;
-  next: ISimplifiedArticle;
+interface PrevNextPostsProps {
+  previousPost: SimplifiedArticle;
+  nextPost: SimplifiedArticle;
 }
 
-/**
- * @name PrevNextPosts
- * Render prev and next posts items for a blog post
- * @render react
- * @example
- * <PrevNextPosts
- *   prev={ { fields: {slug: '/post-1'}, frontmatter: {title: 'Hello'} } }
- * />
- */
-const PrevNextPosts = ({ prev, next }: IProps) => {
-  /** Just return nothing if both posts are missing */
-  if (!prev && !next) {
+/** Navigation to previous/next posts from the current post */
+export const PrevNextPosts: React.FC<PrevNextPostsProps> = ({ previousPost, nextPost }) => {
+  if (!previousPost && !nextPost) {
     return null;
   }
 
   return (
-    <Wrapper>
-      {prev && (
-        <Link to={prev.fields.slug} rel="prev" className="with-underline">
-          {`← ${prev.frontmatter.title}`}
-        </Link>
+    <div className="flex flex-wrap justify-between items-center mt-3 mb-3">
+      {previousPost && (
+        <PrevNextPostLink
+          link={previousPost.fields.slug}
+          direction={POST_DIRECTION.prev}
+          title={previousPost.frontmatter.title}
+        />
       )}
-      {next && (
-        <Link to={next.fields.slug} rel="next" style={{ marginLeft: 'auto' }} className="with-underline">
-          {`${next.frontmatter.title} →`}
-        </Link>
+      {nextPost && (
+        <PrevNextPostLink
+          link={nextPost.fields.slug}
+          direction={POST_DIRECTION.next}
+          title={nextPost.frontmatter.title}
+        />
       )}
-    </Wrapper>
+    </div>
   );
 };
-
-export default PrevNextPosts;

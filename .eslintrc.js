@@ -12,7 +12,7 @@ module.exports = {
     node: true,
   },
   parserOptions: {
-    ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+    ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
     ecmaFeatures: {
       jsx: true, // Allows for the parsing of JSX
@@ -22,7 +22,8 @@ module.exports = {
   rules: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
-    '@typescript-eslint/interface-name-prefix': [2, 'always'],
+    // '@typescript-eslint/interface-name-prefix': [2, 'always'],
+    'import/prefer-default-export': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
     'react/no-danger': 0,
     'react/prop-types': 'off',
@@ -31,6 +32,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     'react/static-property-placement': [2, 'static public field'],
     'react/state-in-constructor': [2, 'never'],
+    'import/extensions': ['error', 'always', { tsx: 'never', ts: 'never' }],
   },
   ignorePatterns: ['gatsby-node.js'],
   settings: {
