@@ -71,8 +71,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    `gatsby-plugin-graphql-loader`,
-    `gatsby-plugin-graphql-codegen`,
     {
       resolve: `gatsby-plugin-netlify-cms`,
       options: {

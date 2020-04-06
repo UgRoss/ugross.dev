@@ -36,14 +36,14 @@ body.dark {
 
   --primary-color: hsl(205, 94%, 75%);
   --secondary-color: hsl(45, 100%, 51%);
-  --tertiary-color: hsl(0, 0%, 100%);
+  --tertiary-color: hsl(0, 0%, 90%);
 
   --text-color: #b3b9c5;
   --link-color: var(--primary-color);
   --link-hover-background: rgba(33, 38, 41, 0.8);
   --selection-color: #90ccf4;
   --muted-text-color: #aaa;
-  --title-color: #fff;
+  --title-color: hsl(0, 0%, 90%);
 
   --background: hsl(0, 0%, 12%);
   --hero-background: hsl(0, 0%, 10%);

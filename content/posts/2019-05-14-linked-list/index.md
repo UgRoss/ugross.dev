@@ -116,6 +116,8 @@ The algorithm of linked list traversing is simple:
 
 Now let's implement our search method using this knowledge:
 
+<div class="filename">LinkedList.js</div>
+
 ```javascript
 /**
  * Finds element inside the linked list
@@ -123,7 +125,7 @@ Now let's implement our search method using this knowledge:
  * @param {number} value
  * @return {(Node | null)}
  */
-function find(value) {
+find(value) {
   if (!this.head) {
     return null;
   }
@@ -152,6 +154,8 @@ Deletion of a Node can be also implemented in different ways: first node removal
 Implementation of the first node removal is simple, we just need to update the head to point to the next Node.
 For others we need to traverse singly linked list to get to the needed point.
 Let's implement deletion by value, from this it should be also clear how to remove the last node:
+
+<div class="filename">LinkedList.js</div>
 
 ```javascript
 /**
@@ -221,6 +225,8 @@ So, in the doubly linked list we have the following:
 
 Our Node in the doubly linked list looks like the following:
 
+<div class="filename">Node.js</div>
+
 ```javascript
 class Node {
   /**
@@ -239,6 +245,8 @@ class Node {
 Doubly linked list operations are similar to the singly linked list, except that you need to keep updated `previous` pointer of a Node too.
 
 Let's take a look how our prepend method can look like for the doubly linked list:
+
+<div class="filename">DoublyLinkedList.js</div>
 
 ```javascript
 class DoublyLinkedList {
