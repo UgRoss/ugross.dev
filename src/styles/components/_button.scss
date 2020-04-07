@@ -1,5 +1,5 @@
 .button {
-  color: #363636;
+  color: var(--text-color);
   background-color: #fff;
   padding: 0.4em 0.6rem;
   border: 1px solid #dbdbdb;
@@ -23,7 +23,7 @@
   }
 
   &:visited {
-    color: #363636;
+    color: var(--text-color);
   }
 }
 
@@ -34,8 +34,7 @@
   &.button--active,
   &:hover,
   &:active,
-  &:focus,
-  &:visited {
+  &:focus {
     background-color: var(--link-hover-background);
     color: var(--link-color);
   }

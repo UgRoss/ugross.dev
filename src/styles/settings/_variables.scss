@@ -4,12 +4,12 @@
   --secondary-color: hsl(47, 91%, 66%);
   --tertiary-color: hsl(209, 86%, 20%);
 
-  --text-color: hsl(218, 16%, 27%);
-  --title-color: hsl(0, 0%, 13%);
+  --text-color: hsl(0, 0%, 33%);
+  --title-color: hsl(0, 0%, 23%);
   --link-color: var(--primary-color);
   --link-hover-background: hsla(200, 88%, 50%, 0.1);
   --selection-color: hsla(47, 91%, 66%, 0.5);
-  --muted-text-color: hsla(0, 0%, 0%, 0.6);
+  --muted-text-color: hsla(0, 0%, 40%);
   --background: hsl(0, 0%, 100%);
   --separator-color: hsl(0, 0%, 93%);
   --hero-background: hsl(0, 0%, 98%);
@@ -38,14 +38,14 @@ body.dark {
   --secondary-color: hsl(45, 100%, 51%);
   --tertiary-color: hsl(0, 0%, 90%);
 
-  --text-color: #b3b9c5;
+  --text-color: hsl(0, 0%, 80%);
   --link-color: var(--primary-color);
   --link-hover-background: rgba(33, 38, 41, 0.8);
   --selection-color: #90ccf4;
-  --muted-text-color: #aaa;
+  --muted-text-color: hsl(0, 0%, 60%);
   --title-color: hsl(0, 0%, 90%);
 
-  --background: hsl(0, 0%, 12%);
+  --background: hsl(0, 0%, 14%);
   --hero-background: hsl(0, 0%, 10%);
   --nav-background: hsl(0, 0%, 5%);
   --separator-color: hsl(0, 0%, 20%);

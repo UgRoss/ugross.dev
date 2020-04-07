@@ -3,15 +3,14 @@
 }
 
 .BlogPost header {
-  padding-bottom: 5rem;
-  padding-top: 10rem;
+  padding-bottom: 4rem;
+  padding-top: 8rem;
   position: relative;
 
   h1 {
     color: var(--title-color);
     font-weight: 800;
-    font-size: 4em;
-    font-family: 'Playfair Display', serif;
+    font-size: 3em;
   }
 
   &:after {
