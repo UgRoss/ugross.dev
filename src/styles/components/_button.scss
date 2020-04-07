@@ -10,6 +10,7 @@
   border-radius: 0.35rem;
   text-decoration: none;
   transition: background, background-color 0.2s ease;
+  outline: none;
 
   &:hover,
   &:active,
@@ -24,6 +25,10 @@
 
   &:visited {
     color: var(--text-color);
+  }
+
+  &:focus {
+    box-shadow: none;
   }
 }
 

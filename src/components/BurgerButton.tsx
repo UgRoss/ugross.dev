@@ -5,10 +5,14 @@ interface BurgerButtonProps {
   onClick: () => void;
   toggled: boolean;
 }
+type HTMLButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 
-export const BurgerButton: React.FC<
-  BurgerButtonProps & React.HTMLAttributes<HTMLButtonElement>
-> = ({ toggled, onClick, className = '', ...props }) => {
+export const BurgerButton: React.FC<BurgerButtonProps & HTMLButtonProps> = ({
+  toggled,
+  onClick,
+  className = '',
+  ...props
+}) => {
   return (
     <button
       type="button"

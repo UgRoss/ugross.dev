@@ -65,7 +65,7 @@ const styles = [
   'background: orange',
   'color: white',
   'font-size: 30px',
-  'font-weight: bold',
+  'font-weight: 700',
   'padding: 20px',
 ].join(';');
 

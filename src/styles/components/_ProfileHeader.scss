@@ -27,7 +27,7 @@
 .ProfileHeader__subtitle {
   color: var(--primary-color);
   font-size: 0.8rem;
-  font-weight: normal;
+  font-weight: 400;
   @include font-jetbrains;
 
   @include medium-breakpoint {

@@ -21,7 +21,7 @@ const HTML: React.FC<HTMLProps> = ({ headComponents, body, postBodyComponents })
         <link
           rel="stylesheet"
           type="text/css"
-          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400"
+          href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
         />
 
         {headComponents}

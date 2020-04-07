@@ -1,6 +1,7 @@
 .DarkModeToggle {
   @extend .toggle;
   background: #636b78;
+  outline: none;
 
   img:first-of-type {
     position: absolute;
