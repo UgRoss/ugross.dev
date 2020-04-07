@@ -1,13 +1,14 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
 
-import Layout from '~/components/Layout';
-import PostAuthor from '~/components/PostAuthor';
-import PrevNextPosts from '~/components/PrevNextPosts';
-import BlogPost from '~/components/BlogPost';
-import SEO from '~/components/SEO';
+import { Layout } from '~/components/Layout';
+import { PostAuthor } from '~/components/PostAuthor';
+import { PrevNextPosts } from '~/components/PrevNextPosts';
+import { Post as BlogPost } from '~/components/Post';
+import { SEO } from '~/components/SEO';
+import { siteConfig } from '~/config/site.config';
 
-interface IProps {
+interface PostProps {
   className?: string;
   pageContext: IGraphQL.PageContext;
   data: {
@@ -15,12 +16,13 @@ interface IProps {
   };
 }
 
-const Post = ({ className, pageContext, data }: IProps) => {
+export const Post = ({ className, pageContext, data }: PostProps) => {
   const { frontmatter, html, timeToRead, excerpt } = data.markdownRemark;
+  const pageTitle = `${frontmatter.title} - ${siteConfig.name}`;
 
   return (
-    <Layout className={className} footer={false}>
-      <SEO title={frontmatter.title} description={excerpt || ''} slug={pageContext.slug} />
+    <Layout className={className} showFooter={false}>
+      <SEO title={pageTitle} description={excerpt || ''} slug={pageContext.slug} />
       <BlogPost
         title={frontmatter.title}
         date={frontmatter.date}
@@ -29,13 +31,11 @@ const Post = ({ className, pageContext, data }: IProps) => {
         html={html}
       >
         <PostAuthor />
-        <PrevNextPosts prev={pageContext.previous} next={pageContext.next} />
+        <PrevNextPosts previousPost={pageContext.previous} nextPost={pageContext.next} />
       </BlogPost>
     </Layout>
   );
 };
-
-export default Post;
 
 export const query = graphql`
   query($slug: String!) {
@@ -51,3 +51,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default Post;

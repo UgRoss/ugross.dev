@@ -27,6 +27,8 @@ The last Node in a linked list is called the **Tail**, this part isn't necessary
 
 First of all, we need to create a **Node** class for our list:
 
+<div class="filename">Node.js</div>
+
 ```javascript
 class Node {
   /**
@@ -41,6 +43,8 @@ class Node {
 ```
 
 Next, let's create a class called `LinkedList` that contains the head and the tail with the values `null` by default.
+
+<div class="filename">LinkedList.js</div>
 
 ```javascript
 class LinkedList {
@@ -61,6 +65,8 @@ Now, let's add some methods one by one to our `LinkedList` class. The main actio
 
 Based on requirements linked list insertion methods can be different.
 For example, if you need to insert values only to the start of the linked list, we simply need to update the **head** of our list, and **tail** if it's empty:
+
+<div class="filename">LinkedList.js</div>
 
 ```javascript
 /**
@@ -110,6 +116,8 @@ The algorithm of linked list traversing is simple:
 
 Now let's implement our search method using this knowledge:
 
+<div class="filename">LinkedList.js</div>
+
 ```javascript
 /**
  * Finds element inside the linked list
@@ -117,7 +125,7 @@ Now let's implement our search method using this knowledge:
  * @param {number} value
  * @return {(Node | null)}
  */
-function find(value) {
+find(value) {
   if (!this.head) {
     return null;
   }
@@ -146,6 +154,8 @@ Deletion of a Node can be also implemented in different ways: first node removal
 Implementation of the first node removal is simple, we just need to update the head to point to the next Node.
 For others we need to traverse singly linked list to get to the needed point.
 Let's implement deletion by value, from this it should be also clear how to remove the last node:
+
+<div class="filename">LinkedList.js</div>
 
 ```javascript
 /**
@@ -215,6 +225,8 @@ So, in the doubly linked list we have the following:
 
 Our Node in the doubly linked list looks like the following:
 
+<div class="filename">Node.js</div>
+
 ```javascript
 class Node {
   /**
@@ -233,6 +245,8 @@ class Node {
 Doubly linked list operations are similar to the singly linked list, except that you need to keep updated `previous` pointer of a Node too.
 
 Let's take a look how our prepend method can look like for the doubly linked list:
+
+<div class="filename">DoublyLinkedList.js</div>
 
 ```javascript
 class DoublyLinkedList {
@@ -280,7 +294,6 @@ Full code implementation is available at the end of the article.
 | Deletion                        | O(n)       |
 
 <sup>**N** is the length of Linked List</sup>
-
 
 Code:
 

@@ -1,0 +1,45 @@
+.PostAuthor {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-top: 1px solid var(--separator-color);
+  padding: 1rem 0;
+  margin: 2rem 0;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--separator-color);
+
+  @include small-breakpoint {
+    align-items: center;
+  }
+}
+
+.PostAuthor__avatar {
+  border-radius: 100%;
+  margin-right: 0.5rem;
+  width: 100%;
+  max-width: 2rem;
+}
+
+.PostAuthor__name {
+  display: block;
+  margin-bottom: 0.1rem;
+  color: inherit;
+
+  &:hover,
+  &:active,
+  &:visited {
+    color: inherit;
+  }
+}
+
+.PostAuthor__description {
+  color: var(--muted-text-color);
+  font-size: 0.8em;
+  line-height: 1.5em;
+  margin-bottom: 0;
+  &:hover,
+  &:active,
+  &:visited {
+    color: var(--muted-text-color);
+  }
+}

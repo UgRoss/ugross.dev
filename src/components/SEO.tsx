@@ -1,70 +1,40 @@
-import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
+import { siteConfig } from '~/config/site.config';
 
-const query = graphql`
-  query GetSiteMetadata {
-    site {
-      siteMetadata {
-        title
-        author
-        description
-        siteUrl
-        social {
-          twitter
-        }
-      }
-    }
-  }
-`;
-
-interface IProps {
+interface SEOProps {
   description?: string;
   image?: string;
   slug?: string;
   title: string;
 }
 
-class SEO extends React.PureComponent<IProps> {
-  public static defaultProps = {
-    slug: '',
-  };
+export const SEO: React.FC<SEOProps> = ({ slug = '', title, description, image, children }) => {
+  const metaDescription = description || siteConfig.defaultDescription;
+  const metaImage = image ? `${siteConfig.siteUrl}/${image}` : null;
+  const metaTitle = title || siteConfig.defaultTitle;
+  const url = `${siteConfig.siteUrl}${slug}`;
 
-  private renderComponent = (data: any) => {
-    const { image, title, description, slug, children } = this.props;
+  return (
+    <Helmet>
+      <html lang="en" />
 
-    const { siteMetadata } = data.site;
-    const metaDescription = description || siteMetadata.description;
-    const metaImage = image ? `${siteMetadata.siteUrl}/${image}` : null;
-    const url = `${siteMetadata.siteUrl}${slug}`;
+      <title>{metaTitle}</title>
 
-    return (
-      <Helmet title={`%s - ${siteMetadata.title}`} defaultTitle={siteMetadata.title}>
-        <html lang="en" />
+      <meta property="og:url" content={url} />
+      <meta property="og:title" content={metaTitle} />
 
-        {title && <title>{title}</title>}
+      <meta name="description" content={metaDescription} />
+      <meta name="og:description" content={metaDescription} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:creator" content={siteConfig.twitter} />
+      <meta name="twitter:title" content={metaTitle} />
+      <meta name="twitter:description" content={metaDescription} />
 
-        <meta property="og:url" content={url} />
-        <meta property="og:title" content={title || siteMetadata.title} />
+      {metaImage && <meta property="og:image" content={metaImage} />}
+      {metaImage && <meta property="twitter:image" content={metaImage} />}
 
-        <meta name="description" content={metaDescription} />
-        <meta name="og:description" content={metaDescription} />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:creator" content={siteMetadata.social.twitter} />
-        <meta name="twitter:title" content={title || siteMetadata.title} />
-        <meta name="twitter:description" content={metaDescription} />
-
-        {metaImage && <meta property="og:image" content={metaImage} />}
-        {metaImage && <meta property="twitter:image" content={metaImage} />}
-
-        {children}
-      </Helmet>
-    );
-  };
-
-  public render() {
-    return <StaticQuery query={query} render={this.renderComponent} />;
-  }
-}
-
-export default SEO;
+      {children}
+    </Helmet>
+  );
+};

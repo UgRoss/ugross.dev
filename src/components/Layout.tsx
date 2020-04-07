@@ -1,47 +1,34 @@
 import * as React from 'react';
-import styled from 'styled-components';
-
-import Footer from './Footer';
-import Nav from './Nav';
-
+import { Footer } from '~/components/Footer';
+import { Navbar } from '~/components/Navbar';
 import '~/styles/index.scss';
 
-interface IProps {
+interface LayoutProps {
+  /**
+   * Render Header
+   * @default true
+   */
+  showHeader?: boolean;
+  /**
+   * Render Footer
+   * @default true
+   */
+  showFooter?: boolean;
+
   children: React.ReactNode;
   className?: string;
-  /**
-   * Display footer
-   * @default true
-   */
-  footer?: boolean;
-  /**
-   * Display header
-   * @default true
-   */
-  header?: boolean;
 }
 
-/** Layout Wrapper */
-const Wrapper = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px 10px;
-  @media (min-width: 500px) {
-    padding: 0 40px 20px;
-  }
-`;
-
-/**
- * @name Layout
- * @description Main Layout component
- * @example <Layout>Hello</Layout>
- */
-const Layout: React.FunctionComponent<IProps> = ({ footer = true, header = true, className, children }) => (
-  <Wrapper className={className}>
-    {header && <Nav />}
-    <div style={{ paddingTop: '100px' }}>{children}</div>
-    {footer && <Footer />}
-  </Wrapper>
+/** Main Layout */
+export const Layout: React.FunctionComponent<LayoutProps> = ({
+  showHeader = true,
+  showFooter = true,
+  className = '',
+  children,
+}) => (
+  <div className={className}>
+    {showHeader && <Navbar />}
+    {children}
+    {showFooter && <Footer />}
+  </div>
 );
-
-export default Layout;

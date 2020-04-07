@@ -1,33 +1,27 @@
 import * as React from 'react';
-import Helmet from 'react-helmet';
-import styled from 'styled-components';
 import { Link } from 'gatsby';
-import Layout from '~/components/Layout';
-import Emoji from '~/components/AccessibleEmoji';
-
-const Wrapper = styled.div`
-  text-align: center;
-  a {
-    font-weight: bold;
-  }
-`;
+import { Layout } from '~/components/Layout';
+import { AccessibleEmoji } from '~/components/AccessibleEmoji';
+import { SEO } from '~/components/SEO';
 
 const NotFoundPage = () => (
-  <Layout header={false} footer={false}>
-    <Helmet title="404: The page could not be found" />
-    <Wrapper>
+  <Layout showHeader={false} showFooter={false}>
+    <SEO title="404: The page could not be found" />
+    <div className="text-center flex flex-col items-center justify-center h-screen">
       <div style={{ fontSize: '3rem', marginBottom: '10px' }}>
-        <Emoji value="😱" description="Face Screaming in Fear" style={{ fontSize: '3rem' }} />
+        <AccessibleEmoji
+          emoji="😱"
+          description="Face Screaming in Fear"
+          style={{ fontSize: '3rem' }}
+        />
       </div>
-      <h2>Whoops! This page doesn&rsquo;t exist.</h2>
+      <h2>Whoops! This page does not exist.</h2>
       <p>
         {'Not to worry. You can return to the '}
         <Link to="/">homepage</Link>
-        {' or to my '}
-        <Link to="/blog">blog</Link>
         <span>.</span>
       </p>
-    </Wrapper>
+    </div>
   </Layout>
 );
 

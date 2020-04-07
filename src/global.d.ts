@@ -30,18 +30,17 @@ declare module 'snarkdown' {
   interface Links {
     [index: string]: string;
   }
-  export default function(urlStr: string, prevLinks?: Links): string;
+
+  export default function parse(md: string, prevLinks?: Links): string;
 }
 
-// TODO: maybe replace with apollo client:codegen or graphql-code-generator
 declare namespace IGraphQL {
-  /* eslint-disable @typescript-eslint/interface-name-prefix */
   // Frontmatter
   interface Frontmatter {
     date: string;
     pubDate?: string;
     title: string;
-    // tags: string[];
+    spoiler?: string;
   }
   // POST
   interface Post {
@@ -65,5 +64,4 @@ declare namespace IGraphQL {
     next: Post;
     slug: string;
   }
-  /* eslint-enable @typescript-eslint/interface-name-prefix */
 }

@@ -1,0 +1,20 @@
+.container {
+  max-width: 100%;
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include small-breakpoint {
+    max-width: 600px;
+  }
+
+  @include medium-breakpoint {
+    max-width: 800px;
+  }
+
+  @include large-breakpoint {
+    max-width: 850px;
+  }
+}

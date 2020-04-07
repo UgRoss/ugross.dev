@@ -1,0 +1,48 @@
+// Lists
+ul,
+ol {
+  margin: 0.8rem 0 0.8rem 0.8rem;
+  padding: 0;
+
+  ul,
+  ol {
+    margin: 0.4rem 0 0.6rem 0.8rem;
+  }
+
+  li {
+    margin-top: 0.4rem;
+  }
+}
+
+ul {
+  list-style: disc inside;
+
+  ul {
+    list-style-type: circle;
+  }
+}
+
+ol {
+  list-style: decimal inside;
+
+  ol {
+    list-style-type: lower-alpha;
+  }
+}
+
+dl {
+  dt {
+    font-weight: 700;
+  }
+  dd {
+    margin: 0.4rem 0 0.8rem 0;
+  }
+}
+
+li li {
+  margin: 0;
+}
+
+li > p:last-of-type {
+  margin-bottom: 0;
+}

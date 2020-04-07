@@ -1,35 +1,32 @@
-import { graphql, Link } from 'gatsby';
+import { Link } from 'gatsby';
 import * as React from 'react';
 import Mailto from 'react-protected-mailto';
-import styled from 'styled-components';
 
-import Layout from '~/components/Layout';
-import Profile from '~/components/Profile';
-import SEO from '~/components/SEO';
-import SocialLinksList from '~/components/SocialLinksList';
-import Tools from '~/components/Tools';
-import Emoji from '~/components/AccessibleEmoji';
+import { Layout } from '~/components/Layout';
+import { ProfileHeader } from '~/components/ProfileHeader';
+import { SEO } from '~/components/SEO';
+import { SocialLinksList } from '~/components/SocialLinksList';
+import { MainTools } from '~/components/MainTools';
+import { AccessibleEmoji } from '~/components/AccessibleEmoji';
+import { siteConfig } from '~/config/site.config';
 
-const Title = styled.h3`
-  margin: 30px 0 10px;
-  font-size: 1.2em;
-`;
-
-/**
- * @name IndexPage
- * @description Renders index page
- */
 const IndexPage: React.FC = () => {
+  const pageTitle = `${siteConfig.name} - ${siteConfig.jobTitle}`;
+
   return (
     <Layout>
-      <SEO title="Rostyslav Ugryniuk" />
-      <Profile />
-      <div className="wrapper">
-        <section className="about">
-          <Title>
-            <Emoji value="👨🏼‍💻" description="Laptop Emoji" />
-            {' Who the hell am I?'}
-          </Title>
+      <SEO title={pageTitle} />
+      <div className="hero">
+        <div className="container">
+          <ProfileHeader />
+        </div>
+      </div>
+      <div className="container">
+        <section className="about" style={{ marginBottom: '2rem' }}>
+          <h3 className="text-lg">
+            <AccessibleEmoji emoji="👨🏼‍💻" description="Laptop Emoji" />
+            {' A little about myself...'}
+          </h3>
           <p>
             {`I'm Ross, a front-end developer, and CS degree student, currently
             Living in Ukraine 🇺🇦. On a daily basis, I work on front-end projects
@@ -37,19 +34,19 @@ const IndexPage: React.FC = () => {
             I enjoy traveling and snowboarding.`}
           </p>
         </section>
-        <section className="about">
-          <Title>
-            <Emoji value="⚒️" description="Tools Emoji" />
+        <section className="about" style={{ marginBottom: '2rem' }}>
+          <h3 className="text-lg">
+            <AccessibleEmoji emoji="⚒️" description="Tools Emoji" />
             {' Tools'}
-          </Title>
-          <Tools />
+          </h3>
+          <MainTools />
           <p>Emmet, Jest, Next.js, GatsbyJS, Git, MobX, GraphQL, Pug, SASS, and more...</p>
         </section>
-        <section className="about">
-          <Title>
-            <Emoji value="📝" description="Notes Emoji" />
+        <section className="about" style={{ marginBottom: '2rem' }}>
+          <h3 className="text-lg">
+            <AccessibleEmoji emoji="📝" description="Notes Emoji" />
             {' Blog'}
-          </Title>
+          </h3>
           <p>
             {'My latest blog post can be found on '}
             <Link to="/blog" className="with-underline">
@@ -67,13 +64,13 @@ const IndexPage: React.FC = () => {
             .
           </p>
         </section>
-        <section className="about">
-          <Title>
-            <Emoji value="✉️" description="Notes Emoji" />
+        <section className="about" style={{ marginBottom: '2rem' }}>
+          <h3 className="text-lg">
+            <AccessibleEmoji emoji="✉️" description="Notes Emoji" />
             {' Want to discuss something?'}
-          </Title>
+          </h3>
           <p>
-            Don’t hesitate to drop me an email on
+            {'Don’t hesitate to drop me an email on '}
             <Mailto email="contact@ugross.dev" className="with-underline" />
             {', or contact me via my social profiles: '}
             <SocialLinksList />
@@ -84,20 +81,5 @@ const IndexPage: React.FC = () => {
     </Layout>
   );
 };
-
-/** Get site meta to use */
-export const query = graphql`
-  query indexQuery {
-    site {
-      siteMetadata {
-        socialLinks {
-          facebook
-          linkedin
-          github
-        }
-      }
-    }
-  }
-`;
 
 export default IndexPage;

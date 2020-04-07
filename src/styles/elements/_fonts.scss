@@ -1,0 +1,22 @@
+@font-face {
+  font-family: callingcode-regular;
+  src: url(/fonts/CallingCode-Regular.eot);
+  src: url(/fonts/CallingCode-Regular.eot#iefix) format('embedded-opentype'),
+    url(/fonts/CallingCode-Regular.ttf) format('truetype'),
+    url(/fonts/CallingCode-Regular.woff) format('woff'),
+    url(/fonts/CallingCode-Regular.svg#CallingCode-Regular) format('svg');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Jetbrains Mono';
+  src: url(/fonts/JetBrainsMono-Regular.eot);
+  src: url(/fonts/JetBrainsMono-Regular.eot) format('embedded-opentype'),
+    url(/fonts/JetBrainsMono-Regular.woff) format('woff'),
+    url(/fonts/JetBrainsMono-Regular.woff2) format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
