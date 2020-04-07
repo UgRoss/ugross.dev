@@ -6,6 +6,7 @@ import { PostAuthor } from '~/components/PostAuthor';
 import { PrevNextPosts } from '~/components/PrevNextPosts';
 import { Post as BlogPost } from '~/components/Post';
 import { SEO } from '~/components/SEO';
+import { siteConfig } from '~/config/site.config';
 
 interface PostProps {
   className?: string;
@@ -17,10 +18,11 @@ interface PostProps {
 
 export const Post = ({ className, pageContext, data }: PostProps) => {
   const { frontmatter, html, timeToRead, excerpt } = data.markdownRemark;
+  const pageTitle = `${frontmatter.title} - ${siteConfig.name}`;
 
   return (
     <Layout className={className} showFooter={false}>
-      <SEO title={frontmatter.title} description={excerpt || ''} slug={pageContext.slug} />
+      <SEO title={pageTitle} description={excerpt || ''} slug={pageContext.slug} />
       <BlogPost
         title={frontmatter.title}
         date={frontmatter.date}

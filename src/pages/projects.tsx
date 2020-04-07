@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { Layout } from '~/components/Layout';
 import { SEO } from '~/components/SEO';
+import { siteConfig } from '~/config/site.config';
 
 const Projects: React.FC = () => {
+  const pageTitle = `Projects - ${siteConfig.name}`;
+
   return (
     <Layout>
-      <SEO title="My Projects" />
+      <SEO title={pageTitle} />
       <div className="hero">
         <div className="container">
           <h1 className="text-center font-jetbrains">

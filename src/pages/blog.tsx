@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Layout } from '~/components/Layout';
 import { PostPreview } from '~/components/PostPreview';
 import { SEO } from '~/components/SEO';
+import { siteConfig } from '~/config/site.config';
 
 interface BlogProps {
   data: {
@@ -12,9 +13,11 @@ interface BlogProps {
 }
 
 export const Blog: React.FC<BlogProps> = ({ data: { posts } }) => {
+  const pageTitle = `Blog - ${siteConfig.name}`;
+
   return (
     <Layout>
-      <SEO title="Blog" />
+      <SEO title={pageTitle} />
       <div className="hero mb-0">
         <div className="container">
           <h1 className="text-center font-jetbrains">

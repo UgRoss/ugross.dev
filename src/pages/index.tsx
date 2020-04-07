@@ -8,11 +8,14 @@ import { SEO } from '~/components/SEO';
 import { SocialLinksList } from '~/components/SocialLinksList';
 import { MainTools } from '~/components/MainTools';
 import { AccessibleEmoji } from '~/components/AccessibleEmoji';
+import { siteConfig } from '~/config/site.config';
 
 const IndexPage: React.FC = () => {
+  const pageTitle = `${siteConfig.name} - ${siteConfig.jobTitle}`;
+
   return (
     <Layout>
-      <SEO title="Rostyslav Ugryniuk" />
+      <SEO title={pageTitle} />
       <div className="hero">
         <div className="container">
           <ProfileHeader />
