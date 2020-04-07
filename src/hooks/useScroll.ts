@@ -7,14 +7,14 @@ const getPosition = () => ({
 });
 
 export const useScroll = (throttleTimeout = 500) => {
-  const [position, setPosition] = useState(getPosition());
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handler = throttle(() => setPosition(getPosition), throttleTimeout);
-    window.addEventListener('scroll', handler);
+    const scrollHandler = throttle(() => setPosition(getPosition), throttleTimeout);
+    window.addEventListener('scroll', scrollHandler);
 
     return () => {
-      window.removeEventListener('scroll', handler);
+      window.removeEventListener('scroll', scrollHandler);
     };
   }, []);
 
