@@ -1,10 +1,10 @@
 module.exports = {
-  parser: '@typescript-eslint/parser', // Specifies the ESLint parser
+  parser: '@typescript-eslint/parser',
   extends: [
     'airbnb',
-    'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+    'plugin:@typescript-eslint/recommended',
     'plugin:import/typescript',
-    'prettier/@typescript-eslint', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
+    'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
   ],
   env: {
@@ -12,17 +12,14 @@ module.exports = {
     node: true,
   },
   parserOptions: {
-    ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
-    sourceType: 'module', // Allows for the use of imports
+    ecmaVersion: 2020,
+    sourceType: 'module',
     ecmaFeatures: {
-      jsx: true, // Allows for the parsing of JSX
+      jsx: true,
     },
   },
   plugins: ['react'],
   rules: {
-    // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-    // e.g. "@typescript-eslint/explicit-function-return-type": "off",
-    // '@typescript-eslint/interface-name-prefix': [2, 'always'],
     'import/prefer-default-export': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
     'react/no-danger': 0,
@@ -37,7 +34,7 @@ module.exports = {
   ignorePatterns: ['gatsby-node.js'],
   settings: {
     react: {
-      version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
+      version: 'detect',
     },
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],

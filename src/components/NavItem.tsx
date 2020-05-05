@@ -23,7 +23,7 @@ export const NavItem: React.FC<NavItemProps> = memo(
         'button--active': isActive,
       });
 
-      return { class: itemClassName };
+      return { className: itemClassName };
     };
 
     return (
