@@ -1,36 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useLocalStorage } from 'react-use';
 import { supportsDarkMode } from '~/utils';
 
 export enum Theme {
   LIGHT = 'light',
   DARK = 'dark',
-  LOCAL_STORAGE_KEY = 'theme',
+}
+
+enum ThemeLocalStorageKey {
+  LIGHT = 'theme:light',
+  DARK = 'theme:dark',
 }
 
 export const useDarkMode = (): [Theme, React.Dispatch<React.SetStateAction<Theme>>, () => void] => {
-  const [theme, setTheme] = useState(Theme.LIGHT);
-  const [localStorageTheme, setLocalStorageTheme] = useLocalStorage(Theme.LOCAL_STORAGE_KEY, null);
+  const isSystemAppearanceDark = supportsDarkMode();
 
-  useEffect(() => {
-    const isDark = localStorageTheme === Theme.DARK;
-    const darkEnabled = localStorageTheme !== Theme.LIGHT && supportsDarkMode();
-
-    if (isDark || darkEnabled) {
-      setTheme(Theme.DARK);
-    }
-  }, []);
+  const [activeTheme, setActiveTheme] = useLocalStorage(
+    isSystemAppearanceDark ? ThemeLocalStorageKey.DARK : Theme.LIGHT,
+    isSystemAppearanceDark ? Theme.DARK : Theme.LIGHT
+  );
 
   /** Listen for changes in LS and save to state */
   useEffect(() => {
-    setLocalStorageTheme(theme);
-    document.body.classList[theme === Theme.DARK ? 'add' : 'remove']('dark');
-  }, [theme]);
+    document.body.classList[activeTheme === Theme.DARK ? 'add' : 'remove']('dark');
+  }, [activeTheme]);
 
   /** Utility to simply toggle theme */
-  const toggleTheme = () => {
-    setTheme(theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
-  };
+  const toggleTheme = () => setActiveTheme(activeTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
 
-  return [theme, setTheme, toggleTheme];
+  return [activeTheme, setActiveTheme, toggleTheme];
 };
