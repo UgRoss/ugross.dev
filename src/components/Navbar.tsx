@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { NavItem } from '~/components/NavItem';
 import { BurgerButton } from '~/components/BurgerButton';
 import { DarkModeToggle } from '~/components/DarkModeToggle';
+import { NoSSR } from '~/components/NoSSR';
 import { siteConfig } from '~/config/site.config';
 import { useScroll } from '~/hooks/useScroll';
 
@@ -23,7 +24,9 @@ export const Navbar: React.FC = () => {
           onClick={() => toggleNav(!navToggled)}
           className="Navbar__toggler"
         />
-        <DarkModeToggle />
+        <NoSSR>
+          <DarkModeToggle />
+        </NoSSR>
         <div className={classNames('Navbar__collapse', { 'Navbar__collapse--show': navToggled })}>
           <ul className="Navbar__nav">
             {siteConfig.navItems.map(({ href, name, partiallyActive }) => (
