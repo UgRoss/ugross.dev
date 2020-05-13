@@ -16,7 +16,7 @@ export const useDarkMode = (): [Theme, React.Dispatch<React.SetStateAction<Theme
   const isSystemAppearanceDark = supportsDarkMode();
 
   const [activeTheme, setActiveTheme] = useLocalStorage(
-    isSystemAppearanceDark ? ThemeLocalStorageKey.DARK : Theme.LIGHT,
+    isSystemAppearanceDark ? ThemeLocalStorageKey.DARK : ThemeLocalStorageKey.LIGHT,
     isSystemAppearanceDark ? Theme.DARK : Theme.LIGHT
   );
 
