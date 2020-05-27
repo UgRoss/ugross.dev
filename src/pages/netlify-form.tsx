@@ -29,7 +29,14 @@ const NetlifyForm: React.FC<NetlifyFormProps> = ({ location }) => {
 
   return (
     <div>
-      <form name="contact" data-netlify="true" onSubmit={handleFormSubmit}>
+      <form
+        name="contact"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleFormSubmit}
+      >
+        <input type="hidden" name="form-name" value="contact" />
+
         <p>
           <label htmlFor="name">
             Your Name:
