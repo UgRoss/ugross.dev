@@ -13,7 +13,7 @@ const NetlifyForm: React.FC<NetlifyFormProps> = ({ location }) => {
 
     const formData = new FormData(e.currentTarget);
     const axiosReqConfig: AxiosRequestConfig = {
-      url: '/',
+      url: e.currentTarget.action,
       method: 'post',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: new URLSearchParams(formData as any).toString(),
