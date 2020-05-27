@@ -1,11 +1,35 @@
 import React from 'react';
+import axios, { AxiosRequestConfig } from 'axios';
 
-interface NetlifyFormProps {}
+interface NetlifyFormProps {
+  location: {
+    pathname: string;
+  };
+}
 
-const NetlifyForm: React.FC<NetlifyFormProps> = () => {
+const NetlifyForm: React.FC<NetlifyFormProps> = ({ location }) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const axiosReqConfig: AxiosRequestConfig = {
+      url: '/',
+      method: 'post',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: new URLSearchParams(formData as any).toString(),
+    };
+
+    try {
+      await axios(axiosReqConfig);
+      alert('SUCCESS!');
+    } catch (_err) {
+      alert('error!');
+    }
+  };
+
   return (
     <div>
-      <form name="contact" method="POST" data-netlify="true">
+      <form name="contact" data-netlify="true" onSubmit={handleFormSubmit}>
         <p>
           <label htmlFor="name">
             Your Name:
