@@ -12,7 +12,7 @@ interface NetlifyFormProps {
 }
 
 const NetlifyForm: React.FC<NetlifyFormProps> = ({ location }) => {
-  const pageTitle = `${siteConfig.name} - ${siteConfig.jobTitle} | Contact Me`;
+  const pageTitle = `Contact - ${siteConfig.name}`;
 
   return (
     <Layout>
