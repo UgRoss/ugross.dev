@@ -59,7 +59,6 @@
     "react-dom": "^16.13.1",
     "react-feather": "^2.0.8",
     "react-helmet": "^6.0.0",
-    "react-protected-mailto": "^1.0.3",
     "react-use": "^14.2.0",
     "snarkdown": "^1.2.2",
     "styled-components": "^5.1.0"
