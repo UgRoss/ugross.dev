@@ -2,14 +2,14 @@
   color: var(--text-color);
   background-color: #fff;
   padding: 0.4em 0.6rem;
-  border: 1px solid #dbdbdb;
+  border: 1px solid var(--button-border-color);
   cursor: pointer;
   text-align: center;
   justify-content: center;
   white-space: nowrap;
   border-radius: 0.35rem;
   text-decoration: none;
-  transition: background, background-color 0.2s ease;
+  transition: background, background-color 0.35s ease;
   outline: none;
 
   &:hover,
@@ -29,6 +29,37 @@
 
   &:focus {
     box-shadow: none;
+  }
+
+  &--block {
+    width: 100%;
+    display: block;
+  }
+
+  &--md {
+    font-size: 1.05em;
+    padding: 0.55em 0.6rem;
+  }
+
+  &--lg {
+    font-size: 1.1em;
+    padding: 0.65em 0.6rem;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.button--primary {
+  background-color: var(--button-primary-background);
+  color: var(--button-text-color);
+  text-transform: uppercase;
+  border-radius: 0.2rem;
+
+  &:hover:not(.button--disabled) {
+    background-color: var(--button-primary-hover-background);
   }
 }
 

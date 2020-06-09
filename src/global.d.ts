@@ -24,7 +24,6 @@ declare module '*.css' {
 }
 
 declare module 'netlify-cms-app';
-declare module 'react-protected-mailto';
 
 declare module 'snarkdown' {
   interface Links {

@@ -1,6 +1,5 @@
 import { Link } from 'gatsby';
 import * as React from 'react';
-import Mailto from 'react-protected-mailto';
 
 import { Layout } from '~/components/Layout';
 import { ProfileHeader } from '~/components/ProfileHeader';
@@ -70,8 +69,8 @@ const IndexPage: React.FC = () => {
             {' Want to discuss something?'}
           </h3>
           <p>
-            {'Don’t hesitate to drop me an email on '}
-            <Mailto email="contact@ugross.dev" className="with-underline" />
+            {'Don’t hesitate to drop me a message using the '}
+            <Link to="/contact">contact page</Link>
             {', or contact me via my social profiles: '}
             <SocialLinksList />
             <span>.</span>

@@ -29,6 +29,22 @@
   /** Code **/
   --inline-code-background: rgba(0, 0, 0, 0.06);
   --inline-code-color: #111;
+
+  /** Button **/
+  --button-text-color: #fff;
+  --button-border-color: hsl(211, 27%, 70%);
+  --button-primary-background: var(--primary-color);
+  --button-primary-hover-background: hsla(200, 88%, 51%, 0.8);
+
+  /** Forms **/
+  --input-background: #fff;
+  --input-text-color: var(--text-color);
+  --input-border-color: hsl(211, 27%, 70%);
+  --input-focused-shadow-color: hsla(205, 76%, 39%);
+
+  /** Alerts **/
+  --alert-error-background: #f8d7da;
+  --alert-success-background: #d4edda;
 }
 
 body.dark {
@@ -53,6 +69,21 @@ body.dark {
   /** Code **/
   --inline-code-background: hsla(0, 0%, 100%, 0.1);
   --inline-code-color: #b3b9c5;
+
+  /** Button **/
+  --button-primary-background: hsl(203, 87%, 34%);
+  --button-primary-hover-background: hsl(204, 96%, 27%);
+  --button-border-color: hsl(211, 39%, 23%);
+
+  /** Forms **/
+  --input-text-color: var(--text-color);
+  --input-background: hsl(220, 30%, 20%);
+  --input-border-color: hsl(209, 28%, 39%);
+  --input-focused-shadow-color: hsla(205, 76%, 39%);
+
+  /** Alerts **/
+  --alert-error-background: #4f3133;
+  --alert-success-background: #1d3522;
 }
 
 /* =============================================
