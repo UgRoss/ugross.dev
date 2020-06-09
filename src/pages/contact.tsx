@@ -26,10 +26,6 @@ const NetlifyForm: React.FC<NetlifyFormProps> = ({ location }) => {
         </div>
       </div>
       <div className="container" style={{ maxWidth: '500px' }}>
-        <p className="text-center">
-          {`If you want to say hi just go for it!! Don't be shy. I am a friendly person, you 'll
-          see...😊`}
-        </p>
         <ContactForm />
       </div>
     </Layout>

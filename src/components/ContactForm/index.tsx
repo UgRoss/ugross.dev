@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+import { useCookie } from 'react-use';
 import classNames from 'classnames';
 import axios, { AxiosRequestConfig } from 'axios';
+import { ContactSuccessAlert } from './ContactSuccessAlert';
+import { ContactErrorAlert } from './ContactErrorAlert';
 
 export const ContactForm: React.FC = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [contactFormCookie, updateContactFormCookie] = useCookie('contact-form');
+  const [error, setError] = useState<boolean>(false);
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,13 +24,18 @@ export const ContactForm: React.FC = () => {
 
     try {
       await axios(axiosReqConfig);
-      alert('SUCCESS!');
+      setError(false);
+      updateContactFormCookie('submitted', { expires: 1 });
     } catch (_err) {
-      alert('error!');
+      setError(true);
     } finally {
       setLoading(false);
     }
   };
+
+  if (contactFormCookie) {
+    return <ContactSuccessAlert />;
+  }
 
   return (
     <div>
@@ -72,6 +82,7 @@ export const ContactForm: React.FC = () => {
             />
           </label>
         </p>
+        {error && <ContactErrorAlert />}
         <p>
           <button
             type="submit"
