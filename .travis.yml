@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '13.7.0'
+  - '14.4.0'
 
 cache: npm
 
