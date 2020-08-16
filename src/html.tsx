@@ -1,4 +1,5 @@
 import React from 'react';
+import { siteConfig } from './config/site.config';
 
 interface HTMLProps {
   headComponents: React.ReactElement | React.ReactElement[];
@@ -10,6 +11,7 @@ const HTML: React.FC<HTMLProps> = ({ headComponents, body, postBodyComponents })
   return (
     <html lang="en">
       <head>
+        <title>{siteConfig.defaultTitle}</title>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
 
