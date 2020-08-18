@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLocalStorage } from 'react-use';
+import useLocalStorage from 'react-use/esm/useLocalStorage';
 import { supportsDarkMode } from '~/utils';
 
 export enum Theme {
