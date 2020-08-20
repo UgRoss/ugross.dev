@@ -8,7 +8,7 @@ import { siteConfig } from '~/config/site.config';
 
 interface BlogProps {
   data: {
-    posts: IGraphQL.AllMarkdownRemark;
+    posts: IGraphQL.AllMdx;
   };
 }
 
@@ -44,7 +44,7 @@ export const Blog: React.FC<BlogProps> = ({ data: { posts } }) => {
 
 export const query = graphql`
   query {
-    posts: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    posts: allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
         node {

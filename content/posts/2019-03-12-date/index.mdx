@@ -1,6 +1,7 @@
 ---
 title: 'Dates in JavaScript'
 date: '2019-03-12'
+spoiler: ''
 ---
 
 ![Code](./code.png)
@@ -64,7 +65,7 @@ const unixTimestamp = 1552413600;
 new Date(unixTimestamp * 1000); // Tue Mar 12 2019 20:00:00 GMT+0200
 ```
 
-<br/>
+<br />
 
 ###### 4. new Date('date string')
 
@@ -177,9 +178,9 @@ Probably, you will think about combining the get methods of the date object and 
 
 ```javascript
 /** Adds leading zero */
-const pad = num => String(num).padStart(2, 0);
+const pad = (num) => String(num).padStart(2, 0);
 
-const convertDate = dateString => {
+const convertDate = (dateString) => {
   const date = new Date(dateString);
   return `${pad(date.getDate())}/${pad(date.getMonth())}/${date.getFullYear()}`;
 };
@@ -191,7 +192,7 @@ After a few seconds of thinking, you can realize that it's possible to create an
 
 ```javascript
 /** Adds leading zero */
-const pad = num => String(num).padStart(2, 0);
+const pad = (num) => String(num).padStart(2, 0);
 
 const months = [
   'January',
@@ -208,7 +209,7 @@ const months = [
   'December',
 ];
 
-const convertDate = dateString => {
+const convertDate = (dateString) => {
   const date = new Date(dateString);
   return `${pad(date.getDate())}.${months[date.getMonth()]}.${date.getFullYear()}`;
 };
@@ -217,7 +218,7 @@ const convertDate = dateString => {
 Looks pretty long and complicated, isn't? But we can make it simpler, let's rewrite our functions using the `toLocaleDateString()` method. This method allows us to format and localize a date using different options.
 
 ```javascript
-const convertDate = dateString =>
+const convertDate = (dateString) =>
   new Date(dateString).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'numeric',
@@ -228,7 +229,7 @@ console.log(convertDate('2019-02-12')); // -> 12/02/2019
 ```
 
 ```javascript
-const convertDate = dateString =>
+const convertDate = (dateString) =>
   new Date(dateString).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
@@ -255,7 +256,7 @@ if (date1 > date2) {
 }
 ```
 
-<br/>
+<br />
 
 But you can't simply compare two dates for equality using `===` or `==`. A date is an object, and that means that JS will compare dates by their reference and not values.
 
@@ -275,7 +276,7 @@ console.log(`Dates difference: ${date1.getTime() - date2.getTime()}`); // --> Da
 
 It's also possible to compare dates by parts using methods explained in the "[Get a date](#get-a-date)" section
 
-<br/>
+<br />
 
 ## Questions/Tasks
 
@@ -283,8 +284,8 @@ It's also possible to compare dates by parts using methods explained in the "[Ge
 
 <details>
   <summary>Answer (1)</summary>
-  
-  We will get the 1970 year. JS is calculation date in milliseconds starting from the 1st Jan 1970.
+
+We will get the 1970 year. JS is calculation date in milliseconds starting from the 1st Jan 1970.
 
 </details>
 
@@ -353,7 +354,7 @@ console.log(timeAgo(unixTimestamp - 365 * 24 * 60 * 60)); // -> "Mar 14, 2018"
  * @param {numer} unixDate - UNIX timestamp
  * @return {string}
  */
-const timeAgo = unixDate => {
+const timeAgo = (unixDate) => {
   const date = new Date(unixDate * 1000);
   const secondsDiff = (Date.now() - date) / 1000;
 

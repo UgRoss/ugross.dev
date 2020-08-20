@@ -10,8 +10,9 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 // tslint:disable:object-literal-sort-keys
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
+  const isNodeMarkdown = node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx';
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (isNodeMarkdown) {
     const postSlug = get(node, 'frontmatter.slug', null);
     const postTitle = get(node, 'frontmatter.title', null);
 
@@ -31,27 +32,33 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
-            }
+    const MARKDOWN_FRAGMENT = `
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
           }
         }
       }
+    `;
+
+    graphql(`
+      {
+        allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
+          ${MARKDOWN_FRAGMENT}
+        }
+      }
     `).then((result) => {
-      if (result.errors) {
-        reject(result.errors);
+      const { data, errors } = result;
+
+      if (errors) {
+        reject(errors);
       }
 
-      const posts = result.data.allMarkdownRemark.edges;
+      const posts = data.allMdx.edges;
 
       posts.forEach(({ node }, index) => {
         const previous = index === posts.length - 1 ? null : posts[index + 1].node;
@@ -61,11 +68,8 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve('./src/templates/Post.tsx'),
           path: node.fields.slug,
           context: {
-            // Previous/Next posts
             previous,
             next,
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
             slug: node.fields.slug,
           },
         });
@@ -74,18 +78,3 @@ exports.createPages = ({ graphql, actions }) => {
     });
   });
 };
-
-/**
- * ⚠️ Aliasing replaced with the 'gatsby-plugin-alias-imports' plugin, because somehow
- * this part of code doesn't work with 'gatsby-plugin-netlify-cms'. Seems it's applied
- * later than this plugin, so it can't resolve files properly.
- */
-// exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
-//   actions.setWebpackConfig({
-//     resolve: {
-//       alias: {
-//         '~': path.resolve(__dirname, 'src'),
-//       },
-//     },
-//   });
-// };

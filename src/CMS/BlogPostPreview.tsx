@@ -1,7 +1,8 @@
 import React from 'react';
-import snarkdown from 'snarkdown';
-import { Post } from '~/components/Post';
+// import snarkdown from 'snarkdown';
+// import { Post } from '~/components/Post';
 import { PostAuthor } from '~/components/PostAuthor';
+import { CatchError } from './CatchError';
 
 interface BlogPostPreviewProps {
   entry: {
@@ -11,16 +12,20 @@ interface BlogPostPreviewProps {
 }
 
 const BlogPostPreview: React.FC<BlogPostPreviewProps> = ({ entry }) => {
+  console.log('entr', entry);
   return (
-    <Post
-      html={snarkdown(entry.getIn(['data', 'body']))}
-      title={entry.getIn(['data', 'title'])}
-      pubDate="now"
-      date="now"
-      timeToRead={0}
-    >
+    <CatchError>
       <PostAuthor />
-    </Post>
+    </CatchError>
+    // <Post
+    //   body={snarkdown(entry.getIn(['data', 'body']))}
+    //   title={entry.getIn(['data', 'title'])}
+    //   pubDate="now"
+    //   date="now"
+    //   timeToRead={0}
+    // >
+    //   <PostAuthor />
+    // </Post>
   );
 };
 
