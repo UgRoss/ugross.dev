@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { MDXProvider } from '@mdx-js/react';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { TimeToRead } from '~/components/TimeToRead';
 
 interface PostProps {
@@ -9,7 +11,7 @@ interface PostProps {
   date: string;
   /** Time to read in minutes */
   timeToRead: number;
-  html: string;
+  body: string;
   children: React.ReactElement | React.ReactElement[];
   className?: string;
 }
@@ -20,7 +22,7 @@ export const Post: React.FC<PostProps> = ({
   pubDate,
   date,
   timeToRead,
-  html,
+  body,
   className = '',
   ...props
 }) => {
@@ -41,7 +43,9 @@ export const Post: React.FC<PostProps> = ({
         </div>
       </header>
       <div className="container">
-        <div className="BlogPost__content" dangerouslySetInnerHTML={{ __html: html }} />
+        <MDXProvider>
+          <MDXRenderer>{body}</MDXRenderer>
+        </MDXProvider>
         {children}
       </div>
     </div>
