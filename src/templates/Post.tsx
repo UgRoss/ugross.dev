@@ -12,12 +12,12 @@ interface PostProps {
   className?: string;
   pageContext: IGraphQL.PageContext;
   data: {
-    markdownRemark: IGraphQL.Post;
+    mdx: IGraphQL.Post;
   };
 }
 
 export const Post = ({ className, pageContext, data }: PostProps) => {
-  const { frontmatter, html, timeToRead, excerpt } = data.markdownRemark;
+  const { frontmatter, body, timeToRead, excerpt } = data.mdx;
   const pageTitle = `${frontmatter.title} - ${siteConfig.name}`;
 
   return (
@@ -28,7 +28,7 @@ export const Post = ({ className, pageContext, data }: PostProps) => {
         date={frontmatter.date}
         pubDate={frontmatter.pubDate}
         timeToRead={timeToRead}
-        html={html}
+        body={body}
       >
         <PostAuthor />
         <PrevNextPosts previousPost={pageContext.previous} nextPost={pageContext.next} />
@@ -39,8 +39,8 @@ export const Post = ({ className, pageContext, data }: PostProps) => {
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       timeToRead
       excerpt
       frontmatter {
