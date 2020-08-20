@@ -1,4 +1,3 @@
-// tslint:disable:object-literal-sort-keys
 module.exports = {
   siteMetadata: {
     siteLanguage: 'en',
@@ -74,13 +73,5 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    {
-      resolve: `gatsby-plugin-netlify-cms`,
-      options: {
-        modulePath: `${__dirname}/src/CMS/cms.tsx`,
-        htmlTitle: `Ross - Content Manager`,
-        htmlFavicon: `${__dirname}/static/favicon.png`,
-      },
-    },
   ],
 };
