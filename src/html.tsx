@@ -1,4 +1,5 @@
 import React from 'react';
+import { siteConfig } from './config/site.config';
 
 interface HTMLProps {
   headComponents: React.ReactElement | React.ReactElement[];
@@ -10,14 +11,14 @@ const HTML: React.FC<HTMLProps> = ({ headComponents, body, postBodyComponents })
   return (
     <html lang="en">
       <head>
+        <title>{siteConfig.defaultTitle}</title>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
 
         {/* Mobile Meta */}
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="HandheldFriendly" content="True" />
 
-        {/* Styles'n'Scripts */}
+        {/* Styles and Scripts */}
         <link
           rel="stylesheet"
           type="text/css"

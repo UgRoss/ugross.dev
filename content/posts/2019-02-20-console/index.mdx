@@ -27,6 +27,7 @@ console.log('String', 123, { foo: 'bar' }, [1, 2, 3]);
 ```
 
 ![console.log output](./list-of-params.png)
+
 <br />
 
 **String Substitutions**
@@ -106,7 +107,7 @@ console.log('⬇ console.dir:');
 console.dir(link);
 ```
 
-<img src="./console-dir.gif" alt="console.dir in action" width="100%"/>
+<img src="./console-dir.gif" alt="console.dir in action" width="100%" />
 
 However, we can get the same using `console.log` method and object placeholder:
 
@@ -114,7 +115,7 @@ However, we can get the same using `console.log` method and object placeholder:
 console.log('%o', document.body);
 ```
 
-<br>
+<br />
 
 ### console.group()
 
@@ -150,7 +151,7 @@ console.groupEnd();
 console.groupEnd();
 ```
 
-<img src="./console-group.gif" alt="console.group in action" width="100%"/>
+<img src="./console-group.gif" alt="console.group in action" width="100%" />
 
 As you can see it’s also possible to create groups inside groups.
 
@@ -169,7 +170,7 @@ console.time('array parsing');
 console.timeEnd('array parsing'); // -> array parsing: 2.5419921875ms
 ```
 
-<br>
+<br />
 
 ### console.count()
 
@@ -185,7 +186,12 @@ To clear counter we can use `console.countReset(label)`
 console.countReset('Document Clicks');
 ```
 
-<img src="./console-count.gif" alt="console.count() in action" width="100%" style="margin-bottom: 20px;"/>
+<img
+  src="./console-count.gif"
+  alt="console.count() in action"
+  width="100%"
+  style="margin-bottom: 20px;"
+/>
 
 ### console.clear()
 

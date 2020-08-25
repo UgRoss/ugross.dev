@@ -1,16 +1,17 @@
-// tslint:disable:object-literal-sort-keys
 module.exports = {
   siteMetadata: {
     siteLanguage: 'en',
-    siteUrl: 'https://ugross.space',
+    siteUrl: 'https://ugross.dev',
   },
   plugins: [
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
           '~': 'src',
+          '@ui': 'src/ui',
         },
       },
     },
@@ -28,9 +29,10 @@ module.exports = {
       options: { name: `posts`, path: `${__dirname}/content/posts/` },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
           // gatsby-remark-relative-images must go before gatsby-remark-images
           { resolve: `gatsby-remark-relative-images` },
           {
@@ -71,13 +73,5 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    {
-      resolve: `gatsby-plugin-netlify-cms`,
-      options: {
-        modulePath: `${__dirname}/src/CMS/cms.tsx`,
-        htmlTitle: `Ross - Content Manager`,
-        htmlFavicon: `${__dirname}/static/favicon.png`,
-      },
-    },
   ],
 };

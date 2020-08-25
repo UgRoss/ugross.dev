@@ -9,26 +9,31 @@ import typescriptImg from '~/images/tools/typescript.png';
 
 import avatar from '~/images/avatar.jpg';
 
+const NAME = 'Rostyslav Ugryniuk';
+const JOB_TITLE = 'Front-end Developer';
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const siteConfig = {
-  name: 'Rostyslav Ugryniuk',
-  jobTitle: 'Front-end Developer',
-  shortBio: 'Front-end Developer and CS student. Living and coding in Ukraine.',
+  name: NAME,
+  jobTitle: JOB_TITLE,
+  shortBio: `${JOB_TITLE} and CS student. Living and coding in Ukraine.`,
   email: 'contact@ugross.dev',
   avatar,
   // SEO
   siteUrl: 'https://ugross.space',
   twitter: '@ug_ross',
   siteLanguage: 'en',
-  defaultDescription: 'Front-end Developer and CS student. Living and coding in Ukraine.',
-  defaultTitle: 'Rostyslav Ugryniuk | Front-end Developer',
+  defaultDescription: `${JOB_TITLE} and CS student. Living and coding in Ukraine.`,
+  defaultTitle: `${NAME} | ${JOB_TITLE}`,
   // Navigation items
   navItems: [
     { href: '/', name: 'About', partiallyActive: false },
     { href: '/blog', name: 'Blog', partiallyActive: true },
     { href: '/projects', name: 'Projects', partiallyActive: false },
+    { href: '/contact', name: 'Contact', partiallyActive: false },
   ],
   // Footer text
-  footerText: '',
+  footerText: `© Copyright ${CURRENT_YEAR} ${NAME}`,
   socialLinks: [
     { name: 'facebook', url: 'https://www.facebook.com/ugr.ross' },
     { name: 'github', url: 'https://github.com/UgRoss' },
