@@ -4,16 +4,16 @@ import * as React from 'react';
 import { Layout } from '~/components/Layout';
 import { PostAuthor } from '~/components/PostAuthor';
 import { PrevNextPosts } from '~/components/PrevNextPosts';
-import { Post as BlogPost } from '~/components/Post';
+import { BlogPost } from '~/components/BlogPost';
 import { SEO } from '~/components/SEO';
 import { siteConfig } from '~/config/site.config';
 
 interface PostProps {
-  className?: string;
   pageContext: IGraphQL.PageContext;
   data: {
     mdx: IGraphQL.Post;
   };
+  className?: string;
 }
 
 export const Post = ({ className, pageContext, data }: PostProps) => {
@@ -35,6 +35,10 @@ export const Post = ({ className, pageContext, data }: PostProps) => {
       </BlogPost>
     </Layout>
   );
+};
+
+Post.defaultProps = {
+  className: '',
 };
 
 export const query = graphql`
