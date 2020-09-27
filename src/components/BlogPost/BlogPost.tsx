@@ -1,9 +1,11 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { TimeToRead } from '~/components/TimeToRead';
+import './BlogPost.scss';
 
-interface PostProps {
+interface BlogPostProps {
   title: string;
   /** Date to use inside <time> tag */
   pubDate: string;
@@ -16,18 +18,20 @@ interface PostProps {
   className?: string;
 }
 
-export const Post: React.FC<PostProps> = ({
+export const BlogPost: React.FC<BlogPostProps> = ({
   children,
   title,
   pubDate,
   date,
   timeToRead,
   body,
-  className = '',
+  className,
   ...props
 }) => {
+  const postClassName = classNames('BlogPost', className);
+
   return (
-    <div className={`BlogPost ${className}`} {...props}>
+    <div className={postClassName} {...props}>
       <header>
         <div className="container">
           <h1>{title}</h1>
@@ -35,14 +39,14 @@ export const Post: React.FC<PostProps> = ({
             <small>
               <time dateTime={pubDate}>{date}</time>
             </small>
-            <span> • </span>
+            <span>{' • '}</span>
             <small>
               <TimeToRead minutes={timeToRead} />
             </small>
           </section>
         </div>
       </header>
-      <div className="container">
+      <div className="BlogPost__content container">
         <MDXProvider>
           <MDXRenderer>{body}</MDXRenderer>
         </MDXProvider>

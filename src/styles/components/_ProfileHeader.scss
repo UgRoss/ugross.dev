@@ -17,6 +17,10 @@
   @include small-breakpoint {
     margin-right: 0;
   }
+
+  @include medium-breakpoint {
+    margin-right: 2rem;
+  }
 }
 
 .ProfileHeader__title {
