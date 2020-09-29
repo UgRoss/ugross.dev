@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import { NavItem } from '~/components/NavItem';
 import { BurgerButton } from '~/components/BurgerButton';
-import { DarkModeToggle } from '~/components/DarkModeToggle';
+import { DarkModeToggle } from '~/components/DarkModeToggle/DarkModeToggle';
 import { NoSSR } from '~/components/NoSSR';
 import { siteConfig } from '~/config/site.config';
 import { useScroll } from '~/hooks/useScroll';
+import { NavItem } from './NavItem';
+import './Navbar.scss';
 
 export const Navbar: React.FC = () => {
   const [navToggled, toggleNav] = useState(false);
@@ -24,9 +25,11 @@ export const Navbar: React.FC = () => {
           onClick={() => toggleNav(!navToggled)}
           className="Navbar__toggler"
         />
+
         <NoSSR>
           <DarkModeToggle />
         </NoSSR>
+
         <div className={classNames('Navbar__collapse', { 'Navbar__collapse--show': navToggled })}>
           <ul className="Navbar__nav">
             {siteConfig.navItems.map(({ href, name, partiallyActive }) => (

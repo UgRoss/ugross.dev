@@ -1,11 +1,12 @@
 import React from 'react';
 import { Menu, X } from 'react-feather';
 
+type HTMLButtonProps = React.HTMLAttributes<HTMLButtonElement>;
+
 interface BurgerButtonProps {
   onClick: () => void;
   toggled: boolean;
 }
-type HTMLButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 
 export const BurgerButton: React.FC<BurgerButtonProps & HTMLButtonProps> = ({
   toggled,

@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Tooltip } from './Tooltip';
+import { Tooltip } from '../Tooltip/Tooltip';
 import { siteConfig } from '~/config/site.config';
+import './MainTools.scss';
 
 export const MainTools: React.FC = () => {
   return (

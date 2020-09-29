@@ -2,10 +2,10 @@ import { Link } from 'gatsby';
 import * as React from 'react';
 
 import { Layout } from '~/components/Layout';
-import { ProfileHeader } from '~/components/ProfileHeader';
+import { ProfileHeader } from '~/components/ProfileHeader/ProfileHeader';
 import { SEO } from '~/components/SEO';
 import { SocialLinksList } from '~/components/SocialLinksList';
-import { MainTools } from '~/components/MainTools';
+import { MainTools } from '~/components/MainTools/MainTools';
 import { AccessibleEmoji } from '~/components/AccessibleEmoji';
 import { siteConfig } from '~/config/site.config';
 
@@ -39,7 +39,7 @@ const IndexPage: React.FC = () => {
             {' Tools'}
           </h3>
           <MainTools />
-          <p>Emmet, Jest, Next.js, GatsbyJS, Git, MobX, GraphQL, Pug, SASS, and more...</p>
+          {siteConfig.secondaryToolsList.join(', ')}
         </section>
         <section className="about" style={{ marginBottom: '2rem' }}>
           <h3 className="text-lg">

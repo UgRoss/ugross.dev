@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import { TimeToRead } from '~/components/TimeToRead';
+import './PostPreview.scss';
 
 interface PostPreviewProps {
   url: string;
