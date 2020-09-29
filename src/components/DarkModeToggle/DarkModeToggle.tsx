@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { useDarkMode, Theme } from '~/hooks/useDarkMode';
 import sunImg from './assets/sun.svg';
 import moonImg from './assets/moon.svg';
+import './DarkModeToggle.scss';
 
 export const DarkModeToggle = () => {
   const [theme, , toggleTheme] = useDarkMode();

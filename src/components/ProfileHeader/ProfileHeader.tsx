@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { siteConfig } from '~/config/site.config';
 import { AccessibleEmoji } from '~/components/AccessibleEmoji';
+import './ProfileHeader.scss';
 
 export const ProfileHeader: React.FC = () => (
   <div className="ProfileHeader">

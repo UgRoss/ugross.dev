@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import { Layout } from '~/components/Layout';
-import { PostPreview } from '~/components/PostPreview';
+import { PostPreview } from '~/components/PostPreview/PostPreview';
 import { SEO } from '~/components/SEO';
 import { siteConfig } from '~/config/site.config';
 

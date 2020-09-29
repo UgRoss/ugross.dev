@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { siteConfig } from '~/config/site.config';
 import avatar from '~/images/avatar.jpg';
+import './PostAuthor.scss';
 
 /** Author block inside blog post */
 export const PostAuthor: React.FC = () => {

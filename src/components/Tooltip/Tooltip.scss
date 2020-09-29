@@ -2,7 +2,7 @@
 $unit-1: 0.2rem;
 $unit-2: 0.4rem;
 
-.tooltip {
+.Tooltip {
   position: relative;
 
   &::after {
@@ -40,7 +40,7 @@ $unit-2: 0.4rem;
     pointer-events: auto;
   }
 
-  &.tooltip--right {
+  &.Tooltip--right {
     &::after {
       bottom: 50%;
       left: 100%;
@@ -54,7 +54,7 @@ $unit-2: 0.4rem;
     }
   }
 
-  &.tooltip--bottom {
+  &.Tooltip--bottom {
     &::after {
       bottom: auto;
       top: 100%;
@@ -68,7 +68,7 @@ $unit-2: 0.4rem;
     }
   }
 
-  &.tooltip--left {
+  &.Tooltip--left {
     &::after {
       bottom: 50%;
       left: auto;
