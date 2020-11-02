@@ -53,7 +53,7 @@ const IndexPage: React.FC = () => {
             </Link>
             {', you can also check my '}
             <a
-              href="https://github.com/UgRoss/TIL"
+              href="https://til.ugross.dev"
               target="_blank"
               rel="noopener noreferrer"
               className="with-underline"
