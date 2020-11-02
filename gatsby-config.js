@@ -62,16 +62,67 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'Ross Blog',
-        /* eslint-disable @typescript-eslint/camelcase */
         short_name: 'Ross Blog',
         start_url: '/',
         background_color: '#222',
         theme_color: '#2691ff',
-        /* eslint-enable @typescript-eslint/camelcase */
         display: 'minimal-ui',
         icon: 'static/favicon.png', // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map((edge) => {
+                return {
+                  ...edge.node.frontmatter,
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                };
+              });
+            },
+            query: `
+              {
+                allMdx(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'ugRoss.dev RSS Feed',
+          },
+        ],
+      },
+    },
   ],
 };
