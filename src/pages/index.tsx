@@ -33,13 +33,12 @@ const IndexPage: React.FC = () => {
             I enjoy traveling and snowboarding.`}
           </p>
         </section>
-        <section className="about" style={{ marginBottom: '2rem' }}>
+        <section className="about" style={{ marginBottom: '1rem' }}>
           <h3 className="text-lg">
             <AccessibleEmoji emoji="⚒️" description="Tools Emoji" />
             {' Tools'}
           </h3>
           <MainTools />
-          {siteConfig.secondaryToolsList.join(', ')}
         </section>
         <section className="about" style={{ marginBottom: '2rem' }}>
           <h3 className="text-lg">
