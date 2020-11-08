@@ -42,7 +42,7 @@ export const Tooltip: React.FunctionComponent<TooltipProps> = ({
   }
 
   return React.cloneElement(childrenCopy, {
-    className: `tooltip tooltip--${placement} ${className}`,
+    className: `Tooltip Tooltip--${placement} ${className}`,
     'data-tooltip': content,
   });
 };
