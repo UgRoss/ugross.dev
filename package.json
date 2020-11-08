@@ -10,12 +10,12 @@
     "start": "gatsby develop",
     "format": "prettier --write 'src/**/*.{js,ts,tsx}'",
     "lint": "npm run lint:ts && npm run lint:css",
-    "lint:ts": "tsc --noEmit --skipLibCheck && eslint 'src/**.{js,ts,tsx}' --quiet --fix",
+    "lint:ts": "tsc --noEmit --skipLibCheck && eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
     "lint:css": "stylelint 'src/*/**.{css,scss}'"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged --check --pattern 'src/**.{js,jsx,tsx,ts,scss,css}' && lint-staged"
+      "pre-commit": "pretty-quick --staged --check --pattern 'src/**/*.{js,jsx,tsx,ts,scss,css}' && lint-staged"
     }
   },
   "lint-staged": {

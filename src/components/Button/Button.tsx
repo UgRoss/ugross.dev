@@ -10,10 +10,16 @@ type ButtonProps = React.DetailedHTMLProps<
   block?: boolean;
 };
 
-export const Button: React.FC<ButtonProps> = ({ className, block = false, disabled, ...props }) => {
+export const Button: React.FC<ButtonProps> = ({
+  className,
+  block = false,
+  disabled,
+  type = 'button',
+  ...props
+}) => {
   const buttonClass = classNames('Button Button--primary', className, {
     'Button--block': block,
     'Button--disabled': disabled,
   });
-  return <button className={buttonClass} disabled={disabled} {...props} />;
+  return <button className={buttonClass} disabled={disabled} type={type} {...props} />;
 };
