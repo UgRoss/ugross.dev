@@ -4,6 +4,8 @@ date: '2019-03-12'
 spoiler: ''
 ---
 
+import { Alert } from '../../../src/components/Alert/Alert';
+
 ![Code](./code.png)
 
 Working with dates in JS can be a complicated task. Personally, it always has been my weak part, so I decided to write a post about dates.
@@ -30,7 +32,9 @@ new Date('date string'); // date string to parse
 
 The first way to create date is to use the `new Date()`, it simply creates a date object with the current date and time by default.
 
-ℹ️ Small tip: In some cases, it might be better to use `Date.now()` instead.
+<Alert type="info">
+  <p>Small tip: In some cases, it might be better to use `Date.now()` instead.</p>
+</Alert>
 
 ###### 2. new Date(year, month...)
 
@@ -80,7 +84,9 @@ new Date('2018 March'); //Mar 1st 2018, 00:00:00
 new Date('2018 march');
 ```
 
-ℹ️ You should also remember that if you do not set timezone explicitly, the result date is relative to your current timezone.
+<Alert type="info">
+  <p>Remember that if you do not set timezone explicitly, the result date is relative to your current timezone.</p>
+</Alert>
 
 This adds us a lot of flexibility but at the same time adds more problems. For example, if we omit the leading zero you will get an invalid date value in Safari, while in Firefox and Chrome it's working. Here are examples of the invalid date in Safari:
 
@@ -167,7 +173,9 @@ d.setMonth(2); // 🕓 Mar 12 2019 ...
 d.setDate(1); // 🕓 Mar 01 2019 ...
 ```
 
-ℹ️ Using only the `setFullYear()` you can change year, month, and day together. For example: `date.setFullYear(2019, 3, 20)`
+<Alert type="info">
+  <p>Using only the <code>setFullYear()</code> it's possible to change year, month, and day together. For example: <code>date.setFullYear(2019, 3, 20)</code></p>
+</Alert>
 
 ## Format and Localize a Date
 
