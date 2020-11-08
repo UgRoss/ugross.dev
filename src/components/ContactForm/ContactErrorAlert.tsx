@@ -1,16 +1,15 @@
 import React from 'react';
 import { AccessibleEmoji } from '~/components/AccessibleEmoji';
+import { Alert, AlertTypes } from '~/components/Alert/Alert';
 
 export const ContactErrorAlert: React.FC = () => {
   return (
-    <div className="alert alert--error">
+    <Alert type={AlertTypes.DANGER}>
       <h5>
         <AccessibleEmoji emoji="😢" description="Cry emoji" />
         {' Whoops'}
       </h5>
       <p>Something went wrong. Please try again.</p>
-    </div>
+    </Alert>
   );
 };
-
-export default ContactErrorAlert;

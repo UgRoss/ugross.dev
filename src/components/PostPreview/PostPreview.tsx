@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
 import { TimeToRead } from '~/components/TimeToRead';
+import { Link } from '~/components/Link';
 import './PostPreview.scss';
 
 interface PostPreviewProps {
@@ -41,7 +41,7 @@ export const PostPreview: React.FC<PostPreviewProps> = ({
           <p>{excerpt}</p>
         </section>
         <footer>
-          <Link to={url} className="button button--tint button--with-active-color">
+          <Link to={url} appearance="button">
             Read this article →
           </Link>
         </footer>

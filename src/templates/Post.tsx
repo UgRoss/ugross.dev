@@ -1,9 +1,7 @@
+import React from 'react';
 import { graphql } from 'gatsby';
-import * as React from 'react';
-
 import { Layout } from '~/components/Layout';
 import { PostAuthor } from '~/components/PostAuthor/PostAuthor';
-import { PrevNextPosts } from '~/components/PrevNextPosts';
 import { BlogPost } from '~/components/BlogPost';
 import { SEO } from '~/components/SEO';
 import { siteConfig } from '~/config/site.config';
@@ -16,7 +14,7 @@ interface PostProps {
   className?: string;
 }
 
-export const Post = ({ className, pageContext, data }: PostProps) => {
+export const Post: React.FC<PostProps> = ({ className, pageContext, data }) => {
   const { frontmatter, body, timeToRead, excerpt } = data.mdx;
   const pageTitle = `${frontmatter.title} - ${siteConfig.name}`;
 
@@ -31,7 +29,6 @@ export const Post = ({ className, pageContext, data }: PostProps) => {
         body={body}
       >
         <PostAuthor />
-        <PrevNextPosts previousPost={pageContext.previous} nextPost={pageContext.next} />
       </BlogPost>
     </Layout>
   );

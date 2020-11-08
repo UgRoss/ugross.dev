@@ -3,6 +3,8 @@ title: 'Data Structures: Linked List'
 date: '2019-05-14'
 ---
 
+import { CodeFileName } from '../../../src/components/CodeFileName';
+
 Linked list is a linear data structure if we talk about access strategies, this means that there is a sequence and an order to how they are constructed and traversed.
 The linked list data structure is a good choice over arrays when you don't need to have random/indexed access to your data, and when you want to have efficient insertion or deletion of elements in the beginning or in the middle of a list.
 Both insertion and deletion work fast inside linked list because it doesn't require to do reindexing of elements, on the other hand accessing of an element in arrays is fast while for the linked list it takes a linear period of time to get this element.
@@ -27,7 +29,7 @@ The last Node in a linked list is called the **Tail**, this part isn't necessary
 
 First of all, we need to create a **Node** class for our list:
 
-<div className="filename">Node.js</div>
+<CodeFileName>Node.js</CodeFileName>
 
 ```javascript
 class Node {
@@ -44,7 +46,8 @@ class Node {
 
 Next, let's create a class called `LinkedList` that contains the head and the tail with the values `null` by default.
 
-<div className="filename">LinkedList.js</div>
+
+<CodeFileName>LinkedList.js</CodeFileName>
 
 ```javascript
 class LinkedList {
@@ -66,7 +69,7 @@ Now, let's add some methods one by one to our `LinkedList` class. The main actio
 Based on requirements linked list insertion methods can be different.
 For example, if you need to insert values only to the start of the linked list, we simply need to update the **head** of our list, and **tail** if it's empty:
 
-<div className="filename">LinkedList.js</div>
+<CodeFileName>LinkedList.js</CodeFileName>
 
 ```javascript
 /**
@@ -116,7 +119,7 @@ The algorithm of linked list traversing is simple:
 
 Now let's implement our search method using this knowledge:
 
-<div className="filename">LinkedList.js</div>
+<CodeFileName>LinkedList.js</CodeFileName>
 
 ```javascript
 /**
@@ -155,7 +158,7 @@ Implementation of the first node removal is simple, we just need to update the h
 For others we need to traverse singly linked list to get to the needed point.
 Let's implement deletion by value, from this it should be also clear how to remove the last node:
 
-<div className="filename">LinkedList.js</div>
+<CodeFileName>LinkedList.js</CodeFileName>
 
 ```javascript
 /**
@@ -233,7 +236,7 @@ So, in the doubly linked list we have the following:
 
 Our Node in the doubly linked list looks like the following:
 
-<div className="filename">Node.js</div>
+<CodeFileName>Node.js</CodeFileName>
 
 ```javascript
 class Node {
@@ -254,7 +257,7 @@ Doubly linked list operations are similar to the singly linked list, except that
 
 Let's take a look how our prepend method can look like for the doubly linked list:
 
-<div className="filename">DoublyLinkedList.js</div>
+<CodeFileName>DoublyLinkedList.js</CodeFileName>
 
 ```javascript
 class DoublyLinkedList {
