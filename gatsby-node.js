@@ -60,20 +60,16 @@ exports.createPages = ({ graphql, actions }) => {
 
       const posts = data.allMdx.edges;
 
-      posts.forEach(({ node }, index) => {
-        const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-        const next = index === 0 ? null : posts[index - 1].node;
-
+      posts.forEach(({ node }) =>
         createPage({
           component: path.resolve('./src/templates/Post.tsx'),
           path: node.fields.slug,
           context: {
-            previous,
-            next,
             slug: node.fields.slug,
           },
-        });
-      });
+        })
+      );
+
       resolve();
     });
   });

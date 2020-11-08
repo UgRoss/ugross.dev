@@ -62,12 +62,10 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'Ross Blog',
-        /* eslint-disable @typescript-eslint/camelcase */
         short_name: 'Ross Blog',
         start_url: '/',
         background_color: '#222',
         theme_color: '#2691ff',
-        /* eslint-enable @typescript-eslint/camelcase */
         display: 'minimal-ui',
         icon: 'static/favicon.png', // This path is relative to the root of the site.
       },

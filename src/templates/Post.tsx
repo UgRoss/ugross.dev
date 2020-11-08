@@ -3,7 +3,6 @@ import * as React from 'react';
 
 import { Layout } from '~/components/Layout';
 import { PostAuthor } from '~/components/PostAuthor/PostAuthor';
-import { PrevNextPosts } from '~/components/PrevNextPosts';
 import { BlogPost } from '~/components/BlogPost';
 import { SEO } from '~/components/SEO';
 import { siteConfig } from '~/config/site.config';
@@ -31,7 +30,6 @@ export const Post = ({ className, pageContext, data }: PostProps) => {
         body={body}
       >
         <PostAuthor />
-        <PrevNextPosts previousPost={pageContext.previous} nextPost={pageContext.next} />
       </BlogPost>
     </Layout>
   );
