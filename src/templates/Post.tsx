@@ -1,6 +1,5 @@
+import React from 'react';
 import { graphql } from 'gatsby';
-import * as React from 'react';
-
 import { Layout } from '~/components/Layout';
 import { PostAuthor } from '~/components/PostAuthor/PostAuthor';
 import { BlogPost } from '~/components/BlogPost';
@@ -15,7 +14,7 @@ interface PostProps {
   className?: string;
 }
 
-export const Post = ({ className, pageContext, data }: PostProps) => {
+export const Post: React.FC<PostProps> = ({ className, pageContext, data }) => {
   const { frontmatter, body, timeToRead, excerpt } = data.mdx;
   const pageTitle = `${frontmatter.title} - ${siteConfig.name}`;
 

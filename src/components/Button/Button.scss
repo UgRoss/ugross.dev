@@ -1,4 +1,4 @@
-.button {
+.Button {
   color: var(--text-color);
   background-color: #fff;
   padding: 0.4em 0.6rem;
@@ -52,18 +52,18 @@
   }
 }
 
-.button--primary {
+.Button--primary {
   background-color: var(--button-primary-background);
   color: var(--button-text-color);
   text-transform: uppercase;
   border-radius: 0.2rem;
 
-  &:hover:not(.button--disabled) {
+  &:hover:not(.Button--disabled) {
     background-color: var(--button-primary-hover-background);
   }
 }
 
-.button--tint {
+.Button--tint {
   background-color: transparent;
   border: none;
 
@@ -72,14 +72,6 @@
   &:active,
   &:focus {
     background-color: var(--link-hover-background);
-    color: var(--link-color);
-  }
-}
-
-.button--with-active-color {
-  color: var(--link-color);
-
-  &:visited {
     color: var(--link-color);
   }
 }

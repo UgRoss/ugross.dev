@@ -1,4 +1,4 @@
-@import '../settings';
+@import 'variables';
 
 @mixin small-breakpoint {
   @media (min-width: #{$mobile}) {

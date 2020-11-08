@@ -1,6 +1,5 @@
-import React, { memo } from 'react';
-import classNames from 'classnames';
-import { Link } from 'gatsby';
+import React from 'react';
+import { Link } from '~/components/Link';
 
 interface NavItemProps {
   href: string;
@@ -9,27 +8,13 @@ interface NavItemProps {
   className?: string;
 }
 
-interface RouterLinkProps {
-  isCurrent: boolean;
-  isPartiallyCurrent: boolean;
-  href: string;
-}
-
-export const NavItem: React.FC<NavItemProps> = memo(
-  ({ href, title, className, partiallyActive = false }) => {
-    const getProps = ({ isCurrent, isPartiallyCurrent }: RouterLinkProps) => {
-      const isActive = partiallyActive ? isPartiallyCurrent : isCurrent;
-      const itemClassName = classNames(className, 'button', 'button--tint', {
-        'button--active': isActive,
-      });
-
-      return { className: itemClassName };
-    };
-
-    return (
-      <Link to={href} getProps={getProps}>
-        {title}
-      </Link>
-    );
-  }
+export const NavItem: React.FC<NavItemProps> = ({
+  href,
+  title,
+  className,
+  partiallyActive = false,
+}) => (
+  <Link to={href} appearance="button" partiallyActive={partiallyActive}>
+    {title}
+  </Link>
 );

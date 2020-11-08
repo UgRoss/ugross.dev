@@ -27,9 +27,9 @@ export const siteConfig = {
   // Navigation items
   navItems: [
     { href: '/', name: 'About', partiallyActive: false },
-    { href: '/blog', name: 'Blog', partiallyActive: true },
-    { href: '/projects', name: 'Projects', partiallyActive: false },
-    { href: '/contact', name: 'Contact', partiallyActive: false },
+    { href: '/blog/', name: 'Blog', partiallyActive: true },
+    { href: '/projects/', name: 'Projects', partiallyActive: false },
+    { href: '/contact/', name: 'Contact', partiallyActive: false },
   ],
   // Footer text
   footerText: `© Copyright ${CURRENT_YEAR} ${NAME}`,
