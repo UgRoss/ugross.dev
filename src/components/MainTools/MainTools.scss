@@ -10,6 +10,9 @@
 
 .MainTools__toolItem {
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   img {
     border: 1px solid var(--separator-color);
@@ -24,6 +27,6 @@
   }
 
   small {
-    display: block;
+    margin-top: 5px;
   }
 }

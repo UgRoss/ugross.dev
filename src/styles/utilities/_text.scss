@@ -6,6 +6,10 @@
   @include font-jetbrains;
 }
 
+.font-bold {
+  font-weight: bold;
+}
+
 .text-xs {
   font-size: $font-size - 0.2;
 }

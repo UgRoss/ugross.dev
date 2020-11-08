@@ -34,8 +34,8 @@ export const siteConfig = {
   // Footer text
   footerText: `© Copyright ${CURRENT_YEAR} ${NAME}`,
   socialLinks: [
-    { name: 'github', url: 'https://github.com/UgRoss' },
-    { name: 'linkedin', url: 'https://www.linkedin.com/in/rostyslav-ugryniuk-7b7466102/' },
+    { name: 'GitHub', url: 'https://github.com/UgRoss' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/rostyslav-ugryniuk-7b7466102/' },
   ],
   // List of tools that I use
   mainToolsList: [
