@@ -84,7 +84,7 @@ export const ContactForm: React.FC = () => {
         </p>
         {error && <ContactErrorAlert />}
         <p>
-          <Button type="submit" size="lg" disabled={loading} block={true}>
+          <Button type="submit" size="lg" disabled={loading} block>
             Send
           </Button>
         </p>

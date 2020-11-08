@@ -14,7 +14,7 @@ export const NavItem: React.FC<NavItemProps> = ({
   className,
   partiallyActive = false,
 }) => (
-  <Link to={href} appearance="button" partiallyActive={partiallyActive}>
+  <Link to={href} appearance="button" className={className} partiallyActive={partiallyActive}>
     {title}
   </Link>
 );

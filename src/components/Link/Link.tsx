@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as GatsbyLink, GatsbyLinkProps } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby';
 import classNames from 'classnames';
 import './Link.scss';
 
@@ -8,14 +8,16 @@ interface LinkProps {
   to?: string;
   href?: string;
   className?: string;
+  partiallyActive?: boolean;
   children?: React.ReactElement | string;
 }
 
-export const Link: React.FC<LinkProps & GatsbyLinkProps<{}>> = ({
+export const Link: React.FC<LinkProps> = ({
   appearance = 'link',
   className,
   to,
   href,
+  partiallyActive = false,
   children,
   ...props
 }) => {
@@ -26,8 +28,8 @@ export const Link: React.FC<LinkProps & GatsbyLinkProps<{}>> = ({
       <GatsbyLink
         to={to}
         className={linkClassName}
-        {...(props as any)}
         activeClassName={`Link--${appearance}--active`}
+        partiallyActive={partiallyActive}
       >
         {children}
       </GatsbyLink>
