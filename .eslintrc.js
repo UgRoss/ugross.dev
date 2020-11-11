@@ -29,6 +29,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     'react/static-property-placement': [2, 'static public field'],
     'react/state-in-constructor': [2, 'never'],
+    'react/button-has-type': 0,
     'import/extensions': ['error', 'always', { tsx: 'never', ts: 'never' }],
   },
   ignorePatterns: ['gatsby-node.js', 'global.d.ts'],
