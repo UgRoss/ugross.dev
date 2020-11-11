@@ -40,7 +40,6 @@ module.exports = {
             options: { maxWidth: 800 },
           },
           { resolve: 'gatsby-remark-responsive-iframe' },
-          `gatsby-remark-autolink-headers`,
           `gatsby-remark-prismjs`,
           'gatsby-remark-copy-linked-files',
           {
