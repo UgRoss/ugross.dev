@@ -5,18 +5,15 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
           '~': 'src',
-          '@ui': 'src/ui',
         },
       },
     },
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
     `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
