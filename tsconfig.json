@@ -14,7 +14,7 @@
     "sourceMap": true,
     "noUnusedLocals": true,
     "strictNullChecks": true,
-    "types": ["styled-components/cssprop"],
+    "types": [],
     "baseUrl": "src",
     "paths": {
       "~/*": ["./*"]
