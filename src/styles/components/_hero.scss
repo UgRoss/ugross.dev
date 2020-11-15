@@ -1,6 +1,12 @@
 .hero {
-  padding-top: calc(4rem + 100px);
-  padding-bottom: 4rem;
+  padding-top: calc(3rem + 70px);
+  padding-bottom: 3rem;
   background-color: var(--hero-background);
   margin-bottom: 2rem;
+
+  @include small-breakpoint {
+    /** Add header size */
+    padding-top: calc(4rem + 100px);
+    padding-bottom: 4rem;
+  }
 }
