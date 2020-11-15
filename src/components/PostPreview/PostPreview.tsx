@@ -10,7 +10,7 @@ interface PostPreviewProps {
   pubDate?: string;
   excerpt: string;
   className?: string;
-  timeToRead?: number;
+  timeToRead: number;
 }
 
 export const PostPreview: React.FC<PostPreviewProps> = ({

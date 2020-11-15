@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import useLocalStorage from 'react-use/esm/useLocalStorage';
+import { useLocalStorage } from 'react-use';
 import { supportsDarkMode } from '~/utils';
 
 export enum Theme {
@@ -14,10 +14,11 @@ enum ThemeLocalStorageKey {
 
 export const useDarkMode = (): [Theme, React.Dispatch<React.SetStateAction<Theme>>, () => void] => {
   const isSystemAppearanceDark = supportsDarkMode();
+  const initialTheme: Theme = isSystemAppearanceDark ? Theme.DARK : Theme.LIGHT;
 
-  const [activeTheme, setActiveTheme] = useLocalStorage(
+  const [activeTheme = initialTheme, setActiveTheme] = useLocalStorage<Theme>(
     isSystemAppearanceDark ? ThemeLocalStorageKey.DARK : ThemeLocalStorageKey.LIGHT,
-    isSystemAppearanceDark ? Theme.DARK : Theme.LIGHT
+    initialTheme
   );
 
   /** Listen for changes in LS and save to state */

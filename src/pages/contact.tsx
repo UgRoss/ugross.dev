@@ -5,13 +5,7 @@ import { AccessibleEmoji } from '~/components/AccessibleEmoji';
 import { siteConfig } from '~/config/site.config';
 import { SEO } from '~/components/SEO';
 
-interface NetlifyFormProps {
-  location: {
-    pathname: string;
-  };
-}
-
-const NetlifyForm: React.FC<NetlifyFormProps> = ({ location }) => {
+const NetlifyForm: React.FC = () => {
   const pageTitle = `Contact - ${siteConfig.name}`;
 
   return (

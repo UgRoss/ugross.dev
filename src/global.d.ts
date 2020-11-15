@@ -76,7 +76,7 @@ declare namespace IGraphQL {
   // Frontmatter
   interface Frontmatter {
     date: string;
-    pubDate?: string;
+    pubDate: string;
     title: string;
     spoiler?: string;
   }
