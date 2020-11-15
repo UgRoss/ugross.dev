@@ -6,6 +6,7 @@ type ButtonProps = React.DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 > & {
+  buttonType?: 'primary' | 'tint';
   size?: 'md' | 'lg';
   block?: boolean;
 };
@@ -14,12 +15,14 @@ export const Button: React.FC<ButtonProps> = ({
   className,
   block = false,
   disabled,
+  buttonType = 'primary',
   type = 'button',
   ...props
 }) => {
-  const buttonClass = classNames('Button Button--primary', className, {
+  const buttonClass = classNames('Button', `Button--${buttonType}`, className, {
     'Button--block': block,
     'Button--disabled': disabled,
   });
+
   return <button className={buttonClass} disabled={disabled} type={type} {...props} />;
 };

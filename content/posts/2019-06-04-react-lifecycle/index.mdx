@@ -4,6 +4,8 @@ date: '2019-06-17'
 spoiler: ''
 ---
 
+import { Alert } from '../../../src/components/Alert/Alert';
+
 ![Image](./main.jpg)
 
 In this article, we are going to explore React lifecycle methods. As for me, if you want to work with the React this knowledge is crucial because you need to be able to implement component logic in the right place.
@@ -70,10 +72,9 @@ class ComponentDemo extends React.Component {
 }
 ```
 
-<div className="info-block">
+<Alert type="info">
   <p>
-    If you don't know why do we use <code>super(props)</code>, I recommend you to check this
-    article:
+    If you don't know why do we use <code>super(props)</code>, I recommend to check this article:
     <a
       href="https://overreacted.io/why-do-we-write-super-props/"
       target="_blank"
@@ -82,21 +83,19 @@ class ComponentDemo extends React.Component {
       Why Do We Write super(props)?
     </a>.
   </p>
-</div>
+</Alert>
 
-<div className="info-block">
-  <p>
-    if you use
-    <a
-      href="https://github.com/tc39/proposal-class-fields"
-      target="_blank"
-      rel="nofollow noopener noreferrer"
-    >
-      class field proposal
-    </a>
-    it might not be necessary to use the <code>constructor</code>.
-  </p>
-</div>
+<p>
+  Also, by using the{' '}
+  <a
+    href="https://github.com/tc39/proposal-class-fields"
+    target="_blank"
+    rel="nofollow noopener noreferrer"
+  >
+    class field proposal
+  </a>{' '}
+  we can remove <code>constructor</code>:
+</p>
 
 ```javascript
 class ComponentWithoutConstructor extends React.Component {
@@ -111,7 +110,9 @@ class ComponentWithoutConstructor extends React.Component {
 
   // Use arrow function for callbacks to prevent
   // Function​.prototype​.bind() usage.
-  onClick = () => {...}
+  onClick = () => {
+    /*...*/
+  };
 }
 ```
 
@@ -149,10 +150,12 @@ Our returned object is similar to if we call _this.setState_ in other non-static
 this.setState({ loading: props.loading });
 ```
 
-<div className="info-block">
-  In the current phase (mounting) it's also possible to use the <code>constructor</code> instead of
-  this method.
-</div>
+<Alert type="info">
+  <p>
+    In the current phase (mounting) it's also possible to use the <code>constructor</code> instead
+    of this method.
+  </p>
+</Alert>
 
 <br />
 
@@ -169,13 +172,13 @@ render() {
 
 As you can see in the example above, the _render()_ method returns JSX that will be used to update the DOM. It can return JSX or _null_ if nothing to display.
 
-<div className="info-block">
+<Alert type="info">
   <p>
-    You should not change your state during rendering. React requires the <code>render()</code>{' '}
-    method to be pure (it doesn't modify the state, doesn't directly interact with the browser, and
-    returns the same result for the same props and state).
+    It's not recommended to change the state during rendering. React requires the{' '}
+    <code>render()</code> method to be pure (it doesn't modify the state, doesn't directly interact
+    with the browser, and returns the same result for the same props and state).
   </p>
-</div>
+</Alert>
 
 **When to use:** return component representation using JSX.
 
@@ -208,7 +211,7 @@ It's also possible to manually run the component updating phase by using _this.f
 
 The behavior of this method is the same as described [above](#2️⃣-static-getderivedstatefromprops). You can update your state based on props here.
 
-<div className="info-block">
+<Alert type="info">
   <p>
     It's not recommended to keep your state updated based on props, as it makes your component
     difficult to think about. Try to think first if you really need this inside the state, or you
@@ -223,7 +226,7 @@ The behavior of this method is the same as described [above](#2️⃣-static-get
     </a>
     .
   </p>
-</div>
+</Alert>
 
 <br />
 
@@ -241,17 +244,19 @@ by default it's always `true`.
 
 **Usage:** This method should be used only for performance optimization.
 
-<div className="info-block">
-  You can consider using built-in{' '}
-  <a
-    href="https://reactjs.org/docs/react-api.html#reactpurecomponent"
-    target="_blank"
-    rel="nofollow noopener noreferrer"
-  >
-    React.PureComponent
-  </a>{' '}
-  instead of manually writing <code>shouldComponentUpdate</code>.
-</div>
+<Alert type="info">
+  <p>
+    You can consider using built-in{' '}
+    <a
+      href="https://reactjs.org/docs/react-api.html#reactpurecomponent"
+      target="_blank"
+      rel="nofollow noopener noreferrer"
+    >
+      React.PureComponent
+    </a>{' '}
+    instead of manually writing <code>shouldComponentUpdate</code>.
+  </p>
+</Alert>
 
 <br />
 
@@ -278,12 +283,12 @@ In many cases, you will not need this method, but sometimes it's very handy. Let
 
 **When to use:** capture information from the DOM before it's changed, for example, scroll position or cursor selection.
 
-<div className="info-block">
+<Alert type="info">
   <p>
     Even though this method isn't static it's recommended to return a value that will be passed to
     the <i>componentDidUpdate</i> instead of changing the state.
   </p>
-</div>
+</Alert>
 
 ```javascript
 getSnapshotBeforeUpdate(prevProps, prevState) {
@@ -342,12 +347,12 @@ This method should be used to perform the necessary cleanups.
 
 **When to use:** clear timers, cancel network requests, destroy 3rd party UI library elements, and so on...
 
-<div classNamee="info-block">
-  {' '}
-  You can consider it as a reverting of things we did inside <code>componentDidMount</code> or <code>
-    componentDidUpdate
-  </code>.
-</div>
+<Alert type="info">
+  <p>
+    Think about it as a reverting action for things we did inside <code>componentDidMount</code> or{' '}
+    <code>componentDidUpdate</code>.
+  </p>
+</Alert>
 
 <br />
 

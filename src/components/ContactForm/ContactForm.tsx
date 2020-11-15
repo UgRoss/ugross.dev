@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useCookie } from 'react-use';
 import axios, { AxiosRequestConfig } from 'axios';
+import { serialize } from '~/utils';
 import { Button } from '~/components/Button';
 import { ContactSuccessAlert } from './ContactSuccessAlert';
 import { ContactErrorAlert } from './ContactErrorAlert';
@@ -14,12 +15,15 @@ export const ContactForm: React.FC = () => {
     e.preventDefault();
     setLoading(true);
 
-    const formData = new FormData(e.currentTarget);
+    const name = e.currentTarget.contactName.value;
+    const email = e.currentTarget.email.value;
+    const message = e.currentTarget.message.value;
+
     const axiosReqConfig: AxiosRequestConfig = {
       url: e.currentTarget.action,
       method: 'post',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      data: new URLSearchParams(formData as any).toString(),
+      data: serialize({ name, email, message }),
     };
 
     try {
@@ -48,13 +52,13 @@ export const ContactForm: React.FC = () => {
         <input type="hidden" name="form-name" value="contact" />
 
         <p>
-          <label htmlFor="name">
+          <label htmlFor="contactName">
             <span className="label">Name</span>
             <br />
             <input
-              id="name"
+              id="contactName"
               type="text"
-              name="name"
+              name="contactName"
               placeholder="Name"
               minLength={2}
               maxLength={50}
@@ -63,7 +67,7 @@ export const ContactForm: React.FC = () => {
           </label>
         </p>
         <p>
-          <label htmlFor="name">
+          <label htmlFor="email">
             <span className="label">Email</span>
             <br />
             <input type="email" name="email" placeholder="Email" required />

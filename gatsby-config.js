@@ -5,18 +5,15 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
           '~': 'src',
-          '@ui': 'src/ui',
         },
       },
     },
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
     `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -40,7 +37,6 @@ module.exports = {
             options: { maxWidth: 800 },
           },
           { resolve: 'gatsby-remark-responsive-iframe' },
-          `gatsby-remark-autolink-headers`,
           `gatsby-remark-prismjs`,
           'gatsby-remark-copy-linked-files',
           {

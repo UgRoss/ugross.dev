@@ -1,11 +1,17 @@
+@import '../../styles/mixins';
+
 .BlogPost__content {
   margin-top: 2rem;
 }
 
 .BlogPost header {
   padding-bottom: 4rem;
-  padding-top: 8rem;
+  padding-top: 6rem;
   position: relative;
+
+  @include small-breakpoint {
+    padding-top: calc(4rem + 100px);
+  }
 
   h1 {
     color: var(--title-color);
