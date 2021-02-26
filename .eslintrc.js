@@ -31,7 +31,7 @@ module.exports = {
     'react/state-in-constructor': [2, 'never'],
     'import/extensions': ['error', 'always', { tsx: 'never', ts: 'never' }],
   },
-  ignorePatterns: ['gatsby-node.js', 'global.d.ts'],
+  ignorePatterns: ['gatsby-node.js', '**/@types/*.d.ts'],
   settings: {
     react: {
       version: 'detect',
