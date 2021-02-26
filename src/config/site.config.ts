@@ -12,6 +12,27 @@ const NAME = 'Rostyslav Ugryniuk';
 const JOB_TITLE = 'Front-end Developer';
 const CURRENT_YEAR = new Date().getFullYear();
 
+const NAV_ITEMS = [
+  { href: '/', name: 'About', partiallyActive: false },
+  { href: '/blog/', name: 'Blog', partiallyActive: true },
+  { href: '/projects/', name: 'Projects', partiallyActive: false },
+  { href: '/contact/', name: 'Contact', partiallyActive: false },
+];
+
+const SOCIAL_LINKS = [
+  { name: 'GitHub', url: 'https://github.com/UgRoss' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/rostyslav-ugryniuk-7b7466102/' },
+];
+
+const TOOLS_LIST = [
+  { name: 'JavaScript', img: jsImg },
+  { name: 'TypeScript', img: typescriptImg },
+  { name: 'React', img: reactImg },
+  { name: 'GraphQL', img: graphQlImg },
+  { name: 'Redux', img: reduxImg },
+  { name: 'NodeJS', img: nodeImg },
+];
+
 export const siteConfig = {
   name: NAME,
   jobTitle: JOB_TITLE,
@@ -25,25 +46,10 @@ export const siteConfig = {
   defaultDescription: `${JOB_TITLE} and CS student. Living and coding in Ukraine.`,
   defaultTitle: `${NAME} | ${JOB_TITLE}`,
   // Navigation items
-  navItems: [
-    { href: '/', name: 'About', partiallyActive: false },
-    { href: '/blog/', name: 'Blog', partiallyActive: true },
-    { href: '/projects/', name: 'Projects', partiallyActive: false },
-    { href: '/contact/', name: 'Contact', partiallyActive: false },
-  ],
+  navItems: NAV_ITEMS,
   // Footer text
   footerText: `© Copyright ${CURRENT_YEAR} ${NAME}`,
-  socialLinks: [
-    { name: 'GitHub', url: 'https://github.com/UgRoss' },
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/rostyslav-ugryniuk-7b7466102/' },
-  ],
+  socialLinks: SOCIAL_LINKS,
   // List of tools that I use
-  mainToolsList: [
-    { name: 'JavaScript', img: jsImg },
-    { name: 'TypeScript', img: typescriptImg },
-    { name: 'React', img: reactImg },
-    { name: 'GraphQL', img: graphQlImg },
-    { name: 'Redux', img: reduxImg },
-    { name: 'NodeJS', img: nodeImg },
-  ],
+  mainToolsList: TOOLS_LIST,
 };
