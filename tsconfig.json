@@ -3,17 +3,18 @@
     "outDir": "./dist/",
     "rootDir": "./src",
     "target": "ES5",
-    "module": "CommonJS", // Module code generation
-    "lib": ["ESNext", "DOM"], // List of library files to be included in the compilation
-    "jsx": "react", // Support JSX in .tsx files
+    "module": "CommonJS",
+    "lib": ["ESNext", "DOM"],
+    "jsx": "react",
     "noImplicitAny": true,
-    "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
-    "experimentalDecorators": true, // Enables experimental support for ES decorators
-    "esModuleInterop": true, // Disables namespace imports (import * as fs from "fs") and enables CJS/AMD/UMD style imports (import fs from "fs")
-    "moduleResolution": "node", // Resolve modules using Node.js style
-    "resolveJsonModule": true, // Include modules imported with .json extension
-    "sourceMap": true, // Generate corresponding .map file
-    "noUnusedLocals": true, // Report errors on unused locals
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "types": [],
     "baseUrl": "src",
     "paths": {
       "~/*": ["./*"]

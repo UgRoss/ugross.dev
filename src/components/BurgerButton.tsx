@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu, X } from 'react-feather';
+import { Button } from '~/components/Button';
 
 type HTMLButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 
@@ -15,13 +16,8 @@ export const BurgerButton: React.FC<BurgerButtonProps & HTMLButtonProps> = ({
   ...props
 }) => {
   return (
-    <button
-      type="button"
-      className={`button button--tint ${className}`}
-      onClick={onClick}
-      {...props}
-    >
+    <Button type="button" className={className} onClick={onClick} buttonType="tint" {...props}>
       {toggled ? <X /> : <Menu />}
-    </button>
+    </Button>
   );
 };

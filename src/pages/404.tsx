@@ -4,7 +4,7 @@ import { Layout } from '~/components/Layout';
 import { AccessibleEmoji } from '~/components/AccessibleEmoji';
 import { SEO } from '~/components/SEO';
 
-const NotFoundPage = () => (
+const NotFoundPage: React.FC = () => (
   <Layout showHeader={false} showFooter={false}>
     <SEO title="404: The page could not be found" />
     <div className="text-center flex flex-col items-center justify-center h-screen">

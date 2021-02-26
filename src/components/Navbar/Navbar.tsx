@@ -14,7 +14,7 @@ export const Navbar: React.FC = () => {
   const position = useScroll(200);
 
   useEffect(() => {
-    setScrolled(position.y > 20);
+    setScrolled(position.y > 50);
   }, [position]);
 
   return (
