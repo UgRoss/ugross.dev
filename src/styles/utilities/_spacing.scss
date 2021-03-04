@@ -1,19 +1,45 @@
-.mb-0 {
-  margin-bottom: 0 !important;
-}
-.mb-1 {
-  margin-bottom: 0.25rem;
-}
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-.mb-3 {
-  margin-bottom: 0.75rem;
-}
-.mb-4 {
-  margin-bottom: 1rem;
-}
+$spacing: (
+  '0': 0,
+  'auto': auto,
+  'xxs': var(--space-xxs),
+  'xs': var(--space-xs),
+  'sm': var(--space-sm),
+  'md': var(--space-md),
+  'lg': var(--space-lg),
+  'xl': var(--space-xl),
+  'xxl': var(--space-xxl),
+);
 
-.mt-3 {
-  margin-top: 0.75rem;
+@each $name, $value in $spacing {
+  .m-#{$name} {
+    margin: $value;
+  }
+  .mt-#{$name} {
+    margin-top: $value;
+  }
+  .mb-#{$name} {
+    margin-bottom: $value;
+  }
+  .mr-#{$name} {
+    margin-right: $value;
+  }
+  .ml-#{$name} {
+    margin-left: $value;
+  }
+
+  .p-#{$name} {
+    padding: $value;
+  }
+  .pt-#{$name} {
+    padding-top: $value;
+  }
+  .pb-#{$name} {
+    padding-bottom: $value;
+  }
+  .pr-#{$name} {
+    padding-right: $value;
+  }
+  .pl-#{$name} {
+    padding-left: $value;
+  }
 }

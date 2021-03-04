@@ -3,25 +3,64 @@
 }
 
 .font-jetbrains {
-  @include font-jetbrains;
+  font-family: 'Jetbrains Mono', sans-serif;
 }
 
-.font-bold {
-  font-weight: bold;
+.text-decoration-none {
+  &,
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited {
+    text-decoration: none;
+  }
 }
 
-.text-xs {
-  font-size: $font-size - 0.2;
+.text-reset {
+  &,
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited {
+    color: inherit;
+    font-weight: inherit;
+  }
 }
 
-.text-base {
-  font-size: $font-size;
+/** 📏 Font size utilities */
+$sizes: 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl';
+@each $size in $sizes {
+  .text-#{$size} {
+    font-size: var(--text-#{$size});
+  }
 }
 
-.text-lg {
-  font-size: $font-size + 0.2;
+/** ✒️ Font weight utilities  */
+$font-weights: (
+  'regular': 400,
+  'medium': 500,
+  'bold': 700,
+  'extrabold': 900,
+);
+
+@each $name, $weight in $font-weights {
+  .font-#{$name} {
+    font-weight: $weight;
+  }
 }
 
-.text-xl {
-  font-size: $font-size + 0.3;
+/** Text colors */
+$font-colors: (
+  'default': var(--color-text),
+  'muted': var(--color-text-muted),
+);
+
+@each $name, $color in $font-colors {
+  .text-#{$name} {
+    color: $color;
+  }
+
+  .hover:text-#{$name}:hover {
+    color: $color;
+  }
 }

@@ -1,0 +1,32 @@
+body.dark,
+[data-theme='dark'] {
+  /* Colors */
+  // page elements colors
+  --color-body: hsl(214, 9%, 16%);
+  --color-hero: hsl(214, 9%, 13%);
+  --color-nav: hsl(214, 9%, 8%);
+  // Text colors
+  --color-text: hsla(0, 0%, 100%, 0.8);
+  --color-text-heading: hsla(0, 0%, 100%, 0.95);
+  --color-text-muted: hsla(0, 0%, 70%);
+  // Buttons
+  --button-tint-color: var(--color-text);
+  --button-tint-color-hover: var(--color-primary);
+  --button-tint-background: transparent;
+  --button-tint-background-hover: rgba(15, 165, 240, 0.1);
+  // <a> colors
+  --color-link: var(--color-text);
+  --color-link-underline: hsl(0, 0%, 90%);
+  --color-link-hover: var(--color-text);
+  --color-link-underline-hover: var(--color-primary);
+  // code
+  --color-inline-code: var(--color-text-heading);
+  --color-inline-code-background: hsl(220, 10%, 25%);
+  // <table> colors
+  --color-table-border: hsl(214, 9%, 25%);
+  --color-table-head: hsl(214, 9%, 20%);
+  // Alerts
+  --color-alert-background: hsl(214, 9%, 13%);
+  // Other colors
+  --color-selection: hsla(215, 100%, 55%, 0.3);
+}
