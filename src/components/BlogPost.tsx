@@ -1,9 +1,8 @@
-import * as React from 'react';
-import classNames from 'classnames';
+import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { TimeToRead } from '~/components/TimeToRead';
-import './BlogPost.scss';
+import Hero from '~/components/Hero';
 
 interface BlogPostProps {
   title: string;
@@ -28,13 +27,13 @@ export const BlogPost: React.FC<BlogPostProps> = ({
   className,
   ...props
 }) => {
-  const postClassName = classNames('BlogPost', className);
+  timeToRead = timeToRead ?? 5;
 
   return (
-    <div className={postClassName} {...props}>
-      <header>
+    <div className={className} style={{ marginTop: '2rem' }} {...props}>
+      <Hero as="header">
         <div className="container">
-          <h1>{title}</h1>
+          <h1 className="font-extrabold mt-0">{title}</h1>
           <section>
             <small>
               <time dateTime={pubDate}>{date}</time>
@@ -45,7 +44,7 @@ export const BlogPost: React.FC<BlogPostProps> = ({
             </small>
           </section>
         </div>
-      </header>
+      </Hero>
       <div className="BlogPost__content container">
         <MDXProvider>
           <MDXRenderer>{body}</MDXRenderer>
@@ -55,3 +54,5 @@ export const BlogPost: React.FC<BlogPostProps> = ({
     </div>
   );
 };
+
+export default BlogPost;
