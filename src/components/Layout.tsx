@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Footer } from '~/components/Footer/Footer';
-import { Navbar } from '~/components/Navbar/Navbar';
+import Footer from './Footer';
+import { Navigation } from './Navigation/Navigation';
+import { siteConfig } from '~/config/site.config';
 import '~/styles/index.scss';
 
 interface LayoutProps {
@@ -26,9 +27,9 @@ export const Layout: React.FunctionComponent<LayoutProps> = ({
   className = '',
   children,
 }) => (
-  <div className={className}>
-    {showHeader && <Navbar />}
+  <div className={className} style={{ marginTop: `var(--height-navbar)` }}>
+    {showHeader && <Navigation />}
     {children}
-    {showFooter && <Footer />}
+    {showFooter && <Footer copyrightText={siteConfig.footerText} />}
   </div>
 );

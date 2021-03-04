@@ -1,15 +1,15 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
 
-import { Layout } from '~/components/Layout';
-import { PostPreview } from '~/components/PostPreview/PostPreview';
-import { SEO } from '~/components/SEO';
+import { AllPostsSortedQuery } from '~/types/graphql';
 import { siteConfig } from '~/config/site.config';
+import { Layout } from '~/components/Layout';
+import PostPreview from '~/components/PostPreview';
+import { SEO } from '~/components/SEO';
+import Hero from '~/components/Hero';
 
 interface BlogProps {
-  data: {
-    posts: IGraphQL.AllMdx;
-  };
+  data: AllPostsSortedQuery;
 }
 
 export const Blog: React.FC<BlogProps> = ({ data: { posts } }) => {
@@ -18,32 +18,31 @@ export const Blog: React.FC<BlogProps> = ({ data: { posts } }) => {
   return (
     <Layout>
       <SEO title={pageTitle} />
-      <div className="hero mb-0">
+      <Hero>
         <div className="container">
-          <h1 className="text-center font-jetbrains">
+          <h1 className="text-center font-jetbrains mt-0">
             <span className="text-secondary">{'<'}</span>
             <span className="text-tertiary">Blog</span>
             <span className="text-secondary">{' />'}</span>
           </h1>
         </div>
+      </Hero>
+      <div className="container">
+        {posts.edges.map(({ node }) => (
+          <PostPreview
+            key={node.fields.slug}
+            url={node.fields.slug}
+            title={node.frontmatter.title}
+            excerpt={node.frontmatter.spoiler || node.excerpt}
+          />
+        ))}
       </div>
-      {posts.edges.map(({ node }) => (
-        <PostPreview
-          key={node.fields.slug}
-          url={node.fields.slug}
-          title={node.frontmatter.title}
-          excerpt={node.frontmatter.spoiler || node.excerpt}
-          date={node.frontmatter.date}
-          pubDate={node.frontmatter.pubDate}
-          timeToRead={node.timeToRead}
-        />
-      ))}
     </Layout>
   );
 };
 
 export const query = graphql`
-  query {
+  query allPostsSorted {
     posts: allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
