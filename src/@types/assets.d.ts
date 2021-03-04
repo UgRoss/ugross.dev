@@ -22,3 +22,8 @@ declare module '*.css' {
   const content: any;
   export default content;
 }
+
+declare module '*.mdx' {
+  const value: string;
+  export default value;
+}
