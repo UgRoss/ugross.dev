@@ -5,6 +5,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
@@ -39,6 +40,7 @@ module.exports = {
           { resolve: 'gatsby-remark-responsive-iframe' },
           `gatsby-remark-prismjs`,
           'gatsby-remark-copy-linked-files',
+          'gatsby-remark-a11y-emoji',
           {
             resolve: 'gatsby-remark-external-links',
             options: { target: '_blank' },
