@@ -19,11 +19,8 @@ const HTML: React.FC<HTMLProps> = ({ headComponents, body, postBodyComponents })
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
         {/* Styles and Scripts */}
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital@0;1&display=swap" rel="stylesheet" />
 
         {headComponents}
 
