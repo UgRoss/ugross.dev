@@ -27,7 +27,7 @@ export const Layout: React.FunctionComponent<LayoutProps> = ({
   className = '',
   children,
 }) => (
-  <div className={className} style={{ marginTop: `var(--height-navbar)` }}>
+  <div className={`${className} h-screen flex flex-col`}>
     {showHeader && <Navbar navLinks={siteConfig.navItems} />}
     {children}
     {showFooter && <Footer copyrightText={siteConfig.footerText} />}
