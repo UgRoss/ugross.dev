@@ -5,9 +5,9 @@ const JOB_TITLE = 'Front-end Developer';
 const CURRENT_YEAR = new Date().getFullYear();
 
 const NAV_ITEMS = [
-  { href: '/', name: 'About', partiallyActive: false },
-  { href: '/blog/', name: 'Articles', partiallyActive: true },
-  { href: '/projects/', name: 'Projects', partiallyActive: false },
+  { url: '/', name: 'About', partiallyActive: false },
+  { url: '/blog/', name: 'Articles', partiallyActive: true },
+  { url: '/projects/', name: 'Projects', partiallyActive: false },
 ];
 
 const SOCIAL_LINKS = [

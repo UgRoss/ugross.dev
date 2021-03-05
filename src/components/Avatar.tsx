@@ -49,4 +49,4 @@ const Avatar: React.FC<AvatarProps> = ({ name, img, size = 2, ...props }) => {
   );
 };
 
-export default Avatar;
+export { Avatar };

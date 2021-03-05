@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '~/components/Link';
+import { Link } from '~/components/Link';
 
 interface PostPreviewProps {
   url: string;
@@ -25,5 +25,3 @@ export const PostPreview: React.FC<PostPreviewProps> = ({ url, title, excerpt, c
     </footer>
   </article>
 );
-
-export default PostPreview;

@@ -4,7 +4,7 @@ date: '2019-06-17'
 spoiler: ''
 ---
 
-import Alert from '../../../src/components/Alert';
+import { Alert } from '../../../src/components/Alert';
 
 ![Image](./main.jpg)
 
@@ -25,9 +25,8 @@ There is also one more difference between _16.3_ and _^16.4_:
 
 - **static getDerivedStateFromProps**
   <br />
-  In the version _16.3_ `getDerivedStateFromProps` is called only once new props are received, but starting
-  from the `16.4` this method is called every time regardless what caused the update (new props, _setState()_,
-  _forceUpdate()_).
+  In the version _16.3_ `getDerivedStateFromProps` is called only once new props are received, but starting from
+  the `16.4` this method is called every time regardless what caused the update (new props, _setState()_, _forceUpdate()_).
 
 ### Phases of the React component Lifecycle
 
@@ -87,11 +86,7 @@ class ComponentDemo extends React.Component {
 
 <p>
   Also, by using the{' '}
-  <a
-    href="https://github.com/tc39/proposal-class-fields"
-    target="_blank"
-    rel="nofollow noopener noreferrer"
-  >
+  <a href="https://github.com/tc39/proposal-class-fields" target="_blank" rel="nofollow noopener noreferrer">
     class field proposal
   </a>{' '}
   we can remove <code>constructor</code>:
@@ -152,8 +147,8 @@ this.setState({ loading: props.loading });
 
 <Alert type="info">
   <p>
-    In the current phase (mounting) it's also possible to use the <code>constructor</code> instead
-    of this method.
+    In the current phase (mounting) it's also possible to use the <code>constructor</code> instead of this
+    method.
   </p>
 </Alert>
 
@@ -174,9 +169,9 @@ As you can see in the example above, the _render()_ method returns JSX that will
 
 <Alert type="info">
   <p>
-    It's not recommended to change the state during rendering. React requires the{' '}
-    <code>render()</code> method to be pure (it doesn't modify the state, doesn't directly interact
-    with the browser, and returns the same result for the same props and state).
+    It's not recommended to change the state during rendering. React requires the <code>render()</code> method
+    to be pure (it doesn't modify the state, doesn't directly interact with the browser, and returns the same
+    result for the same props and state).
   </p>
 </Alert>
 
@@ -213,10 +208,9 @@ The behavior of this method is the same as described [above](#2️⃣-static-get
 
 <Alert type="info">
   <p>
-    It's not recommended to keep your state updated based on props, as it makes your component
-    difficult to think about. Try to think first if you really need this inside the state, or you
-    can just derive functionality from the props directly because{' '}
-    <code>getDerivedStateFromProps</code> should be used in{' '}
+    It's not recommended to keep your state updated based on props, as it makes your component difficult to
+    think about. Try to think first if you really need this inside the state, or you can just derive
+    functionality from the props directly because <code>getDerivedStateFromProps</code> should be used in{' '}
     <a
       href="https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state"
       target="_blank"
@@ -285,8 +279,8 @@ In many cases, you will not need this method, but sometimes it's very handy. Let
 
 <Alert type="info">
   <p>
-    Even though this method isn't static it's recommended to return a value that will be passed to
-    the <i>componentDidUpdate</i> instead of changing the state.
+    Even though this method isn't static it's recommended to return a value that will be passed to the{' '}
+    <i>componentDidUpdate</i> instead of changing the state.
   </p>
 </Alert>
 

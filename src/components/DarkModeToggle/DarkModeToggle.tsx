@@ -1,6 +1,6 @@
 import React from 'react';
 import { Theme, useDarkMode } from '~/hooks/useDarkMode';
-import Button from '~/components/Button';
+import { Button } from '~/components/Button';
 import moonImg from './assets/moon.svg';
 import sunImg from './assets/sun.svg';
 

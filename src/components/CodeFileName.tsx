@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CodeFileName = styled.div`
+export const CodeFileName = styled.div`
   font-size: var(--text-sm);
   background: #555;
   padding: 0.6rem 0.6rem 0.7rem;
@@ -10,5 +10,3 @@ const CodeFileName = styled.div`
   border-top-right-radius: 6px;
   margin-bottom: -1.3rem;
 `;
-
-export default CodeFileName;

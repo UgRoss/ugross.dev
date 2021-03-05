@@ -4,15 +4,15 @@ import * as React from 'react';
 import { AllPostsSortedQuery } from '~/types/graphql';
 import { siteConfig } from '~/config/site.config';
 import { Layout } from '~/components/Layout';
-import PostPreview from '~/components/PostPreview';
+import { PostPreview } from '~/components/PostPreview';
 import { SEO } from '~/components/SEO';
-import Hero from '~/components/Hero';
+import { Hero } from '~/components/Hero';
 
 interface BlogProps {
   data: AllPostsSortedQuery;
 }
 
-export const Blog: React.FC<BlogProps> = ({ data: { posts } }) => {
+const Blog: React.FC<BlogProps> = ({ data: { posts } }) => {
   const pageTitle = `Blog - ${siteConfig.name}`;
 
   return (

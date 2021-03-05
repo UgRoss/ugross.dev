@@ -13,7 +13,7 @@ type LinkProps = {
   asText?: boolean;
 } & React.HTMLProps<HTMLAnchorElement>;
 
-const Link: React.FC<LinkProps> = ({
+export const Link: React.FC<LinkProps> = ({
   href,
   to,
   partiallyActive,
@@ -46,5 +46,3 @@ const Link: React.FC<LinkProps> = ({
     </a>
   );
 };
-
-export default Link;

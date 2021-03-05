@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Hero = styled.div`
+export const Hero = styled.div`
   padding-top: calc(3rem + var(--height-navbar));
   margin-top: calc(0rem - var(--height-navbar));
 
@@ -13,5 +13,3 @@ const Hero = styled.div`
     padding-bottom: 3.5rem;
   }
 `;
-
-export default Hero;

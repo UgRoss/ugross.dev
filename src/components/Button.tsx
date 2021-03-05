@@ -56,4 +56,4 @@ Button.defaultProps = {
   block: false,
 };
 
-export default Button;
+export { Button };

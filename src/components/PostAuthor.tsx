@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from '~/components/Link';
-import Avatar from '~/components/Avatar';
+import { Link } from '~/components/Link';
+import { Avatar } from '~/components/Avatar';
 
 interface PostAuthorProps {
   name: string;
@@ -41,5 +41,3 @@ export const PostAuthor: React.FC<PostAuthorProps> = ({ name, avatar, bio }) => 
     </PostAuthorWrapper>
   );
 };
-
-export default PostAuthor;

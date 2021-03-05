@@ -2,7 +2,7 @@ import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { TimeToRead } from '~/components/TimeToRead';
-import Hero from '~/components/Hero';
+import { Hero } from '~/components/Hero';
 
 interface BlogPostProps {
   title: string;
@@ -17,7 +17,7 @@ interface BlogPostProps {
   className?: string;
 }
 
-export const BlogPost: React.FC<BlogPostProps> = ({
+const BlogPost: React.FC<BlogPostProps> = ({
   children,
   title,
   pubDate,
@@ -55,4 +55,4 @@ export const BlogPost: React.FC<BlogPostProps> = ({
   );
 };
 
-export default BlogPost;
+export { BlogPost };

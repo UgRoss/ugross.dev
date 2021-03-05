@@ -11,7 +11,7 @@ interface AlertProps {
   type: AlertTypes;
 }
 
-const Alert = styled.div<AlertProps>`
+export const Alert = styled.div<AlertProps>`
   position: relative;
   width: 100%;
   background: var(--color-alert-background);
@@ -25,5 +25,3 @@ const Alert = styled.div<AlertProps>`
     margin-bottom: 0;
   }
 `;
-
-export default Alert;

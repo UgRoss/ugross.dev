@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { AccessibleEmoji } from '~/components/AccessibleEmoji';
-import Avatar from '~/components/Avatar';
-import Hero from '~/components/Hero';
+import { Avatar } from '~/components/Avatar';
+import { Hero } from '~/components/Hero';
 
 const HeroProfileWrapper = styled.div`
   display: flex;
@@ -42,5 +42,3 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ img, name, jobTitle })
     </div>
   </Hero>
 );
-
-export default HeroProfile;
