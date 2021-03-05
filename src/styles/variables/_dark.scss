@@ -1,6 +1,9 @@
 body.dark,
 [data-theme='dark'] {
   /* Colors */
+  --color-tertiary: hsl(0, 0%, 95%);
+  --color-tertiary-light: hsl(0, 0%, 100%);
+  --color-tertiary-dark: hsl(0, 0%, 85%);
   // page elements colors
   --color-body: hsl(214, 9%, 16%);
   --color-hero: hsl(214, 9%, 13%);
