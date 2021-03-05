@@ -33,19 +33,13 @@ module.exports = {
         gatsbyRemarkPlugins: [
           // gatsby-remark-relative-images must go before gatsby-remark-images
           { resolve: `gatsby-remark-relative-images` },
-          {
-            resolve: 'gatsby-remark-images',
-            options: { maxWidth: 800 },
-          },
+          { resolve: 'gatsby-remark-images', options: { maxWidth: 750 } },
           { resolve: 'gatsby-remark-responsive-iframe' },
           `gatsby-remark-prismjs`,
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-a11y-emoji',
-          {
-            resolve: 'gatsby-remark-external-links',
-            options: { target: '_blank' },
-          },
+          { resolve: 'gatsby-remark-external-links', options: { target: '_blank' } },
         ],
+        remarkPlugins: [require('@fec/remark-a11y-emoji')],
       },
     },
     {

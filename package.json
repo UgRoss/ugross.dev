@@ -45,7 +45,6 @@
     "gatsby-plugin-sass": "^3.2.0",
     "gatsby-plugin-sharp": "^2.14.3",
     "gatsby-plugin-typescript": "^2.12.1",
-    "gatsby-remark-a11y-emoji": "^1.1.0",
     "gatsby-remark-copy-linked-files": "^2.10.0",
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-remark-images": "^3.11.1",
@@ -64,6 +63,7 @@
     "react-use": "^17.1.1"
   },
   "devDependencies": {
+    "@fec/remark-a11y-emoji": "^3.0.0",
     "@graphql-codegen/cli": "^1.21.1",
     "@graphql-codegen/typescript": "^1.21.0",
     "@graphql-codegen/typescript-operations": "^1.17.14",
