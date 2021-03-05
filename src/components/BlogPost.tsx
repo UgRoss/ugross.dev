@@ -34,7 +34,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
       <Hero as="header">
         <div className="container">
           <h1 className="font-extrabold mt-0">{title}</h1>
-          <section>
+          <section className="text-muted">
             <small>
               <time dateTime={pubDate}>{date}</time>
             </small>

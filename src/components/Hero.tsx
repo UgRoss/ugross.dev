@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 export const Hero = styled.div`
   padding-top: calc(3rem + var(--height-navbar));
-  margin-top: calc(0rem - var(--height-navbar));
-
   padding-bottom: 3rem;
   background-color: var(--color-hero);
   margin-bottom: 2rem;
