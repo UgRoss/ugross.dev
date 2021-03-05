@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Rss, GitHub } from 'react-feather';
+import { siteConfig } from '~/config/site.config';
 import { Link } from '~/components/Link';
 
 const FooterLink = styled(Link)`
@@ -35,12 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ copyrightText }) => {
           <FooterLink href="/rss.xml" alt="RSS Feed">
             <Rss size="1rem" />
           </FooterLink>
-          <FooterLink
-            href="https://github.com/UgRoss"
-            alt="Github Profile"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
+          <FooterLink href={siteConfig.github} alt="Github Profile" target="_blank" rel="noreferrer noopener">
             <GitHub size="1rem" />
           </FooterLink>
         </div>

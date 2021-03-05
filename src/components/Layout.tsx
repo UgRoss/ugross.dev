@@ -30,6 +30,8 @@ export const Layout: React.FunctionComponent<LayoutProps> = ({
   <div className={`${className} h-screen flex flex-col`}>
     {showHeader && <Navbar navLinks={siteConfig.navItems} />}
     {children}
-    {showFooter && <Footer copyrightText={siteConfig.footerText} />}
+    {showFooter && (
+      <Footer copyrightText={siteConfig.footerText} githubURL={siteConfig.github} rssURL={siteConfig.rss} />
+    )}
   </div>
 );

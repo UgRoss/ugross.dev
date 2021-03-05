@@ -24,6 +24,8 @@ export const siteConfig = {
   // SEO
   siteUrl: 'https://ugross.space',
   twitter: '@ug_ross',
+  github: 'https://github.com/UgRoss',
+  rss: '/rss.xml',
   siteLanguage: 'en',
   defaultDescription: `${JOB_TITLE} and CS student. Living and coding in Ukraine.`,
   defaultTitle: `${NAME} | ${JOB_TITLE}`,
