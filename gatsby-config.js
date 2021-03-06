@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     siteLanguage: 'en',
@@ -10,12 +12,13 @@ module.exports = {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          '~': 'src',
+          '~': path.resolve(__dirname, 'src'),
         },
       },
     },
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-sass`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
@@ -43,10 +46,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-stylelint',
-      options: { files: ['**/*.tsx*'] },
-    },
-    {
       resolve: `gatsby-plugin-google-analytics`,
       options: { trackingId: `UA-135374915-1` },
     },
@@ -55,11 +54,13 @@ module.exports = {
       options: {
         name: 'Ross Blog',
         short_name: 'Ross Blog',
+        categories: ['news', 'education'],
         start_url: '/',
         background_color: '#222',
         theme_color: '#2691ff',
         display: 'minimal-ui',
         icon: 'static/favicon.png', // This path is relative to the root of the site.
+        lang: 'en-US',
       },
     },
     'gatsby-plugin-offline',
