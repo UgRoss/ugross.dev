@@ -1,5 +1,4 @@
 import React from 'react';
-import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { TimeToRead } from '~/components/TimeToRead';
 import { Hero } from '~/components/Hero';
@@ -46,9 +45,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
         </div>
       </Hero>
       <div className="BlogPost__content container">
-        <MDXProvider>
-          <MDXRenderer>{body}</MDXRenderer>
-        </MDXProvider>
+        <MDXRenderer>{body}</MDXRenderer>
         {children}
       </div>
     </div>
