@@ -12,14 +12,15 @@
     "format": "prettier --write 'src/**/*.{js,ts,tsx}'",
     "lint": "npm run lint:ts && npm run lint:css",
     "lint:ts": "tsc --noEmit --skipLibCheck && eslint 'src/**/*.{js,ts,tsx}'",
-    "lint:css": "stylelint 'src/*/**.{css,scss}'",
+    "lint:css": "stylelint 'src/*/**.{css,scss,tsx}'",
     "codegen": "graphql-codegen --config graphql-codegen.yml",
     "postcodegen": "prettier --write src/types/graphql.ts",
-    "husky:precommit": "pretty-quick --staged --check --pattern 'src/**/*.{js,jsx,tsx,ts,scss,css}' && lint-staged"
+    "husky:precommit": "lint-staged"
   },
   "lint-staged": {
+    "src/**.{js,jsx,tsx,ts,scss,css}": "prettier --write",
     "src/**.{js,jsx,ts,tsx}": "eslint",
-    "src/**.{css,scss}": "stylelint --config .stylelintrc.json"
+    "src/**.{css,scss,tsx}": "stylelint --config .stylelintrc.json"
   },
   "repository": {
     "type": "git",
@@ -28,13 +29,13 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "gatsby": "^2.32.8",
     "gatsby-image": "^2.11.0",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-feed": "^2.13.1",
     "gatsby-plugin-google-analytics": "^2.11.0",
+    "gatsby-plugin-image": "^0.7.2",
     "gatsby-plugin-manifest": "^2.12.1",
     "gatsby-plugin-mdx": "^1.10.1",
     "gatsby-plugin-offline": "^3.10.2",
@@ -70,7 +71,6 @@
     "@types/react-dom": "^17.0.1",
     "@types/react-helmet": "^6.1.0",
     "@types/styled-components": "^5.1.7",
-    "@types/theme-ui": "^0.3.7",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "babel-plugin-styled-components": "^1.12.0",
@@ -79,23 +79,16 @@
     "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "gatsby-plugin-extract-schema": "^0.0.5",
-    "gatsby-plugin-graphql-codegen": "^2.7.1",
     "gatsby-plugin-styled-components": "^3.10.0",
-    "gatsby-plugin-stylelint": "^3.2.0",
     "husky": "^5.1.3",
     "lint-staged": "^10.5.4",
-    "postcss": "^8.2.6",
-    "postcss-custom-media": "^8.0.0",
+    "postcss": "^8.2.7",
     "prettier": "^2.2.1",
-    "pretty-quick": "^3.1.0",
     "sass": "^1.32.8",
     "styled-components": "^5.2.1",
     "stylelint": "^13.11.0",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-scss": "^3.19.0",
-    "stylelint-webpack-plugin": "^2.1.1",
-    "tailwindcss": "^2.0.3",
     "typescript": "^4.2.2"
   }
 }
