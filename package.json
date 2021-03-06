@@ -2,7 +2,7 @@
   "name": "ugross-dev",
   "private": true,
   "description": "Personal site",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Rostyslav Ugryniuk <ug.ross@hotmail.com>",
   "license": "MIT",
   "scripts": {
