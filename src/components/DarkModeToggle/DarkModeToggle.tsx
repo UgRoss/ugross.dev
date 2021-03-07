@@ -13,7 +13,7 @@ export const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ className }) => 
   const isDarkTheme = theme === Theme.DARK;
 
   return (
-    <Button buttonType="tint" onClick={toggleTheme} className={className}>
+    <Button buttonType="tint" onClick={toggleTheme} className={className} aria-label="Change Theme">
       {isDarkTheme && <img src={sunImg} width="18" height="18" role="presentation" alt="Sun" />}
       {!isDarkTheme && <img src={moonImg} width="17" height="17" role="presentation" alt="moon" />}
     </Button>
