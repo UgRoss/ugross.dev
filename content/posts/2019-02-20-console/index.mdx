@@ -28,8 +28,6 @@ console.log('String', 123, { foo: 'bar' }, [1, 2, 3]);
 
 ![console.log output](./list-of-params.png)
 
-<br />
-
 **String Substitutions**
 
 This technique allows us to create kind of placeholders inside a string that are replaced by other arguments we passed to the function.
@@ -75,6 +73,8 @@ console.log('%cHello! 👋', styles);
 
 ![console.table demo](./console-with-styles.png)
 
+---
+
 ### console.table()
 
 This method is useful to display tabular data as a table. It’s cleaner than inspecting an array of objects returned by `console.log`.
@@ -93,6 +93,8 @@ console.table(contacts);
 ![console.table demo](./console-table.png)
 
 The first column in the table is `index`, For an array values there will its indices, and for object it will be property names.
+
+---
 
 ### console.dir()
 
@@ -115,7 +117,7 @@ However, we can get the same using `console.log` method and object placeholder:
 console.log('%o', document.body);
 ```
 
-<br />
+---
 
 ### console.group()
 
@@ -155,6 +157,8 @@ console.groupEnd();
 
 As you can see it’s also possible to create groups inside groups.
 
+---
+
 ### console.time()
 
 The `console.time(label)` method allows to track for how long it takes for a piece of code to execute. To stop tracking `console.timeEnd(label)` should be called.
@@ -170,7 +174,7 @@ console.time('array parsing');
 console.timeEnd('array parsing'); // -> array parsing: 2.5419921875ms
 ```
 
-<br />
+---
 
 ### console.count()
 
@@ -186,16 +190,15 @@ To clear counter we can use `console.countReset(label)`
 console.countReset('Document Clicks');
 ```
 
-<img
-  src="./console-count.gif"
-  alt="console.count() in action"
-  width="100%"
-  style="margin-bottom: 20px;"
-/>
+<img src="./console-count.gif" alt="console.count() in action" width="100%" style="margin-bottom: 20px;" />
+
+---
 
 ### console.clear()
 
 The `console.clear()` method clears output in the console window.
+
+---
 
 ### Conclusion
 
@@ -205,4 +208,4 @@ more useful and effective in a particular situation.
 The `console` has more methods that are not covered in this article:
 ![console methods](./console-methods.png)
 
-You can read more about them here [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/console)
+You can read more about them here [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/console).

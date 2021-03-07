@@ -44,7 +44,7 @@ As we can see from the image, React component goes through the following phases:
 
 This is the birth of our component. It means that the component goes through this phase during its initialization and first insertion into the DOM.
 
-##### 1. <i>constructor</i>
+##### <i>constructor</i>
 
 ```javascript
 constructor(props) {}
@@ -111,9 +111,7 @@ class ComponentWithoutConstructor extends React.Component {
 }
 ```
 
-<br />
-
-##### 2. <i>static getDerivedStateFromProps</i>
+##### <i>static getDerivedStateFromProps</i>
 
 ```javascript
 static getDerivedStateFromProps(props, state) {}
@@ -152,9 +150,7 @@ this.setState({ loading: props.loading });
   </p>
 </Alert>
 
-<br />
-
-##### 3️. <i>render</i>
+##### <i>render</i>
 
 This is the only **required** method in every react class component. In the same time, it's the most used lifecycle method; you
 will spend a lot of time here.
@@ -177,7 +173,7 @@ As you can see in the example above, the _render()_ method returns JSX that will
 
 **When to use:** return component representation using JSX.
 
-##### 4️. <i>componentDidMount</i>
+##### <i>componentDidMount</i>
 
 This method is called right after our component did mount (was inserted into the tree). It's the right time to do API calls.
 
@@ -196,13 +192,15 @@ async componentDidMount() {
 
 **When to use**: API calls, DOM manipulation, integration with 3rd-party libraries that need DOM access.
 
+---
+
 ## Updating
 
 This phase starts when our component receives new props or if the current state was changed.
 
 It's also possible to manually run the component updating phase by using _this.forceUpdate()_ method. Note that in this case the [shouldComponentUpdate](#2️⃣-shouldcomponentupdate) method invocation will be **ignored**.
 
-##### 1️. <i>static getDerivedStateFromProps</i>
+##### <i>static getDerivedStateFromProps</i>
 
 The behavior of this method is the same as described [above](#2️⃣-static-getderivedstatefromprops). You can update your state based on props here.
 
@@ -222,9 +220,7 @@ The behavior of this method is the same as described [above](#2️⃣-static-get
   </p>
 </Alert>
 
-<br />
-
-##### 2️. <i>shouldComponentUpdate</i>
+##### <i>shouldComponentUpdate</i>
 
 ```javascript
 shouldComponentUpdate(nextProps, nextState) {}
@@ -252,9 +248,7 @@ by default it's always `true`.
   </p>
 </Alert>
 
-<br />
-
-##### 3️. <i>render</i>
+##### <i>render</i>
 
 ```javascript
 render() {}
@@ -262,7 +256,7 @@ render() {}
 
 Now, our component rerenders to returns updated JSX.
 
-##### 4. <i>getSnapshotBeforeUpdate</i>
+##### <i>getSnapshotBeforeUpdate</i>
 
 ```javascript
 getSnapshotBeforeUpdate(prevProps, prevState) {}
@@ -296,9 +290,7 @@ getSnapshotBeforeUpdate(prevProps, prevState) {
 }
 ```
 
-<br />
-
-##### 5️. <i>componentDidUpdate</i>
+##### <i>componentDidUpdate</i>
 
 ```javascript
 componentDidUpdate(prevProps, prevState, snapshot) {}
@@ -323,14 +315,13 @@ componentDidUpdate(prevProps, prevState, snapshot) {
   }
 }
 ```
-
-<br />
+---
 
 ## Unmounting
 
 In this phase the component is not needed anymore and it will be unmounted from the DOM.
 
-##### 1️. <i>componentWillUnmount</i>
+##### <i>componentWillUnmount</i>
 
 ```javascript
 componentWillUnmount() {}
@@ -348,7 +339,7 @@ This method should be used to perform the necessary cleanups.
   </p>
 </Alert>
 
-<br />
+---
 
 #### Further Reading:
 
