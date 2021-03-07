@@ -29,7 +29,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
   timeToRead = timeToRead ?? 5;
 
   return (
-    <div className={className} style={{ marginTop: '2rem' }} {...props}>
+    <div className={className} {...props}>
       <Hero as="header">
         <div className="container">
           <h1 className="font-extrabold mt-0">{title}</h1>
