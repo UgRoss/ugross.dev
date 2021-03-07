@@ -29,7 +29,14 @@ export const NavToggleButton: React.FC<NavTogglerProps & HTMLButtonProps> = ({
   ...props
 }) => {
   return (
-    <MobileOnlyButton type="button" className={className} onClick={onClick} buttonType="tint" {...props}>
+    <MobileOnlyButton
+      type="button"
+      className={className}
+      onClick={onClick}
+      buttonType="tint"
+      aria-label="Toggle Menu"
+      {...props}
+    >
       {toggled ? <X /> : <Menu />}
     </MobileOnlyButton>
   );
