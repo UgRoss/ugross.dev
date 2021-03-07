@@ -56,6 +56,37 @@ module.exports = {
         theme_color: '#2691ff',
         display: 'minimal-ui',
         icon: 'static/favicon.png', // This path is relative to the root of the site.
+        icons: [
+          {
+            "src": "static/favicon.png",
+            "sizes": "384x384",
+            "type": "image/png",
+          },
+          {
+            "src": "static/maskable_icon.png",
+            "sizes": "384x384",
+            "type": "image/png",
+            "purpose": "any maskable"
+          },
+          {
+            "src": "static/maskable_icon_x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+          },
+          {
+            "src": "static/maskable_icon_x128.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any maskable"
+          },
+          {
+            "src": "static/maskable_icon_x72.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "any maskable"
+          }
+        ],
         lang: 'en-US',
       },
     },
