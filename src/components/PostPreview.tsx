@@ -1,9 +1,10 @@
 import React from 'react';
+import classNames from 'classnames';
 import styled from 'styled-components';
 import { Link } from '~/components/Link';
 
-const Article = styled.article.attrs(({ className = '' }) => ({
-  className: `pb-md ${className}`,
+const Article = styled.article.attrs((props) => ({
+  className: classNames(props.className, 'pb-md'),
 }))`
   position: relative;
 
