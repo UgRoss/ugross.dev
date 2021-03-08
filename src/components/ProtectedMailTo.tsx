@@ -29,6 +29,8 @@ export const ProtectedMailTo: React.FC<ProtectedMailToProps> = ({ boxName, domai
       data-domain={domain}
       data-tld={tld}
       onClick={handleMailClick}
-    />
+    >
+      <span className="visually-hidden">Email Address</span>
+    </MailToLink>
   );
 };

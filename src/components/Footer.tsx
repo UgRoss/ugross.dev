@@ -34,10 +34,12 @@ export const Footer: React.FC<FooterProps> = ({ copyrightText, githubURL, rssURL
       </div>
       <div className="flex items-center">
         <FooterLink href={rssURL} alt="RSS Feed">
-          <Rss size="1rem" />
+          <Rss size="1rem" aria-hidden="true" />
+          <span className="visually-hidden">RSS Feed</span>
         </FooterLink>
         <FooterLink href={githubURL} alt="Github Profile" target="_blank" rel="noreferrer noopener">
-          <GitHub size="1rem" />
+          <GitHub size="1rem" aria-hidden="true" />
+          <span className="visually-hidden">Github Profile</span>
         </FooterLink>
       </div>
     </div>
