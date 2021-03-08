@@ -10,6 +10,16 @@ Linked list is a linear data structure, this means that there is a sequence and 
 The linked list data structure is a good choice over arrays when you don't need to have random/indexed access to your data, and when you want to have efficient insertion or deletion of elements in the beginning or in the middle of a list.
 Both insertion and deletion work fast inside linked list because it doesn't require to do reindexing of elements, on the other hand accessing of an element in arrays is fast while for the linked list it takes a linear period of time to get this element.
 
+## Table of Contents
+
+```toc
+exclude: Table of Contents
+```
+
+---
+
+## Node
+
 Inside the linked list each element is stored in a form of **Node**. Node is made up of two items: _data_ and a _reference/pointer_ to a node.
 
 ![Image](./node-img.jpeg)
@@ -64,7 +74,7 @@ Now, let's add some methods one by one to our `LinkedList` class. The main actio
 - Search
 - Delete
 
-#### Insertion
+### Insertion
 
 Based on requirements linked list insertion methods can be different.
 For example, if you need to insert values only to the start of the linked list, we simply need to update the **head** of our list, and **tail** if it's empty:
@@ -106,7 +116,7 @@ console.dir(linkedList);
 
 ![Output of the insertion method](./prepend-output.png)
 
-#### Searching
+### Searching
 
 To implement linked list search we need to know how to do **traversing** through the linked list. As mentioned above based on access strategy
 the linked list is a linear data structure, this means that we need to move from one element to another starting from the head to get to the needed Node.
@@ -150,7 +160,7 @@ find(value) {
 
 ℹ️ The method above uses iteration to find value but it can be implemented using recursion.
 
-#### Deletion
+### Deletion
 
 Deletion of a Node can be also implemented in different ways: first node removal (using head), last node removal, or removal by value.
 
@@ -310,7 +320,7 @@ Full code implementation is available at the end of the article.
 
 ---
 
-### Links
+## Links
 
 - Singly Linked List using TypeScript on [GitHub](https://github.com/UgRoss/data-structures-typescript/tree/main/src/data-structures/LinkedList).
 - Doubly Linked List using TypeScript on [GitHub](https://github.com/UgRoss/data-structures-typescript/tree/main/src/data-structures/DoublyLinkedList).

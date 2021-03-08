@@ -33,6 +33,22 @@ module.exports = {
           // gatsby-remark-relative-images must go before gatsby-remark-images
           { resolve: `gatsby-remark-relative-images` },
           { resolve: 'gatsby-remark-images', options: { maxWidth: 750 } },
+          {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              exclude: 'Table of Contents',
+              fromHeading: 1,
+              toHeading: 4,
+              tight: true,
+              className: 'table-of-contents',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              icon: false,
+            },
+          },
           { resolve: 'gatsby-remark-responsive-iframe' },
           `gatsby-remark-prismjs`,
           'gatsby-remark-copy-linked-files',
@@ -58,34 +74,34 @@ module.exports = {
         icon: 'static/favicon.png', // This path is relative to the root of the site.
         icons: [
           {
-            "src": "static/favicon.png",
-            "sizes": "384x384",
-            "type": "image/png",
+            src: 'static/favicon.png',
+            sizes: '384x384',
+            type: 'image/png',
           },
           {
-            "src": "static/maskable_icon.png",
-            "sizes": "384x384",
-            "type": "image/png",
-            "purpose": "any maskable"
+            src: 'static/maskable_icon.png',
+            sizes: '384x384',
+            type: 'image/png',
+            purpose: 'any maskable',
           },
           {
-            "src": "static/maskable_icon_x192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "any maskable"
+            src: 'static/maskable_icon_x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any maskable',
           },
           {
-            "src": "static/maskable_icon_x128.png",
-            "sizes": "128x128",
-            "type": "image/png",
-            "purpose": "any maskable"
+            src: 'static/maskable_icon_x128.png',
+            sizes: '128x128',
+            type: 'image/png',
+            purpose: 'any maskable',
           },
           {
-            "src": "static/maskable_icon_x72.png",
-            "sizes": "72x72",
-            "type": "image/png",
-            "purpose": "any maskable"
-          }
+            src: 'static/maskable_icon_x72.png',
+            sizes: '72x72',
+            type: 'image/png',
+            purpose: 'any maskable',
+          },
         ],
         lang: 'en-US',
       },

@@ -10,9 +10,17 @@ import { Alert } from '../../../src/components/Alert';
 
 In this article, we are going to explore React lifecycle methods. As for me, if you want to work with the React this knowledge is crucial because you need to be able to implement component logic in the right place.
 
-I'm going to talk about React version 16.4+. But before we will dive in, let's discuss versions difference. If you are completely new to React, I believe you can skip this section and return to it later.
+## Table of Contents
 
-#### React Versions Difference
+```toc
+exclude: Table of Contents
+```
+
+---
+
+## React Versions Difference
+
+I'm going to talk about React version 16.4+. But before we will dive in, let's discuss versions difference. If you are completely new to React, I believe you can skip this section and return to it later.
 
 From the React 16.3 and above a few lifecycle methods were deprecated. They are still available to use with the
 prefix `UNSAFE_`, but will be removed in the next major release.
@@ -23,12 +31,16 @@ prefix `UNSAFE_`, but will be removed in the next major release.
 
 There is also one more difference between _16.3_ and _^16.4_:
 
-- **static getDerivedStateFromProps**
+- `static getDerivedStateFromProps`
   <br />
-  In the version _16.3_ `getDerivedStateFromProps` is called only once new props are received, but starting from
-  the `16.4` this method is called every time regardless what caused the update (new props, _setState()_, _forceUpdate()_).
+  <span>
+    In the version <i>16.3</i> <code className="language-text">getDerivedStateFromProps</code> is called only
+    once new props are received, but starting from the <code className="language-text">16.4</code> this method
+    is called every time regardless what caused the update (new props, <i>setState()</i>, <i>forceUpdate()</i>
+    ).
+  </span>
 
-### Phases of the React component Lifecycle
+## Phases of the React component Lifecycle
 
 ![Image](lifecycle.png)
 
@@ -36,15 +48,17 @@ This image represents React _^16.4_ Components Lifecycle. It would be good if yo
 
 As we can see from the image, React component goes through the following phases:
 
-- [**Mounting**](#mounting)
-- [**Updating**](#updating)
-- [**Unmounting**](#unmounting)
+- [**Mounting**](#mounting-phase)
+- [**Updating**](#updating-phase)
+- [**Unmounting**](#unmounting-phase)
 
-## Mounting
+---
+
+### Mounting Phase
 
 This is the birth of our component. It means that the component goes through this phase during its initialization and first insertion into the DOM.
 
-##### <i>constructor</i>
+#### <i>constructor</i>
 
 ```javascript
 constructor(props) {}
@@ -73,7 +87,8 @@ class ComponentDemo extends React.Component {
 
 <Alert type="info">
   <p>
-    If you don't know why do we use <code>super(props)</code>, I recommend to check this article:
+    If you don't know why do we use <code className="language-text">super(props)</code>, I recommend to check
+    this article:
     <a
       href="https://overreacted.io/why-do-we-write-super-props/"
       target="_blank"
@@ -111,7 +126,7 @@ class ComponentWithoutConstructor extends React.Component {
 }
 ```
 
-##### <i>static getDerivedStateFromProps</i>
+#### <i>static getDerivedStateFromProps</i>
 
 ```javascript
 static getDerivedStateFromProps(props, state) {}
@@ -145,12 +160,12 @@ this.setState({ loading: props.loading });
 
 <Alert type="info">
   <p>
-    In the current phase (mounting) it's also possible to use the <code>constructor</code> instead of this
-    method.
+    In the current phase (mounting) it's also possible to use the{' '}
+    <code className="language-text">constructor</code> instead of this method.
   </p>
 </Alert>
 
-##### <i>render</i>
+#### <i>render</i>
 
 This is the only **required** method in every react class component. In the same time, it's the most used lifecycle method; you
 will spend a lot of time here.
@@ -165,15 +180,15 @@ As you can see in the example above, the _render()_ method returns JSX that will
 
 <Alert type="info">
   <p>
-    It's not recommended to change the state during rendering. React requires the <code>render()</code> method
-    to be pure (it doesn't modify the state, doesn't directly interact with the browser, and returns the same
-    result for the same props and state).
+    It's not recommended to change the state during rendering. React requires the{' '}
+    <code className="language-text">render()</code> method to be pure (it doesn't modify the state, doesn't
+    directly interact with the browser, and returns the same result for the same props and state).
   </p>
 </Alert>
 
 **When to use:** return component representation using JSX.
 
-##### <i>componentDidMount</i>
+#### <i>componentDidMount</i>
 
 This method is called right after our component did mount (was inserted into the tree). It's the right time to do API calls.
 
@@ -194,13 +209,13 @@ async componentDidMount() {
 
 ---
 
-## Updating
+### Updating Phase
 
 This phase starts when our component receives new props or if the current state was changed.
 
 It's also possible to manually run the component updating phase by using _this.forceUpdate()_ method. Note that in this case the [shouldComponentUpdate](#2️⃣-shouldcomponentupdate) method invocation will be **ignored**.
 
-##### <i>static getDerivedStateFromProps</i>
+#### <i>static getDerivedStateFromProps</i>
 
 The behavior of this method is the same as described [above](#2️⃣-static-getderivedstatefromprops). You can update your state based on props here.
 
@@ -208,7 +223,8 @@ The behavior of this method is the same as described [above](#2️⃣-static-get
   <p>
     It's not recommended to keep your state updated based on props, as it makes your component difficult to
     think about. Try to think first if you really need this inside the state, or you can just derive
-    functionality from the props directly because <code>getDerivedStateFromProps</code> should be used in{' '}
+    functionality from the props directly because{' '}
+    <code className="language-text">getDerivedStateFromProps</code> should be used in{' '}
     <a
       href="https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state"
       target="_blank"
@@ -220,7 +236,7 @@ The behavior of this method is the same as described [above](#2️⃣-static-get
   </p>
 </Alert>
 
-##### <i>shouldComponentUpdate</i>
+#### <i>shouldComponentUpdate</i>
 
 ```javascript
 shouldComponentUpdate(nextProps, nextState) {}
@@ -244,11 +260,11 @@ by default it's always `true`.
     >
       React.PureComponent
     </a>{' '}
-    instead of manually writing <code>shouldComponentUpdate</code>.
+    instead of manually writing <code className="language-text">shouldComponentUpdate</code>.
   </p>
 </Alert>
 
-##### <i>render</i>
+#### <i>render</i>
 
 ```javascript
 render() {}
@@ -256,7 +272,7 @@ render() {}
 
 Now, our component rerenders to returns updated JSX.
 
-##### <i>getSnapshotBeforeUpdate</i>
+#### <i>getSnapshotBeforeUpdate</i>
 
 ```javascript
 getSnapshotBeforeUpdate(prevProps, prevState) {}
@@ -290,7 +306,7 @@ getSnapshotBeforeUpdate(prevProps, prevState) {
 }
 ```
 
-##### <i>componentDidUpdate</i>
+#### <i>componentDidUpdate</i>
 
 ```javascript
 componentDidUpdate(prevProps, prevState, snapshot) {}
@@ -315,13 +331,14 @@ componentDidUpdate(prevProps, prevState, snapshot) {
   }
 }
 ```
+
 ---
 
-## Unmounting
+### Unmounting Phase
 
 In this phase the component is not needed anymore and it will be unmounted from the DOM.
 
-##### <i>componentWillUnmount</i>
+#### <i>componentWillUnmount</i>
 
 ```javascript
 componentWillUnmount() {}
@@ -334,14 +351,15 @@ This method should be used to perform the necessary cleanups.
 
 <Alert type="info">
   <p>
-    Think about it as a reverting action for things we did inside <code>componentDidMount</code> or{' '}
-    <code>componentDidUpdate</code>.
+    Think about it as a reverting action for things we did inside{' '}
+    <code className="language-text">componentDidMount</code> or{' '}
+    <code className="language-text">componentDidUpdate</code>.
   </p>
 </Alert>
 
 ---
 
-#### Further Reading:
+## Further Reading
 
 - [reactjs.org | React.Component API reference](https://reactjs.org/docs/react-component.htm)
 - [reactjs.org | React.PureComponent](https://reactjs.org/docs/react-component.htm)

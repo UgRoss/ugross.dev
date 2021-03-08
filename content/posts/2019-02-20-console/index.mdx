@@ -8,7 +8,15 @@ spoiler: console.log is one of the most basic and common debugging tools in Java
 The `console` object gives us access to the browser’s console and allows to output different types of data that can help to debug code.
 This object has a lot of methods about existence some people even don’t realize. In this article, I want to share some useful methods to make debugging easier and faster.
 
-### console.log() and friends
+### Table of Contents
+
+```toc
+exclude: Table of Contents
+```
+
+---
+
+## console.log() and friends
 
 Most commonly used `console` method is of course `console.log()`.
 But there are several other methods to make output more eye-catching.
@@ -75,7 +83,7 @@ console.log('%cHello! 👋', styles);
 
 ---
 
-### console.table()
+## console.table()
 
 This method is useful to display tabular data as a table. It’s cleaner than inspecting an array of objects returned by `console.log`.
 `console.table` might be helpful if you need to check data returned by a server.
@@ -96,7 +104,7 @@ The first column in the table is `index`, For an array values there will its ind
 
 ---
 
-### console.dir()
+## console.dir()
 
 This method is pretty similar to the `log` and used to display a list of properties in an object.
 The most useful way of using the `dir` method is to print the DOM elements.
@@ -119,7 +127,7 @@ console.log('%o', document.body);
 
 ---
 
-### console.group()
+## console.group()
 
 This method is useful when you want to group related output together. The `console.group` takes an optional parameter to name the group of output. To end the grouping you just need to call `console.groupEnd()` .
 
@@ -159,7 +167,7 @@ As you can see it’s also possible to create groups inside groups.
 
 ---
 
-### console.time()
+## console.time()
 
 The `console.time(label)` method allows to track for how long it takes for a piece of code to execute. To stop tracking `console.timeEnd(label)` should be called.
 
@@ -176,7 +184,7 @@ console.timeEnd('array parsing'); // -> array parsing: 2.5419921875ms
 
 ---
 
-### console.count()
+## console.count()
 
 The `console.count(label)` method simply outputs number of times it has been called.
 
@@ -194,13 +202,13 @@ console.countReset('Document Clicks');
 
 ---
 
-### console.clear()
+## console.clear()
 
 The `console.clear()` method clears output in the console window.
 
 ---
 
-### Conclusion
+## Conclusion
 
 The `console.log` is the most common method for basic debugging, but there are various other methods that can be
 more useful and effective in a particular situation.
