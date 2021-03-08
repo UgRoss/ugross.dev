@@ -34,11 +34,11 @@ interface PostPreviewProps {
 export const PostPreview: React.FC<PostPreviewProps> = ({ url, title, excerpt, className = '' }) => (
   <Article className={className}>
     <header>
-      <h3>
+      <h2 className="h3">
         <Link to={url} asText={true}>
           {title}
         </Link>
-      </h3>
+      </h2>
     </header>
     <section>
       <p className="mb-xs">{excerpt}</p>
