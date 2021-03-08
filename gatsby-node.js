@@ -7,7 +7,6 @@ const path = require('path');
 const { kebabCase, get } = require('lodash');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-// tslint:disable:object-literal-sort-keys
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   const isNodeMarkdown = node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx';
@@ -73,4 +72,26 @@ exports.createPages = ({ graphql, actions }) => {
       resolve();
     });
   });
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type Mdx implements Node {
+      frontmatter: MdxFrontmatter!
+      fields: MdxFields!
+    }
+
+    type MdxFrontmatter {
+      date: Date! @dateformat
+      title: String!
+      spoiler: String
+    }
+
+    type MdxFields {
+      slug: String!
+    }
+  `;
+
+  createTypes(typeDefs);
 };

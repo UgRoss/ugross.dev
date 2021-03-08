@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     siteLanguage: 'en',
@@ -5,22 +7,20 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          '~': 'src',
+          '~': path.resolve(__dirname, 'src'),
         },
       },
     },
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-sass`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: { name: `images`, path: `${__dirname}/static/uploads/` },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: { name: `posts`, path: `${__dirname}/content/posts/` },
@@ -32,23 +32,14 @@ module.exports = {
         gatsbyRemarkPlugins: [
           // gatsby-remark-relative-images must go before gatsby-remark-images
           { resolve: `gatsby-remark-relative-images` },
-          {
-            resolve: 'gatsby-remark-images',
-            options: { maxWidth: 800 },
-          },
+          { resolve: 'gatsby-remark-images', options: { maxWidth: 750 } },
           { resolve: 'gatsby-remark-responsive-iframe' },
           `gatsby-remark-prismjs`,
           'gatsby-remark-copy-linked-files',
-          {
-            resolve: 'gatsby-remark-external-links',
-            options: { target: '_blank' },
-          },
+          { resolve: 'gatsby-remark-external-links', options: { target: '_blank' } },
         ],
+        remarkPlugins: [require('@fec/remark-a11y-emoji')],
       },
-    },
-    {
-      resolve: 'gatsby-plugin-stylelint',
-      options: { files: ['**/*.tsx*'] },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -59,11 +50,44 @@ module.exports = {
       options: {
         name: 'Ross Blog',
         short_name: 'Ross Blog',
+        categories: ['news', 'education'],
         start_url: '/',
         background_color: '#222',
         theme_color: '#2691ff',
         display: 'minimal-ui',
         icon: 'static/favicon.png', // This path is relative to the root of the site.
+        icons: [
+          {
+            "src": "static/favicon.png",
+            "sizes": "384x384",
+            "type": "image/png",
+          },
+          {
+            "src": "static/maskable_icon.png",
+            "sizes": "384x384",
+            "type": "image/png",
+            "purpose": "any maskable"
+          },
+          {
+            "src": "static/maskable_icon_x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+          },
+          {
+            "src": "static/maskable_icon_x128.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any maskable"
+          },
+          {
+            "src": "static/maskable_icon_x72.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "any maskable"
+          }
+        ],
+        lang: 'en-US',
       },
     },
     'gatsby-plugin-offline',

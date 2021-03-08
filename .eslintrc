@@ -2,14 +2,9 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "react", "react-hooks", "import"],
-  "extends": [
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["plugin:react/recommended", "plugin:@typescript-eslint/recommended", "prettier"],
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": 2021,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -20,7 +15,15 @@
       "version": "detect"
     }
   },
-  "ignorePatterns": ["gatsby-node.js", "global.d.ts", "node_modules", ".cache", "static"],
+  "ignorePatterns": [
+    "gatsby-node.js",
+    "gatsby-browser.js",
+    "gatsby-config.js",
+    "**/@types/*.d.ts",
+    "node_modules",
+    ".cache",
+    "static"
+  ],
   "rules": {
     "react/prop-types": "off"
   }

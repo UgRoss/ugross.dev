@@ -7,9 +7,7 @@ interface TimeToReadProps {
 }
 
 export const TimeToRead: React.FC<TimeToReadProps> = ({ minutes, ...props }) => {
-  const cups: number = Math.round(minutes / 5);
+  const cups: number = Math.round(minutes / 5) || 1;
 
-  return (
-    <span {...props}>{`${new Array(cups || 1).fill('☕️').join('')} ${minutes} min read`}</span>
-  );
+  return <span {...props}>{`${new Array(cups).fill('☕️').join('')} ${minutes} min read`}</span>;
 };

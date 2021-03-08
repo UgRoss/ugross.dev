@@ -4,7 +4,7 @@ date: '2019-03-12'
 spoiler: ''
 ---
 
-import { Alert } from '../../../src/components/Alert/Alert';
+import { Alert, AlertTypes } from '../../../src/components/Alert';
 
 ![Code](./code.png)
 
@@ -26,9 +26,7 @@ new Date(milliseconds); // milliseconds since Jan 1, 1970, 00:00:00 UTC
 new Date('date string'); // date string to parse
 ```
 
-<br />
-
-###### 1. new Date()
+##### new Date()
 
 The first way to create date is to use the `new Date()`, it simply creates a date object with the current date and time by default.
 
@@ -36,7 +34,7 @@ The first way to create date is to use the `new Date()`, it simply creates a dat
   <p>Small tip: In some cases, it might be better to use `Date.now()` instead.</p>
 </Alert>
 
-###### 2. new Date(year, month...)
+##### new Date(year, month...)
 
 This approach allows us to create a concrete date by specifying values one by one.
 
@@ -51,7 +49,7 @@ new Date(2019, 2); // Fri Mar 01 2019 00:00:00...
 - It's not required to pass all of the parameters, but it should be at least year and month, otherwise `new Date(2019)` will be created using milliseconds (`new Date(milliseconds)`)
 - Month count starts from 0 and ends at 11.
 
-###### 3. new Date(milliseconds)
+##### new Date(milliseconds)
 
 Internally, in JavaScript time is expressed in the number of milliseconds that have elapsed since **Jan 1, 1970, 00:00:00 UTC**.
 
@@ -69,9 +67,7 @@ const unixTimestamp = 1552413600;
 new Date(unixTimestamp * 1000); // Tue Mar 12 2019 20:00:00 GMT+0200
 ```
 
-<br />
-
-###### 4. new Date('date string')
+##### new Date('date string')
 
 We can also create dates using a string. To parse a string JavaScript uses the `Date.parse()` method.
 
@@ -85,7 +81,9 @@ new Date('2018 march');
 ```
 
 <Alert type="info">
-  <p>Remember that if you do not set timezone explicitly, the result date is relative to your current timezone.</p>
+  <p>
+    Remember that if you do not set timezone explicitly, the result date is relative to your current timezone.
+  </p>
 </Alert>
 
 This adds us a lot of flexibility but at the same time adds more problems. For example, if we omit the leading zero you will get an invalid date value in Safari, while in Firefox and Chrome it's working. Here are examples of the invalid date in Safari:
@@ -108,7 +106,7 @@ Date.parse('July 22, 2018 07:22:13');
 Date.parse('2018-07-22T07:22:13');
 ```
 
-<br />
+---
 
 ## Get a date
 
@@ -151,6 +149,8 @@ date.toISOString(); // "2018-07-22T05:22:13.000Z" (ISO 8601 format)
 
 Later in this article, we will learn about dates localization, and there I will open one more method `toLocaleDateString()`.
 
+---
+
 ## Edit a Date
 
 To work effectively with the dates we should be able to modify them. JavaScript offers `set` methods that allow us to edit date components, they are similar to the `get` methods explained above.
@@ -174,8 +174,13 @@ d.setDate(1); // 🕓 Mar 01 2019 ...
 ```
 
 <Alert type="info">
-  <p>Using only the <code>setFullYear()</code> it's possible to change year, month, and day together. For example: <code>date.setFullYear(2019, 3, 20)</code></p>
+  <p>
+    Using only the <code>setFullYear()</code> it's possible to change year, month, and day together. For
+    example: <code>date.setFullYear(2019, 3, 20)</code>
+  </p>
 </Alert>
+
+---
 
 ## Format and Localize a Date
 
@@ -249,6 +254,8 @@ console.log(convertDate('2019-02-12')); // -> 12 February 2019
 
 Now, it looks neat 🎉. It might not be the direct usage case, but I think it's a good example to demonstrate possible ways of date formatting. You can learn more about the `toLocaleDateString` on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString" target="_blank" rel="nofollow">MDN</a>.
 
+---
+
 ## Compare dates
 
 The easiest way to compare dates is to use equality operators (`<`, `>`, `<=`, `>=`):
@@ -264,11 +271,12 @@ if (date1 > date2) {
 }
 ```
 
-<br />
+<Alert type={AlertTypes.INFO}>
+  Since <code>Date</code> is an object, it's not possible to simply compare two different dates using{' '}
+  <code>===</code> or <code>==</code>. JS will compare dates by their reference and not values.
+</Alert>
 
-But you can't simply compare two dates for equality using `===` or `==`. A date is an object, and that means that JS will compare dates by their reference and not values.
-
-But, we can compare dates by their values in milliseconds with the help of `getTime()`:
+Use `getTime()` to compare dates by their values in milliseconds:
 
 ```javascript
 const date1 = new Date('2019-03-12T10:10:10');
@@ -284,7 +292,7 @@ console.log(`Dates difference: ${date1.getTime() - date2.getTime()}`); // --> Da
 
 It's also possible to compare dates by parts using methods explained in the "[Get a date](#get-a-date)" section
 
-<br />
+---
 
 ## Questions/Tasks
 

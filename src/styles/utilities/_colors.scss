@@ -1,7 +1,11 @@
 .text-secondary {
-  color: var(--secondary-color);
+  color: var(--color-secondary);
 }
 
 .text-tertiary {
-  color: var(--dark-blue);
+  color: var(--color-tertiary);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
 }

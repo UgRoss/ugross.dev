@@ -19,8 +19,6 @@ A Queue is like an array but with a few restrictions:
 - You can't randomly access an item by its index.
 - You can only add data in one end and retrieve data from the other.
 
-<br />
-
 ### Base operations
 
 | Operation         | Description                                    |
@@ -29,13 +27,9 @@ A Queue is like an array but with a few restrictions:
 | _`dequeue()`_     | remove the first item in a queue               |
 | _`peek()`_        | get an element that is in the front of a queue |
 
-<br />
-
 ### When to use
 
 It can be used for any task where the first data/job that arrives needs to be processed first \(FIFO\). For example, it's possible to use a queue to upload images one by one in the order they arrived.
-
-<br />
 
 ### Time Complexity
 
@@ -46,8 +40,6 @@ It can be used for any task where the first data/job that arrives needs to be pr
 | \*Access  | _O\(n\)_   |
 
 _\*To access some value you need to remove elements that are first in a queue._
-
-<br />
 
 ## Code
 
@@ -91,9 +83,9 @@ export class Queue<T> {
 }
 ```
 
-<br />
+---
 
-#### Links:
+### Links:
 
 - [Linked List article](/blog/data-structures-linked-list).
 - Code on [Github](https://github.com/UgRoss/data-structures-typescript/tree/main/src/data-structures/Queue).

@@ -1,5 +1,3 @@
-@import 'variables';
-
 @mixin small-breakpoint {
   @media (min-width: #{$mobile}) {
     @content;
@@ -16,8 +14,4 @@
   @media (min-width: #{$desktop}) {
     @content;
   }
-}
-
-@mixin font-jetbrains {
-  font-family: 'Jetbrains Mono', sans-serif;
 }

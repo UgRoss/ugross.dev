@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Footer } from '~/components/Footer/Footer';
-import { Navbar } from '~/components/Navbar/Navbar';
+import { Footer } from './Footer';
+import { Navbar } from '~/components/Navbar';
+import { siteConfig } from '~/config/site.config';
 import '~/styles/index.scss';
 
 interface LayoutProps {
@@ -26,9 +27,11 @@ export const Layout: React.FunctionComponent<LayoutProps> = ({
   className = '',
   children,
 }) => (
-  <div className={className}>
-    {showHeader && <Navbar />}
+  <div className={`${className} h-screen flex flex-col`}>
+    {showHeader && <Navbar navLinks={siteConfig.navItems} />}
     {children}
-    {showFooter && <Footer />}
+    {showFooter && (
+      <Footer copyrightText={siteConfig.footerText} githubURL={siteConfig.github} rssURL={siteConfig.rss} />
+    )}
   </div>
 );

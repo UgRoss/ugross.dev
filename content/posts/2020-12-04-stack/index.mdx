@@ -18,8 +18,6 @@ You put a plate on top of another, and to access a plate in the middle you first
 
 A stack uses LIFO (last-in-first-out) ordering which means that the last pushed item to the stack is processed first (all previous items will need to wait until newer are processed).
 
-<br />
-
 ### Base Operations
 
 | Operation  |           Description           |
@@ -28,16 +26,12 @@ A stack uses LIFO (last-in-first-out) ordering which means that the last pushed 
 | _`pop()`_  |    Remove item from a stack.    |
 | _`peek()`_ | Get the latest item in a stack. |
 
-<br />
-
 ### When to use
 
 - Checking an opening/closing structure. For example, a task to detect balanced usage of opening and closing parentheses, brackets, and quotes. `[]()""([])`
 - Undoing (backtracking from) an action.
 - Reversing data.
 - and more...
-
-<br />
 
 ### Time complexity
 
@@ -48,8 +42,6 @@ A stack uses LIFO (last-in-first-out) ordering which means that the last pushed 
 | \*Access  |    O(n)    |
 
 _\*To access some value you need first to pop an element from the top._
-
-<br />
 
 ### Code
 
@@ -87,9 +79,9 @@ export class Stack<T> {
 }
 ```
 
-<br />
+---
 
-#### Links:
+### Links:
 
 - [Linked List article](/blog/data-structures-linked-list).
 - Code on [Github](https://github.com/UgRoss/data-structures-typescript/tree/main/src/data-structures/Stack).
