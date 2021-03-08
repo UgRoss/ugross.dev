@@ -74,30 +74,42 @@ module.exports = {
         icon: 'static/favicon.png', // This path is relative to the root of the site.
         icons: [
           {
-            src: 'static/favicon.png',
-            sizes: '384x384',
+            src: 'static/pwa/pwa-icon.png',
+            sizes: '512x512',
             type: 'image/png',
           },
           {
-            src: 'static/maskable_icon.png',
+            src: 'static/pwa/maskable_icon_x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable',
+          },
+          {
+            src: 'static/pwa/maskable_icon_x384.png',
             sizes: '384x384',
             type: 'image/png',
             purpose: 'any maskable',
           },
           {
-            src: 'static/maskable_icon_x192.png',
+            src: 'static/pwa/maskable_icon_x192.png',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any maskable',
           },
           {
-            src: 'static/maskable_icon_x128.png',
+            src: 'static/pwa/maskable_icon_x128.png',
             sizes: '128x128',
             type: 'image/png',
             purpose: 'any maskable',
           },
           {
-            src: 'static/maskable_icon_x72.png',
+            src: 'static/pwa/maskable_icon_x96.png',
+            sizes: '96x96',
+            type: 'image/png',
+            purpose: 'any maskable',
+          },
+          {
+            src: 'static/pwa/maskable_icon_x72.png',
             sizes: '72x72',
             type: 'image/png',
             purpose: 'any maskable',
