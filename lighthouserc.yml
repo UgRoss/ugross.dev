@@ -9,7 +9,7 @@ ci:
   assert:
     preset: 'lighthouse:recommended'
     assertions:
-      - 'color-contrast': off
+      'color-contrast': off
 
   upload:
     target: 'temporary-public-storage'
