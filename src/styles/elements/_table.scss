@@ -1,7 +1,7 @@
 table {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin: 1.75em 0;
+  margin: var(--space-md) 0;
   width: 100%;
   max-width: 100%;
   background-color: transparent;
@@ -26,7 +26,7 @@ table {
   }
 
   tbody + tbody {
-    border-top: #efefef 2px solid;
+    border-top: var(--color-table-border) 2px solid;
   }
 }
 

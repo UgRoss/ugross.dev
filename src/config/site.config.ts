@@ -1,4 +1,4 @@
-import avatar from '~/images/avatar.jpg';
+import avatar from '~/images/avatar.webp';
 
 const NAME = 'Rostyslav Ugryniuk';
 const JOB_TITLE = 'Front-end Developer';
