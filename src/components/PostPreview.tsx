@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import styled from 'styled-components';
 import { Link } from '~/components/Link';
 
-const Article = styled.article.attrs((props) => ({
+const Article = styled.article.attrs<{ className: string }>((props) => ({
   className: classNames(props.className, 'pb-md'),
 }))`
   position: relative;
