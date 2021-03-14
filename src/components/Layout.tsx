@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Footer } from './Footer';
 import { Navbar } from '~/components/Navbar';
 import { siteConfig } from '~/config/site.config';

@@ -1,5 +1,5 @@
+import React from 'react';
 import { graphql } from 'gatsby';
-import * as React from 'react';
 
 import { AllPostsSortedQuery } from '~/types/graphql';
 import { siteConfig } from '~/config/site.config';
