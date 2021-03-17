@@ -151,7 +151,8 @@ module.exports = {
             query: `
               {
                 allMdx(
-                  sort: { order: DESC, fields: [frontmatter___date] },
+                  sort: { order: DESC, fields: [frontmatter___date] }
+                  filter: { fields: { collection: { eq: "posts" } } }
                 ) {
                   edges {
                     node {
