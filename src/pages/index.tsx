@@ -1,23 +1,40 @@
 import React from 'react';
+import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { Layout } from '~/components/Layout';
 import { SEO } from '~/components/SEO';
 import { HeroProfile } from '~/components/HeroProfile';
 import { siteConfig } from '~/config/site.config';
-import IndexPageMarkdown from '../../content/pages/index.mdx';
+import { IndexPageQuery } from '~/types/graphql';
 
-const { name, jobTitle } = siteConfig;
+const { name, jobTitle, avatar } = siteConfig;
 
-const IndexPage: React.FC = () => {
+interface IndexPageProps {
+  data: IndexPageQuery;
+}
+
+const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const pageTitle = `${name} - ${jobTitle}`;
+  const pageBody = data.mdx?.body ?? '';
+
   return (
     <Layout>
       <SEO title={pageTitle} />
-      <HeroProfile img={siteConfig.avatar} name={siteConfig.name} jobTitle={siteConfig.jobTitle} />
+      <HeroProfile img={avatar} name={name} jobTitle={jobTitle} />
       <div className="container">
-        <IndexPageMarkdown />
+        <MDXRenderer>{pageBody}</MDXRenderer>
       </div>
     </Layout>
   );
 };
+
+export const query = graphql`
+  query IndexPage {
+    mdx(frontmatter: { pageName: { eq: "index" } }) {
+      id
+      body
+    }
+  }
+`;
 
 export default IndexPage;

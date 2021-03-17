@@ -1,9 +1,17 @@
 import React from 'react';
+import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { Layout } from '~/components/Layout';
 import { Hero } from '~/components/Hero';
-import TypographyMarkdown from '../../../content/pages/typography.mdx';
+import { TypographyPageQuery } from '~/types/graphql';
 
-const TypographyDemoPage: React.FC = () => {
+interface TypographyDemoPageProps {
+  data: TypographyPageQuery;
+}
+
+const TypographyDemoPage: React.FC<TypographyDemoPageProps> = ({ data }) => {
+  const pageBody = data.mdx?.body ?? '';
+
   return (
     <Layout>
       <Hero>
@@ -12,10 +20,18 @@ const TypographyDemoPage: React.FC = () => {
         </div>
       </Hero>
       <div className="container">
-        <TypographyMarkdown />
+        <MDXRenderer>{pageBody}</MDXRenderer>
       </div>
     </Layout>
   );
 };
+
+export const query = graphql`
+  query typographyPage {
+    mdx(frontmatter: { pageName: { eq: "typography" } }) {
+      body
+    }
+  }
+`;
 
 export default TypographyDemoPage;

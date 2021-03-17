@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-
 import { AllPostsSortedQuery } from '~/types/graphql';
 import { siteConfig } from '~/config/site.config';
 import { Layout } from '~/components/Layout';
@@ -43,7 +42,11 @@ const Blog: React.FC<BlogProps> = ({ data: { posts } }) => {
 
 export const query = graphql`
   query allPostsSorted {
-    posts: allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    posts: allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { collection: { eq: "posts" } } }
+      limit: 1000
+    ) {
       totalCount
       edges {
         node {

@@ -533,6 +533,8 @@ export type MdxFrontmatter = {
   readonly date: Scalars['Date'];
   readonly spoiler?: Maybe<Scalars['String']>;
   readonly updated?: Maybe<Scalars['Date']>;
+  readonly pageName?: Maybe<Scalars['String']>;
+  readonly type?: Maybe<Scalars['String']>;
 };
 
 export type MdxFrontmatterDateArgs = {
@@ -608,6 +610,7 @@ export type MdxTableOfContentsArgs = {
 export type MdxFields = {
   readonly __typename?: 'MdxFields';
   readonly slug: Scalars['String'];
+  readonly collection?: Maybe<Scalars['String']>;
 };
 
 export type SiteBuildMetadata = Node & {
@@ -1156,6 +1159,8 @@ export type MdxFrontmatterFilterInput = {
   readonly date?: Maybe<DateQueryOperatorInput>;
   readonly spoiler?: Maybe<StringQueryOperatorInput>;
   readonly updated?: Maybe<DateQueryOperatorInput>;
+  readonly pageName?: Maybe<StringQueryOperatorInput>;
+  readonly type?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxHeadingMdxFilterListInput = {
@@ -1175,6 +1180,7 @@ export type MdxWordCountFilterInput = {
 
 export type MdxFieldsFilterInput = {
   readonly slug?: Maybe<StringQueryOperatorInput>;
+  readonly collection?: Maybe<StringQueryOperatorInput>;
 };
 
 export type FileConnection = {
@@ -1398,6 +1404,8 @@ export enum FileFieldsEnum {
   childrenMdx___frontmatter___date = 'childrenMdx___frontmatter___date',
   childrenMdx___frontmatter___spoiler = 'childrenMdx___frontmatter___spoiler',
   childrenMdx___frontmatter___updated = 'childrenMdx___frontmatter___updated',
+  childrenMdx___frontmatter___pageName = 'childrenMdx___frontmatter___pageName',
+  childrenMdx___frontmatter___type = 'childrenMdx___frontmatter___type',
   childrenMdx___slug = 'childrenMdx___slug',
   childrenMdx___body = 'childrenMdx___body',
   childrenMdx___excerpt = 'childrenMdx___excerpt',
@@ -1412,6 +1420,7 @@ export enum FileFieldsEnum {
   childrenMdx___wordCount___sentences = 'childrenMdx___wordCount___sentences',
   childrenMdx___wordCount___words = 'childrenMdx___wordCount___words',
   childrenMdx___fields___slug = 'childrenMdx___fields___slug',
+  childrenMdx___fields___collection = 'childrenMdx___fields___collection',
   childrenMdx___id = 'childrenMdx___id',
   childrenMdx___parent___id = 'childrenMdx___parent___id',
   childrenMdx___parent___parent___id = 'childrenMdx___parent___parent___id',
@@ -1456,6 +1465,8 @@ export enum FileFieldsEnum {
   childMdx___frontmatter___date = 'childMdx___frontmatter___date',
   childMdx___frontmatter___spoiler = 'childMdx___frontmatter___spoiler',
   childMdx___frontmatter___updated = 'childMdx___frontmatter___updated',
+  childMdx___frontmatter___pageName = 'childMdx___frontmatter___pageName',
+  childMdx___frontmatter___type = 'childMdx___frontmatter___type',
   childMdx___slug = 'childMdx___slug',
   childMdx___body = 'childMdx___body',
   childMdx___excerpt = 'childMdx___excerpt',
@@ -1470,6 +1481,7 @@ export enum FileFieldsEnum {
   childMdx___wordCount___sentences = 'childMdx___wordCount___sentences',
   childMdx___wordCount___words = 'childMdx___wordCount___words',
   childMdx___fields___slug = 'childMdx___fields___slug',
+  childMdx___fields___collection = 'childMdx___fields___collection',
   childMdx___id = 'childMdx___id',
   childMdx___parent___id = 'childMdx___parent___id',
   childMdx___parent___parent___id = 'childMdx___parent___parent___id',
@@ -2619,6 +2631,8 @@ export enum MdxFieldsEnum {
   frontmatter___date = 'frontmatter___date',
   frontmatter___spoiler = 'frontmatter___spoiler',
   frontmatter___updated = 'frontmatter___updated',
+  frontmatter___pageName = 'frontmatter___pageName',
+  frontmatter___type = 'frontmatter___type',
   slug = 'slug',
   body = 'body',
   excerpt = 'excerpt',
@@ -2633,6 +2647,7 @@ export enum MdxFieldsEnum {
   wordCount___sentences = 'wordCount___sentences',
   wordCount___words = 'wordCount___words',
   fields___slug = 'fields___slug',
+  fields___collection = 'fields___collection',
   id = 'id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
@@ -3079,6 +3094,12 @@ export type SitePluginSortInput = {
   readonly order?: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+export type NotFoundPageQueryVariables = Exact<{ [key: string]: never }>;
+
+export type NotFoundPageQuery = { readonly __typename?: 'Query' } & {
+  readonly mdx?: Maybe<{ readonly __typename?: 'Mdx' } & Pick<Mdx, 'body'>>;
+};
+
 export type AllPostsSortedQueryVariables = Exact<{ [key: string]: never }>;
 
 export type AllPostsSortedQuery = { readonly __typename?: 'Query' } & {
@@ -3095,6 +3116,24 @@ export type AllPostsSortedQuery = { readonly __typename?: 'Query' } & {
         }
       >;
     };
+};
+
+export type IndexPageQueryVariables = Exact<{ [key: string]: never }>;
+
+export type IndexPageQuery = { readonly __typename?: 'Query' } & {
+  readonly mdx?: Maybe<{ readonly __typename?: 'Mdx' } & Pick<Mdx, 'id' | 'body'>>;
+};
+
+export type TypographyPageQueryVariables = Exact<{ [key: string]: never }>;
+
+export type TypographyPageQuery = { readonly __typename?: 'Query' } & {
+  readonly mdx?: Maybe<{ readonly __typename?: 'Mdx' } & Pick<Mdx, 'body'>>;
+};
+
+export type UsesPageQueryVariables = Exact<{ [key: string]: never }>;
+
+export type UsesPageQuery = { readonly __typename?: 'Query' } & {
+  readonly mdx?: Maybe<{ readonly __typename?: 'Mdx' } & Pick<Mdx, 'body'>>;
 };
 
 export type PostDetailsQueryVariables = Exact<{
