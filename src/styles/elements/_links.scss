@@ -22,3 +22,7 @@ a {
     border-color: var(--color-link-underline-hover);
   }
 }
+
+strong > a {
+  font-weight: inherit;
+}
