@@ -4,50 +4,59 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 const path = require('path');
-const { kebabCase, get } = require('lodash');
+const { kebabCase } = require('lodash');
 const { createFilePath } = require(`gatsby-source-filesystem`);
+
+const MARKDOWN_COLLECTION_TYPES = {
+  posts: 'posts',
+  pages: 'pages',
+};
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  const isNodeMarkdown = node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx';
+  const isMarkdownNode = node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx';
 
-  if (isNodeMarkdown) {
-    const postSlug = get(node, 'frontmatter.slug', null);
-    const postTitle = get(node, 'frontmatter.title', null);
+  if (isMarkdownNode) {
+    const slug = node.frontmatter?.slug ?? null;
+    const title = node.frontmatter?.title ?? null;
+    const parent = getNode(node.parent);
+    const collectionName = parent.sourceInstanceName; // 'name' option in `gatsby-source-filesystem` configuration
+    const isPostsCollection = collectionName === MARKDOWN_COLLECTION_TYPES.posts;
 
-    let slug;
+    let postSlug;
     if (postSlug) {
-      slug = `/${kebabCase(postSlug)}`;
-    } else if (postTitle) {
-      slug = `/blog/${kebabCase(postTitle)}`;
+      postSlug = `/${kebabCase(slug)}`;
+    } else if (title && isPostsCollection) {
+      postSlug = `/blog/${kebabCase(title)}`;
     } else {
-      slug = createFilePath({ node, getNode, basePath: `posts` });
+      postSlug = createFilePath({ node, getNode, basePath: `posts` });
     }
 
-    createNodeField({ node, name: `slug`, value: slug });
+    createNodeField({ node, name: `slug`, value: postSlug });
+    createNodeField({ node, name: 'collection', value: collectionName });
   }
 };
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return new Promise((resolve, reject) => {
-    const MARKDOWN_FRAGMENT = `
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-          }
-        }
-      }
-    `;
-
     graphql(`
       {
-        allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
-          ${MARKDOWN_FRAGMENT}
+        allMdx(
+          sort: {fields: [frontmatter___date], order: DESC}
+          filter: { fields: { collection: { eq: "${MARKDOWN_COLLECTION_TYPES.posts}" } } }
+          limit: 1000
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+              }
+            }
+          }
         }
       }
     `).then((result) => {
