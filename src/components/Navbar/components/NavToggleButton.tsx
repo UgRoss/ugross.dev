@@ -5,7 +5,7 @@ import { Button } from '~/components/Button';
 
 /** Button that is shown only on mobile screens */
 const MobileOnlyButton = styled(Button)`
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     display: none;
   }
 `;

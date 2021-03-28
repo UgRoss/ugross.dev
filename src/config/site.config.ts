@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { url: '/', name: 'About', partiallyActive: false },
   { url: '/blog/', name: 'Articles', partiallyActive: true },
   { url: '/projects/', name: 'Projects', partiallyActive: false },
+  { url: '/uses/', name: 'Uses', partiallyActive: false },
 ];
 
 const SOCIAL_LINKS = [
