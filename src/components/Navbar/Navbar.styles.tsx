@@ -15,7 +15,7 @@ export const Nav = styled.nav<{ compact: boolean }>`
   padding: 0.8em;
   box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.1);
 
-  @media (min-width: 550px) {
+  @media (min-width: 600px) {
     padding: 0.5rem;
     height: ${(props) => (props.compact ? 'var(--height-navbar-compact)' : 'var(--height-navbar)')};
   }
@@ -27,7 +27,7 @@ export const MobileCollapse = styled.div<{ collapsed: boolean }>`
   width: 100%;
   order: 10;
 
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     display: block;
     width: auto;
     order: unset;
@@ -40,7 +40,7 @@ export const Menu = styled.ul`
   flex-direction: column;
   margin: 0;
 
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     flex-direction: row;
   }
 `;
