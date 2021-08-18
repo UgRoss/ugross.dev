@@ -73,7 +73,7 @@ module.exports = {
         categories: ['news', 'education'],
         start_url: '/',
         background_color: '#222',
-        theme_color: '#2691ff',
+        theme_color: '#2e3138',
         display: 'minimal-ui',
         icon: 'static/favicon.png', // This path is relative to the root of the site.
         icons: [
