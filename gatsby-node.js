@@ -94,6 +94,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type MdxFrontmatter {
       date: Date! @dateformat
       title: String!
+      image: File @fileByRelativePath
       spoiler: String
     }
 
