@@ -17,14 +17,17 @@ const UsesPage: React.FC<UsesPageProps> = ({ data }) => {
   const pageBody = data.mdx?.body ?? '';
   const pageTitle = `Uses - ${name}`;
   const pageDescription = `The tools ${name} uses`;
+  const image = data.mdx?.frontmatter?.image?.childImageSharp?.resize ?? undefined;
 
   return (
     <Layout>
-      <SEO title={pageTitle} description={pageDescription} />
+      <SEO title={pageTitle} description={pageDescription} image={image} />
       <Hero>
         <div className="container text-center">
           <h1 className="mt-0">Uses</h1>
-          <p className="mb-0 text-md font-medium">All of the gear and software I use daily as of 2021</p>
+          <p className="mb-0 text-md font-medium">
+            All of the gear and software I use daily as of 2021
+          </p>
         </div>
       </Hero>
       <div className="container">
@@ -38,6 +41,17 @@ export const query = graphql`
   query usesPage {
     mdx(frontmatter: { pageName: { eq: "uses" } }) {
       body
+      frontmatter {
+        image {
+          childImageSharp {
+            resize(width: 1200) {
+              src
+              width
+              height
+            }
+          }
+        }
+      }
     }
   }
 `;
