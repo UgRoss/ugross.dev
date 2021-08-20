@@ -3,6 +3,7 @@ import avatar from '~/images/avatar.webp';
 const NAME = 'Rostyslav Ugryniuk';
 const JOB_TITLE = 'Front-end Developer';
 const CURRENT_YEAR = new Date().getFullYear();
+const IS_DEV = process.env.NODE_ENV === 'development';
 
 const NAV_ITEMS = [
   { url: '/', name: 'About', partiallyActive: false },
@@ -23,7 +24,7 @@ export const siteConfig = {
   email: 'contact@ugross.dev',
   avatar,
   // SEO
-  siteUrl: 'https://ugross.space',
+  siteUrl: IS_DEV ? 'http://localhost:8000' : 'https://ugross.dev',
   twitter: '@ug_ross',
   github: 'https://github.com/UgRoss',
   rss: '/rss.xml',
