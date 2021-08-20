@@ -21,10 +21,16 @@ export const Post: React.FC<PostProps> = ({ className, data }) => {
 
   const { frontmatter, body, timeToRead, excerpt, fields } = data.mdx;
   const pageTitle = `${frontmatter.title} - ${siteConfig.name}`;
+  const image = frontmatter?.image?.childImageSharp?.resize ?? undefined;
 
   return (
     <Layout className={className}>
-      <SEO title={pageTitle} description={frontmatter.spoiler || excerpt} slug={fields.slug} />
+      <SEO
+        title={pageTitle}
+        description={frontmatter.spoiler || excerpt}
+        slug={fields.slug}
+        image={image}
+      />
       <BlogPost
         title={frontmatter.title}
         date={frontmatter.date}
@@ -56,6 +62,15 @@ export const query = graphql`
         date(formatString: "DD MMMM, YYYY")
         pubDate: date(formatString: "YYYY-MM-DD")
         spoiler
+        image {
+          childImageSharp {
+            resize(width: 1200) {
+              src
+              width
+              height
+            }
+          }
+        }
       }
     }
   }

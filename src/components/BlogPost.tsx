@@ -26,8 +26,6 @@ const BlogPost: React.FC<BlogPostProps> = ({
   className,
   ...props
 }) => {
-  timeToRead = timeToRead ?? 5;
-
   return (
     <div className={className} {...props}>
       <Hero as="header">
