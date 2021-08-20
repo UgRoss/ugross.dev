@@ -3648,14 +3648,18 @@ export type PostDetailsQuery = {
       readonly __typename?: 'MdxFrontmatter';
       readonly title: string;
       readonly date: any;
-      readonly updated?: Maybe<any>;
       readonly spoiler?: Maybe<string>;
       readonly pubDate: any;
       readonly image?: Maybe<{
         readonly __typename?: 'File';
         readonly childImageSharp?: Maybe<{
           readonly __typename?: 'ImageSharp';
-          readonly gatsbyImageData: any;
+          readonly resize?: Maybe<{
+            readonly __typename?: 'ImageSharpResize';
+            readonly src?: Maybe<string>;
+            readonly width?: Maybe<number>;
+            readonly height?: Maybe<number>;
+          }>;
         }>;
       }>;
     };

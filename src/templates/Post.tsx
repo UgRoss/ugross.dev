@@ -21,7 +21,7 @@ export const Post: React.FC<PostProps> = ({ className, data }) => {
 
   const { frontmatter, body, timeToRead, excerpt, fields } = data.mdx;
   const pageTitle = `${frontmatter.title} - ${siteConfig.name}`;
-  const ogImageUrl = frontmatter?.image?.childImageSharp?.gatsbyImageData?.images.fallback.src;
+  const image = frontmatter?.image?.childImageSharp?.resize ?? undefined;
 
   return (
     <Layout className={className}>
@@ -29,7 +29,7 @@ export const Post: React.FC<PostProps> = ({ className, data }) => {
         title={pageTitle}
         description={frontmatter.spoiler || excerpt}
         slug={fields.slug}
-        image={ogImageUrl}
+        image={image}
       />
       <BlogPost
         title={frontmatter.title}
@@ -64,7 +64,11 @@ export const query = graphql`
         spoiler
         image {
           childImageSharp {
-            gatsbyImageData(layout: FIXED)
+            resize(width: 1200) {
+              src
+              width
+              height
+            }
           }
         }
       }
