@@ -167,7 +167,6 @@ module.exports = {
                   enclosure: image && {
                     url: siteUrl + image.publicURL,
                   },
-                  custom_elements: [{ 'content:encoded': html }],
                 };
               });
             },
