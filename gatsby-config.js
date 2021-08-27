@@ -155,7 +155,7 @@ module.exports = {
                   },
                 } = edge;
 
-                const blogUrl = `${siteUrl}/blog${slug}`;
+                const blogUrl = `${siteUrl}${slug}`;
 
                 return {
                   ...edge.node.frontmatter,
