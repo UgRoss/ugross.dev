@@ -140,14 +140,35 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMdx } }) =>
-              allMdx.edges.map((edge) => ({
-                ...edge.node.frontmatter,
-                description: edge.node.excerpt,
-                date: edge.node.frontmatter.date,
-                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-              })),
+            serialize: ({ query: { site, allMdx } }) => {
+              const {
+                siteMetadata: { siteUrl },
+              } = site;
+
+              return allMdx.edges.map((edge) => {
+                const {
+                  node: {
+                    fields: { slug },
+                    frontmatter: { title, date, image },
+                    excerpt,
+                  },
+                } = edge;
+
+                const blogUrl = `${siteUrl}${slug}`;
+
+                return {
+                  ...edge.node.frontmatter,
+                  title,
+                  date,
+                  description: excerpt,
+                  url: blogUrl,
+                  guid: blogUrl,
+                  enclosure: image && {
+                    url: siteUrl + image.publicURL,
+                  },
+                };
+              });
+            },
             query: `
               {
                 allMdx(
@@ -162,6 +183,9 @@ module.exports = {
                       frontmatter {
                         title
                         date
+                        image {
+                          publicURL
+                        }
                       }
                     }
                   }
