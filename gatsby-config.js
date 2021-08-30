@@ -151,7 +151,6 @@ module.exports = {
                     fields: { slug },
                     frontmatter: { title, date, image },
                     excerpt,
-                    html,
                   },
                 } = edge;
 
