@@ -2,6 +2,7 @@ import React from 'react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { TimeToRead } from '~/components/TimeToRead';
 import { Hero } from '~/components/Hero';
+import { Tag } from '~/components/Tag';
 
 interface BlogPostProps {
   title: string;
@@ -11,6 +12,7 @@ interface BlogPostProps {
   date: string;
   /** Time to read in minutes */
   timeToRead: number;
+  tags: { name: string; url: string }[];
   body: string;
   children: React.ReactElement | React.ReactElement[];
   className?: string;
@@ -22,6 +24,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
   pubDate,
   date,
   timeToRead,
+  tags,
   body,
   className,
   ...props
@@ -29,7 +32,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
   return (
     <div className={className} {...props}>
       <Hero as="header">
-        <div className="container">
+        <div className="container text-center">
           <h1 className="font-extrabold mt-0">{title}</h1>
           <section className="text-muted">
             <small>
@@ -39,6 +42,13 @@ const BlogPost: React.FC<BlogPostProps> = ({
             <small>
               <TimeToRead minutes={timeToRead} />
             </small>
+          </section>
+          <section className="mt-sm">
+            {tags.map(({ name, url }) => (
+              <Tag url={url} key={name}>
+                {name}
+              </Tag>
+            ))}
           </section>
         </div>
       </Hero>

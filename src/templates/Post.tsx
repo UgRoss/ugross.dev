@@ -20,8 +20,12 @@ export const Post: React.FC<PostProps> = ({ className, data }) => {
   }
 
   const { frontmatter, body, timeToRead, excerpt, fields } = data.mdx;
-  const pageTitle = `${frontmatter.title} - ${siteConfig.name}`;
+  const pageTitle = `${frontmatter.title} | ${siteConfig.name}`;
   const image = frontmatter?.image?.childImageSharp?.resize ?? undefined;
+  const tags = (Array.isArray(frontmatter?.tags) ? frontmatter.tags : []).map((tag) => ({
+    name: tag,
+    url: `/tags/${tag}`,
+  }));
 
   return (
     <Layout className={className}>
@@ -37,6 +41,7 @@ export const Post: React.FC<PostProps> = ({ className, data }) => {
         pubDate={frontmatter.pubDate}
         timeToRead={timeToRead ?? DEFAULT_TIME_TO_READ}
         body={body}
+        tags={tags}
       >
         <PostAuthor name={siteConfig.name} avatar={siteConfig.avatar} bio={siteConfig.shortBio} />
       </BlogPost>
@@ -62,6 +67,7 @@ export const query = graphql`
         date(formatString: "DD MMMM, YYYY")
         pubDate: date(formatString: "YYYY-MM-DD")
         spoiler
+        tags
         image {
           childImageSharp {
             resize(width: 1200) {

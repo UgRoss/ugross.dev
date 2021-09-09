@@ -1,33 +1,38 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { AllPostsSortedQuery } from '~/types/graphql';
+import { TagArticlesQuery } from '~/types/graphql';
 import { siteConfig } from '~/config/site.config';
 import { Layout } from '~/components/Layout';
 import { PostPreview } from '~/components/PostPreview';
 import { SEO } from '~/components/SEO';
 import { Hero } from '~/components/Hero';
 
-interface BlogProps {
-  data: AllPostsSortedQuery;
+interface TagsProps {
+  data: TagArticlesQuery;
+  pageContext: {
+    tag: string;
+  };
 }
 
-const Blog: React.FC<BlogProps> = ({ data: { posts } }) => {
-  const pageTitle = `Blog | ${siteConfig.name}`;
+const Tags: React.FC<TagsProps> = ({ pageContext, data }) => {
+  const { tag } = pageContext;
+  const pageTitle = `Posts tagged: ${tag} | ${siteConfig.name}`;
+  const { edges, totalCount } = data.posts;
 
   return (
     <Layout>
       <SEO title={pageTitle} />
       <Hero>
-        <div className="container">
-          <h1 className="text-center font-jetbrains mt-0">
-            <span className="text-secondary">{'<'}</span>
-            <span className="text-tertiary">Blog</span>
-            <span className="text-secondary">{' />'}</span>
+        <div className="container text-center">
+          <h1 className="mt-0">
+            <span className="font-regular">Posts tagged: </span>
+            <span>{tag}</span>
           </h1>
+          <p className="text-muted text-md">{totalCount} posts found.</p>
         </div>
       </Hero>
       <div className="container">
-        {posts.edges.map(({ node }) => (
+        {edges.map(({ node }: any) => (
           <PostPreview
             key={node.fields.slug}
             url={node.fields.slug}
@@ -40,12 +45,14 @@ const Blog: React.FC<BlogProps> = ({ data: { posts } }) => {
   );
 };
 
+export default Tags;
+
 export const query = graphql`
-  query allPostsSorted {
+  query tagArticles($tag: String) {
     posts: allMdx(
+      limit: 100
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { collection: { eq: "posts" } } }
-      limit: 1000
+      filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount
       edges {
@@ -53,9 +60,6 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date(formatString: "MMMM DD, YYYY")
-            pubDate: date(formatString: "YYYY-MM-DD")
-            spoiler
           }
           fields {
             slug
@@ -67,5 +71,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default Blog;

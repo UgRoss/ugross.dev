@@ -42,7 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allMdx(
+        allPosts: allMdx(
           sort: {fields: [frontmatter___date], order: DESC}
           filter: { fields: { collection: { eq: "${MARKDOWN_COLLECTION_TYPES.posts}" } } }
           limit: 1000
@@ -58,6 +58,11 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        tagsGroup: allMdx(limit: 2000) {
+          group(field: frontmatter___tags) {
+            fieldValue
+          }
+        }
       }
     `).then((result) => {
       const { data, errors } = result;
@@ -66,8 +71,7 @@ exports.createPages = ({ graphql, actions }) => {
         reject(errors);
       }
 
-      const posts = data.allMdx.edges;
-
+      const posts = data.allPosts.edges;
       posts.forEach(({ node }) =>
         createPage({
           component: path.resolve('./src/templates/Post.tsx'),
@@ -77,6 +81,17 @@ exports.createPages = ({ graphql, actions }) => {
           },
         })
       );
+
+      const tags = data.tagsGroup.group;
+      tags.forEach((tag) => {
+        createPage({
+          path: `/tags/${kebabCase(tag.fieldValue)}/`,
+          component: path.resolve('./src/templates/Tags.tsx'),
+          context: {
+            tag: tag.fieldValue,
+          },
+        });
+      });
 
       resolve();
     });
@@ -96,6 +111,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String!
       image: File @fileByRelativePath
       spoiler: String
+      tags: [String!]
     }
 
     type MdxFields {
