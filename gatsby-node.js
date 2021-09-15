@@ -37,10 +37,10 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
-  return new Promise((resolve, reject) => {
-    graphql(`
+
+  const result = await graphql(`
       {
         allPosts: allMdx(
           sort: {fields: [frontmatter___date], order: DESC}
@@ -64,36 +64,33 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `).then((result) => {
-      const { data, errors } = result;
+    `);
 
-      if (errors) {
-        reject(errors);
-      }
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
 
-      const posts = data.allPosts.edges;
-      posts.forEach(({ node }) =>
-        createPage({
-          component: path.resolve('./src/templates/Post.tsx'),
-          path: node.fields.slug,
-          context: {
-            slug: node.fields.slug,
-          },
-        })
-      );
+  const posts = result.data.allPosts.edges;
+  const tags = result.data.tagsGroup.group;
 
-      const tags = data.tagsGroup.group;
-      tags.forEach((tag) => {
-        createPage({
-          path: `/tags/${kebabCase(tag.fieldValue)}/`,
-          component: path.resolve('./src/templates/Tags.tsx'),
-          context: {
-            tag: tag.fieldValue,
-          },
-        });
-      });
+  posts.forEach(({ node }) =>
+    createPage({
+      component: path.resolve('./src/templates/Post.tsx'),
+      path: node.fields.slug,
+      context: {
+        slug: node.fields.slug,
+      },
+    })
+  );
 
-      resolve();
+  tags.forEach((tag) => {
+    createPage({
+      path: `/tags/${kebabCase(tag.fieldValue)}/`,
+      component: path.resolve('./src/templates/Tags.tsx'),
+      context: {
+        tag: tag.fieldValue,
+      },
     });
   });
 };
