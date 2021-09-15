@@ -540,6 +540,7 @@ type MdxFrontmatter {
   image: File
   pageName: String
   spoiler: String
+  tags: [String]
   title: String!
   type: String
   updated(
@@ -1192,6 +1193,7 @@ enum FileFieldsEnum {
   childMdx___frontmatter___image___uid
   childMdx___frontmatter___pageName
   childMdx___frontmatter___spoiler
+  childMdx___frontmatter___tags
   childMdx___frontmatter___title
   childMdx___frontmatter___type
   childMdx___frontmatter___updated
@@ -1364,6 +1366,7 @@ enum FileFieldsEnum {
   childrenMdx___frontmatter___image___uid
   childrenMdx___frontmatter___pageName
   childrenMdx___frontmatter___spoiler
+  childrenMdx___frontmatter___tags
   childrenMdx___frontmatter___title
   childrenMdx___frontmatter___type
   childrenMdx___frontmatter___updated
@@ -1814,6 +1817,7 @@ enum MdxFieldsEnum {
   frontmatter___image___uid
   frontmatter___pageName
   frontmatter___spoiler
+  frontmatter___tags
   frontmatter___title
   frontmatter___type
   frontmatter___updated
@@ -2823,6 +2827,7 @@ input MdxFrontmatterFilterInput {
   image: FileFilterInput
   pageName: StringQueryOperatorInput
   spoiler: StringQueryOperatorInput
+  tags: StringQueryOperatorInput
   title: StringQueryOperatorInput
   type: StringQueryOperatorInput
   updated: DateQueryOperatorInput

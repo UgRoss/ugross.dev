@@ -718,6 +718,7 @@ export enum FileFieldsEnum {
   childrenMdx___frontmatter___image___id = 'childrenMdx___frontmatter___image___id',
   childrenMdx___frontmatter___image___children = 'childrenMdx___frontmatter___image___children',
   childrenMdx___frontmatter___spoiler = 'childrenMdx___frontmatter___spoiler',
+  childrenMdx___frontmatter___tags = 'childrenMdx___frontmatter___tags',
   childrenMdx___frontmatter___updated = 'childrenMdx___frontmatter___updated',
   childrenMdx___frontmatter___pageName = 'childrenMdx___frontmatter___pageName',
   childrenMdx___frontmatter___type = 'childrenMdx___frontmatter___type',
@@ -817,6 +818,7 @@ export enum FileFieldsEnum {
   childMdx___frontmatter___image___id = 'childMdx___frontmatter___image___id',
   childMdx___frontmatter___image___children = 'childMdx___frontmatter___image___children',
   childMdx___frontmatter___spoiler = 'childMdx___frontmatter___spoiler',
+  childMdx___frontmatter___tags = 'childMdx___frontmatter___tags',
   childMdx___frontmatter___updated = 'childMdx___frontmatter___updated',
   childMdx___frontmatter___pageName = 'childMdx___frontmatter___pageName',
   childMdx___frontmatter___type = 'childMdx___frontmatter___type',
@@ -1687,6 +1689,7 @@ export enum MdxFieldsEnum {
   frontmatter___image___internal___owner = 'frontmatter___image___internal___owner',
   frontmatter___image___internal___type = 'frontmatter___image___internal___type',
   frontmatter___spoiler = 'frontmatter___spoiler',
+  frontmatter___tags = 'frontmatter___tags',
   frontmatter___updated = 'frontmatter___updated',
   frontmatter___pageName = 'frontmatter___pageName',
   frontmatter___type = 'frontmatter___type',
@@ -1828,6 +1831,7 @@ export type MdxFrontmatter = {
   readonly date: Scalars['Date'];
   readonly image?: Maybe<File>;
   readonly spoiler?: Maybe<Scalars['String']>;
+  readonly tags?: Maybe<ReadonlyArray<Scalars['String']>>;
   readonly updated?: Maybe<Scalars['Date']>;
   readonly pageName?: Maybe<Scalars['String']>;
   readonly type?: Maybe<Scalars['String']>;
@@ -1852,6 +1856,7 @@ export type MdxFrontmatterFilterInput = {
   readonly date?: Maybe<DateQueryOperatorInput>;
   readonly image?: Maybe<FileFilterInput>;
   readonly spoiler?: Maybe<StringQueryOperatorInput>;
+  readonly tags?: Maybe<StringQueryOperatorInput>;
   readonly updated?: Maybe<DateQueryOperatorInput>;
   readonly pageName?: Maybe<StringQueryOperatorInput>;
   readonly type?: Maybe<StringQueryOperatorInput>;
@@ -2816,10 +2821,12 @@ export type SitePageConnectionGroupArgs = {
 export type SitePageContext = {
   readonly __typename?: 'SitePageContext';
   readonly slug?: Maybe<Scalars['String']>;
+  readonly tag?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
   readonly slug?: Maybe<StringQueryOperatorInput>;
+  readonly tag?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -2923,6 +2930,7 @@ export enum SitePageFieldsEnum {
   internal___type = 'internal___type',
   isCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
   context___slug = 'context___slug',
+  context___tag = 'context___tag',
   pluginCreator___id = 'pluginCreator___id',
   pluginCreator___parent___id = 'pluginCreator___parent___id',
   pluginCreator___parent___parent___id = 'pluginCreator___parent___parent___id',
@@ -3667,6 +3675,7 @@ export type PostDetailsQuery = {
       readonly title: string;
       readonly date: any;
       readonly spoiler?: Maybe<string>;
+      readonly tags?: Maybe<ReadonlyArray<string>>;
       readonly pubDate: any;
       readonly image?: Maybe<{
         readonly __typename?: 'File';
@@ -3682,4 +3691,31 @@ export type PostDetailsQuery = {
       }>;
     };
   }>;
+};
+
+export type TagArticlesQueryVariables = Exact<{
+  tag?: Maybe<Scalars['String']>;
+}>;
+
+export type TagArticlesQuery = {
+  readonly __typename?: 'Query';
+  readonly posts: {
+    readonly __typename?: 'MdxConnection';
+    readonly totalCount: number;
+    readonly edges: ReadonlyArray<{
+      readonly __typename?: 'MdxEdge';
+      readonly node: {
+        readonly __typename?: 'Mdx';
+        readonly id: string;
+        readonly timeToRead?: Maybe<number>;
+        readonly excerpt: string;
+        readonly frontmatter: {
+          readonly __typename?: 'MdxFrontmatter';
+          readonly title: string;
+          readonly spoiler?: Maybe<string>;
+        };
+        readonly fields: { readonly __typename?: 'MdxFields'; readonly slug: string };
+      };
+    }>;
+  };
 };

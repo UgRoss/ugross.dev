@@ -37,12 +37,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
-  return new Promise((resolve, reject) => {
-    graphql(`
+
+  const result = await graphql(`
       {
-        allMdx(
+        allPosts: allMdx(
           sort: {fields: [frontmatter___date], order: DESC}
           filter: { fields: { collection: { eq: "${MARKDOWN_COLLECTION_TYPES.posts}" } } }
           limit: 1000
@@ -58,27 +58,39 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        tagsGroup: allMdx(limit: 2000) {
+          group(field: frontmatter___tags) {
+            fieldValue
+          }
+        }
       }
-    `).then((result) => {
-      const { data, errors } = result;
+    `);
 
-      if (errors) {
-        reject(errors);
-      }
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
 
-      const posts = data.allMdx.edges;
+  const posts = result.data.allPosts.edges;
+  const tags = result.data.tagsGroup.group;
 
-      posts.forEach(({ node }) =>
-        createPage({
-          component: path.resolve('./src/templates/Post.tsx'),
-          path: node.fields.slug,
-          context: {
-            slug: node.fields.slug,
-          },
-        })
-      );
+  posts.forEach(({ node }) =>
+    createPage({
+      component: path.resolve('./src/templates/Post.tsx'),
+      path: node.fields.slug,
+      context: {
+        slug: node.fields.slug,
+      },
+    })
+  );
 
-      resolve();
+  tags.forEach((tag) => {
+    createPage({
+      path: `/tags/${kebabCase(tag.fieldValue)}/`,
+      component: path.resolve('./src/templates/Tags.tsx'),
+      context: {
+        tag: tag.fieldValue,
+      },
     });
   });
 };
@@ -96,6 +108,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String!
       image: File @fileByRelativePath
       spoiler: String
+      tags: [String!]
     }
 
     type MdxFields {

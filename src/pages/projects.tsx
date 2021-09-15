@@ -5,7 +5,7 @@ import { Hero } from '~/components/Hero';
 import { siteConfig } from '~/config/site.config';
 
 const Projects: React.FC = () => {
-  const pageTitle = `Projects - ${siteConfig.name}`;
+  const pageTitle = `Projects | ${siteConfig.name}`;
 
   return (
     <Layout>

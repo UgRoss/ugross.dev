@@ -135,6 +135,10 @@ $desktop: 992px;
   --color-alert-warning: hsl(30, 96%, 49%);
   --color-alert-error: hsl(1, 100%, 63%);
   --color-alert-background: hsl(210, 25%, 97%);
+  // Tags
+  --color-tag-text: var(--color-text);
+  --color-tag-background: transparent;
+  --color-tag-background-hover: hsl(0, 0%, 90%);
   // Other colors
   --color-selection: hsla(47, 91%, 66%, 0.5);
   --color-horizontal-rule: hsla(0, 0%, 0%, 0.1);
