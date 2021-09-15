@@ -3709,7 +3709,11 @@ export type TagArticlesQuery = {
         readonly id: string;
         readonly timeToRead?: Maybe<number>;
         readonly excerpt: string;
-        readonly frontmatter: { readonly __typename?: 'MdxFrontmatter'; readonly title: string };
+        readonly frontmatter: {
+          readonly __typename?: 'MdxFrontmatter';
+          readonly title: string;
+          readonly spoiler?: Maybe<string>;
+        };
         readonly fields: { readonly __typename?: 'MdxFields'; readonly slug: string };
       };
     }>;

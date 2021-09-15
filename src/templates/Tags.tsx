@@ -32,7 +32,7 @@ const Tags: React.FC<TagsProps> = ({ pageContext, data }) => {
         </div>
       </Hero>
       <div className="container">
-        {edges.map(({ node }: any) => (
+        {edges.map(({ node }) => (
           <PostPreview
             key={node.fields.slug}
             url={node.fields.slug}
@@ -60,6 +60,7 @@ export const query = graphql`
           id
           frontmatter {
             title
+            spoiler
           }
           fields {
             slug
