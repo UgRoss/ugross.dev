@@ -28,36 +28,34 @@ const BlogPost: React.FC<BlogPostProps> = ({
   body,
   className,
   ...props
-}) => {
-  return (
-    <div className={className} {...props}>
-      <Hero as="header">
-        <div className="container text-center">
-          <h1 className="font-extrabold mt-0">{title}</h1>
-          <section className="text-muted">
-            <small>
-              <time dateTime={pubDate}>{date}</time>
-            </small>
-            <span>{' • '}</span>
-            <small>
-              <TimeToRead minutes={timeToRead} />
-            </small>
-          </section>
-          <section className="mt-sm">
-            {tags.map(({ name, url }) => (
-              <Tag url={url} key={name}>
-                {name}
-              </Tag>
-            ))}
-          </section>
-        </div>
-      </Hero>
-      <div className="BlogPost__content container">
-        <MDXRenderer>{body}</MDXRenderer>
-        {children}
+}) => (
+  <div className={className} {...props}>
+    <Hero as="header">
+      <div className="container text-center">
+        <h1 className="font-extrabold mt-0">{title}</h1>
+        <section className="text-muted">
+          <small>
+            <time dateTime={pubDate}>{date}</time>
+          </small>
+          <span>{' • '}</span>
+          <small>
+            <TimeToRead minutes={timeToRead} />
+          </small>
+        </section>
+        <section className="mt-sm">
+          {tags.map(({ name, url }) => (
+            <Tag href={url} key={name}>
+              {name}
+            </Tag>
+          ))}
+        </section>
       </div>
+    </Hero>
+    <div className="BlogPost__content container">
+      <MDXRenderer>{body}</MDXRenderer>
+      {children}
     </div>
-  );
-};
+  </div>
+);
 
 export { BlogPost };
