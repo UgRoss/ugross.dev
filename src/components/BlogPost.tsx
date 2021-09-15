@@ -45,7 +45,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
         <section className="mt-sm">
           {tags.map(({ name, url }) => (
             <Tag href={url} key={name}>
-              {name}
+              {`#${name}`}
             </Tag>
           ))}
         </section>
