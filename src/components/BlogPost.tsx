@@ -12,7 +12,7 @@ interface BlogPostProps {
   date: string;
   /** Time to read in minutes */
   timeToRead: number;
-  tags: { name: string; url: string }[];
+  tags?: { name: string; url: string }[];
   body: string;
   children: React.ReactElement | React.ReactElement[];
   className?: string;
@@ -24,7 +24,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
   pubDate,
   date,
   timeToRead,
-  tags,
+  tags = [],
   body,
   className,
   ...props

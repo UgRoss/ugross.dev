@@ -22,7 +22,7 @@ export const Post: React.FC<PostProps> = ({ className, data }) => {
   const { frontmatter, body, timeToRead, excerpt, fields } = data.mdx;
   const pageTitle = `${frontmatter.title} | ${siteConfig.name}`;
   const image = frontmatter?.image?.childImageSharp?.resize ?? undefined;
-  const tags = (Array.isArray(frontmatter?.tags) ? frontmatter.tags : []).map((tag) => ({
+  const tags = frontmatter?.tags?.map((tag) => ({
     name: tag,
     url: `/tags/${tag}`,
   }));
