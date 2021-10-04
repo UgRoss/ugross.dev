@@ -18,6 +18,7 @@ const UsesPage: React.FC<UsesPageProps> = ({ data }) => {
   const pageTitle = `Uses - ${name}`;
   const pageDescription = `The tools ${name} uses`;
   const image = data.mdx?.frontmatter?.image?.childImageSharp?.resize ?? undefined;
+  const currentYear = new Date().getFullYear();
 
   return (
     <Layout>
@@ -26,7 +27,7 @@ const UsesPage: React.FC<UsesPageProps> = ({ data }) => {
         <div className="container text-center">
           <h1 className="mt-0">Uses</h1>
           <p className="mb-0 text-md font-medium">
-            All of the gear and software I use daily as of 2021
+            All of the gear and software I use daily as of {currentYear}
           </p>
         </div>
       </Hero>
