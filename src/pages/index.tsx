@@ -21,7 +21,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
     <Layout>
       <SEO title={pageTitle} />
       <HeroProfile img={avatar} name={name} jobTitle={jobTitle} />
-      <div className="container">
+      <div className="container prose">
         <MDXRenderer>{pageBody}</MDXRenderer>
       </div>
     </Layout>

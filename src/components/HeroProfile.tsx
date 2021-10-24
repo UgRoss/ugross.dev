@@ -1,19 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { AccessibleEmoji } from '~/components/AccessibleEmoji';
 import { Avatar } from '~/components/Avatar';
 import { Hero } from '~/components/Hero';
-
-const HeroProfileWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-
-  @media (min-width: 600px) {
-    flex-direction: row;
-  }
-`;
 
 interface HeroProfileProps {
   img: string;
@@ -24,21 +12,21 @@ interface HeroProfileProps {
 export const HeroProfile: React.FC<HeroProfileProps> = ({ img, name, jobTitle }) => (
   <Hero>
     <div className="container">
-      <HeroProfileWrapper>
+      <div className="flex sm:flex-row items-center gap-8 flex-col">
         <div>
           <Avatar img={img} name={name} size={6} />
         </div>
         <div>
-          <h3 className="mb-xxs mt-xxs">
+          <h3 className="mb-1 mt-1 text-2xl">
             <AccessibleEmoji emoji="👋" description="Hello" />
           </h3>
-          <h1 className="text-xxxl text-tertiary mb-xs mt-xs">
+          <h1 className="text-2xl font-bold text-tertiary mb-1 mt-1">
             <span className="text-secondary">Hi,</span>
             {` I am ${name}`}
           </h1>
-          <h2 className="text-md mt-0 font-medium">{jobTitle}</h2>
+          <h2 className="font-medium mt-1 text-lg">{jobTitle}</h2>
         </div>
-      </HeroProfileWrapper>
+      </div>
     </div>
   </Hero>
 );

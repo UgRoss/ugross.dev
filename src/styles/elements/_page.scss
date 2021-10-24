@@ -1,15 +1,15 @@
 html {
-  font-size: var(--html-font-size);
-  line-height: var(--base-line-height);
+  //font-size: var(--html-font-size);
+  //line-height: var(--base-line-height);
   -webkit-tap-highlight-color: transparent;
 }
 
 body {
   background: var(--color-body);
   color: var(--color-text);
-  font-family: var(--font-primary);
-  font-size: var(--text-base-font-size);
-  line-height: var(--base-line-height);
+  //font-family: var(--font-primary);
+  //font-size: var(--text-base-font-size);
+  //line-height: var(--base-line-height);
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
 }

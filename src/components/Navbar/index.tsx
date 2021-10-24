@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'gatsby';
 import { useScroll } from '~/hooks/useScroll';
 import { NoSSR } from '~/components/NoSSR';
 import { DarkModeToggle } from '~/components/DarkModeToggle/DarkModeToggle';
 import { NavToggleButton } from './components/NavToggleButton';
-import { Nav, MobileCollapse, Menu, MenuItem, MenuLink } from './Navbar.styles';
+import { Nav, MobileCollapse, Menu, MenuItem } from './Navbar.styles';
 
 interface NavbarProps {
   navLinks: Array<{ url: string; name: string; partiallyActive?: boolean }>;
@@ -27,9 +28,14 @@ export const Navbar: React.FC<NavbarProps> = ({ navLinks }) => {
           <Menu>
             {navLinks.map(({ url, name, partiallyActive }) => (
               <MenuItem key={url}>
-                <MenuLink to={url} partiallyActive={partiallyActive} activeClassName="MenuLink--active">
+                <Link
+                  to={url}
+                  partiallyActive={partiallyActive}
+                  activeClassName="bg-gray-200"
+                  className="font-medium text-gray-800 rounded-md px-2 py-2 mr-3 transition duration-500 ease select-none hover:bg-gray-200 focus:outline-none focus:shadow-outline"
+                >
                   {name}
-                </MenuLink>
+                </Link>
               </MenuItem>
             ))}
           </Menu>

@@ -51,7 +51,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
         </section>
       </div>
     </Hero>
-    <div className="BlogPost__content container">
+    <div className="BlogPost__content container prose">
       <MDXRenderer>{body}</MDXRenderer>
       {children}
     </div>
