@@ -25,14 +25,16 @@ const UsesPage: React.FC<UsesPageProps> = ({ data }) => {
       <SEO title={pageTitle} description={pageDescription} image={image} />
       <Hero>
         <div className="container text-center">
-          <h1 className="mt-0">Uses</h1>
+          <h1 className="text-4xl my-5 font-extrabold">Uses</h1>
           <p className="mb-0 text-md font-medium">
             All of the gear and software I use daily as of {currentYear}
           </p>
         </div>
       </Hero>
       <div className="container">
-        <MDXRenderer>{pageBody}</MDXRenderer>
+        <div className="prose">
+          <MDXRenderer>{pageBody}</MDXRenderer>
+        </div>
       </div>
     </Layout>
   );

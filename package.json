@@ -21,7 +21,7 @@
   "lint-staged": {
     "src/**.{js,jsx,tsx,ts,scss,css}": "prettier --write",
     "src/**.{js,jsx,ts,tsx}": "eslint",
-    "src/**.{css,scss,tsx}": "stylelint --config .stylelintrc.json"
+    "src/**.{css,scss,tsx}": "stylelint --config .stylelintrc"
   },
   "repository": {
     "type": "git",
@@ -55,14 +55,17 @@
     "gatsby-source-filesystem": "^3.12.0",
     "gatsby-transformer-sharp": "^3.12.0",
     "lodash": "^4.17.21",
+    "mdx-utils": "^0.2.0",
     "normalize.css": "^8.0.1",
+    "prism-react-renderer": "^1.2.1",
     "prismjs": "^1.25.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-feather": "^2.0.9",
     "react-helmet": "^6.1.0",
     "react-use": "^17.2.4",
-    "typeface-inter": "^3.18.1"
+    "typeface-inter": "^3.18.1",
+    "waait": "^1.0.5"
   },
   "devDependencies": {
     "@fec/remark-a11y-emoji": "^3.1.0",

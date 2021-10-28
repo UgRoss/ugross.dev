@@ -2,11 +2,9 @@ import React from 'react';
 import { graphql, navigate } from 'gatsby';
 import { PostDetailsQuery } from '~/types/graphql';
 import { Layout } from '~/components/Layout';
-import { PostAuthor } from '~/components/PostAuthor';
 import { BlogPost } from '~/components/BlogPost';
 import { SEO } from '~/components/SEO';
 import { siteConfig } from '~/config/site.config';
-const DEFAULT_TIME_TO_READ = 5;
 
 interface PostProps {
   data: PostDetailsQuery;
@@ -19,7 +17,7 @@ export const Post: React.FC<PostProps> = ({ className, data }) => {
     return null;
   }
 
-  const { frontmatter, body, timeToRead, excerpt, fields } = data.mdx;
+  const { frontmatter, body, excerpt, fields } = data.mdx;
   const pageTitle = `${frontmatter.title} | ${siteConfig.name}`;
   const image = frontmatter?.image?.childImageSharp?.resize ?? undefined;
   const tags = frontmatter?.tags?.map((tag) => ({
@@ -36,15 +34,14 @@ export const Post: React.FC<PostProps> = ({ className, data }) => {
         image={image}
       />
       <BlogPost
+        author={siteConfig.name}
+        authorLink={'/'}
         title={frontmatter.title}
         date={frontmatter.date}
         pubDate={frontmatter.pubDate}
-        timeToRead={timeToRead ?? DEFAULT_TIME_TO_READ}
         body={body}
         tags={tags}
-      >
-        <PostAuthor name={siteConfig.name} avatar={siteConfig.avatar} bio={siteConfig.shortBio} />
-      </BlogPost>
+      />
     </Layout>
   );
 };

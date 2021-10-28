@@ -11,7 +11,7 @@ interface HeroProfileProps {
 
 export const HeroProfile: React.FC<HeroProfileProps> = ({ img, name, jobTitle }) => (
   <Hero>
-    <div className="container">
+    <div className="container py-10">
       <div className="flex sm:flex-row items-center gap-8 flex-col">
         <div>
           <Avatar img={img} name={name} size={6} />

@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { TimeToRead } from '~/components/TimeToRead';
 import { Hero } from '~/components/Hero';
 import { Tag } from '~/components/Tag';
 
@@ -10,11 +10,11 @@ interface BlogPostProps {
   pubDate: string;
   /** Date to display to user */
   date: string;
-  /** Time to read in minutes */
-  timeToRead: number;
+  author: string;
+  authorLink: string;
   tags?: { name: string; url: string }[];
   body: string;
-  children: React.ReactElement | React.ReactElement[];
+  children?: React.ReactElement | React.ReactElement[];
   className?: string;
 }
 
@@ -23,7 +23,8 @@ const BlogPost: React.FC<BlogPostProps> = ({
   title,
   pubDate,
   date,
-  timeToRead,
+  author,
+  authorLink,
   tags = [],
   body,
   className,
@@ -32,17 +33,14 @@ const BlogPost: React.FC<BlogPostProps> = ({
   <div className={className} {...props}>
     <Hero as="header">
       <div className="container text-center">
-        <h1 className="font-extrabold mt-0">{title}</h1>
-        <section className="text-muted">
-          <small>
-            <time dateTime={pubDate}>{date}</time>
-          </small>
-          <span>{' • '}</span>
-          <small>
-            <TimeToRead minutes={timeToRead} />
-          </small>
+        <h1 className="text-4xl my-5 font-extrabold">{title}</h1>
+        <section className="text-muted text-sm">
+          {`Written by `}
+          <Link to={authorLink}>{author}</Link>
+          {` on `}
+          <time dateTime={pubDate}>{date}</time>
         </section>
-        <section className="mt-sm">
+        <section className="mt-3 flex flex-wrap justify-center">
           {tags.map(({ name, url }) => (
             <Tag href={url} key={name}>
               {`#${name}`}
@@ -51,8 +49,10 @@ const BlogPost: React.FC<BlogPostProps> = ({
         </section>
       </div>
     </Hero>
-    <div className="BlogPost__content container prose">
-      <MDXRenderer>{body}</MDXRenderer>
+    <div className="BlogPost__content container">
+      <div className="prose">
+        <MDXRenderer>{body}</MDXRenderer>
+      </div>
       {children}
     </div>
   </div>

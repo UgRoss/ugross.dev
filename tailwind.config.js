@@ -3,9 +3,33 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        inlineCode: {
+          DEFAULT: '#edf2f7',
+          dark: 'black',
+        },
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            pre: false,
+            code: false,
+            'pre code': false,
+            'code::before': false,
+            'code::after': false,
+            a: {
+              textDecoration: 'none',
+            },
+            h5: {
+              fontWeight: 'bold',
+              marginBottom: '0.5rem',
+            },
+          },
+        },
+      },
       textColor: {
         secondary: colors.yellow['500'],
         tertiary: colors.gray['800'],

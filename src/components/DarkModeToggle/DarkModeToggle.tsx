@@ -11,16 +11,22 @@ interface DarkModeToggleProps {
 export const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ className }) => {
   const [theme, , toggleTheme] = useDarkMode();
   const isDarkTheme = theme === Theme.DARK;
+  const buttonLabel = isDarkTheme ? 'Activate Light Mode' : 'Activate Dark Mode';
   const buttonClassName = classNames(
     className,
-    `text-gray-800 rounded-md select-none font-medium`,
+    `text-gray-500 rounded-md select-none font-medium`,
     `px-2 py-2 mr-2`,
     `transition duration-500 ease`,
-    `hover:bg-gray-200 focus:outline-none focus:shadow-outline`
+    `hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:shadow-outline`
   );
 
   return (
-    <button onClick={toggleTheme} className={buttonClassName} aria-label="Change Theme">
+    <button
+      onClick={toggleTheme}
+      className={buttonClassName}
+      aria-label={buttonLabel}
+      title={buttonLabel}
+    >
       {isDarkTheme && <IconSun />}
       {!isDarkTheme && <IconMoon />}
     </button>

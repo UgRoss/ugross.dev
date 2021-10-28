@@ -1,0 +1,112 @@
+.prism-code {
+  @apply pt-10 pr-5 pb-5 pl-5 mb-5 mt-0;
+  @apply overflow-auto bg-transparent min-w-full;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gatsby-highlight[data-language=''],
+.gatsby-highlight[data-language='noLineNumbers'] {
+  .prism-code {
+    @apply pt-5;
+  }
+}
+
+.token {
+  @apply inline-block;
+}
+
+.highlight-line {
+  background-color: rgb(2, 55, 81);
+}
+
+// === Code Container
+.gatsby-highlight {
+  @apply lg:-ml-16 lg:-mr-16 relative;
+
+  .token-line {
+    @apply -ml-5 -mr-5 min-w-full;
+  }
+
+  pre {
+    code {
+      @apply float-left min-w-full;
+    }
+  }
+}
+
+// === Inline Code
+:not(pre) > code {
+  @apply bg-inlineCode text-black rounded-sm py-1 px-2;
+}
+
+// === Line Numbers
+.line-number-style {
+  @apply inline-block text-center relative w-12;
+  @apply select-none;
+  opacity: 0.3;
+}
+
+// === Scrollbar
+.gatsby-highlight {
+  pre::-webkit-scrollbar {
+    @apply h-2.5;
+  }
+  pre::-webkit-scrollbar-thumb {
+    @apply bg-gray-400;
+  }
+  pre::-webkit-scrollbar-track {
+    @apply bg-gray-700;
+  }
+}
+
+// === CodeCopyButton Button
+pre .code-copy-button {
+  @apply absolute right-0 top-0 px-2 py-1;
+  @apply hover:bg-blue-500 hover:text-white transition;
+  border-bottom-left-radius: 5px;
+  &:disabled {
+    @apply hover:bg-transparent cursor-not-allowed text-gray-400;
+  }
+}
+
+// === Code Title
+.code-title {
+  @apply lg:-ml-16 lg:-mr-16 -mb-1.5 pt-2 pb-3 px-4;
+  @apply bg-gray-700 text-white;
+  @apply rounded-md;
+}
+
+// === Code Badges
+$js-color: #f7df1e;
+$ts-color: #3178c6;
+$jsx-color: #61dafb;
+
+.gatsby-highlight pre[class*='language-']:before {
+  @apply absolute top-0 left-4;
+  @apply rounded-b-md py-1 px-2;
+  @apply text-sm tracking-wide uppercase text-left;
+  @apply bg-gray-300 text-black;
+}
+
+.gatsby-highlight pre[class~='language-js']:before,
+.gatsby-highlight pre[class~='language-javascript']:before {
+  content: 'js';
+  background: $js-color;
+  color: black;
+}
+
+.gatsby-highlight pre[class~='language-typescript']:before {
+  content: 'ts';
+  background: $ts-color;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-jsx']:before {
+  content: 'jsx';
+  background: $jsx-color;
+  color: black;
+}
+
+.gatsby-highlight pre[class~='language-text']:before {
+  content: 'text';
+}

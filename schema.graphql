@@ -244,7 +244,7 @@ type File implements Node {
   nlink: Int!
   parent: Node
   prettySize: String!
-  "Copy file to static directory and return public url to it"
+  "CodeCopyButton file to static directory and return public url to it"
   publicURL: String
   rdev: Int!
   relativeDirectory: String!
