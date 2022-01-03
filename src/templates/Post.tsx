@@ -54,7 +54,6 @@ export const query = graphql`
   query postDetails($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       body
-      timeToRead
       excerpt
       fields {
         slug
