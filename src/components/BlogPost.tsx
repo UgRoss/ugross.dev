@@ -50,7 +50,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
       </div>
     </Hero>
     <div className="container mt-10">
-      <div className="prose">
+      <div className="prose dark:prose-invert">
         <MDXRenderer>{body}</MDXRenderer>
       </div>
       {children}

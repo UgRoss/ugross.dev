@@ -20,7 +20,7 @@ const TypographyDemoPage: React.FC<TypographyDemoPageProps> = ({ data }) => {
         </div>
       </Hero>
       <div className="container mt-10">
-        <div className="prose">
+        <div className="prose dark:prose-invert">
           <MDXRenderer>{pageBody}</MDXRenderer>
         </div>
       </div>

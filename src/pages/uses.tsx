@@ -32,7 +32,7 @@ const UsesPage: React.FC<UsesPageProps> = ({ data }) => {
         </div>
       </Hero>
       <div className="container">
-        <div className="prose">
+        <div className="prose dark:prose-invert">
           <MDXRenderer>{pageBody}</MDXRenderer>
         </div>
       </div>

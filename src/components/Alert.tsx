@@ -21,8 +21,8 @@ export const Alert: React.FC<AlertProps> = ({ type, className, children }) => {
     `relative w-full my-4 mx-0 py-2 px-4 rounded border-l-4 bg-gray-50`,
     {
       'border-blue-400': type === 'info',
-      'border-green-400': type === 'success',
-      'border-yellow-500': type === 'warning',
+      'border-emerald-400': type === 'success',
+      'border-amber-500': type === 'warning',
       'border-red-400': type === 'error',
     }
   );

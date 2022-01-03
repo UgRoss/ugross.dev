@@ -22,7 +22,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       <SEO title={pageTitle} />
       <HeroProfile img={avatar} name={name} jobTitle={jobTitle} />
       <div className="container">
-        <div className="prose max-w-none">
+        <div className="prose dark:prose-invert max-w-none">
           <MDXRenderer>{pageBody}</MDXRenderer>
         </div>
       </div>
