@@ -7,14 +7,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        inlineCode: {
-          DEFAULT: '#edf2f7',
-          dark: 'black',
-        },
-        muted: {
-          DEFAULT: 'hsla(0, 0%, 40%)',
-          dark: 'hsla(0, 0%, 70%)',
-        },
+        muted: 'hsla(0, 0%, 40%)',
+        'muted-dark': 'hsla(0, 0%, 70%)',
+        inlineCode: '#edf2f7',
+        'inlineCode-dark': 'black',
       },
       typography: {
         dark: {

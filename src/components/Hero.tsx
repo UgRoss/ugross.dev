@@ -6,5 +6,5 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ children, className = '' }) => (
-  <div className={`pt-14 pb-10 bg-white mb-5 ${className}`}>{children}</div>
+  <div className={`pt-14 pb-10 mb-5 ${className}`}>{children}</div>
 );

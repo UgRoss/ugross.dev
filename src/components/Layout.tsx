@@ -27,7 +27,7 @@ export const Layout: React.FunctionComponent<LayoutProps> = ({
   className = '',
   children,
 }) => (
-  <div className={`${className} h-screen flex flex-col`}>
+  <div className={`${className} min-h-screen flex flex-col bg-white dark:bg-gray-800`}>
     {showHeader && <Navbar navLinks={siteConfig.navItems} />}
     {children}
     {showFooter && (

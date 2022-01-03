@@ -23,8 +23,8 @@ export const PostPreview: React.FC<PostPreviewProps> = ({
         </Link>
       </h2>
     </header>
-    <section>
-      <p className="mb-2 mt-2 text-gray-600 prose dark:prose-invert">{excerpt}</p>
+    <section className="prose dark:prose-invert">
+      <p className="mb-2 mt-2">{excerpt}</p>
     </section>
     <footer>
       <Link to={url} className="border-0 text-blue-600 hover:underline">

@@ -33,8 +33,8 @@ const BlogPost: React.FC<BlogPostProps> = ({
   <div className={className} {...props}>
     <Hero>
       <div className="container text-center">
-        <h1 className="text-4xl my-5 font-extrabold">{title}</h1>
-        <section className="text-muted text-sm">
+        <h1 className="text-4xl my-5 font-extrabold dark:text-gray-200">{title}</h1>
+        <section className="text-muted dark:text-muted-dark text-sm">
           {`Written by `}
           <Link to={authorLink}>{author}</Link>
           {` on `}
