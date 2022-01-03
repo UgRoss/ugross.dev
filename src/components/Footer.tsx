@@ -10,11 +10,11 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ copyrightText, githubURL, rssURL }) => (
   <footer className="text-muted text-sm text-center pb-5 pt-14 mt-auto">
-    <div className="container flex items-center justify-between">
+    <div className="container flex flex-col sm:flex-row items-center justify-between">
       <div>
         <p className="m-xs">{copyrightText}</p>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center mt-3 sm:mt-0">
         <Link
           href={rssURL}
           alt="RSS Feed"
