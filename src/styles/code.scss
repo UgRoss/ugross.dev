@@ -80,6 +80,8 @@ pre .code-copy-button {
 $js-color: #f7df1e;
 $ts-color: #3178c6;
 $jsx-color: #61dafb;
+$css-color: #2965f1;
+$sass-color: #cd6799;
 
 .gatsby-highlight pre[class*='language-']:before {
   @apply absolute top-0 left-4;
@@ -105,6 +107,19 @@ $jsx-color: #61dafb;
   content: 'jsx';
   background: $jsx-color;
   color: black;
+}
+
+.gatsby-highlight pre[class~='language-scss']:before,
+.gatsby-highlight pre[class~='language-sass']:before {
+  content: 'sass';
+  background: $sass-color;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-css']:before {
+  content: 'css';
+  background: $css-color;
+  color: white;
 }
 
 .gatsby-highlight pre[class~='language-text']:before {
