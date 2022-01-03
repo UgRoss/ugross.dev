@@ -12,8 +12,9 @@ export const Tag: React.FC<TagProps & React.HTMLProps<HTMLAnchorElement>> = ({
 }) => {
   const tagClassName = classNames(
     className,
-    'm-1 bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-sm leading-loose cursor-pointer',
-    'border-0'
+    'px-2 text-sm font-normal leading-loose cursor-pointer',
+    'text-gray-700 bg-gray-100 border border-solid border-gray-200 rounded',
+    'hover:bg-gray-200 hover:border-transparent transition easy-linear duration-300',
   );
   return (
     <a {...props} className={tagClassName}>

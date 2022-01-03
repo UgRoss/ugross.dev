@@ -1,8 +1,10 @@
-import styled from 'styled-components';
+import React from 'react';
 
-export const Hero = styled.div`
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  background-color: var(--color-hero);
-  margin-bottom: 1rem;
-`;
+interface HeroProps {
+  className?: string;
+  children: React.ReactElement;
+}
+
+export const Hero: React.FC<HeroProps> = ({ children, className = '' }) => (
+  <div className={`pt-14 pb-10 bg-white mb-5 ${className}`}>{children}</div>
+);

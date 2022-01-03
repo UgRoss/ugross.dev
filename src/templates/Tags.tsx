@@ -24,11 +24,11 @@ const Tags: React.FC<TagsProps> = ({ pageContext, data }) => {
       <SEO title={pageTitle} />
       <Hero>
         <div className="container text-center">
-          <h1 className="mt-0">
-            <span className="font-regular">Posts tagged: </span>
+          <h1 className="mt-0 text-4xl font-bold">
+            <span className="text-muted dark:text-muted-dark">Posts tagged: </span>
             <span>{tag}</span>
           </h1>
-          <p className="text-muted text-md">{totalCount} posts found.</p>
+          <p className="text-muted dark:text-muted-dark mt-5 text-xl">{totalCount} posts found.</p>
         </div>
       </Hero>
       <div className="container">
@@ -65,7 +65,6 @@ export const query = graphql`
           fields {
             slug
           }
-          timeToRead
           excerpt
         }
       }

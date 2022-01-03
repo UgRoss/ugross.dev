@@ -31,7 +31,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
   ...props
 }) => (
   <div className={className} {...props}>
-    <Hero as="header">
+    <Hero>
       <div className="container text-center">
         <h1 className="text-4xl my-5 font-extrabold">{title}</h1>
         <section className="text-muted text-sm">
@@ -40,16 +40,16 @@ const BlogPost: React.FC<BlogPostProps> = ({
           {` on `}
           <time dateTime={pubDate}>{date}</time>
         </section>
-        <section className="mt-3 flex flex-wrap justify-center">
+        <section className="mt-5 flex flex-wrap justify-center gap-2">
           {tags.map(({ name, url }) => (
             <Tag href={url} key={name}>
-              {`#${name}`}
+              {name}
             </Tag>
           ))}
         </section>
       </div>
     </Hero>
-    <div className="BlogPost__content container">
+    <div className="container mt-10">
       <div className="prose">
         <MDXRenderer>{body}</MDXRenderer>
       </div>

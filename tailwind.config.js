@@ -11,8 +11,23 @@ module.exports = {
           DEFAULT: '#edf2f7',
           dark: 'black',
         },
+        muted: {
+          DEFAULT: 'hsla(0, 0%, 40%)',
+          dark: 'hsla(0, 0%, 70%)',
+        },
       },
       typography: {
+        dark: {
+          css: {
+            color: colors.gray[100],
+            a: {
+              color: colors.blue[100],
+              '&:hover': {
+                color: colors.blue[100],
+              },
+            },
+          },
+        },
         DEFAULT: {
           css: {
             pre: false,

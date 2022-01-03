@@ -17,8 +17,8 @@ export const PostPreview: React.FC<PostPreviewProps> = ({
 }) => (
   <article className={classNames(className, 'first:mt-10 py-10 border-b-2 border-gray-200')}>
     <header>
-      <h2 className="text-2xl text-gray-700 font-bold hover:text-gray-600">
-        <Link to={url} asText={true} className="border-0">
+      <h2 className="text-2xl text-gray-700 hover:text-gray-600">
+        <Link to={url} asText={true} className="border-0 font-bold">
           {title}
         </Link>
       </h2>
