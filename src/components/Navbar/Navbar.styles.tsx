@@ -8,7 +8,7 @@ export const Nav = styled.nav<{ compact: boolean }>`
   z-index: 50;
   width: 100%;
   transition: height 0.3s ease-in;
-  background: var(--color-nav);
+  //background: var(--color-nav);
   padding: 0.8em;
 
   @media (min-width: 600px) {

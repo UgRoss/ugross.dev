@@ -27,11 +27,17 @@ export const Layout: React.FunctionComponent<LayoutProps> = ({
   className = '',
   children,
 }) => (
-  <div className={`${className} min-h-screen flex flex-col bg-white dark:bg-gray-800`}>
+  <div
+    className={`${className} min-h-screen flex flex-col bg-white dark:bg-slate-800 transition-colors duration-500 ease-in`}
+  >
     {showHeader && <Navbar navLinks={siteConfig.navItems} />}
     {children}
     {showFooter && (
-      <Footer copyrightText={siteConfig.footerText} githubURL={siteConfig.github} rssURL={siteConfig.rss} />
+      <Footer
+        copyrightText={siteConfig.footerText}
+        githubURL={siteConfig.github}
+        rssURL={siteConfig.rss}
+      />
     )}
   </div>
 );

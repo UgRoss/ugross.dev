@@ -31,8 +31,8 @@ export const Navbar: React.FC<NavbarProps> = ({ navLinks }) => {
                 <Link
                   to={url}
                   partiallyActive={partiallyActive}
-                  activeClassName="bg-gray-200"
-                  className="font-medium text-gray-800 rounded-md px-2 py-2 mr-3 transition duration-500 ease select-none hover:bg-gray-200 focus:outline-none focus:shadow-outline border-0"
+                  activeClassName="bg-gray-100 dark:bg-gray-700"
+                  className="font-medium text-gray-800 dark:text-gray-200 rounded-md px-3 py-2 mr-3 transition duration-500 ease select-none hover:bg-gray-100 dark:hover:bg-slate-700 focus:outline-none focus:shadow-outline border-0"
                 >
                   {name}
                 </Link>

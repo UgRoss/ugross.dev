@@ -7,8 +7,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        muted: 'hsla(0, 0%, 40%)',
-        'muted-dark': 'hsla(0, 0%, 70%)',
+        muted: colors.slate[600],
+        'muted-dark': colors.slate[400],
+        // muted: 'hsla(0, 0%, 40%)',
+        // 'muted-dark': 'hsla(0, 0%, 70%)',
         inlineCode: '#edf2f7',
         'inlineCode-dark': 'black',
       },
@@ -41,9 +43,21 @@ module.exports = {
           },
         },
       },
+      backgroundColor: {
+        primary: 'var(--color-bg-primary)',
+        secondary: 'var(--color-bg-secondary)',
+        decorative: 'var(--color-decorative)',
+      },
       textColor: {
-        secondary: colors.yellow['500'],
+        // secondary: colors.yellow['500'],
         tertiary: colors.gray['800'],
+        'dark-tertiary': colors.gray['50'],
+        accent: 'var(--color-text-accent)',
+        primary: 'var(--color-text-primary)',
+        secondary: 'var(--color-text-secondary)',
+      },
+      transitionProperty: {
+        bg: 'background, background-color',
       },
     },
     container: {

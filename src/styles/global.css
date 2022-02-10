@@ -3,10 +3,30 @@
 @tailwind utilities;
 
 @layer base {
-  #__gatsby {
-    @apply transition-colors duration-500 ease-in;
-    @apply dark:bg-gray-900 dark:text-white;
+  .dark {
+    --color-bg-primary: #2d3748;
+    --color-bg-secondary: #283141;
+    --color-text-primary: #f7fafc;
+    --color-text-secondary: #e2e8f0;
+    --color-text-accent: #81e6d9;
+
+    --color-decorative: hsl(200deg, 50%, 60%);
   }
+
+  :root {
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #edf2f7;
+    --color-text-primary: #2d3748;
+    --color-text-secondary: #4a5568;
+    --color-text-accent: #2b6cb0;
+
+    --color-decorative: #e0f2fe;
+  }
+
+  /*#__gatsby {*/
+  /*  @apply transition-colors duration-500 ease-in;*/
+  /*  @apply dark:bg-slate-900 dark:text-white;*/
+  /*}*/
 
   a {
     /*@apply text-blue-500;*/

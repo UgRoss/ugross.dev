@@ -1,14 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Menu, X } from 'react-feather';
 import { Button } from '~/components/Button';
-
-/** Button that is shown only on mobile screens */
-const MobileOnlyButton = styled(Button)`
-  @media (min-width: 550px) {
-    display: none;
-  }
-`;
 
 type HTMLButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 interface NavTogglerProps {
@@ -29,15 +21,15 @@ export const NavToggleButton: React.FC<NavTogglerProps & HTMLButtonProps> = ({
   ...props
 }) => {
   return (
-    <MobileOnlyButton
+    <Button
       type="button"
-      className={className}
+      className={`${className} sm:hidden`}
       onClick={onClick}
       buttonType="tint"
       aria-label="Toggle Menu"
       {...props}
     >
       {toggled ? <X /> : <Menu />}
-    </MobileOnlyButton>
+    </Button>
   );
 };

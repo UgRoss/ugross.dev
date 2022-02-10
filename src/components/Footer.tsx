@@ -11,8 +11,8 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ copyrightText, githubURL, rssURL }) => {
   const footerButtonClassName = classNames(
-    'font-medium text-gray-800 dark:text-gray-300 rounded-md px-2 py-2 transition duration-500 ease select-none hover:bg-gray-200 focus:outline-none focus:shadow-outline border-0',
-    ''
+    'font-medium text-gray-800 dark:text-gray-300 rounded-md px-2 py-2 transition duration-500 ease select-none border-0',
+    'hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none'
   );
 
   return (
