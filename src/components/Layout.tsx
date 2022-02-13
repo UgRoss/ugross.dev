@@ -1,19 +1,11 @@
 import React from 'react';
 import { Footer } from './Footer';
-import { Navbar } from '~/components/Navbar';
 import { siteConfig } from '~/config/site.config';
+import { Nav } from './Nav';
 import '~/styles/index.scss';
 
 interface LayoutProps {
-  /**
-   * Render Header
-   * @default true
-   */
   showHeader?: boolean;
-  /**
-   * Render Footer
-   * @default true
-   */
   showFooter?: boolean;
 
   children: React.ReactNode;
@@ -28,9 +20,9 @@ export const Layout: React.FunctionComponent<LayoutProps> = ({
   children,
 }) => (
   <div
-    className={`${className} min-h-screen flex flex-col bg-white dark:bg-slate-800 transition-colors duration-500 ease-in`}
+    className={`${className} min-h-screen flex flex-col bg-white dark:bg-dark-body transition-colors duration-500 ease-in`}
   >
-    {showHeader && <Navbar navLinks={siteConfig.navItems} />}
+    {showHeader && <Nav navLinks={siteConfig.navItems} />}
     {children}
     {showFooter && (
       <Footer

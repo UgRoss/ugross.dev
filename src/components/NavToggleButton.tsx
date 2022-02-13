@@ -1,9 +1,8 @@
 import React from 'react';
 import { Menu, X } from 'react-feather';
-import { Button } from '~/components/Button';
 
 type HTMLButtonProps = React.HTMLAttributes<HTMLButtonElement>;
-interface NavTogglerProps {
+interface NavToggleButtonProps {
   /**
    * Controls button icons (X or hamburger icon)
    * @default false
@@ -14,22 +13,20 @@ interface NavTogglerProps {
 }
 
 /** Navigation "Hamburger" button that will toggle menu */
-export const NavToggleButton: React.FC<NavTogglerProps & HTMLButtonProps> = ({
+export const NavToggleButton: React.FC<NavToggleButtonProps & HTMLButtonProps> = ({
   toggled = false,
   onClick,
-  className = '',
   ...props
 }) => {
   return (
-    <Button
+    <button
       type="button"
-      className={`${className} sm:hidden`}
+      className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+      aria-label="toggle menu"
       onClick={onClick}
-      buttonType="tint"
-      aria-label="Toggle Menu"
       {...props}
     >
       {toggled ? <X /> : <Menu />}
-    </Button>
+    </button>
   );
 };
