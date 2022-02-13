@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Rss, GitHub } from 'react-feather';
-import { Link } from '~/components/Link';
 
 interface FooterProps {
   copyrightText: string;
@@ -22,20 +21,20 @@ export const Footer: React.FC<FooterProps> = ({ copyrightText, githubURL, rssURL
           <p className="m-xs">{copyrightText}</p>
         </div>
         <div className="flex items-center mt-3 sm:mt-0 gap-2">
-          <Link href={rssURL} alt="RSS Feed" className={footerButtonClassName}>
+          <a href={rssURL} aria-label="RSS Feed" className={footerButtonClassName}>
             <Rss size="1.2rem" aria-hidden="true" />
             <span className="sr-only">RSS Feed</span>
-          </Link>
-          <Link
+          </a>
+          <a
             href={githubURL}
-            alt="Github Profile"
+            aria-label="Github Profile"
             target="_blank"
             rel="noreferrer noopener"
             className={footerButtonClassName}
           >
             <GitHub size="1.2rem" aria-hidden="true" />
             <span className="sr-only">Github Profile</span>
-          </Link>
+          </a>
         </div>
       </div>
     </footer>
