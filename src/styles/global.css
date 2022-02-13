@@ -23,14 +23,14 @@
     --color-decorative: #e0f2fe;
   }
 
-  /*#__gatsby {*/
-  /*  @apply transition-colors duration-500 ease-in;*/
-  /*  @apply dark:bg-slate-900 dark:text-white;*/
-  /*}*/
-
   a {
     /*@apply text-blue-500;*/
-    @apply font-semibold;
-    @apply border-b-2 border-blue-500;
+    @apply font-semibold transition-all duration-300;
+    @apply border-b-2 border-gray-300;
+  }
+
+  a:hover,
+  a:active {
+    @apply border-primary;
   }
 }

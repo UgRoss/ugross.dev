@@ -33,14 +33,14 @@ const BlogPost: React.FC<BlogPostProps> = ({
   <div className={className} {...props}>
     <Hero>
       <div className="container text-center">
-        <h1 className="text-4xl my-5 font-extrabold dark:text-gray-200">{title}</h1>
         <section className="text-muted dark:text-muted-dark text-sm">
           {`Written by `}
-          <Link to={authorLink}>{author}</Link>
+          <Link to={authorLink} className="border-0">{author}</Link>
           {` on `}
           <time dateTime={pubDate}>{date}</time>
         </section>
-        <section className="mt-5 flex flex-wrap justify-center gap-2">
+        <h1 className="text-5xl mt-5 mb-7 font-extrabold dark:text-gray-200">{title}</h1>
+        <section className="flex flex-wrap justify-center gap-2">
           {tags.map(({ name, url }) => (
             <Tag href={url} key={name}>
               {name}

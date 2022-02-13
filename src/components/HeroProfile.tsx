@@ -10,7 +10,7 @@ interface HeroProfileProps {
 
 export const HeroProfile: React.FC<HeroProfileProps> = ({ img, name, jobTitle }) => (
   <Hero>
-    <div className="container py-10">
+    <div className="container pb-8">
       <div className="flex sm:flex-row items-center gap-8 flex-col">
         <div>
           <img src={img} alt={name} className="w-32 rounded-full" />

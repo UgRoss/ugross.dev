@@ -36,7 +36,7 @@
 
 // === Inline Code
 :not(pre) > code {
-  @apply bg-inlineCode text-black rounded-sm py-1 px-2;
+  @apply bg-inlineCode text-black rounded-md py-1 px-2 dark:bg-inlineCode-dark dark:text-gray-100;
 }
 
 // === Line Numbers

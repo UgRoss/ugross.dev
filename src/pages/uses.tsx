@@ -24,7 +24,7 @@ const UsesPage: React.FC<UsesPageProps> = ({ data }) => {
     <Layout>
       <SEO title={pageTitle} description={pageDescription} image={image} />
       <Hero>
-        <div className="container text-center">
+        <div className="container text-center prose dark:prose-invert">
           <h1 className="text-4xl my-5 font-extrabold">Uses</h1>
           <p className="mb-0 text-md font-medium">
             All of the gear and software I use daily as of {currentYear}
