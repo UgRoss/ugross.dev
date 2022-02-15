@@ -19,9 +19,9 @@ const Blog: React.FC<BlogProps> = ({ data: { posts } }) => {
       <SEO title={pageTitle} />
       <Hero>
         <div className="container">
-          <h1 className="text-center font-jetbrains mt-0 text-4xl my-5 font-extrabold">
+          <h1 className="text-center mt-0 text-4xl my-5 font-extrabold">
             <span className="text-secondary">{'<'}</span>
-            <span className="text-tertiary">Blog</span>
+            <span className="text-tertiary dark:text-tertiary-dark font-mono">Blog</span>
             <span className="text-secondary">{' />'}</span>
           </h1>
         </div>

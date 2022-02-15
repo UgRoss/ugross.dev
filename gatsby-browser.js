@@ -3,8 +3,9 @@ import { MDXProvider } from './src/components/MDXProvider';
 
 // Custom Typefaces
 import 'typeface-inter';
+import 'typeface-jetbrains-mono';
 
 // Global Styles
-import './src/styles/global.css';
+import './src/styles/global.scss';
 
 export const wrapRootElement = ({ element }) => <MDXProvider>{element}</MDXProvider>;

@@ -56,7 +56,7 @@ module.exports = {
       textColor: {
         secondary: colors.yellow['500'],
         tertiary: colors.sky['900'],
-        'dark-tertiary': colors.gray['50'],
+        'tertiary-dark': colors.gray['50'],
         accent: 'var(--color-text-accent)',
         primary: 'var(--color-text-primary)',
         // secondary: 'var(--color-text-secondary)',
@@ -82,6 +82,15 @@ module.exports = {
     fontFamily: {
       sans: ['inter', 'Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
+      mono: [
+        'Jetbrains Mono',
+        'ui-monospace',
+        'SFMono-Regular',
+        'Menlo',
+        'Monaco',
+        'Consolas',
+        'monospace',
+      ],
     },
   },
   plugins: [require('@tailwindcss/typography')],

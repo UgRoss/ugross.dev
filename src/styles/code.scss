@@ -31,6 +31,19 @@
     code {
       @apply float-left min-w-full;
     }
+
+    // === Scrollbar
+    &::-webkit-scrollbar {
+      @apply h-2.5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply bg-gray-400;
+    }
+
+    &::-webkit-scrollbar-track {
+      @apply bg-gray-700;
+    }
   }
 }
 
@@ -44,19 +57,6 @@
   @apply inline-block text-center relative w-12;
   @apply select-none;
   opacity: 0.3;
-}
-
-// === Scrollbar
-.gatsby-highlight {
-  pre::-webkit-scrollbar {
-    @apply h-2.5;
-  }
-  pre::-webkit-scrollbar-thumb {
-    @apply bg-gray-400;
-  }
-  pre::-webkit-scrollbar-track {
-    @apply bg-gray-700;
-  }
 }
 
 // === CodeCopyButton Button

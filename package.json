@@ -13,7 +13,7 @@
     "format": "prettier --write 'src/**/*.{js,ts,tsx}'",
     "lint": "npm run lint:ts && npm run lint:css",
     "lint:ts": "tsc --noEmit --skipLibCheck && eslint 'src/**/*.{js,ts,tsx}'",
-    "lint:css": "stylelint 'src/*/**.{css,scss,tsx}'",
+    "lint:css": "stylelint 'src/*/**.{css,scss}'",
     "codegen": "graphql-codegen --config graphql-codegen.yml",
     "postcodegen": "prettier --write src/types/graphql.ts",
     "husky:precommit": "lint-staged"
@@ -21,7 +21,7 @@
   "lint-staged": {
     "src/**.{js,jsx,tsx,ts,scss,css}": "prettier --write",
     "src/**.{js,jsx,ts,tsx}": "eslint",
-    "src/**.{css,scss,tsx}": "stylelint --config .stylelintrc"
+    "src/**.{css,scss}": "stylelint --config .stylelintrc"
   },
   "repository": {
     "type": "git",
@@ -65,6 +65,7 @@
     "react-helmet": "^6.1.0",
     "react-use": "^17.3.2",
     "typeface-inter": "^3.18.1",
+    "typeface-jetbrains-mono": "^2.0.1",
     "waait": "^1.0.5"
   },
   "devDependencies": {
@@ -91,6 +92,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.3.3",
     "postcss": "^8.4.6",
+    "postcss-scss": "^4.0.3",
     "prettier": "^2.5.1",
     "sass": "^1.49.7",
     "styled-components": "^5.3.3",

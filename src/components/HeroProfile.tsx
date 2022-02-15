@@ -19,7 +19,7 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ img, name, jobTitle })
           <h3 className="mb-1 mt-1 text-4xl">
             <AccessibleEmoji emoji="👋" description="Hello" />
           </h3>
-          <h1 className="text-2xl sm:text-3xl font-bold text-tertiary dark:text-dark-tertiary mb-1 mt-1">
+          <h1 className="text-2xl sm:text-3xl font-bold text-tertiary dark:text-tertiary-dark mb-1 mt-1">
             <span className="text-secondary">Hi,</span>
             {` I am ${name}`}
           </h1>
