@@ -8,7 +8,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
