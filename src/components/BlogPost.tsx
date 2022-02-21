@@ -33,7 +33,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
   <div className={className} {...props}>
     <Hero>
       <div className="container text-center">
-        <section className="text-muted dark:text-muted-dark text-sm">
+        <section className="text-muted text-sm">
           {`Written by `}
           <Link to={authorLink} className="border-0">{author}</Link>
           {` on `}

@@ -1,243 +1,127 @@
-$code-font-color: #b3b9c5;
-$code-color-string: #92d192;
-$code-color-variable: #f2777a;
-$code-color-property: #abb2bf;
-$code-color-number: #fca369;
-$code-color-operator: #ac8d58;
-$code-color-punctuation: #d5d8df;
-$code-color-comment: #777c85;
-$code-color-function: #62cfcf;
-$code-color-keyword: #ffeead;
-$code-color-attribute: #ffd479;
-$code-color-class: #e1a6f2;
-$code-color-tag: #6ab0f3;
-$code-color-error: #f2777a;
-
-code[class*='language-'],
-pre[class*='language-'],
-pre code {
-  font-family: var(--font-code);
-  font-size: var(--code-font-size);
-  color: $code-font-color;
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  line-height: 1.7;
-  font-weight: 400;
-  margin: 1rem 0;
-  tab-size: 2;
-  hyphens: none;
-  border-radius: var(--border-radius);
-  -webkit-font-smoothing: antialiased;
+.prism-code {
+  @apply pt-10 pr-5 pb-5 pl-5 mb-5 mt-0;
+  @apply overflow-auto bg-transparent min-w-full;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Code blocks */
-pre code {
-  display: block;
-  padding: 1.5rem;
-  overflow: auto;
-  background-color: #333;
-  border: 0;
+.gatsby-highlight[data-language=''],
+.gatsby-highlight[data-language='noLineNumbers'] {
+  .prism-code {
+    @apply pt-5;
+  }
 }
 
-/* Inline code */
-:not(pre) > code[class*='language-'] {
-  padding: 3px 5px;
-  color: var(--color-inline-code);
+.token {
+  @apply inline-block;
 }
 
+.highlight-line {
+  background-color: rgb(2, 55, 81);
+}
+
+// === Code Container
+.gatsby-highlight {
+  @apply lg:-ml-16 lg:-mr-16 relative;
+
+  .token-line {
+    @apply -ml-5 -mr-5 min-w-full;
+  }
+
+  pre {
+    code {
+      @apply float-left min-w-full;
+    }
+
+    // === Scrollbar
+    &::-webkit-scrollbar {
+      @apply h-2.5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply bg-gray-400;
+    }
+
+    &::-webkit-scrollbar-track {
+      @apply bg-gray-700;
+    }
+  }
+}
+
+// === Inline Code
 :not(pre) > code {
-  padding: 3px 5px;
-  border: none;
-  font-family: var(--font-code);
-  font-weight: 400;
-  color: var(--color-inline-code);
-  border-radius: var(--border-radius);
-  background: var(--color-inline-code-background);
+  @apply bg-inline-code text-black rounded-md py-1 px-2 dark:text-gray-100;
 }
 
-code[class*='language-css'],
-code[class*='language-scss'],
-code[class*='language-less'],
-code[class*='language-sass'] {
-  color: #cc99cc;
+// === Line Numbers
+.line-number-style {
+  @apply inline-block text-center relative w-12;
+  @apply select-none;
+  opacity: 0.3;
 }
 
-/* Syntax Highlighting */
-.token.doctype {
-  background: #000000;
-  color: #fff;
+// === CodeCopyButton Button
+pre .code-copy-button {
+  @apply absolute right-0 top-0 px-2 py-1;
+  @apply hover:bg-blue-500 hover:text-white transition;
+  border-bottom-left-radius: 5px;
+  &:disabled {
+    @apply hover:bg-transparent cursor-not-allowed text-gray-400;
+  }
 }
 
-.token.comment,
-.token.prolog,
-.token.cdata {
-  color: $code-color-comment;
+// === Code Title
+.code-title {
+  @apply lg:-ml-16 lg:-mr-16 -mb-1.5 pt-2 pb-3 px-4;
+  @apply bg-gray-700 text-white;
+  @apply rounded-md;
 }
 
-.token.namespace {
-  opacity: 0.7;
+// === Code Badges
+$js-color: #f7df1e;
+$ts-color: #3178c6;
+$jsx-color: #61dafb;
+$css-color: #2965f1;
+$sass-color: #cd6799;
+
+.gatsby-highlight pre[class*='language-']:before {
+  @apply absolute top-0 left-4;
+  @apply rounded-b-md py-1 px-2;
+  @apply text-sm tracking-wide uppercase text-left;
+  @apply bg-gray-300 text-black;
 }
 
-.token.string,
-.token.attr-value {
-  color: $code-color-string;
+.gatsby-highlight pre[class~='language-js']:before,
+.gatsby-highlight pre[class~='language-javascript']:before {
+  content: 'js';
+  background: $js-color;
+  color: black;
 }
 
-.token.punctuation {
-  color: $code-color-punctuation;
-}
-
-.token.operator {
-  color: $code-color-operator;
-}
-
-.token.variable {
-  color: $code-color-variable;
-}
-
-.token.property {
-  color: $code-color-property;
-}
-
-.token.entity,
-.token.url,
-.token.symbol,
-.token.number,
-.token.boolean,
-.token.constant,
-.token.regex,
-.token.inserted {
-  color: $code-color-number;
-}
-
-.token.delimiter {
-  background: black;
-  color: white;
-  padding: 1px 2px;
-}
-
-.token.atrule {
-  color: $code-color-function;
-}
-
-.token.keyword {
-  color: $code-color-keyword;
-}
-
-.language-autohotkey .token.selector {
-  color: $code-color-number;
-}
-
-.token.attr-name {
-  color: $code-color-attribute;
-}
-
-.token.function {
-  color: $code-color-function;
-}
-
-.language-php .token.function {
+.gatsby-highlight pre[class~='language-typescript']:before {
+  content: 'ts';
+  background: $ts-color;
   color: white;
 }
 
-.token.class-name {
-  color: $code-color-class;
+.gatsby-highlight pre[class~='language-jsx']:before {
+  content: 'jsx';
+  background: $jsx-color;
+  color: black;
 }
 
-.token.deleted,
-.language-autohotkey .token.tag {
-  color: $code-color-error;
+.gatsby-highlight pre[class~='language-scss']:before,
+.gatsby-highlight pre[class~='language-sass']:before {
+  content: 'sass';
+  background: $sass-color;
+  color: white;
 }
 
-.token.tag {
-  color: $code-color-tag;
+.gatsby-highlight pre[class~='language-css']:before {
+  content: 'css';
+  background: $css-color;
+  color: white;
 }
 
-.language-autohotkey .token.keyword {
-  color: $code-color-keyword;
-}
-
-.token.selector {
-  color: $code-color-attribute;
-}
-
-.token.italic {
-  font-style: italic;
-}
-
-pre[data-line] {
-  position: relative;
-  padding: 1rem 0;
-}
-
-.line-highlight {
-  position: absolute;
-  left: 0;
-  right: 0;
-  padding: inherit 0;
-  margin-top: 1rem;
-  /* Same as .prism’s padding-top */
-  background: rgba(150, 150, 150, 0.1);
-  pointer-events: none;
-  line-height: inherit;
-  white-space: pre;
-}
-
-.line-highlight:before,
-.line-highlight[data-end]:after {
-  content: attr(data-start);
-  position: absolute;
-  top: 0.4em;
-  left: 0.6em;
-  min-width: 1em;
-  padding: 0 0.5em;
-  background-color: transparent;
-  color: transparent;
-  font: bold 65%/1.5 sans-serif;
-  text-align: center;
-  vertical-align: 0.3em;
-  border-radius: 999px;
-  text-shadow: none;
-}
-
-.line-highlight[data-end]:after {
-  content: attr(data-end);
-  top: auto;
-  bottom: 0.4em;
-}
-
-.line-numbers .line-highlight:before,
-.line-numbers .line-highlight:after {
-  content: none;
-}
-
-pre::-moz-selection,
-code::-moz-selection {
-  text-shadow: none;
-  color: inherit;
-  background: rgba(150, 150, 150, 0.3) !important;
-}
-
-pre::selection,
-code::selection {
-  text-shadow: none;
-  color: inherit;
-  background: rgba(150, 150, 150, 0.3) !important;
-}
-
-pre[class*='language-']::-moz-selection,
-code[class*='language-'] ::-moz-selection {
-  text-shadow: none;
-  color: inherit;
-  background: rgba(150, 150, 150, 0.3) !important;
-}
-
-pre[class*='language-']::selection,
-code[class*='language-'] ::selection {
-  text-shadow: none;
-  color: inherit;
-  background: rgba(150, 150, 150, 0.3) !important;
+.gatsby-highlight pre[class~='language-text']:before {
+  content: 'text';
 }

@@ -7,15 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.sky[500],
-        muted: colors.slate[600],
-        'muted-dark': colors.gray[400],
-        // muted: 'hsla(0, 0%, 40%)',
-        // 'muted-dark': 'hsla(0, 0%, 70%)',
-        inlineCode: '#edf2f7',
-        'inlineCode-dark': colors.gray[700],
-        'link-underline': 'var(--color-link-underline)',
-        'link-underline-hover': 'var(--color-link-underline-hover)',
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
+        tertiary: 'var(--color-tertiary)',
       },
       typography: {
         dark: {
@@ -47,19 +41,12 @@ module.exports = {
         },
       },
       backgroundColor: {
-        primary: 'var(--color-bg-primary)',
-        secondary: 'var(--color-bg-secondary)',
-        decorative: 'var(--color-decorative)',
-        'dark-body': '#25282C',
+        body: 'var(--color-body)',
         'btn-tint': 'var(--button-tint-background-hover)',
+        'inline-code': 'var(--color-bg-inline-code)',
       },
       textColor: {
-        secondary: colors.yellow['500'],
-        tertiary: colors.sky['900'],
-        'tertiary-dark': colors.gray['50'],
-        accent: 'var(--color-text-accent)',
-        primary: 'var(--color-text-primary)',
-        // secondary: 'var(--color-text-secondary)',
+        muted: 'var(--color-text-muted)',
         'btn-tint-hover': 'var(--button-tint-color-hover)',
         'btn-tint': 'var(--button-tint-color)',
       },

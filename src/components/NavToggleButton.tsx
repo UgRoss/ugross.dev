@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu, X } from 'react-feather';
+import classNames from 'classnames';
 
 type HTMLButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 interface NavToggleButtonProps {
@@ -18,10 +19,17 @@ export const NavToggleButton: React.FC<NavToggleButtonProps & HTMLButtonProps> =
   onClick,
   ...props
 }) => {
+  const buttonClassName = classNames(
+    `focus:outline-none border-none px-3 py-1 font-medium transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700`,
+    {
+      'bg-btn-tint text-btn-tint-hover hover:bg-btn-tint dark:btn-tint': toggled,
+    }
+  );
+
   return (
     <button
       type="button"
-      className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+      className={buttonClassName}
       aria-label="toggle menu"
       onClick={onClick}
       {...props}

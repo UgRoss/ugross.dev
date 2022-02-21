@@ -15,7 +15,7 @@ export const Footer: React.FC<FooterProps> = ({ copyrightText, githubURL, rssURL
   );
 
   return (
-    <footer className="text-muted dark:text-muted-dark text-sm text-center pb-5 pt-14 mt-auto">
+    <footer className="text-muted text-sm text-center pb-5 pt-14 mt-auto">
       <div className="container flex flex-col sm:flex-row items-center justify-between">
         <div>
           <p className="m-xs">{copyrightText}</p>

@@ -6,6 +6,6 @@ import 'typeface-inter';
 import 'typeface-jetbrains-mono';
 
 // Global Styles
-import './src/styles/global.scss';
+import './src/styles/index.scss';
 
 export const wrapRootElement = ({ element }) => <MDXProvider>{element}</MDXProvider>;
