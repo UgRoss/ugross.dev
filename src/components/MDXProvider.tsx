@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import { MDXProvider as OriginalMDXProvider, MDXProviderProps } from '@mdx-js/react';
 import { Code } from '~/components/Code';
 
@@ -25,5 +25,3 @@ export const MDXProvider: React.FC<MDXProviderProps> = ({ children, ...props }) 
     {children}
   </OriginalMDXProvider>
 );
-
-export default MDXProvider;

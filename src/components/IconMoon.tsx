@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconMoon: React.FC = () => (
+export const IconMoon: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className="h-6 w-6"
@@ -16,5 +16,3 @@ const IconMoon: React.FC = () => (
     />
   </svg>
 );
-
-export default IconMoon;

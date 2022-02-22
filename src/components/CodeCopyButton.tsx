@@ -9,7 +9,12 @@ type CopyProps = {
   trim?: boolean;
 };
 
-const CodeCopyButton = ({ content, duration = 2000, fileName = ``, trim = false }: CopyProps) => {
+export const CodeCopyButton = ({
+  content,
+  duration = 2000,
+  fileName = ``,
+  trim = false,
+}: CopyProps) => {
   const [copied, setCopied] = useState(false);
   const [, copyToClipboard] = useCopyToClipboard();
 
@@ -37,5 +42,3 @@ const CodeCopyButton = ({ content, duration = 2000, fileName = ``, trim = false 
     </button>
   );
 };
-
-export default CodeCopyButton;

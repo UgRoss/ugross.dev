@@ -4,7 +4,7 @@ import theme from 'prism-react-renderer/themes/oceanicNext';
 
 import { siteConfig } from '~/config/site.config';
 import { Language } from '~/types/codeBlock';
-import CodeCopyButton from './CodeCopyButton';
+import { CodeCopyButton } from './CodeCopyButton';
 
 type CodeProps = {
   codeString: string;

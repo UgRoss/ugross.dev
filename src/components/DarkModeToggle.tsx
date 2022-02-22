@@ -1,8 +1,8 @@
 import React from 'react';
 import { Theme, useDarkMode } from '~/hooks/useDarkMode';
 import classNames from 'classnames';
-import IconMoon from '~/components/IconMoon';
-import IconSun from '~/components/IconSun';
+import { IconMoon } from '~/components/IconMoon';
+import { IconSun } from '~/components/IconSun';
 
 interface DarkModeToggleProps {
   className?: string;

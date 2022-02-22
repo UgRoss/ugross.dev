@@ -25,5 +25,3 @@ export const Tag: React.FC<TagProps & React.HTMLProps<HTMLAnchorElement>> = ({
     </a>
   );
 };
-
-export default Tag;
