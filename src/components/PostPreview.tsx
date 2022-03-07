@@ -1,28 +1,6 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import classNames from 'classnames';
-import styled from 'styled-components';
-import { Link } from '~/components/Link';
-
-const Article = styled.article.attrs<{ className: string }>((props) => ({
-  className: classNames(props.className, 'pb-md'),
-}))`
-  position: relative;
-
-  & + & {
-    padding-top: var(--space-md, 1rem);
-    margin-top: var(--space-md, 1rem);
-
-    &:before {
-      content: '';
-      border-top: 1px solid var(--color-horizontal-rule, #ccc);
-      width: 10rem;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-`;
 
 interface PostPreviewProps {
   url: string;
@@ -31,20 +9,27 @@ interface PostPreviewProps {
   className?: string;
 }
 
-export const PostPreview: React.FC<PostPreviewProps> = ({ url, title, excerpt, className = '' }) => (
-  <Article className={className}>
+export const PostPreview: React.FC<PostPreviewProps> = ({
+  url,
+  title,
+  excerpt,
+  className = '',
+}) => (
+  <article className={classNames(className, 'py-10 border-b border-gray-200 dark:border-gray-700')}>
     <header>
-      <h2 className="h3">
-        <Link to={url} asText={true}>
+      <h2 className="mb-4 text-2xl text-gray-900 tracking-tight font-bold dark:text-gray-200">
+        <Link to={url} className="border-0 font-bold">
           {title}
         </Link>
       </h2>
     </header>
-    <section>
-      <p className="mb-xs">{excerpt}</p>
+    <section className="mb-6 prose dark:prose-invert">
+      <p>{excerpt}</p>
     </section>
-    <footer>
-      <Link to={url}>Read this article →</Link>
+    <footer className="prose dark:prose-invert">
+      <Link to={url}>
+        Read this article →
+      </Link>
     </footer>
-  </Article>
+  </article>
 );

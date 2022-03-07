@@ -1,19 +1,11 @@
 import React from 'react';
 import { Footer } from './Footer';
-import { Navbar } from '~/components/Navbar';
 import { siteConfig } from '~/config/site.config';
+import { Nav } from './Nav';
 import '~/styles/index.scss';
 
 interface LayoutProps {
-  /**
-   * Render Header
-   * @default true
-   */
   showHeader?: boolean;
-  /**
-   * Render Footer
-   * @default true
-   */
   showFooter?: boolean;
 
   children: React.ReactNode;
@@ -27,11 +19,15 @@ export const Layout: React.FunctionComponent<LayoutProps> = ({
   className = '',
   children,
 }) => (
-  <div className={`${className} h-screen flex flex-col`}>
-    {showHeader && <Navbar navLinks={siteConfig.navItems} />}
+  <div className={`${className} min-h-screen flex flex-col bg-body`}>
+    {showHeader && <Nav navLinks={siteConfig.navItems} />}
     {children}
     {showFooter && (
-      <Footer copyrightText={siteConfig.footerText} githubURL={siteConfig.github} rssURL={siteConfig.rss} />
+      <Footer
+        copyrightText={siteConfig.footerText}
+        githubURL={siteConfig.github}
+        rssURL={siteConfig.rss}
+      />
     )}
   </div>
 );

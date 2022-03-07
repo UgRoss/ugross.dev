@@ -3,7 +3,7 @@ ci:
     url:
       - http://localhost/
       - http://localhost/blog
-      - http://localhost/projects
+      - http://localhost/uses
     staticDistDir: './public'
 
   assert:

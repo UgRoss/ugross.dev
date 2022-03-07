@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import React from 'react';
+import classNames from 'classnames';
 
 export enum AlertTypes {
   INFO = 'info',
@@ -9,19 +10,21 @@ export enum AlertTypes {
 
 interface AlertProps {
   type: AlertTypes;
+  className: string;
+  children: string | React.ReactElement;
 }
 
-export const Alert = styled.div<AlertProps>`
-  position: relative;
-  width: 100%;
-  background: var(--color-alert-background);
-  margin: 1.5rem 0;
-  padding: 1rem;
-  border-left: 4px solid;
-  border-radius: 3px;
-  border-color: ${(props) => `var(--color-alert-${props.type})`};
-
-  > p:last-child {
-    margin-bottom: 0;
-  }
-`;
+export const Alert: React.FC<AlertProps> = ({ type, className, children }) => {
+  const alertClassName = classNames(
+    className,
+    'Alert',
+    `relative w-full my-4 mx-0 py-2 px-4 rounded border-l-4 bg-gray-50`,
+    {
+      'border-blue-400': type === 'info',
+      'border-emerald-400': type === 'success',
+      'border-amber-500': type === 'warning',
+      'border-red-400': type === 'error',
+    }
+  );
+  return <div className={alertClassName}>{children}</div>;
+};

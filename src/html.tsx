@@ -18,10 +18,6 @@ const HTML: React.FC<HTMLProps> = ({ headComponents, body, postBodyComponents })
         {/* Mobile Meta */}
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-        {/* Styles and Scripts */}
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital@0;1&display=swap" rel="stylesheet" />
-
         {headComponents}
 
         {/* Icons */}
@@ -29,7 +25,7 @@ const HTML: React.FC<HTMLProps> = ({ headComponents, body, postBodyComponents })
         <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
       <body>
-        <div id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
+        <div id="___gatsby" className="site-content" dangerouslySetInnerHTML={{ __html: body }} />
         {postBodyComponents}
       </body>
     </html>

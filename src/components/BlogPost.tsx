@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { TimeToRead } from '~/components/TimeToRead';
 import { Hero } from '~/components/Hero';
 import { Tag } from '~/components/Tag';
 
@@ -10,11 +10,11 @@ interface BlogPostProps {
   pubDate: string;
   /** Date to display to user */
   date: string;
-  /** Time to read in minutes */
-  timeToRead: number;
+  author: string;
+  authorLink: string;
   tags?: { name: string; url: string }[];
   body: string;
-  children: React.ReactElement | React.ReactElement[];
+  children?: React.ReactElement | React.ReactElement[];
   className?: string;
 }
 
@@ -23,36 +23,36 @@ const BlogPost: React.FC<BlogPostProps> = ({
   title,
   pubDate,
   date,
-  timeToRead,
+  author,
+  authorLink,
   tags = [],
   body,
   className,
   ...props
 }) => (
   <div className={className} {...props}>
-    <Hero as="header">
+    <Hero>
       <div className="container text-center">
-        <h1 className="font-extrabold mt-0">{title}</h1>
-        <section className="text-muted">
-          <small>
-            <time dateTime={pubDate}>{date}</time>
-          </small>
-          <span>{' • '}</span>
-          <small>
-            <TimeToRead minutes={timeToRead} />
-          </small>
+        <section className="text-muted text-sm">
+          {`Written by `}
+          <Link to={authorLink} className="border-0">{author}</Link>
+          {` on `}
+          <time dateTime={pubDate}>{date}</time>
         </section>
-        <section className="mt-sm">
+        <h1 className="text-5xl mt-5 mb-7 font-extrabold dark:text-gray-200">{title}</h1>
+        <section className="flex flex-wrap justify-center gap-2">
           {tags.map(({ name, url }) => (
             <Tag href={url} key={name}>
-              {`#${name}`}
+              {name}
             </Tag>
           ))}
         </section>
       </div>
     </Hero>
-    <div className="BlogPost__content container">
-      <MDXRenderer>{body}</MDXRenderer>
+    <div className="container mt-5">
+      <div className="prose dark:prose-invert">
+        <MDXRenderer>{body}</MDXRenderer>
+      </div>
       {children}
     </div>
   </div>

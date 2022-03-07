@@ -23,6 +23,7 @@ export const useDarkMode = (): [Theme, React.Dispatch<React.SetStateAction<Theme
 
   /** Listen for changes in LS and save to state */
   useEffect(() => {
+    document.documentElement.classList[activeTheme === Theme.DARK ? 'add' : 'remove']('bg-black');
     document.body.classList[activeTheme === Theme.DARK ? 'add' : 'remove']('dark');
   }, [activeTheme]);
 

@@ -1,11 +1,4 @@
 import React, { useCallback } from 'react';
-import styled from 'styled-components';
-
-const MailToLink = styled.a`
-  &:after {
-    content: attr(data-boxName) '@' attr(data-domain) '.' attr(data-tld);
-  }
-`;
 
 interface ProtectedMailToProps {
   boxName: string;
@@ -23,14 +16,15 @@ export const ProtectedMailTo: React.FC<ProtectedMailToProps> = ({ boxName, domai
   );
 
   return (
-    <MailToLink
+    <a
       href="#"
       data-boxName={boxName}
       data-domain={domain}
       data-tld={tld}
       onClick={handleMailClick}
+      className="mailToLink"
     >
-      <span className="visually-hidden">Email Address</span>
-    </MailToLink>
+      <span className="sr-only">Email Address</span>
+    </a>
   );
 };

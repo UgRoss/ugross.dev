@@ -35,4 +35,8 @@ export const siteConfig = {
   // Footer text
   footerText: `© Copyright ${CURRENT_YEAR} ${NAME}`,
   socialLinks: SOCIAL_LINKS,
+  codeBlocks: {
+    showLineNumbers: true,
+    showCopyButton: true,
+  },
 };

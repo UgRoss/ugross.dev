@@ -20,6 +20,7 @@
     "gatsby-browser.js",
     "gatsby-config.js",
     "**/@types/*.d.ts",
+    "**/types/graphql.ts",
     "node_modules",
     ".cache",
     "static"

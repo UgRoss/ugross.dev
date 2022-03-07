@@ -36,9 +36,10 @@ There is also one more difference between _16.3_ and _^16.4_:
 - `static getDerivedStateFromProps`
   <br />
   <span>
-    In the version <i>16.3</i> <code className="language-text">getDerivedStateFromProps</code> is called only
-    once new props are received, but starting from the <code className="language-text">16.4</code> this method
-    is called every time regardless what caused the update (new props, <i>setState()</i>, <i>forceUpdate()</i>
+    In the version <i>16.3</i> <code className="language-text">getDerivedStateFromProps</code> is
+    called only once new props are received, but starting from the{' '}
+    <code className="language-text">16.4</code> this method is called every time regardless what
+    caused the update (new props, <i>setState()</i>, <i>forceUpdate()</i>
     ).
   </span>
 
@@ -89,8 +90,8 @@ class ComponentDemo extends React.Component {
 
 <Alert type="info">
   <p>
-    If you don't know why do we use <code className="language-text">super(props)</code>, I recommend to check
-    this article:
+    If you don't know why do we use <code className="language-text">super(props)</code>, I recommend
+    to check this article:{' '}
     <a
       href="https://overreacted.io/why-do-we-write-super-props/"
       target="_blank"
@@ -103,7 +104,11 @@ class ComponentDemo extends React.Component {
 
 <p>
   Also, by using the{' '}
-  <a href="https://github.com/tc39/proposal-class-fields" target="_blank" rel="nofollow noopener noreferrer">
+  <a
+    href="https://github.com/tc39/proposal-class-fields"
+    target="_blank"
+    rel="nofollow noopener noreferrer"
+  >
     class field proposal
   </a>{' '}
   we can remove <code>constructor</code>:
@@ -183,8 +188,9 @@ As you can see in the example above, the _render()_ method returns JSX that will
 <Alert type="info">
   <p>
     It's not recommended to change the state during rendering. React requires the{' '}
-    <code className="language-text">render()</code> method to be pure (it doesn't modify the state, doesn't
-    directly interact with the browser, and returns the same result for the same props and state).
+    <code className="language-text">render()</code> method to be pure (it doesn't modify the state,
+    doesn't directly interact with the browser, and returns the same result for the same props and
+    state).
   </p>
 </Alert>
 
@@ -223,9 +229,9 @@ The behavior of this method is the same as described [above](#2️⃣-static-get
 
 <Alert type="info">
   <p>
-    It's not recommended to keep your state updated based on props, as it makes your component difficult to
-    think about. Try to think first if you really need this inside the state, or you can just derive
-    functionality from the props directly because{' '}
+    It's not recommended to keep your state updated based on props, as it makes your component
+    difficult to think about. Try to think first if you really need this inside the state, or you
+    can just derive functionality from the props directly because{' '}
     <code className="language-text">getDerivedStateFromProps</code> should be used in{' '}
     <a
       href="https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state"
@@ -291,8 +297,8 @@ In many cases, you will not need this method, but sometimes it's very handy. Let
 
 <Alert type="info">
   <p>
-    Even though this method isn't static it's recommended to return a value that will be passed to the{' '}
-    <i>componentDidUpdate</i> instead of changing the state.
+    Even though this method isn't static it's recommended to return a value that will be passed to
+    the <i>componentDidUpdate</i> instead of changing the state.
   </p>
 </Alert>
 

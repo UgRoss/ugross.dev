@@ -1,24 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import classNames from 'classnames';
 import { Rss, GitHub } from 'react-feather';
-import { Link } from '~/components/Link';
-
-const FooterLink = styled(Link)`
-  &,
-  &:visited,
-  &:focus {
-    color: var(--color-text-muted);
-  }
-
-  &:hover,
-  &:focus-visible {
-    color: var(--color-text);
-  }
-
-  & + & {
-    margin-left: var(--space-xs);
-  }
-`;
 
 interface FooterProps {
   copyrightText: string;
@@ -26,22 +8,35 @@ interface FooterProps {
   rssURL: string;
 }
 
-export const Footer: React.FC<FooterProps> = ({ copyrightText, githubURL, rssURL }) => (
-  <footer className="text-muted text-sm text-center p-xs pt-lg mt-auto">
-    <div className="container flex items-center justify-between">
-      <div>
-        <p className="m-xs">{copyrightText}</p>
+export const Footer: React.FC<FooterProps> = ({ copyrightText, githubURL, rssURL }) => {
+  const footerButtonClassName = classNames(
+    'font-medium text-gray-800 dark:text-gray-300 rounded-md px-2 py-2 transition duration-500 ease select-none border-0',
+    'hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none'
+  );
+
+  return (
+    <footer className="text-muted text-sm text-center pb-5 pt-14 mt-auto">
+      <div className="container flex flex-col sm:flex-row items-center justify-between">
+        <div>
+          <p className="m-xs">{copyrightText}</p>
+        </div>
+        <div className="flex items-center mt-3 sm:mt-0 gap-2">
+          <a href={rssURL} aria-label="RSS Feed" className={footerButtonClassName}>
+            <Rss size="1.2rem" aria-hidden="true" />
+            <span className="sr-only">RSS Feed</span>
+          </a>
+          <a
+            href={githubURL}
+            aria-label="Github Profile"
+            target="_blank"
+            rel="noreferrer noopener"
+            className={footerButtonClassName}
+          >
+            <GitHub size="1.2rem" aria-hidden="true" />
+            <span className="sr-only">Github Profile</span>
+          </a>
+        </div>
       </div>
-      <div className="flex items-center">
-        <FooterLink href={rssURL} alt="RSS Feed">
-          <Rss size="1rem" aria-hidden="true" />
-          <span className="visually-hidden">RSS Feed</span>
-        </FooterLink>
-        <FooterLink href={githubURL} alt="Github Profile" target="_blank" rel="noreferrer noopener">
-          <GitHub size="1rem" aria-hidden="true" />
-          <span className="visually-hidden">Github Profile</span>
-        </FooterLink>
-      </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};

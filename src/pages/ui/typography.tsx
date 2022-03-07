@@ -16,11 +16,13 @@ const TypographyDemoPage: React.FC<TypographyDemoPageProps> = ({ data }) => {
     <Layout>
       <Hero>
         <div className="container text-center">
-          <h1>🔠 Typography Demo</h1>
+          <h1 className="text-4xl font-bold">🔠 Typography Demo</h1>
         </div>
       </Hero>
-      <div className="container">
-        <MDXRenderer>{pageBody}</MDXRenderer>
+      <div className="container mt-10">
+        <div className="prose dark:prose-invert">
+          <MDXRenderer>{pageBody}</MDXRenderer>
+        </div>
       </div>
     </Layout>
   );

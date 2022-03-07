@@ -55,16 +55,16 @@ to occupy the generations. And no matter how much progress one makes, there is a
 beginning.
 
 <div>
-  Here’s a div &lt;div&gt;. A Chinese tale tells of some men sent to harm a young girl who, upon seeing her
-  beauty, become her protectors rather than her violators. That’s how I felt seeing the Earth for the first
-  time. I could not help but love and cherish her
+  Here’s a div &lt;div&gt;. A Chinese tale tells of some men sent to harm a young girl who, upon
+  seeing her beauty, become her protectors rather than her violators. That’s how I felt seeing the
+  Earth for the first time. I could not help but love and cherish her
 </div>
 
 <article>
   <h3>This is an article &lt;article&gt; with a paragraph</h3>
   <p>
-    We want to explore. We’re curious people. Look back over history, people have put their lives at stake to
-    go out and explore … We believe in what we’re doing. Now it’s time to go.
+    We want to explore. We’re curious people. Look back over history, people have put their lives at
+    stake to go out and explore … We believe in what we’re doing. Now it’s time to go.
   </p>
   <p>End of the article.</p>
 </article>
@@ -81,11 +81,49 @@ they are hard, because that goal will serve to organize and measure the best of 
 because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one which
 we intend to win.
 
-<pre>
-  {`* {
-  font - family: "Comic Sans MS", "Comic Sans", "Marker Felt" !important;
-}`}
-</pre>
+```css
+* {
+  font-family: "Comic Sans MS", "Comic Sans", "Marker Felt" !important;
+}
+```
+
+```scss
+.block {
+  display: block;
+
+  > p {
+    color: green;
+  }
+}
+```
+
+```js {2,3}
+const person = {
+  name: 'John Doe',
+  avatar: null,
+};
+
+console.log(person);
+```
+
+```typescript:title=Example.ts
+const str: string = 'Hello!';
+for (const s of str) {
+  console.log(s);
+}
+```
+
+```markdown
+# h1
+
+## h2
+```
+
+**Without Title:**
+
+```
+cd ../Code
+```
 
 Many say exploration is part of our destiny, but it’s actually our duty to future generations and their quest
 to ensure the survival of the human species.
@@ -132,9 +170,9 @@ valuable than those which divide us.
   <dd>A kick-ass former planet.</dd>
   <dt>Space Ipsum</dt>
   <dd>
-    NASA is not about the ‘Adventure of Human Space Exploration’…We won’t be doing it just to get out there in
-    space – we’ll be doing it because the things we learn out there will be making life better for a lot of
-    people who won’t be able to go.
+    NASA is not about the ‘Adventure of Human Space Exploration’…We won’t be doing it just to get
+    out there in space – we’ll be doing it because the things we learn out there will be making life
+    better for a lot of people who won’t be able to go.
   </dd>
 </dl>
 

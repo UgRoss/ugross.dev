@@ -1,28 +1,9 @@
 a {
-  color: var(--color-link);
-  border-bottom: 2px solid var(--color-link-underline);
-  font-weight: 500;
-  outline: none;
-  text-decoration: none;
-  transition: all 0.35s ease;
-
-  &:focus-visible {
-    box-shadow: 0 0 0 0.05rem var(--color-link-hover);
-  }
-
-  &:visited {
-    color: var(--color-link-hover);
-  }
-
-  &:hover,
-  &:active,
-  &.active {
-    color: var(--color-link-hover);
-    text-decoration: none;
-    border-color: var(--color-link-underline-hover);
-  }
+  @apply font-semibold transition-all duration-300;
+  @apply border-b-2 border-gray-300;
 }
 
-strong > a {
-  font-weight: inherit;
+a:hover,
+a:active {
+  @apply border-primary;
 }
