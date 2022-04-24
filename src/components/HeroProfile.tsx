@@ -13,7 +13,7 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ img, name, jobTitle })
     <div className="container pb-8">
       <div className="flex sm:flex-row items-center gap-8 flex-col">
         <div>
-          <img src={img} alt={name} className="w-32 rounded-full" />
+          <img src={img} alt={name} className="rounded-full" width="128px" height="128px" />
         </div>
         <div className="text-center sm:text-left">
           <h3 className="mb-1 mt-1 text-4xl">

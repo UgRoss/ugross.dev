@@ -10,6 +10,9 @@ ci:
     preset: 'lighthouse:recommended'
     assertions:
       'color-contrast': off
+      'unused-javascript': off
+      'legacy-javascript': off
+      'uses-long-cache-ttl': off
 
   upload:
     target: 'temporary-public-storage'
