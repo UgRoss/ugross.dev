@@ -1,39 +1,39 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { Layout } from '~/components/Layout';
-import { Hero } from '~/components/Hero';
-import { TypographyPageQuery } from '~/types/graphql';
+import type { GetStaticProps, NextPage } from 'next';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { getPageBySlug } from '~/lib/graphcms';
+import { SEO } from '~/components/SEO';
 
-interface TypographyDemoPageProps {
-  data: TypographyPageQuery;
+interface HomePageProps {
+  mdxSourceContent: MDXRemoteSerializeResult;
 }
 
-const TypographyDemoPage: React.FC<TypographyDemoPageProps> = ({ data }) => {
-  const pageBody = data.mdx?.body ?? '';
-
+const Home: NextPage<HomePageProps> = ({ mdxSourceContent }) => {
   return (
-    <Layout>
-      <Hero>
-        <div className="container text-center">
-          <h1 className="text-4xl font-bold">🔠 Typography Demo</h1>
+    <>
+      <SEO title="Typography Page" noIndex />
+
+      <main className="mt-20">
+        <div className="container">
+          <div className="prose dark:prose-invert max-w-none">
+            <MDXRemote {...mdxSourceContent} />
+          </div>
         </div>
-      </Hero>
-      <div className="container mt-10">
-        <div className="prose dark:prose-invert">
-          <MDXRenderer>{pageBody}</MDXRenderer>
-        </div>
-      </div>
-    </Layout>
+      </main>
+    </>
   );
 };
 
-export const query = graphql`
-  query typographyPage {
-    mdx(frontmatter: { pageName: { eq: "typography" } }) {
-      body
-    }
-  }
-`;
+export const getStaticProps: GetStaticProps = async () => {
+  const pageData = await getPageBySlug('typography');
+  const content = pageData?.content ?? '';
+  const mdxSourceContent = await serialize(content);
 
-export default TypographyDemoPage;
+  return {
+    props: {
+      mdxSourceContent,
+    },
+  };
+};
+
+export default Home;

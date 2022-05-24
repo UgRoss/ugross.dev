@@ -1,33 +1,45 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
+import type { GetStaticProps, NextPageWithLayout } from 'next';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { Layout } from '~/components/Layout';
 import { SEO } from '~/components/SEO';
-import { NotFoundPageQuery } from '~/types/graphql';
+import { ReactElement } from 'react';
+import { getPageBySlug } from '~/lib/graphcms';
 
 interface NotFoundPageProps {
-  data: NotFoundPageQuery;
+  mdxSourceContent: MDXRemoteSerializeResult;
 }
 
-const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
-  const pageBody = data.mdx?.body ?? '';
-
+const NotFoundPage: NextPageWithLayout<NotFoundPageProps> = ({ mdxSourceContent }) => {
   return (
     <Layout showHeader={false} showFooter={false}>
-      <SEO title="404: The page could not be found" />
+      <SEO title="404: The page could not be found" noIndex />
       <div className="text-center flex flex-col items-center justify-center h-screen">
-        <MDXRenderer>{pageBody}</MDXRenderer>
+        <div className="prose dark:prose-invert max-w-none">
+          <MDXRemote {...mdxSourceContent} />
+        </div>
       </div>
     </Layout>
   );
 };
 
-export const query = graphql`
-  query notFoundPage {
-    mdx(frontmatter: { pageName: { eq: "404" } }) {
-      body
-    }
-  }
-`;
+NotFoundPage.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout showFooter={false} showHeader={false} showCommandPalette={false}>
+      {page}
+    </Layout>
+  );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { content = '' } = (await getPageBySlug('not-found')) ?? {};
+  const mdxSourceContent = await serialize(content);
+
+  return {
+    props: {
+      mdxSourceContent,
+    },
+  };
+};
 
 export default NotFoundPage;

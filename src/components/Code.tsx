@@ -2,7 +2,7 @@ import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/oceanicNext';
 
-import { siteConfig } from '~/config/site.config';
+import { siteConfig } from '~/configs/site.config';
 import { Language } from '~/types/codeBlock';
 import { CodeCopyButton } from './CodeCopyButton';
 

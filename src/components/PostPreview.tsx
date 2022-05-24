@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 import classNames from 'classnames';
 
 interface PostPreviewProps {
@@ -15,21 +15,25 @@ export const PostPreview: React.FC<PostPreviewProps> = ({
   excerpt,
   className = '',
 }) => (
-  <article className={classNames(className, 'py-10 border-b border-gray-200 dark:border-gray-700')}>
+  <article
+    className={classNames(
+      className,
+      'py-10 rounded-md dark:border-gray-700  mb-2 relative',
+      'border-b border-gray-200 dark:border-gray-700'
+    )}
+  >
     <header>
-      <h2 className="mb-4 text-2xl text-gray-900 tracking-tight font-bold dark:text-gray-200">
-        <Link to={url} className="border-0 font-bold">
-          {title}
+      <h2 className="mb-3 text-xl text-gray-900 tracking-tight dark:text-gray-200">
+        <Link href={url}>
+          <a className="border-0 font-semibold">{title}</a>
         </Link>
       </h2>
     </header>
-    <section className="mb-6 prose dark:prose-invert">
-      <p>{excerpt}</p>
+    <section className="prose-md dark:prose-invert">
+      <p className="text-muted">{excerpt}</p>
     </section>
-    <footer className="prose dark:prose-invert">
-      <Link to={url}>
-        Read this article →
-      </Link>
+    <footer className="mt-3 prose dark:prose-invert">
+      <Link href={url}>Read this article →</Link>
     </footer>
   </article>
 );

@@ -1,0 +1,19 @@
+overwrite: true
+schema: ${GRAPHCMS_PROJECT_API}
+documents: 'src/**/*.graphql'
+generates:
+  src/types/graphql.d.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+  ./graphql.schema.json:
+    plugins:
+      - 'introspection'
+  src/@types/graphql.d.ts:
+    documents:
+      - src/queries/pages.graphql
+      - src/queries/posts.graphql
+    plugins:
+      - typescript-graphql-files-modules
+    config:
+      modulePathPrefix: 'queries/'

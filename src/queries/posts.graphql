@@ -1,0 +1,62 @@
+fragment PostSeo on Seo {
+  title
+  description
+  keywords
+  image {
+    url
+    width
+    height
+  }
+}
+
+fragment Post on Post {
+  title
+  slug
+  date
+  excerpt
+  content
+  tags
+  seo {
+    ...PostSeo
+  }
+  coverImage {
+    url
+    width
+    height
+  }
+  author {
+    name
+    biography
+    id
+    url
+    picture {
+      url
+      width
+      height
+    }
+  }
+}
+
+query GetAllPosts {
+  posts(orderBy: date_DESC) {
+    ...Post
+  }
+}
+
+query GetAllPostsWithTags {
+  posts(where: { tags_not: null }) {
+    tags
+  }
+}
+
+query GetPostBySlug($slug: String!) {
+  post(where: { slug: $slug }) {
+    ...Post
+  }
+}
+
+query GetPostsByTag($tag: String!) {
+  posts(where: { tags_contains_some: [$tag] }, orderBy: date_DESC) {
+    ...Post
+  }
+}

@@ -1,33 +1,33 @@
 import React from 'react';
-import { Footer } from './Footer';
-import { siteConfig } from '~/config/site.config';
-import { Nav } from './Nav';
-import '~/styles/index.scss';
+import { siteConfig } from '~/configs/site.config';
+import { Footer } from '~/components/Footer';
+import { Nav } from '~/components/Nav';
+import { NoSSR } from '~/components/NoSSR';
+import { CommandPalette } from '~/components/CommandPalette';
 
 interface LayoutProps {
   showHeader?: boolean;
   showFooter?: boolean;
-
+  showCommandPalette?: boolean;
   children: React.ReactNode;
   className?: string;
 }
 
-/** Main Layout */
 export const Layout: React.FunctionComponent<LayoutProps> = ({
   showHeader = true,
   showFooter = true,
+  showCommandPalette = true,
   className = '',
   children,
 }) => (
   <div className={`${className} min-h-screen flex flex-col bg-body`}>
+    {showCommandPalette && (
+      <NoSSR>
+        <CommandPalette />
+      </NoSSR>
+    )}
     {showHeader && <Nav navLinks={siteConfig.navItems} />}
     {children}
-    {showFooter && (
-      <Footer
-        copyrightText={siteConfig.footerText}
-        githubURL={siteConfig.github}
-        rssURL={siteConfig.rss}
-      />
-    )}
+    {showFooter && <Footer copyrightText={siteConfig.footerText} />}
   </div>
 );

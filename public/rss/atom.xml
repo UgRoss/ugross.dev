@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://ugross.dev</id>
+    <title>Rostyslav Ugryniuk - Blog</title>
+    <updated>2022-05-24T18:03:52.110Z</updated>
+    <generator>Feed for Node.js</generator>
+    <author>
+        <name>Rostyslav Ugryniuk</name>
+        <email>ug.ross@hotmail.com</email>
+        <uri>https://twitter.com/ug_ross</uri>
+    </author>
+    <link rel="alternate" href="https://ugross.dev"/>
+    <link rel="self" href="https://ugross.dev/rss/atom.xml"/>
+    <logo>https://ugross.dev/logo.svg</logo>
+    <icon>https://ugross.dev/favicon.png</icon>
+    <rights>All rights reserved 2022, Rostyslav Ugryniuk</rights>
+    <category term="Technology"/>
+    <entry>
+        <title type="html"><![CDATA[Data Structures: Queue]]></title>
+        <id>https://ugross.dev/blog/data-structures-queue</id>
+        <link href="https://ugross.dev/blog/data-structures-queue"/>
+        <updated>2020-10-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[A Queue is a linear data structure that keeps its elements in a queue. It uses FIFO (first-in-first-out) ordering in which elements are added to the "end" and are removed from the "front".]]></summary>
+        <content type="html"><![CDATA[A Queue is a linear data structure that keeps its elements in a queue. It uses FIFO (first-in-first-out) ordering in which elements are added to the "end" and are removed from the "front".]]></content>
+        <author>
+            <name>Rostyslav Ugryniuk</name>
+            <email>ug.ross@hotmail.com</email>
+            <uri>https://twitter.com/ug_ross</uri>
+        </author>
+        <contributor>
+            <name>Rostyslav Ugryniuk</name>
+            <email>ug.ross@hotmail.com</email>
+            <uri>https://twitter.com/ug_ross</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data Structures: Stack]]></title>
+        <id>https://ugross.dev/blog/data-structures-stack</id>
+        <link href="https://ugross.dev/blog/data-structures-stack"/>
+        <updated>2020-04-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[A Stack is a linear data structure that keeps its elements stacked on each other. It uses LIFO (last-in-first-out) ordering in which the last pushed item to the stack is processed first.]]></summary>
+        <content type="html"><![CDATA[A Stack is a linear data structure that keeps its elements stacked on each other. It uses LIFO (last-in-first-out) ordering in which the last pushed item to the stack is processed first.]]></content>
+        <author>
+            <name>Rostyslav Ugryniuk</name>
+            <email>ug.ross@hotmail.com</email>
+            <uri>https://twitter.com/ug_ross</uri>
+        </author>
+        <contributor>
+            <name>Rostyslav Ugryniuk</name>
+            <email>ug.ross@hotmail.com</email>
+            <uri>https://twitter.com/ug_ross</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data Structures: Linked List]]></title>
+        <id>https://ugross.dev/blog/data-structures-linked-list</id>
+        <link href="https://ugross.dev/blog/data-structures-linked-list"/>
+        <updated>2020-03-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Linked list is a linear data structure, this means that there is a sequence and an order to how they are constructed and traversed.
+The linked list data structure is a good choice over arrays when you don't need to have random/indexed access to your data...]]></summary>
+        <content type="html"><![CDATA[Linked list is a linear data structure, this means that there is a sequence and an order to how they are constructed and traversed.
+The linked list data structure is a good choice over arrays when you don't need to have random/indexed access to your data...]]></content>
+        <author>
+            <name>Rostyslav Ugryniuk</name>
+            <email>ug.ross@hotmail.com</email>
+            <uri>https://twitter.com/ug_ross</uri>
+        </author>
+        <contributor>
+            <name>Rostyslav Ugryniuk</name>
+            <email>ug.ross@hotmail.com</email>
+            <uri>https://twitter.com/ug_ross</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React Component Lifecycle Methods]]></title>
+        <id>https://ugross.dev/blog/react-component-lifecycle-methods</id>
+        <link href="https://ugross.dev/blog/react-component-lifecycle-methods"/>
+        <updated>2019-06-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this article, we are going to explore React lifecycle methods. As for me, if you want to work with React this knowledge is crucial because you need to be able to implement component logic in the right place.]]></summary>
+        <content type="html"><![CDATA[In this article, we are going to explore React lifecycle methods. As for me, if you want to work with React this knowledge is crucial because you need to be able to implement component logic in the right place.]]></content>
+        <author>
+            <name>Rostyslav Ugryniuk</name>
+            <email>ug.ross@hotmail.com</email>
+            <uri>https://twitter.com/ug_ross</uri>
+        </author>
+        <contributor>
+            <name>Rostyslav Ugryniuk</name>
+            <email>ug.ross@hotmail.com</email>
+            <uri>https://twitter.com/ug_ross</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Dates in JavaScript]]></title>
+        <id>https://ugross.dev/blog/dates-in-javascript</id>
+        <link href="https://ugross.dev/blog/dates-in-javascript"/>
+        <updated>2019-03-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Working with dates in JS can be a complicated task. Personally, it always has been my weak part, so I decided to write a post about dates…]]></summary>
+        <content type="html"><![CDATA[Working with dates in JS can be a complicated task. Personally, it always has been my weak part, so I decided to write a post about dates…]]></content>
+        <author>
+            <name>Rostyslav Ugryniuk</name>
+            <email>ug.ross@hotmail.com</email>
+            <uri>https://twitter.com/ug_ross</uri>
+        </author>
+        <contributor>
+            <name>Rostyslav Ugryniuk</name>
+            <email>ug.ross@hotmail.com</email>
+            <uri>https://twitter.com/ug_ross</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[JS Console API tips]]></title>
+        <id>https://ugross.dev/blog/js-console-api-tips</id>
+        <link href="https://ugross.dev/blog/js-console-api-tips"/>
+        <updated>2019-02-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[console.log is one of the most basic and common debugging tools in JavaScript. However, the console object gives us more methods to make debugging easier.]]></summary>
+        <content type="html"><![CDATA[console.log is one of the most basic and common debugging tools in JavaScript. However, the console object gives us more methods to make debugging easier.]]></content>
+        <author>
+            <name>Rostyslav Ugryniuk</name>
+            <email>ug.ross@hotmail.com</email>
+            <uri>https://twitter.com/ug_ross</uri>
+        </author>
+        <contributor>
+            <name>Rostyslav Ugryniuk</name>
+            <email>ug.ross@hotmail.com</email>
+            <uri>https://twitter.com/ug_ross</uri>
+        </contributor>
+    </entry>
+</feed>

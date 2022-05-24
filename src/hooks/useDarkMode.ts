@@ -12,7 +12,11 @@ enum ThemeLocalStorageKey {
   DARK = 'theme:dark',
 }
 
-export const useDarkMode = (): [Theme, React.Dispatch<React.SetStateAction<Theme>>, () => void] => {
+export const useDarkMode = (): [
+  Theme,
+  React.Dispatch<React.SetStateAction<Theme | undefined>>,
+  () => void
+] => {
   const isSystemAppearanceDark = supportsDarkMode();
   const initialTheme: Theme = isSystemAppearanceDark ? Theme.DARK : Theme.LIGHT;
 

@@ -1,0 +1,3 @@
+.mail-to-link::after {
+  content: attr(data-boxName) '@' attr(data-domain) '.' attr(data-tld);
+}

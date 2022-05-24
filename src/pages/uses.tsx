@@ -1,62 +1,54 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { Layout } from '~/components/Layout';
-import { SEO } from '~/components/SEO';
+import type { GetStaticProps, NextPage } from 'next';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { Hero } from '~/components/Hero';
-import { siteConfig } from '~/config/site.config';
-import { UsesPageQuery } from '~/types/graphql';
-
-const { name } = siteConfig;
+import { SEO } from '~/components/SEO';
+import { getPageBySlug } from '~/lib/graphcms';
+import { GetPageBySlugQuery } from '~/types/graphql';
 
 interface UsesPageProps {
-  data: UsesPageQuery;
+  mdxSourceContent: MDXRemoteSerializeResult;
+  title: NonNullable<GetPageBySlugQuery['page']>['title'];
+  subtitle: NonNullable<GetPageBySlugQuery['page']>['subtitle'];
+  seo: NonNullable<GetPageBySlugQuery['page']>['seo'];
 }
 
-const UsesPage: React.FC<UsesPageProps> = ({ data }) => {
-  const pageBody = data.mdx?.body ?? '';
-  const pageTitle = `Uses - ${name}`;
-  const pageDescription = `The tools ${name} uses`;
-  const image = data.mdx?.frontmatter?.image?.childImageSharp?.resize ?? undefined;
-  const currentYear = new Date().getFullYear();
+const UsesPage: NextPage<UsesPageProps> = ({ title, subtitle, seo, mdxSourceContent }) => {
+  const { title: seoTitle = '', description, image, keywords } = seo || {};
 
   return (
-    <Layout>
-      <SEO title={pageTitle} description={pageDescription} image={image} />
-      <Hero>
-        <div className="container text-center prose dark:prose-invert">
-          <h1 className="text-4xl my-5 font-extrabold">Uses</h1>
-          <p className="mb-0 text-md font-medium">
-            All of the gear and software I use daily as of {currentYear}
-          </p>
+    <>
+      <SEO title={seoTitle} description={description} image={image} keywords={keywords} />
+
+      <main>
+        <Hero>
+          <div className="container text-center prose dark:prose-invert">
+            <h1 className="text-4xl my-5 font-extrabold">{title}</h1>
+            <p className="mb-0 text-md font-medium">{subtitle}</p>
+          </div>
+        </Hero>
+        <div className="container">
+          <div className="prose dark:prose-invert max-w-none">
+            <MDXRemote {...mdxSourceContent} />
+          </div>
         </div>
-      </Hero>
-      <div className="container">
-        <div className="prose dark:prose-invert">
-          <MDXRenderer>{pageBody}</MDXRenderer>
-        </div>
-      </div>
-    </Layout>
+      </main>
+    </>
   );
 };
 
-export const query = graphql`
-  query usesPage {
-    mdx(frontmatter: { pageName: { eq: "uses" } }) {
-      body
-      frontmatter {
-        image {
-          childImageSharp {
-            resize(width: 1200) {
-              src
-              width
-              height
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+export const getStaticProps: GetStaticProps = async () => {
+  const { content = '', seo = {}, title, subtitle } = (await getPageBySlug('uses')) ?? {};
+  const mdxSourceContent = await serialize(content);
+
+  return {
+    props: {
+      title,
+      subtitle,
+      seo,
+      mdxSourceContent,
+    },
+  };
+};
 
 export default UsesPage;

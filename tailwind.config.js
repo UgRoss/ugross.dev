@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const colors = require('tailwindcss/colors');
 
 module.exports = {
@@ -53,6 +52,9 @@ module.exports = {
       transitionProperty: {
         bg: 'background, background-color',
       },
+      scale: {
+        '1025': '1.025'
+      }
     },
     container: {
       center: true,
@@ -70,8 +72,8 @@ module.exports = {
       sans: ['inter', 'Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
       mono: [
-        'Jetbrains Mono',
         'ui-monospace',
+        'Jetbrains Mono',
         'SFMono-Regular',
         'Menlo',
         'Monaco',
@@ -80,5 +82,8 @@ module.exports = {
       ],
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
 };

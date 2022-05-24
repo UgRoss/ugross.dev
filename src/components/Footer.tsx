@@ -1,40 +1,24 @@
 import React from 'react';
-import classNames from 'classnames';
-import { Rss, GitHub } from 'react-feather';
+import { NAV_ITEMS } from '~/configs/site.config';
+import Link from 'next/link';
 
 interface FooterProps {
   copyrightText: string;
-  githubURL: string;
-  rssURL: string;
 }
 
-export const Footer: React.FC<FooterProps> = ({ copyrightText, githubURL, rssURL }) => {
-  const footerButtonClassName = classNames(
-    'font-medium text-gray-800 dark:text-gray-300 rounded-md px-2 py-2 transition duration-500 ease select-none border-0',
-    'hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none'
-  );
-
+export const Footer: React.FC<FooterProps> = ({ copyrightText }) => {
   return (
-    <footer className="text-muted text-sm text-center pb-5 pt-14 mt-auto">
-      <div className="container flex flex-col sm:flex-row items-center justify-between">
+    <footer className="text-muted text-sm text-center mt-auto pt-20">
+      <div className="container flex flex-col space-y-5 sm:space-y-0 sm:flex-row items-center justify-between border-t dark:border-gray-700 py-6 px-2">
+        <div className="flex space-x-5">
+          {NAV_ITEMS.map(({ url, name }) => (
+            <Link href={url} key={url}>
+              <a className="border-0 hover:text-primary">{name}</a>
+            </Link>
+          ))}
+        </div>
         <div>
           <p className="m-xs">{copyrightText}</p>
-        </div>
-        <div className="flex items-center mt-3 sm:mt-0 gap-2">
-          <a href={rssURL} aria-label="RSS Feed" className={footerButtonClassName}>
-            <Rss size="1.2rem" aria-hidden="true" />
-            <span className="sr-only">RSS Feed</span>
-          </a>
-          <a
-            href={githubURL}
-            aria-label="Github Profile"
-            target="_blank"
-            rel="noreferrer noopener"
-            className={footerButtonClassName}
-          >
-            <GitHub size="1.2rem" aria-hidden="true" />
-            <span className="sr-only">Github Profile</span>
-          </a>
         </div>
       </div>
     </footer>

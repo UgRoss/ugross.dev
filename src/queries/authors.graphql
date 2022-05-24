@@ -1,0 +1,18 @@
+fragment AuthorDetails on Author {
+  name
+  biography
+  url
+  twitterUrl
+  email
+  picture {
+    url
+    width
+    height
+  }
+}
+
+query GetAuthorById($id: ID!) {
+  author(where: { id: $id }) {
+    ...AuthorDetails
+  }
+}

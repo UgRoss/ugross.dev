@@ -1,17 +1,19 @@
 {
-  "plugins": ["stylelint-scss"],
-  "extends": ["stylelint-config-recommended"],
-  "overrides": [
-    {
-      "files": ["*.scss", "**/*.scss"],
-      "customSyntax": "postcss-scss"
-    }
-  ],
+  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
   "rules": {
-    "property-no-vendor-prefix": null,
-    "no-descending-specificity": null,
-    "at-rule-no-unknown": [true, { "ignoreAtRules": ["tailwind", "apply", "layer", "mixin"] }],
-    "function-no-unknown": [true, { "ignoreFunctions": ["theme"] }],
-    "declaration-block-single-line-max-declarations": 1
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["tailwind", "apply", "variants", "responsive", "screen"]
+      }
+    ],
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": ["theme"]
+      }
+    ],
+    "declaration-block-trailing-semicolon": null,
+    "no-descending-specificity": null
   }
 }

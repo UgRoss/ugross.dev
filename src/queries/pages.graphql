@@ -1,0 +1,26 @@
+fragment PageSeo on Seo {
+  description
+  title
+  keywords
+  image {
+    url
+    width
+    height
+  }
+}
+
+fragment Page on Page {
+  title
+  subtitle
+  slug
+  content
+  seo {
+    ...PageSeo
+  }
+}
+
+query GetPageBySlug($slug: String!) {
+  page(where: { slug: $slug }) {
+    ...Page
+  }
+}

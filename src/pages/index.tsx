@@ -1,42 +1,50 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { Layout } from '~/components/Layout';
-import { SEO } from '~/components/SEO';
+import type { GetStaticProps, NextPage } from 'next';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { HeroProfile } from '~/components/HeroProfile';
-import { siteConfig } from '~/config/site.config';
-import { IndexPageQuery } from '~/types/graphql';
+import { SEO } from '~/components/SEO';
+import { siteConfig } from '~/configs/site.config';
+import { getPageBySlug } from '~/lib/graphcms';
+import { GetPageBySlugQuery } from '~/types/graphql';
+import { generateRssFeed } from '~/lib/rss';
 
-const { name, jobTitle, avatar } = siteConfig;
-
-interface IndexPageProps {
-  data: IndexPageQuery;
+interface HomePageProps {
+  mdxSourceContent: MDXRemoteSerializeResult;
+  seo: NonNullable<GetPageBySlugQuery['page']>['seo'];
 }
 
-const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
-  const pageTitle = `${name} - ${jobTitle}`;
-  const pageBody = data.mdx?.body ?? '';
+const Home: NextPage<HomePageProps> = ({ mdxSourceContent, seo }) => {
+  const { title = '', description, image, keywords } = seo || {};
 
   return (
-    <Layout>
-      <SEO title={pageTitle} />
-      <HeroProfile img={avatar} name={name} jobTitle={jobTitle} />
-      <div className="container">
-        <div className="prose dark:prose-invert max-w-none">
-          <MDXRenderer>{pageBody}</MDXRenderer>
+    <>
+      <SEO title={title} description={description} image={image} keywords={keywords} />
+
+      <main>
+        <HeroProfile
+          img={siteConfig.avatarUrl}
+          name={siteConfig.name}
+          jobTitle={siteConfig.jobTitle}
+        />
+
+        <div className="container">
+          <div className="prose dark:prose-invert max-w-none">
+            <MDXRemote {...mdxSourceContent} />
+          </div>
         </div>
-      </div>
-    </Layout>
+      </main>
+    </>
   );
 };
 
-export const query = graphql`
-  query IndexPage {
-    mdx(frontmatter: { pageName: { eq: "index" } }) {
-      id
-      body
-    }
-  }
-`;
+export const getStaticProps: GetStaticProps = async () => {
+  await generateRssFeed();
+  const { content = '', seo = {} } = (await getPageBySlug('index-page')) ?? {};
+  const mdxSourceContent = await serialize(content);
 
-export default IndexPage;
+  return {
+    props: { mdxSourceContent, seo },
+  };
+};
+
+export default Home;

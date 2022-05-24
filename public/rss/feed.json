@@ -1,0 +1,85 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Rostyslav Ugryniuk - Blog",
+    "home_page_url": "https://ugross.dev",
+    "feed_url": "https://ugross.dev/rss/feed.json",
+    "icon": "https://ugross.dev/logo.svg",
+    "author": {
+        "name": "Rostyslav Ugryniuk",
+        "url": "https://twitter.com/ug_ross"
+    },
+    "items": [
+        {
+            "id": "https://ugross.dev/blog/data-structures-queue",
+            "content_html": "A Queue is a linear data structure that keeps its elements in a queue. It uses FIFO (first-in-first-out) ordering in which elements are added to the \"end\" and are removed from the \"front\".",
+            "url": "https://ugross.dev/blog/data-structures-queue",
+            "title": "Data Structures: Queue",
+            "summary": "A Queue is a linear data structure that keeps its elements in a queue. It uses FIFO (first-in-first-out) ordering in which elements are added to the \"end\" and are removed from the \"front\".",
+            "date_modified": "2020-10-12T00:00:00.000Z",
+            "author": {
+                "name": "Rostyslav Ugryniuk",
+                "url": "https://twitter.com/ug_ross"
+            }
+        },
+        {
+            "id": "https://ugross.dev/blog/data-structures-stack",
+            "content_html": "A Stack is a linear data structure that keeps its elements stacked on each other. It uses LIFO (last-in-first-out) ordering in which the last pushed item to the stack is processed first.",
+            "url": "https://ugross.dev/blog/data-structures-stack",
+            "title": "Data Structures: Stack",
+            "summary": "A Stack is a linear data structure that keeps its elements stacked on each other. It uses LIFO (last-in-first-out) ordering in which the last pushed item to the stack is processed first.",
+            "date_modified": "2020-04-12T00:00:00.000Z",
+            "author": {
+                "name": "Rostyslav Ugryniuk",
+                "url": "https://twitter.com/ug_ross"
+            }
+        },
+        {
+            "id": "https://ugross.dev/blog/data-structures-linked-list",
+            "content_html": "Linked list is a linear data structure, this means that there is a sequence and an order to how they are constructed and traversed.\nThe linked list data structure is a good choice over arrays when you don't need to have random/indexed access to your data...",
+            "url": "https://ugross.dev/blog/data-structures-linked-list",
+            "title": "Data Structures: Linked List",
+            "summary": "Linked list is a linear data structure, this means that there is a sequence and an order to how they are constructed and traversed.\nThe linked list data structure is a good choice over arrays when you don't need to have random/indexed access to your data...",
+            "date_modified": "2020-03-07T00:00:00.000Z",
+            "author": {
+                "name": "Rostyslav Ugryniuk",
+                "url": "https://twitter.com/ug_ross"
+            }
+        },
+        {
+            "id": "https://ugross.dev/blog/react-component-lifecycle-methods",
+            "content_html": "In this article, we are going to explore React lifecycle methods. As for me, if you want to work with React this knowledge is crucial because you need to be able to implement component logic in the right place.",
+            "url": "https://ugross.dev/blog/react-component-lifecycle-methods",
+            "title": "React Component Lifecycle Methods",
+            "summary": "In this article, we are going to explore React lifecycle methods. As for me, if you want to work with React this knowledge is crucial because you need to be able to implement component logic in the right place.",
+            "date_modified": "2019-06-17T00:00:00.000Z",
+            "author": {
+                "name": "Rostyslav Ugryniuk",
+                "url": "https://twitter.com/ug_ross"
+            }
+        },
+        {
+            "id": "https://ugross.dev/blog/dates-in-javascript",
+            "content_html": "Working with dates in JS can be a complicated task. Personally, it always has been my weak part, so I decided to write a post about dates…",
+            "url": "https://ugross.dev/blog/dates-in-javascript",
+            "title": "Dates in JavaScript",
+            "summary": "Working with dates in JS can be a complicated task. Personally, it always has been my weak part, so I decided to write a post about dates…",
+            "date_modified": "2019-03-12T00:00:00.000Z",
+            "author": {
+                "name": "Rostyslav Ugryniuk",
+                "url": "https://twitter.com/ug_ross"
+            }
+        },
+        {
+            "id": "https://ugross.dev/blog/js-console-api-tips",
+            "content_html": "console.log is one of the most basic and common debugging tools in JavaScript. However, the console object gives us more methods to make debugging easier.",
+            "url": "https://ugross.dev/blog/js-console-api-tips",
+            "title": "JS Console API tips",
+            "summary": "console.log is one of the most basic and common debugging tools in JavaScript. However, the console object gives us more methods to make debugging easier.",
+            "date_modified": "2019-02-20T00:00:00.000Z",
+            "author": {
+                "name": "Rostyslav Ugryniuk",
+                "url": "https://twitter.com/ug_ross"
+            }
+        }
+    ]
+}
