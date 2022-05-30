@@ -29,7 +29,7 @@ export const PostPreview: React.FC<PostPreviewProps> = ({
         </Link>
       </h2>
     </header>
-    <section className="prose-md dark:prose-invert">
+    <section className="prose dark:prose-invert">
       <p className="text-muted">{excerpt}</p>
     </section>
     <footer className="mt-3 prose dark:prose-invert">

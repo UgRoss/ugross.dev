@@ -2,8 +2,9 @@ import dayjs from 'dayjs';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkGfm from 'remark-gfm';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import remarkToc from 'remark-toc';
 import rehypeExternalLinks from 'rehype-external-links';
+import rehypeSlug from 'rehype-slug';
 
 /** Detect if the user has requested the system use a light or dark color theme */
 export const supportsDarkMode = (): boolean =>
@@ -14,8 +15,8 @@ export const formatDate = (date: string) => dayjs(date).format('D MMMM, YYYY');
 export const serializeMDX = (mdxContent: string): Promise<MDXRemoteSerializeResult> =>
   serialize(mdxContent, {
     mdxOptions: {
-      remarkPlugins: [remarkGfm],
-      rehypePlugins: [rehypeAutolinkHeadings, rehypeExternalLinks],
+      remarkPlugins: [remarkGfm, [remarkToc, { maxDepth: 4, tight: true }]],
+      rehypePlugins: [rehypeSlug, rehypeExternalLinks],
     },
   });
 
