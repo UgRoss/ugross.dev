@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "npm run codegen",
     "dev": "next dev",
-    "prebuild": "npm run codegen",
     "build": "next build",
     "start": "next start",
     "lint": "npm run lint:js & npm run lint:css",
     "lint:js": "next lint",
     "lint:css": "stylelint **/*.css",
     "husky:precommit": "lint-staged",
+    "codegen:ci": "graphql-codegen --config codegen.yml",
     "codegen": "DOTENV_CONFIG_PATH=.env.local graphql-codegen --config codegen.yml -r dotenv/config",
     "prepare": "husky install",
     "postinstall": "npm run codegen"
