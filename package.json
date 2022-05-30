@@ -12,9 +12,7 @@
     "lint:css": "stylelint **/*.css",
     "husky:precommit": "lint-staged",
     "codegen:ci": "graphql-codegen --config codegen.yml",
-    "codegen": "DOTENV_CONFIG_PATH=.env.local graphql-codegen --config codegen.yml -r dotenv/config",
-    "prepare": "husky install",
-    "postinstall": "npm run codegen"
+    "codegen": "DOTENV_CONFIG_PATH=.env.local graphql-codegen --config codegen.yml -r dotenv/config"
   },
   "engines": {
     "node": ">=16.0.0"
