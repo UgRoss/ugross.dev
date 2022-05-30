@@ -3,6 +3,7 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkGfm from 'remark-gfm';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeExternalLinks from 'rehype-external-links';
 
 /** Detect if the user has requested the system use a light or dark color theme */
 export const supportsDarkMode = (): boolean =>
@@ -14,7 +15,7 @@ export const serializeMDX = (mdxContent: string): Promise<MDXRemoteSerializeResu
   serialize(mdxContent, {
     mdxOptions: {
       remarkPlugins: [remarkGfm],
-      rehypePlugins: [rehypeAutolinkHeadings],
+      rehypePlugins: [rehypeAutolinkHeadings, rehypeExternalLinks],
     },
   });
 
