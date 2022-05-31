@@ -44,8 +44,5 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Codegen
-        run: npm run codegen:ci
-
       - name: Build
         run: npm run build
