@@ -62,53 +62,55 @@ export const CommandPalette = () => {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          <Combobox
-            as="div"
-            className="relative mx-auto max-w-xl rounded-xl bg-white dark:bg-zinc-900 shadow-2xl ring-1 ring-black/5 divide-y divide-gray-100 dark:divide-zinc-700 overflow-hidden"
-            onChange={handleCommandSelect}
-            value={null}
-          >
-            <div className="flex items-center px-4">
-              <Combobox.Input
-                onChange={(event) => {
-                  filterCommands(event.target.value);
-                }}
-                className="w-full border-0 bg-transparent text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:ring-0 h-12"
-                placeholder="Search..."
-              />
-            </div>
-            <Combobox.Options className="py-4 max-h-96 overflow-y-auto" static>
-              {commands.map(({ category, items }) => {
-                return (
-                  <React.Fragment key={category}>
-                    <p className="px-3 py-2 text-sm text-gray-500">{capitalize(category)}</p>
+          <Dialog.Panel className="w-full mx-auto max-w-xl">
+            <Combobox
+              as="div"
+              className="relative w-full rounded-xl bg-white dark:bg-zinc-900 shadow-2xl ring-1 ring-black/5 divide-y divide-gray-100 dark:divide-zinc-700 overflow-hidden"
+              onChange={handleCommandSelect}
+              value={null}
+            >
+              <div className="flex items-center px-4">
+                <Combobox.Input
+                  onChange={(event) => {
+                    filterCommands(event.target.value);
+                  }}
+                  className="w-full border-0 bg-transparent text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:ring-0 h-12"
+                  placeholder="Search..."
+                />
+              </div>
+              <Combobox.Options className="py-4 max-h-96 overflow-y-auto" static>
+                {commands.map(({ category, items }) => {
+                  return (
+                    <React.Fragment key={category}>
+                      <p className="px-3 py-2 text-sm text-gray-500">{capitalize(category)}</p>
 
-                    {items.map((command) => {
-                      if (command.type === 'action') {
-                        const { action, icon, title } = command;
+                      {items.map((command) => {
+                        if (command.type === 'action') {
+                          const { action, icon, title } = command;
 
-                        return (
-                          <CommandPaletteItem
-                            key={title}
-                            icon={icon}
-                            value={action}
-                            title={title}
-                          />
-                        );
-                      } else {
-                        const { href, icon, title } = command;
+                          return (
+                            <CommandPaletteItem
+                              key={title}
+                              icon={icon}
+                              value={action}
+                              title={title}
+                            />
+                          );
+                        } else {
+                          const { href, icon, title } = command;
 
-                        return (
-                          <CommandPaletteItem key={href} icon={icon} value={href} title={title} />
-                        );
-                      }
-                    })}
-                  </React.Fragment>
-                );
-              })}
-              {isEmpty && <p className="p-4 text-sm text-gray-500">No results found</p>}
-            </Combobox.Options>
-          </Combobox>
+                          return (
+                            <CommandPaletteItem key={href} icon={icon} value={href} title={title} />
+                          );
+                        }
+                      })}
+                    </React.Fragment>
+                  );
+                })}
+                {isEmpty && <p className="p-4 text-sm text-gray-500">No results found</p>}
+              </Combobox.Options>
+            </Combobox>
+          </Dialog.Panel>
         </Transition.Child>
       </Dialog>
     </Transition.Root>
