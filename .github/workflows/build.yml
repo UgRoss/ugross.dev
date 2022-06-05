@@ -46,3 +46,6 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          GRAPHCMS_PROJECT_API: ${{ secrets.GRAPHCMS_PROJECT_API }}
+          GRAPHCMS_PROD_AUTH_TOKEN: ${{ secrets.GRAPHCMS_PROD_AUTH_TOKEN }}
