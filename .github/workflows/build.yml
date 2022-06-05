@@ -38,11 +38,15 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Create ENV file
+        run: |
+          touch .env
+          echo GRAPHCMS_PROJECT_API=${{ secrets.GRAPHCMS_PROJECT_API }} >> .env
+          echo GRAPHCMS_PROD_AUTH_TOKEN=${{ secrets.GRAPHCMS_PROD_AUTH_TOKEN }} >> .env
+
+
       - name: Lint
         run: npm run lint
 
       - name: Build
         run: npm run build
-        env:
-          GRAPHCMS_PROJECT_API: ${{ secrets.GRAPHCMS_PROJECT_API }}
-          GRAPHCMS_PROD_AUTH_TOKEN: ${{ secrets.GRAPHCMS_PROD_AUTH_TOKEN }}
