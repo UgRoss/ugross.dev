@@ -40,6 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+# Lighthouse
+.lighthouseci
+
 # PWA files
 **/public/sw.js
 **/public/workbox-*.js
