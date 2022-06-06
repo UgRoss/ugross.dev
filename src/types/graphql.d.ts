@@ -738,6 +738,7 @@ export type Author = Node & {
   history: Array<Version>;
   /** The unique identifier */
   id: Scalars['ID'];
+  jobTitle: Scalars['String'];
   /** Enter the display name for authors */
   name: Scalars['String'];
   /** Add a profile picture for authors */
@@ -837,6 +838,7 @@ export type AuthorCreateInput = {
   biography?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   email: Scalars['String'];
+  jobTitle: Scalars['String'];
   name: Scalars['String'];
   picture?: InputMaybe<AssetCreateOneInlineInput>;
   posts?: InputMaybe<PostCreateManyInlineInput>;
@@ -951,6 +953,25 @@ export type AuthorManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>;
+  jobTitle?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  jobTitle_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  jobTitle_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  jobTitle_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  jobTitle_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  jobTitle_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  jobTitle_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  jobTitle_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  jobTitle_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  jobTitle_starts_with?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   name_contains?: InputMaybe<Scalars['String']>;
@@ -1058,6 +1079,8 @@ export enum AuthorOrderByInput {
   EmailDesc = 'email_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  JobTitleAsc = 'jobTitle_ASC',
+  JobTitleDesc = 'jobTitle_DESC',
   NameAsc = 'name_ASC',
   NameDesc = 'name_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
@@ -1073,6 +1096,7 @@ export enum AuthorOrderByInput {
 export type AuthorUpdateInput = {
   biography?: InputMaybe<Scalars['String']>;
   email?: InputMaybe<Scalars['String']>;
+  jobTitle?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
   picture?: InputMaybe<AssetUpdateOneInlineInput>;
   posts?: InputMaybe<PostUpdateManyInlineInput>;
@@ -1100,6 +1124,7 @@ export type AuthorUpdateManyInlineInput = {
 export type AuthorUpdateManyInput = {
   biography?: InputMaybe<Scalars['String']>;
   email?: InputMaybe<Scalars['String']>;
+  jobTitle?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
   twitterUrl?: InputMaybe<Scalars['String']>;
 };
@@ -1230,6 +1255,25 @@ export type AuthorWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>;
+  jobTitle?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  jobTitle_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  jobTitle_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  jobTitle_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  jobTitle_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  jobTitle_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  jobTitle_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  jobTitle_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  jobTitle_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  jobTitle_starts_with?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   name_contains?: InputMaybe<Scalars['String']>;
@@ -5993,14 +6037,14 @@ export enum _SystemDateTimeFieldVariation {
   Localization = 'localization'
 }
 
-export type AuthorDetailsFragment = { __typename?: 'Author', name: string, biography?: string | null, url: string, twitterUrl: string, email: string, picture?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null };
+export type AuthorDetailsFragment = { __typename?: 'Author', name: string, jobTitle: string, biography?: string | null, url: string, twitterUrl: string, email: string, picture?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null };
 
 export type GetAuthorByIdQueryVariables = Exact<{
   id: Scalars['ID'];
 }>;
 
 
-export type GetAuthorByIdQuery = { __typename?: 'Query', author?: { __typename?: 'Author', name: string, biography?: string | null, url: string, twitterUrl: string, email: string, picture?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null };
+export type GetAuthorByIdQuery = { __typename?: 'Query', author?: { __typename?: 'Author', name: string, jobTitle: string, biography?: string | null, url: string, twitterUrl: string, email: string, picture?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null };
 
 export type PageSeoFragment = { __typename?: 'Seo', description: string, title: string, keywords: Array<string>, image?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null };
 

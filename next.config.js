@@ -21,6 +21,8 @@ module.exports = withPWA({
   },
   reactStrictMode: true,
   images: {
+    loader: 'imgix',
     domains: ['media.graphassets.com', 'ugross.dev'],
+    path: ''
   },
 });

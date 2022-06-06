@@ -13,8 +13,8 @@ const SOCIAL_LINKS = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/rostyslav-ugryniuk-7b7466102/' },
 ];
 
-
 export const siteConfig = {
+  graphCMSAuthorID: 'cl3ai8i5iayo70bui31uk0u32',
   name: NAME,
   jobTitle: JOB_TITLE,
   shortBio: `Front-end developer and CS student. Living and coding in Ukraine.`,

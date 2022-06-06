@@ -15,6 +15,7 @@ import {
   GetAuthorByIdQuery,
 } from '~/types/graphql';
 import { GetAuthorById } from '~/queries/authors.graphql';
+import { siteConfig } from '~/configs/site.config';
 
 const graphcmsClient = new GraphQLClient(process.env.GRAPHCMS_PROJECT_API || '', {
   headers: {
@@ -61,4 +62,8 @@ export async function getAuthorById(id: string): Promise<GetAuthorByIdQuery['aut
   const data: GetAuthorByIdQuery = await graphcmsClient.request(GetAuthorById, { id });
 
   return data?.author;
+}
+
+export async function getProfileDetails(): Promise<GetAuthorByIdQuery['author']> {
+  return getAuthorById(siteConfig.graphCMSAuthorID);
 }
