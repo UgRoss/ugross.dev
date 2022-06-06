@@ -2,7 +2,7 @@ name: Project Build
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -43,7 +43,6 @@ jobs:
           touch .env
           echo GRAPHCMS_PROJECT_API=${{ secrets.GRAPHCMS_PROJECT_API }} >> .env
           echo GRAPHCMS_PROD_AUTH_TOKEN=${{ secrets.GRAPHCMS_PROD_AUTH_TOKEN }} >> .env
-
 
       - name: Lint
         run: npm run lint

@@ -5,7 +5,7 @@ name: Lighthouse Report
 on:
   # Triggers the workflow on pull request events but only for the master branch
   pull_request:
-    branches: [master]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -43,12 +43,18 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Create ENV file
+        run: |
+          touch .env
+          echo GRAPHCMS_PROJECT_API=${{ secrets.GRAPHCMS_PROJECT_API }} >> .env
+          echo GRAPHCMS_PROD_AUTH_TOKEN=${{ secrets.GRAPHCMS_PROD_AUTH_TOKEN }} >> .env
+
       - name: Build
         run: npm run build
 
       - name: run Lighthouse CI
         run: |
-          npm install -g @lhci/cli@0.7.x
+          npm install -g @lhci/cli@0.8.x
           lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
