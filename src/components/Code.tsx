@@ -22,27 +22,6 @@ function getLangAndParams(className = ``): [string, { [key: string]: string }] {
   return [language, paramsObj];
 }
 
-const numbersBetweenBracketsRegExp = new RegExp('(?<={)[\\d,-]+?(?=})');
-
-const calculateLinesToHighlight = (meta: string) => {
-  if (!numbersBetweenBracketsRegExp.test(meta)) {
-    return () => false;
-  }
-
-  const lineNumbers =
-    numbersBetweenBracketsRegExp
-      .exec(meta)?.[0]
-      .split(`,`)
-      .map((v) => v.split(`-`).map((x) => parseInt(x, 10))) ?? [];
-  return (index: number) => {
-    const lineNumber = index + 1;
-
-    return lineNumbers.some(([start, end]) =>
-      end ? lineNumber >= start && lineNumber <= end : lineNumber === start
-    );
-  };
-};
-
 export const Code: React.FC<CodeProps> = ({
   codeString,
   noLineNumbers = false,
@@ -51,7 +30,6 @@ export const Code: React.FC<CodeProps> = ({
 }) => {
   const { showLineNumbers, showCopyButton } = siteConfig.codeBlocks;
   const [language, { title = `` }] = getLangAndParams(blockClassName);
-  const shouldHighlightLine = calculateLinesToHighlight(metastring);
   const hasLineNumbers = !noLineNumbers && language !== `noLineNumbers` && showLineNumbers;
 
   return (
@@ -69,10 +47,6 @@ export const Code: React.FC<CodeProps> = ({
               <code className={`language-${language}`}>
                 {tokens.map((line, i) => {
                   const lineProps = getLineProps({ line, key: i });
-
-                  if (shouldHighlightLine(i)) {
-                    lineProps.className = `${lineProps.className} highlight-line`;
-                  }
 
                   return (
                     <div {...lineProps} key={`line-${i}`}>

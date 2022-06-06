@@ -13,7 +13,7 @@ ci:
       'unused-javascript': off
       'legacy-javascript': off
       'uses-long-cache-ttl': off
-      "uses-http2": off
+      'uses-http2': off
 
   upload:
     target: 'temporary-public-storage'
