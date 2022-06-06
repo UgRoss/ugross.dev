@@ -2,8 +2,8 @@ ci:
   collect:
     url:
       - http://localhost/
-      - http://localhost/blog
-      - http://localhost/uses
+      - http://localhost/blog/
+      - http://localhost/uses/
     staticDistDir: './out'
 
   assert:
