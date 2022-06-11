@@ -1,0 +1,11 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Block all crawlers for /api
+User-agent: *
+Disallow: /api
+
+# Block all crawlers for /ui
+User-agent: *
+Disallow: /ui
