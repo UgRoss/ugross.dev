@@ -46,6 +46,7 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:creator" content={siteConfig.twitter} />
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
+      <meta name='twitter:creator' content='@ug_ross' />
 
       {metaImage && <meta property="og:image" content={metaImage} />}
       {metaImage && <meta property="twitter:image" content={metaImage} />}
