@@ -4,7 +4,8 @@ ci:
       - http://localhost/
       - http://localhost/blog/
       - http://localhost/uses/
-    staticDistDir: './out'
+    staticDistDir: 'out'
+    isSinglePageApplication: true
 
   assert:
     preset: 'lighthouse:recommended'
