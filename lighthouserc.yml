@@ -15,6 +15,7 @@ ci:
       'legacy-javascript': off
       'uses-long-cache-ttl': off
       'uses-http2': off
+      'csp-xss': off
 
   upload:
     target: 'temporary-public-storage'
