@@ -27,8 +27,10 @@ export const useDarkMode = (): [
 
   /** Listen for changes in LS and save to state */
   useEffect(() => {
-    document.documentElement.classList[activeTheme === Theme.DARK ? 'add' : 'remove']('bg-black');
-    document.body.classList[activeTheme === Theme.DARK ? 'add' : 'remove']('dark');
+    const action = activeTheme === Theme.DARK ? 'add' : 'remove';
+
+    document.documentElement.classList[action]('bg-black');
+    document.documentElement.classList[action]('dark');
   }, [activeTheme]);
 
   /** Utility to simply toggle theme */

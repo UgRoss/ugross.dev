@@ -20,7 +20,7 @@ export const Layout: React.FunctionComponent<LayoutProps> = ({
   className = '',
   children,
 }) => (
-  <div className={`${className} min-h-screen flex flex-col bg-body`}>
+  <div className={`${className} min-h-screen flex flex-col bg-body dark:bg-body-dark`}>
     {showCommandPalette && (
       <NoSSR>
         <CommandPalette />

@@ -46,7 +46,7 @@
 
 /* === Inline Code */
 :not(pre) > code {
-  @apply bg-inline-code text-black rounded-md py-0.5 px-2 dark:text-gray-100;
+  @apply bg-[#edf2f7] dark:bg-gray-700 text-black dark:text-gray-100 rounded-md py-0.5 px-2;
 
   white-space: pre;
   word-break: normal;
