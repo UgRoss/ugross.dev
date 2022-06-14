@@ -6,7 +6,7 @@ fragment AuthorDetails on Author {
   twitterUrl
   email
   picture {
-    url
+    url(transformation: { image: { resize: { width: 128, height: 128, fit: clip } } })
     width
     height
   }
