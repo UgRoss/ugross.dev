@@ -1,6 +1,5 @@
 @import './tailwind.css';
 @import './elements/code.css';
-@import './elements/links.css';
 @import './elements/mailTo.css';
 
 * {

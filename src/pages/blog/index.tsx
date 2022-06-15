@@ -21,9 +21,9 @@ const BlogPage: NextPage<BlogPageProps> = ({ posts }) => {
         <Hero>
           <div className="container">
             <h1 className="text-center mt-0 text-4xl my-5 font-extrabold">
-              <span className="text-secondary">{'<'}</span>
-              <span className="text-tertiary font-mono">Blog</span>
-              <span className="text-secondary">{' />'}</span>
+              <span className="text-secondary dark:text-secondary-dark">{'<'}</span>
+              <span className="text-tertiary dark:text-tertiary-dark font-mono">Blog</span>
+              <span className="text-secondary dark:text-secondary-dark">{' />'}</span>
             </h1>
           </div>
         </Hero>

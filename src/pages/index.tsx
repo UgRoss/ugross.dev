@@ -25,7 +25,7 @@ const Home: NextPage<HomePageProps> = ({ mdxSourceContent, seo, profile }) => {
         <HeroProfile imgUrl={picture?.url ?? ''} name={name} jobTitle={jobTitle} />
 
         <div className="container">
-          <div className="prose dark:prose-invert max-w-none">
+          <div className="prose dark:prose-invert dark:prose-dark max-w-none">
             <MDXRemote {...mdxSourceContent} />
           </div>
         </div>

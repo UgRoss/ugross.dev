@@ -13,7 +13,7 @@ export const Footer: React.FC<FooterProps> = ({ copyrightText }) => {
         <div className="flex space-x-5">
           {NAV_ITEMS.map(({ url, name }) => (
             <Link href={url} key={url}>
-              <a className="border-0 hover:text-primary">{name}</a>
+              <a className="font-normal border-0 hover:text-link transition-colors">{name}</a>
             </Link>
           ))}
         </div>
