@@ -15,7 +15,8 @@ colors.tertiary = {
   dark: 'hsl(53deg, 100%, 50%)',
 };
 
-module.exports = {
+/** @type {import('tailwindcss/types').Config} */
+const config = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class',
   theme: {
@@ -111,3 +112,5 @@ module.exports = {
   },
   plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
 };
+
+module.exports = config;
