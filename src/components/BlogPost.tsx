@@ -68,7 +68,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
           />
         </div>
       )}
-      <div className="prose dark:prose-invert">
+      <div className="prose dark:prose-invert dark:prose-dark">
         <MDXRemote {...mdxSourceContent} />
       </div>
       {children}

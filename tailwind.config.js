@@ -1,28 +1,41 @@
 const colors = require('tailwindcss/colors');
 
+colors.primary = {
+  DEFAULT: '#6246ea',
+  dark: 'hsl(230deg, 100%, 67%)',
+};
+
+colors.secondary = {
+  DEFAULT: 'hsl(333deg, 100%, 45%)',
+  dark: 'hsl(333deg, 100%, 52%)',
+};
+
+colors.tertiary = {
+  DEFAULT: 'hsl(255deg, 85%, 30%)',
+  dark: 'hsl(53deg, 100%, 50%)',
+};
+
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
       colors: {
+        text: {
+          DEFAULT: 'hsl(222deg, 22%, 5%)',
+          dark: 'hsl(0deg, 0%, 100%)',
+        },
+        primary: colors.primary,
+        secondary: colors.secondary,
+        tertiary: colors.tertiary,
+        decorative: {
+          DEFAULT: 'hsl(200deg, 75%, 65%)',
+          dark: 'hsl(200deg, 50%, 60%)',
+        },
         muted: {
           DEFAULT: 'hsla(0deg 0% 40%)',
           dark: '#AAAAAA',
         },
-        link: {
-          DEFAULT: '#805AD5',
-          dark: '#9daaf2',
-        },
-        secondary: {
-          DEFAULT: '#ffb703',
-          dark: '#ffb703',
-        },
-        tertiary: {
-          DEFAULT: colors.sky[900],
-          dark: colors.sky[50],
-        },
-        primary: colors.sky[500],
       },
       backgroundColor: {
         body: {
@@ -40,8 +53,8 @@ module.exports = {
             'code::before': false,
             'code::after': false,
             a: {
-              color: colors.indigo[500],
-              border: colors.indigo[500],
+              color: colors.primary.DEFAULT,
+              border: colors.primary.DEFAULT,
               textDecoration: 'none',
               transition: 'all 200ms',
               '&:hover': {
@@ -56,12 +69,9 @@ module.exports = {
         },
         dark: {
           css: {
-            color: colors.gray[500],
+            color: colors.gray[300],
             a: {
-              color: colors.blue[100],
-              '&:hover': {
-                color: colors.blue[100],
-              },
+              color: colors.primary.dark,
             },
           },
         },

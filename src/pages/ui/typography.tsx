@@ -15,7 +15,7 @@ const Home: NextPage<HomePageProps> = ({ mdxSourceContent }) => {
 
       <main className="mt-20">
         <div className="container">
-          <div className="prose dark:prose-invert max-w-none">
+          <div className="prose dark:prose-invert dark:prose-dark max-w-none">
             <MDXRemote {...mdxSourceContent} />
           </div>
         </div>

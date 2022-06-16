@@ -19,7 +19,7 @@ export const PostPreview: React.FC<PostPreviewProps> = ({
     className={classNames(
       className,
       'py-10 rounded-md dark:border-gray-700  mb-2 relative',
-      'border-b border-gray-200 dark:border-gray-700'
+      'border-b border-gray-200 dark:border-gray-700 last:border-0'
     )}
   >
     <header>
@@ -29,10 +29,10 @@ export const PostPreview: React.FC<PostPreviewProps> = ({
         </Link>
       </h2>
     </header>
-    <section className="prose dark:prose-invert">
-      <p className="text-muted">{excerpt}</p>
+    <section className="prose dark:prose-invert dark:prose-dark">
+      <p>{excerpt}</p>
     </section>
-    <footer className="mt-3 prose dark:prose-invert">
+    <footer className="mt-3 prose dark:prose-invert dark:prose-dark">
       <Link href={url}>Read this article →</Link>
     </footer>
   </article>

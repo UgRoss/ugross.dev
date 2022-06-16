@@ -15,7 +15,7 @@ const NotFoundPage: NextPageWithLayout<NotFoundPageProps> = ({ mdxSourceContent 
     <Layout showHeader={false} showFooter={false}>
       <SEO title="404: The page could not be found" noIndex />
       <div className="text-center flex flex-col items-center justify-center h-screen">
-        <div className="prose dark:prose-invert max-w-none">
+        <div className="prose dark:prose-invert dark:prose-dark max-w-none">
           <MDXRemote {...mdxSourceContent} />
         </div>
       </div>

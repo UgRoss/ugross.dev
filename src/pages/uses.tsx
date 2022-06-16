@@ -22,13 +22,13 @@ const UsesPage: NextPage<UsesPageProps> = ({ title, subtitle, seo, mdxSourceCont
 
       <main>
         <Hero>
-          <div className="container text-center prose dark:prose-invert">
+          <div className="container text-center prose dark:prose-invert dark:prose-dark">
             <h1 className="text-4xl my-5 font-extrabold">{title}</h1>
             <p className="mb-0 text-md font-medium">{subtitle}</p>
           </div>
         </Hero>
         <div className="container">
-          <div className="prose dark:prose-invert max-w-none">
+          <div className="prose dark:prose-invert dark:prose-dark max-w-none">
             <MDXRemote {...mdxSourceContent} />
           </div>
         </div>
