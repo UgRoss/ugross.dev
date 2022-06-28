@@ -20,7 +20,7 @@ export const CommandPaletteItem: React.FC<CommandPaletteItemProps> = ({
     <Combobox.Option value={value}>
       {({ active }) => (
         <div
-          className={`px-4 py-2 space-x-1 flex items-center cursor-pointer text-gray-900 dark:text-gray-200 ${
+          className={`mx-2 flex cursor-pointer items-center space-x-1 rounded-md px-4 py-3 text-gray-800 transition-colors dark:text-gray-200 ${
             active ? 'bg-gray-500/10 dark:bg-gray-700/40' : 'bg-white dark:bg-zinc-900'
           }`}
         >

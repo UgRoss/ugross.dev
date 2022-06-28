@@ -4,14 +4,14 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { getPageBySlug } from '~/lib/graphcms';
 import { SEO } from '~/components/SEO';
 
-interface TypographyPageProps {
+interface ComponentsTestPageProps {
   mdxSourceContent: MDXRemoteSerializeResult;
 }
 
-const TypographyPage: NextPage<TypographyPageProps> = ({ mdxSourceContent }) => {
+const ComponentsTestPage: NextPage<ComponentsTestPageProps> = ({ mdxSourceContent }) => {
   return (
     <>
-      <SEO title="Typography Test Page" noIndex />
+      <SEO title="UI Components Test Page" noIndex />
 
       <main className="mt-20">
         <div className="container">
@@ -25,15 +25,11 @@ const TypographyPage: NextPage<TypographyPageProps> = ({ mdxSourceContent }) => 
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageData = await getPageBySlug('typography');
+  const pageData = await getPageBySlug('components');
   const content = pageData?.content ?? '';
   const mdxSourceContent = await serialize(content);
 
-  return {
-    props: {
-      mdxSourceContent,
-    },
-  };
+  return { props: { mdxSourceContent } };
 };
 
-export default TypographyPage;
+export default ComponentsTestPage;

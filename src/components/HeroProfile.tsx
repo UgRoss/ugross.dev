@@ -12,7 +12,7 @@ interface HeroProfileProps {
 export const HeroProfile: React.FC<HeroProfileProps> = ({ imgUrl, name, jobTitle }) => (
   <Hero>
     <div className="container pb-8">
-      <div className="flex sm:flex-row items-center gap-8 flex-col">
+      <div className="flex flex-col items-center gap-8 sm:flex-row">
         <div>
           <Image
             alt="My photo"
@@ -22,12 +22,12 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ imgUrl, name, jobTitle
             className="rounded-full"
           />
         </div>
-        <div className="text-center sm:text-left">
+        <div className="text-center text-text sm:text-left">
           <h3 className="mb-1 mt-1 text-4xl">
             <AccessibleEmoji emoji="👋" description="Hello" />
           </h3>
-          <h1 className="mb-1 mt-1 text-2xl sm:text-3xl font-bold">Hi, I am {name}</h1>
-          <h2 className="font-medium mt-2 text-lg sm:text-xl text-muted dark:text-muted-dark">
+          <h1 className="mb-1 mt-1 text-2xl font-bold sm:text-3xl">Hi, I am {name}</h1>
+          <h2 className="dark:text-muted-dark mt-2 text-lg font-medium text-muted sm:text-xl">
             {jobTitle}
           </h2>
         </div>
