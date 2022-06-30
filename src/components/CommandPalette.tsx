@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { Fragment } from 'react';
 import { useKeyPressEvent } from 'react-use';
 import { CommandPaletteContext } from '~/providers/commandPaletteContext';
-import { capitalize } from '~/utils';
+import { capitalize, delay } from '~/utils';
 import { useDarkMode } from '~/hooks/useDarkMode';
 import { CommandPaletteItem } from '~/components/CommandPaletteItem';
 
@@ -24,10 +24,11 @@ export const CommandPalette = () => {
     return true;
   });
 
-  const handleCommandSelect = (value: string) => {
+  const handleCommandSelect = async (value: string) => {
     close();
 
     if (value === 'theme') {
+      await delay(200);
       return toggleTheme();
     }
 
@@ -36,36 +37,36 @@ export const CommandPalette = () => {
     if (isExternalHref) {
       window.open(value, 'blank');
     } else {
-      router.push(value);
+      await router.push(value);
     }
   };
 
   return (
     <Transition.Root show={isOpened} as={Fragment} afterLeave={() => filterCommands('')}>
-      <Dialog onClose={close} className="fixed inset-0 p-4 pt-[25vh] overflow-y-auto">
+      <Dialog onClose={close} className="fixed inset-0 z-40 overflow-y-auto p-4 pt-[25vh]">
         <Transition.Child
-          enter="duration-300 easy-out"
+          enter="duration-200 easy-out"
           enterFrom="opacity-0"
           enterTo="opacity-100"
           leave="duration-200 ease-in"
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Dialog.Overlay className="fixed inset-0 bg-gray-500/75" />
+          <Dialog.Overlay className="fixed inset-0 bg-gray-300 opacity-80 transition-colors dark:bg-black" />
         </Transition.Child>
 
         <Transition.Child
-          enter="duration-300 easy-out"
+          enter="duration-200 easy-out"
           enterFrom="opacity-0 scale-95"
           enterTo="opacity-100 scale-100"
           leave="duration-200 ease-in"
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          <Dialog.Panel className="w-full mx-auto max-w-xl">
+          <Dialog.Panel className="z-50 mx-auto w-full max-w-2xl">
             <Combobox
               as="div"
-              className="relative w-full rounded-xl bg-white dark:bg-zinc-900 shadow-2xl ring-1 ring-black/5 divide-y divide-gray-100 dark:divide-zinc-700 overflow-hidden"
+              className="relative w-full divide-y divide-gray-100 overflow-hidden rounded-md bg-white shadow-2xl ring-1 ring-black/5 transition-colors dark:divide-zinc-700 dark:bg-zinc-900"
               onChange={handleCommandSelect}
               value={null}
             >
@@ -74,11 +75,11 @@ export const CommandPalette = () => {
                   onChange={(event) => {
                     filterCommands(event.target.value);
                   }}
-                  className="w-full border-0 bg-transparent text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:ring-0 h-12"
+                  className="h-14 w-full border-0 bg-transparent text-gray-800 placeholder-gray-400 transition-colors focus:ring-0 dark:text-gray-200"
                   placeholder="Search..."
                 />
               </div>
-              <Combobox.Options className="py-4 max-h-96 overflow-y-auto" static>
+              <Combobox.Options className="max-h-96 overflow-y-auto py-4" static>
                 {commands.map(({ category, items }) => {
                   return (
                     <React.Fragment key={category}>
