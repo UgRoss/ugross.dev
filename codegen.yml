@@ -17,3 +17,6 @@ generates:
       - typescript-graphql-files-modules
     config:
       modulePathPrefix: 'queries/'
+hooks:
+  afterOneFileWrite:
+    - prettier --write

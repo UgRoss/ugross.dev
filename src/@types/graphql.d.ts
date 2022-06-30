@@ -33,3 +33,17 @@ export const GetPostsByTag: DocumentNode;
   export default defaultDocument;
 }
     
+
+declare module '*/queries/tils.graphql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const TILSeo: DocumentNode;
+export const TIL: DocumentNode;
+export const GetAllTils: DocumentNode;
+export const GetAllTilsWithCategories: DocumentNode;
+export const GetTilBySlug: DocumentNode;
+export const GetTilsByTag: DocumentNode;
+
+  export default defaultDocument;
+}
+    
