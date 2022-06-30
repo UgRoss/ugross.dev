@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import classNames from 'classnames';
+import { Tooltip } from '~/components/Tooltip';
 import { FiCommand } from 'react-icons/fi';
 import { CommandPaletteContext } from '~/providers/commandPaletteContext';
 
@@ -20,13 +21,15 @@ export const CommandPaletteButton: React.FC<DarkModeToggleProps> = ({ className 
   );
 
   return (
-    <button
-      onClick={toggle}
-      className={buttonClassName}
-      aria-label={buttonLabel}
-      title={buttonLabel}
-    >
-      <FiCommand size="20px" />
-    </button>
+    <Tooltip content="Command Palette (Cmd + K)" className="after:hidden lg:after:block">
+      <button
+        onClick={toggle}
+        className={buttonClassName}
+        aria-label={buttonLabel}
+        title={buttonLabel}
+      >
+        <FiCommand size="20px" />
+      </button>
+    </Tooltip>
   );
 };
