@@ -52,7 +52,7 @@ export const CommandPalette = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Dialog.Overlay className="fixed inset-0 bg-gray-300 opacity-80 transition-colors dark:bg-black" />
+          <Dialog.Overlay className="fixed inset-0 bg-emphasis opacity-50 transition-colors" />
         </Transition.Child>
 
         <Transition.Child
@@ -66,7 +66,7 @@ export const CommandPalette = () => {
           <Dialog.Panel className="z-50 mx-auto w-full max-w-2xl">
             <Combobox
               as="div"
-              className="relative w-full divide-y divide-gray-100 overflow-hidden rounded-md bg-white shadow-2xl ring-1 ring-black/5 transition-colors dark:divide-zinc-700 dark:bg-zinc-900"
+              className="relative w-full divide-y divide-muted overflow-hidden rounded-md bg-default shadow-2xl ring-1 ring-black/5 transition-colors"
               onChange={handleCommandSelect}
               value={null}
             >
@@ -75,7 +75,7 @@ export const CommandPalette = () => {
                   onChange={(event) => {
                     filterCommands(event.target.value);
                   }}
-                  className="h-14 w-full border-0 bg-transparent text-gray-800 placeholder-gray-400 transition-colors focus:ring-0 dark:text-gray-200"
+                  className="h-14 w-full border-0 bg-transparent text-default placeholder-muted transition-colors focus:ring-0"
                   placeholder="Search..."
                 />
               </div>
@@ -83,7 +83,7 @@ export const CommandPalette = () => {
                 {commands.map(({ category, items }) => {
                   return (
                     <React.Fragment key={category}>
-                      <p className="px-3 py-2 text-sm text-gray-500">{capitalize(category)}</p>
+                      <p className="px-3 py-2 text-sm text-muted">{capitalize(category)}</p>
 
                       {items.map((command) => {
                         if (command.type === 'action') {
@@ -108,7 +108,7 @@ export const CommandPalette = () => {
                     </React.Fragment>
                   );
                 })}
-                {isEmpty && <p className="p-4 text-sm text-gray-500">No results found</p>}
+                {isEmpty && <p className="p-4 text-sm text-muted">No results found</p>}
               </Combobox.Options>
             </Combobox>
           </Dialog.Panel>

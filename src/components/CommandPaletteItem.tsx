@@ -20,12 +20,12 @@ export const CommandPaletteItem: React.FC<CommandPaletteItemProps> = ({
     <Combobox.Option value={value}>
       {({ active }) => (
         <div
-          className={`mx-2 flex cursor-pointer items-center space-x-1 rounded-md px-4 py-3 text-gray-800 transition-colors dark:text-gray-200 ${
-            active ? 'bg-gray-500/10 dark:bg-gray-700/40' : 'bg-white dark:bg-zinc-900'
+          className={`mx-2 flex cursor-pointer items-center space-x-1 rounded-md px-4 py-3 text-default transition-colors ${
+            active ? 'bg-subtle' : 'bg-default'
           }`}
         >
           {Icon && <Icon className="mr-1" />}
-          <span className="font-normal">{title}</span>
+          <span className="font-medium">{title}</span>
           {isExternalUrl && <FiArrowUpRight className="pl-1" />}
         </div>
       )}

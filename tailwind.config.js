@@ -1,20 +1,3 @@
-const colors = require('tailwindcss/colors');
-
-colors.primary = {
-  DEFAULT: '#6246ea',
-  dark: 'hsl(230deg, 100%, 67%)',
-};
-
-colors.secondary = {
-  DEFAULT: 'hsl(333deg, 100%, 45%)',
-  dark: 'hsl(333deg, 100%, 52%)',
-};
-
-colors.tertiary = {
-  DEFAULT: 'hsl(255deg, 85%, 30%)',
-  dark: 'hsl(53deg, 100%, 50%)',
-};
-
 /** @type {import('tailwindcss/types').Config} */
 const config = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
@@ -22,66 +5,101 @@ const config = {
   theme: {
     extend: {
       colors: {
-        text: {
-          DEFAULT: 'hsl(222deg, 22%, 5%)',
-          dark: 'hsl(0deg, 0%, 100%)',
-        },
-        primary: colors.primary,
-        secondary: colors.secondary,
-        tertiary: colors.tertiary,
-        decorative: {
-          DEFAULT: 'hsl(200deg, 75%, 65%)',
-          dark: 'hsl(200deg, 50%, 60%)',
-        },
-        muted: {
-          DEFAULT: 'hsla(0deg 0% 40%)',
-          dark: '#AAAAAA',
-        },
+        background: 'var(--p-background)',
+        surface: 'var(--p-surface)',
+        'surface-hovered': 'var(--p-surface-hovered)',
+        'surface-neutral': 'var(--p-surface-neutral)',
+        'surface-neutral-hovered': 'var(--p-surface-neutral-hovered)',
+        'surface-neutral-pressed': 'var(--p-surface-neutral-pressed)',
+        'surface-neutral-subdued': 'var(--p-surface-neutral-subdued)',
+        divider: 'var(--p-divider)',
+
+        muted: 'var(--color-muted)',
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
+        tertiary: 'var(--color-tertiary)',
+        decorative: 'var(--color-decorative)',
+        black: '#000',
       },
       backgroundColor: {
-        body: {
-          DEFAULT: '#fff',
-          dark: '#181818',
-        },
+        default: 'var(--color-bg-default)',
+        emphasis: 'var(--color-bg-emphasis)',
+        subtle: 'var(--color-bg-subtle)',
+        inset: 'var(--color-bg-inset)',
+        accent: 'var(--color-accent-subtle)',
+
+        body: 'var(--color-background)',
+
+        info: 'var(--color-info-subtle)',
+        success: 'var(--color-success-subtle)',
+        warning: 'var(--color-attention-subtle)',
+        error: 'var(--color-danger-subtle)',
+
+        // info: 'var(--color-info-background)',
+        // success: 'var(--color-success-background)',
+        // error: 'var(--color-error-background)',
+        // warning: 'var(--color-warning-background)',
       },
-      textColor: {},
+      textColor: {
+        default: 'var(--color-fg-default)',
+        muted: 'var(--color-fg-muted)',
+        subtle: 'var(--color-fg-subtle)',
+        'on-emphasis': 'var(--color-fg-on-emphasis)',
+        accent: 'var(--color-accent-fg)',
+
+        subdued: 'var(--p-text-subdued)',
+        text: 'var(--color-text)',
+        link: 'var(--color-link)',
+      },
+      placeholderColor: {
+        default: 'var(--color-fg-default)',
+        muted: 'var(--color-fg-muted)',
+      },
+      borderColor: {
+        default: 'var(--color-border-default)',
+        muted: 'var(--color-border-muted)',
+        subtle: 'var(--color-border-subtle)',
+
+        info: 'var(--color-info-muted)',
+        success: 'var(--color-success-muted)',
+        warning: 'var(--color-attention-muted)',
+        error: 'var(--color-danger-muted)',
+
+        // info: 'var(--color-info)',
+        // success: 'var(--color-success)',
+        // error: 'var(--color-error)',
+        // warning: 'var(--color-warning)',
+
+        light: 'var(--p-color-border-light)',
+      },
+      divideColor: {
+        default: 'var(--color-border-default)',
+        muted: 'var(--color-border-muted)',
+        subtle: 'var(--color-border-subtle)',
+      },
+      ringColor: {
+        accent: 'var(--color-accent-emphasis)',
+      },
       typography: {
         DEFAULT: {
           css: {
-            pre: false,
-            code: false,
-            'pre code': false,
-            'code::before': false,
-            'code::after': false,
+            '--tw-prose-body': 'var(--color-fg-default)',
+            '--tw-prose-headings': 'var(--color-gray-1000)',
+            '--tw-prose-links': 'var(--color-accent-fg)',
+            '--tw-prose-invert-links': 'var(--color-primary)',
             a: {
-              color: colors.primary.DEFAULT,
-              border: colors.primary.DEFAULT,
+              border: 'var(--color-primary)',
               textDecoration: 'none',
-              transition: 'all 200ms',
+              transition: 'all 150ms',
               '&:hover': {
                 borderBottom: '2px solid',
               },
             },
-            h5: {
-              fontWeight: 'bold',
-              marginBottom: '0.5rem',
+            '.Alert p:only-child': {
+              margin: 0,
             },
           },
         },
-        dark: {
-          css: {
-            color: colors.gray[300],
-            a: {
-              color: colors.primary.dark,
-            },
-          },
-        },
-      },
-      transitionProperty: {
-        bg: 'background, background-color',
-      },
-      scale: {
-        1025: '1.025',
       },
     },
     container: {
@@ -89,15 +107,15 @@ const config = {
       screens: {
         sm: '100%',
         md: '700px',
-        lg: '700px',
-        xl: '700px',
+        lg: '750px',
+        xl: '750px',
       },
       padding: {
         DEFAULT: '1rem',
       },
     },
     fontFamily: {
-      sans: ['inter', 'Graphik', 'sans-serif'],
+      sans: ['Inter', 'Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
       mono: [
         'ui-monospace',

@@ -13,7 +13,7 @@
 
   .tooltip::after {
     @apply hidden scale-75 opacity-0 transition-all duration-300;
-    @apply pointer-events-none block max-w-sm whitespace-pre rounded bg-gray-700 py-1 px-2 text-sm text-gray-100;
+    @apply pointer-events-none block max-w-sm whitespace-pre rounded bg-emphasis py-1 px-2 text-sm text-gray-100;
     @apply absolute left-1/2 top-full -translate-x-1/2 translate-y-2 transform;
   }
 }

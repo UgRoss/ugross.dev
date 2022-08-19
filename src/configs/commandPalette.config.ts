@@ -43,6 +43,13 @@ export const commandPaletteItemsArr: CommandPaletteItem[] = [
         type: 'link',
       },
       {
+        title: 'Today I Learned',
+        href: '/til',
+        keywords: ['TIL', 'Today I Learned'],
+        icon: CgArrowRight,
+        type: 'link',
+      },
+      {
         title: 'Uses',
         href: '/uses',
         keywords: ['uses', 'software', 'gear', 'pages'],

@@ -13,7 +13,6 @@ export const CommandPaletteButton: React.FC<DarkModeToggleProps> = ({ className 
   const buttonLabel = 'Open command palette';
   const buttonClassName = classNames(
     className,
-
     `text-gray-500 dark:text-amber-400 rounded-md select-none font-medium`,
     `px-2 py-2 mr-2`,
     `transition duration-500 ease`,
@@ -21,7 +20,7 @@ export const CommandPaletteButton: React.FC<DarkModeToggleProps> = ({ className 
   );
 
   return (
-    <Tooltip content="Command Palette (Cmd + K)" className="after:hidden lg:after:block">
+    <Tooltip content="Command Palette (⌘ + K)" className="after:hidden lg:after:block">
       <button
         onClick={toggle}
         className={buttonClassName}

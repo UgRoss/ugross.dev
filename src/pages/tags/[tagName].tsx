@@ -26,10 +26,10 @@ const TagNamePage: NextPage<NextPage & TagNamePageProps> = ({ posts }) => {
         <Hero>
           <div className="container text-center">
             <h1 className="mt-0 text-4xl font-bold">
-              <span className="text-muted">Posts tagged: </span>
-              <span className="text-tertiary dark:text-tertiary-dark">{tagName}</span>
+              <span className="text-subdued">Posts tagged: </span>
+              <span className="dark:text-tertiary-dark text-tertiary">{tagName}</span>
             </h1>
-            <p className="text-muted mt-5 text-xl">
+            <p className="mt-5 text-xl text-subdued">
               {totalCount} {totalCount === 1 ? 'post' : 'posts'} found.
             </p>
           </div>

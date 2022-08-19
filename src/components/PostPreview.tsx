@@ -18,14 +18,14 @@ export const PostPreview: React.FC<PostPreviewProps> = ({
   <article
     className={classNames(
       className,
-      'relative mb-2 rounded-md  py-10 dark:border-gray-700',
+      'relative mb-2 rounded-md py-10 dark:border-gray-700',
       'border-b border-gray-200 last:border-0 dark:border-gray-700'
     )}
   >
     <header>
-      <h2 className="mb-3 text-xl tracking-tight text-gray-900 dark:text-gray-200">
+      <h2 className="mb-3 text-xl tracking-tight text-black dark:text-gray-200">
         <Link href={url}>
-          <a className="border-0 font-semibold transition-colors  hover:text-primary">{title}</a>
+          <a className="border-0 font-semibold transition-colors hover:text-primary">{title}</a>
         </Link>
       </h2>
     </header>
