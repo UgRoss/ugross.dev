@@ -16,6 +16,7 @@ module.exports = withPWA({
     if (IS_DEV) {
       return [];
     }
+
     return [
       {
         source: '/:path*',

@@ -17,7 +17,7 @@ colors.tertiary = {
 
 /** @type {import('tailwindcss/types').Config} */
 const config = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}', './node_modules/@vechaiui/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -110,7 +110,11 @@ const config = {
       ],
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@vechaiui/core'),
+  ],
 };
 
 module.exports = config;

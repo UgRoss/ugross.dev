@@ -28,6 +28,8 @@
     "@mdx-js/mdx": "^2.1.2",
     "@mdx-js/react": "^2.1.2",
     "@next/mdx": "^12.1.6",
+    "@vechaiui/core": "^0.6.0",
+    "@vechaiui/react": "^0.2.2",
     "classnames": "^2.3.1",
     "dayjs": "^1.11.3",
     "feed": "^4.2.2",
