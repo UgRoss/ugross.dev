@@ -29,7 +29,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
 
   return (
     <>
-      <SEO title={post.title} description={''} slug={post.slug} image={post.seo?.image} />
+      <SEO title={post.title} description={post.excerpt} slug={post.slug} image={post.seo?.image} />
 
       <main>
         <BlogPost

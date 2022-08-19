@@ -31,6 +31,7 @@ export const useDarkMode = (): [
 
     document.documentElement.classList[action]('bg-black');
     document.documentElement.classList[action]('dark');
+    document.documentElement.setAttribute('p-color-scheme', activeTheme);
   }, [activeTheme]);
 
   /** Utility to simply toggle theme */

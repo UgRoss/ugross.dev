@@ -1,3 +1,4 @@
+@import '@shopify/polaris-tokens/css/styles.css';
 @import './tailwind.css';
 @import './elements/code.css';
 @import './elements/mailTo.css';
@@ -8,4 +9,159 @@
 
 html.dark {
   color-scheme: dark;
+}
+
+:root {
+  --color-text: #181818; /* hsl(222deg 22% 5%); */
+  --color-background: #fbfbfb; /* hsl(0deg 0% 100%); */
+  --color-blurred-background: hsla(0deg 0% 100% / 85%);
+  --color-primary: hsl(245deg 100% 60%);
+  --color-secondary: hsl(333deg 100% 45%);
+  --color-tertiary: hsl(255deg 85% 30%);
+  --color-decorative: hsl(200deg 75% 65%);
+  --color-muted: #58595b;
+  --color-muted-background: hsla(210deg 55% 92% / 85%);
+  --color-info: hsl(245deg 100% 60%);
+  --color-info-background: var(--color-muted);
+  --color-success: hsl(160deg 100% 40%);
+  --color-success-background: hsla(160deg 100% 40% / 10%);
+  --color-error: hsl(340deg 95% 50%);
+  --color-error-background: hsla(340deg 95% 43% / 10%);
+  --color-warning: hsl(37deg 100% 50%);
+  --color-warning-background: hsla(52deg 100% 50% / 25%);
+  --color-venn-0: hsl(190deg 100% 65%);
+  --color-venn-1: hsl(340deg 100% 65%);
+  --color-subtle-background: hsl(225deg 25% 95%);
+  --color-subtle-floating: hsl(0deg 0% 100%);
+  --prefers-dark: false;
+}
+
+:root.dark {
+  --color-text: hsl(0deg 0% 100%);
+  --color-background: hsl(210deg 30% 8%);
+  --color-blurred-background: hsla(210deg 30% 8% / 85%);
+  --color-primary: hsl(230deg 100% 67%);
+  --color-secondary: hsl(333deg 100% 52%);
+  --color-tertiary: hsl(53deg 100% 50%);
+  --color-decorative: hsl(200deg 50% 60%);
+  --color-muted: #bcbec0;
+  --color-muted-background: hsla(210deg 38% 15% / 85%);
+  --color-info: hsl(230deg 100% 67%);
+  --color-success: hsl(160deg 100% 40%);
+  --color-success-background: hsla(160deg 100% 40% / 10%);
+  --color-error: hsl(340deg 95% 60%);
+  --color-error-background: hsla(340deg 95% 43% / 10%);
+  --color-alert: hsl(30deg 100% 50%);
+  --color-alert-background: hsla(38deg 100% 50% / 10%);
+  --color-venn-0: hsl(250deg 100% 50%);
+  --color-venn-1: hsl(175deg 100% 50%);
+  --color-subtle-background: hsl(210deg 30% 8%);
+  --color-subtle-floating: hsl(210deg 22% 15%);
+  --prefers-dark: true;
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+:root {
+  /* Background */
+  --color-bg-default: #fff;
+  --color-bg-emphasis: #24292f;
+  --color-bg-subtle: rgb(229 231 235);
+  --color-bg-inset: #f6f8fa;
+
+  /* Foreground */
+  --color-fg-default: #24292f;
+  --color-fg-muted: #57606a;
+  --color-fg-subtle: #6e7781;
+  --color-fg-on-emphasis: #fff;
+
+  /* Border */
+  --color-border-default: #d0d7de;
+  --color-border-muted: hsla(210deg 18% 87% / 100%);
+  --color-border-subtle: rgba(27 31 36 / 15%);
+
+  /* Accent Color */
+  --color-accent-fg: hsl(245deg 100% 60%);
+  --color-accent-emphasis: #0969da;
+  --color-accent-subtle: #ddf4ff;
+  --color-accent-muted: rgba(84 174 255 / 40%);
+
+  /* Danger Color */
+  --color-danger-fg: #cf222e;
+  --color-danger-emphasis: #cf222e;
+  --color-danger-muted: rgba(255 129 130 / 40%);
+  --color-danger-subtle: #ffebe9;
+
+  /* Success Color */
+  --color-success-fg: #1a7f37;
+  --color-success-emphasis: #2da44e;
+  --color-success-muted: rgba(74 194 107 / 40%);
+  --color-success-subtle: #dafbe1;
+
+  /* Attention Color */
+  --color-attention-fg: #9a6700;
+  --color-attention-emphasis: #bf8700;
+  --color-attention-muted: rgba(212 167 44 / 40%);
+  --color-attention-subtle: #fff8c5;
+
+  /* Info Color */
+  --color-info-fg: #0969da;
+  --color-info-emphasis: #0969da;
+  --color-info-muted: rgba(84 174 255 / 40%);
+  --color-info-subtle: hsl(210deg 55% 92%);
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+:root.dark {
+  /* Background */
+  --color-bg-default: #24292f; /* rgba(32 33 35 / 100%); */
+  --color-bg-emphasis: #161b22;
+  --color-bg-subtle: rgb(55 65 81);
+  --color-bg-inset: #010409;
+
+  /* Foregrounds */
+  --color-fg-default: #c9d1d9;
+  --color-fg-muted: #8b949e;
+  --color-fg-subtle: #6e7681;
+  --color-fg-on-emphasis: #fff;
+
+  /* Border */
+  --color-border-default: #30363d;
+  --color-border-muted: #3e3e3e;
+  --color-border-subtle: rgba(240 246 252 / 10%);
+
+  /* Neutral */
+  --color-neutral-emphasis-plus: #6e7681;
+  --color-neutral-emphasis: #6e7681;
+  --color-neutral-muted: rgba(110 118 129 / 40%);
+  --color-neutral-subtle: rgba(110 118 129 / 10%);
+
+  /* Accent */
+  --color-accent-fg: hsl(230deg 100% 67%);
+  --color-accent-emphasis: #0969da;
+  --color-accent-muted: rgba(84 174 255 / 40%);
+  --color-accent-subtle: hsl(210deg 38% 15%);
+
+  /* Danger Color */
+  --color-danger-fg: #f85149;
+  --color-danger-emphasis: #da3633;
+  --color-danger-muted: rgba(248 81 73 / 4%);
+  --color-danger-subtle: rgba(248 81 73 / 15%);
+
+  /* Success Color */
+  --color-success-fg: #3fb950;
+  --color-success-emphasis: #238636;
+  --color-success-muted: rgba(46 160 67 / 4%);
+  --color-success-subtle: rgba(46 160 67 / 15%);
+
+  /* Attention Color */
+  --color-attention-fg: #d29922;
+  --color-attention-emphasis: #9e6a03;
+  --color-attention-muted: rgba(187 128 9 /40%);
+  --color-attention-subtle: rgba(187 128 9 / 15%);
+
+  /* Info Color */
+  --color-info-fg: #0969da;
+  --color-info-emphasis: #0969da;
+  --color-info-muted: rgba(84 174 255 / 40%);
+  --color-info-subtle: hsl(210deg 38% 15%);
 }

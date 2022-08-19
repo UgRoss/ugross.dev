@@ -13,8 +13,12 @@ import {
   GetPostsByTagQuery,
   GetAllPostsWithTagsQuery,
   GetAuthorByIdQuery,
+  GetAllTilsWithCategoriesQuery,
+  GetAllTilsQuery,
+  GetTilBySlugQuery,
 } from '~/types/graphql';
 import { GetAuthorById } from '~/queries/authors.graphql';
+import { GetAllTilsWithCategories, GetAllTils, GetTilBySlug } from '~/queries/tils.graphql';
 import { siteConfig } from '~/configs/site.config';
 
 const graphcmsClient = new GraphQLClient(process.env.GRAPHCMS_PROJECT_API || '', {
@@ -66,4 +70,26 @@ export async function getAuthorById(id: string): Promise<GetAuthorByIdQuery['aut
 
 export async function getProfileDetails(): Promise<GetAuthorByIdQuery['author']> {
   return getAuthorById(siteConfig.graphCMSAuthorID);
+}
+
+export async function getAllTils(): Promise<GetAllTilsQuery['tils']> {
+  const data: GetAllTilsQuery = await graphcmsClient.request(GetAllTils);
+
+  return data.tils;
+}
+
+export async function getTilCategories(): Promise<string[]> {
+  const data: GetAllTilsWithCategoriesQuery = await graphcmsClient.request(
+    GetAllTilsWithCategories
+  );
+  const categories: string[] = data.tils.flatMap((til) => til.categories);
+  const uniqueCategories = new Set(categories);
+
+  return Array.from(uniqueCategories).sort();
+}
+
+export async function getTilBySlug(slug: string): Promise<GetTilBySlugQuery['til']> {
+  const data: GetTilBySlugQuery = await graphcmsClient.request(GetTilBySlug, { slug });
+
+  return data.til;
 }

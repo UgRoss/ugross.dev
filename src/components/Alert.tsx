@@ -18,7 +18,7 @@ export const Alert: React.FC<AlertProps> = ({ type, className, children }) => {
   const alertClassName = classNames(
     className,
     'Alert',
-    `relative w-full my-4 mx-0 p-4 rounded-r border-l-4`,
+    `relative w-full my-4 mx-0 p-4 rounded-r border-l-[3px]`,
     {
       'bg-info border-info': type === AlertTypes.INFO,
       'bg-success border-success': type === AlertTypes.SUCCESS,

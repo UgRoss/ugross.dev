@@ -1,0 +1,57 @@
+fragment TILSeo on Seo {
+  title
+  description
+  keywords
+  image {
+    url
+    width
+    height
+  }
+}
+
+fragment TIL on Til {
+  title
+  description
+  slug
+  date
+  content
+  categories
+  seo {
+    ...TILSeo
+  }
+  author {
+    name
+    biography
+    id
+    url
+    picture {
+      url
+      width
+      height
+    }
+  }
+}
+
+query GetAllTils {
+  tils(orderBy: date_DESC) {
+    ...TIL
+  }
+}
+
+query GetAllTilsWithCategories {
+  tils(where: { categories_not: null }) {
+    categories
+  }
+}
+
+query GetTilBySlug($slug: String!) {
+  til(where: { slug: $slug }) {
+    ...TIL
+  }
+}
+
+query GetTilsByTag($tag: String!) {
+  tils(where: { categories_contains_some: [$tag] }, orderBy: date_DESC) {
+    ...TIL
+  }
+}

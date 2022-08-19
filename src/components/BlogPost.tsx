@@ -37,7 +37,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
     <Hero>
       <div className="container text-center">
         {author && authorLink && (
-          <section className="dark:text-muted-dark text-sm text-muted">
+          <section className="text-sm text-muted">
             {`Written by `}
             <Link href={authorLink}>
               <a className="border-0">{author}</a>
@@ -46,7 +46,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
             <time dateTime={pubDate}>{date}</time>
           </section>
         )}
-        <h1 className="mt-5 text-4xl font-bold dark:text-white">{title}</h1>
+        <h1 className="mt-5 text-4xl font-bold text-black dark:text-white">{title}</h1>
         <section className="mt-6 flex flex-wrap justify-center gap-2">
           {tags.map(({ name, url }) => (
             <Tag href={url} key={name}>
