@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const withPWA = require('next-pwa');
+const withMDX = require('@next/mdx');
 const runtimeCaching = require('next-pwa/cache');
 
 const IS_DEV = process.env.NODE_ENV === 'development';
@@ -11,7 +12,9 @@ const ContentSecurityPolicy = `
   font-src 'self';
 `;
 
-module.exports = withPWA({
+const withProviders = (config) => withPWA(config);
+
+module.exports = {
   async headers() {
     if (IS_DEV) {
       return [];
@@ -38,15 +41,10 @@ module.exports = withPWA({
 
     return config;
   },
-  pwa: {
-    dest: 'public',
-    runtimeCaching,
-    disable: IS_DEV,
-  },
   reactStrictMode: true,
   images: {
     loader: 'imgix',
     domains: ['media.graphassets.com', 'ugross.dev'],
     path: '',
   },
-});
+};

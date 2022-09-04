@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { Hero } from '~/components/Hero';
-import { Tag } from '~/components/Tag';
+import { Tag } from '~/components/ui/Tag';
 
 interface BlogPostProps {
   title: string;

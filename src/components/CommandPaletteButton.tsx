@@ -1,7 +1,7 @@
 import React, { SyntheticEvent, useContext } from 'react';
 import { Button } from '@vechaiui/react';
 import { FiCommand } from 'react-icons/fi';
-import { Tooltip } from '~/components/Tooltip';
+import { Tooltip } from '~/components/ui/Tooltip';
 import { CommandPaletteContext } from '~/providers/commandPaletteContext';
 
 interface DarkModeToggleProps {

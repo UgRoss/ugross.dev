@@ -165,3 +165,17 @@ html.dark {
   --color-info-muted: rgba(84 174 255 / 40%);
   --color-info-subtle: hsl(210deg 38% 15%);
 }
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+:root {
+  --color-text-default: 'hsla(221 28% 16% / 1)',
+  --color-text- secondary: 'hsla(221 28% 16% / 0.8)',
+  --color-text-disabled: 'hsla(221 28% 16% / 0.65)',
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+:root.dark {
+  --color-text-default: 'hsla(0 0% 100% / 1)',
+  --color-text-secondary: 'hsla(0 0% 100% / .75)',
+  --color-text-disabled: 'hsla(0 0% 100% / .60)',
+}

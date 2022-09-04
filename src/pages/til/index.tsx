@@ -1,11 +1,9 @@
 import type { GetStaticProps, NextPage } from 'next';
-import { Hero } from '~/components/Hero';
-import { getAllTils, getPageBySlug, getTilCategories } from '~/lib/graphcms';
-import { GetAllTilsQuery, GetPageBySlugQuery, Til } from '~/types/graphql';
-import { Tag } from '~/components/Tag';
+import { getAllTils, getTilCategories } from '~/lib/graphcms';
+import {  Til } from '~/types/graphql';
+import { Tag } from '~/components/ui/Tag';
 import TILsTable from '~/components/TILsTable';
 import { useState } from 'react';
-import { tag } from 'postcss-selector-parser';
 
 interface TilPageProps {
   categories: string[];
