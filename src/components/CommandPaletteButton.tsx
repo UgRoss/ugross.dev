@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, useContext } from 'react';
-import { Button } from '@vechaiui/react';
 import { FiCommand } from 'react-icons/fi';
+import { Button } from '~/components/Button';
 import { Tooltip } from '~/components/ui/Tooltip';
 import { CommandPaletteContext } from '~/providers/commandPaletteContext';
 
@@ -24,10 +24,9 @@ export const CommandPaletteButton: React.FC<DarkModeToggleProps> = () => {
         className="select-none focus:shadow-none focus-visible:shadow"
         aria-label={buttonLabel}
         title={buttonLabel}
-        variant="ghost"
-      >
-        <FiCommand size="20px" />
-      </Button>
+        variant="invisible"
+        Icon={FiCommand}
+      />
     </Tooltip>
   );
 };

@@ -1,67 +1,47 @@
-import React, { forwardRef } from 'react';
+import type React from 'react';
+import type { IconType } from 'react-icons';
 import classNames from 'classnames';
 
-const classes = {
-  base: 'rounded-md focus:outline-none transition ease-in-out duration-300 leading-5',
-  disabled: 'opacity-50 cursor-not-allowed',
-  pill: 'rounded-full',
-  size: {
-    small: 'px-2 py-1 text-sm',
-    normal: 'px-3 py-2',
-    large: 'px-8 py-3 text-lg',
-  },
-  variant: {
-    default: 'bg-inset',
-    primary:
-      'bg-blue-500 hover:bg-blue-800 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 text-white',
-    secondary:
-      'bg-gray-200 hover:bg-gray-800 focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 text-gray-900 hover:text-white',
-    danger:
-      'bg-red-500 hover:bg-red-800 focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 text-white',
-    invisible:
-      'text-default bg-default hover:bg-inset hover:bg-subtle focus:ring-2 focus:ring-opacity-50 focus:ring-accent',
-  },
-};
-
 interface ButtonProps {
-  children: string | React.ReactElement;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  children?: string | React.ReactElement;
   type?: 'button' | 'submit';
   className?: string;
-  variant?: 'default' | 'primary' | 'secondary' | 'danger' | 'invisible';
+  variant?: 'default' | 'primary' | 'invisible';
   size?: 'small' | 'normal' | 'large';
-  pill?: boolean;
   disabled?: boolean;
+  Icon?: IconType;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
+export const Button: React.FC<ButtonProps & React.HTMLProps<HTMLButtonElement>> = ({
+  children,
+  onClick,
+  Icon,
+  variant = 'default',
+  size = 'small',
+  disabled = false,
+  className,
+  ...props
+}) => {
+  const buttonClassName = classNames(
+    'rounded-lg border outline-none focus-visible:ring flex items-center justify-center gap-2 font-semibold text-sm',
     {
-      children,
-      type = 'button',
-      className,
-      variant = 'primary',
-      size = 'normal',
-      pill = false,
-      disabled = false,
-      ...props
+      // Variants
+      'bg-neural-100 border-neural-400 hover:bg-neural-200 ring-primary-200': variant === 'default',
+      'bg-transparent border-transparent hover:bg-primary-100 hover:border-primary-100 hover:text-primary-700 ring-primary-200':
+        variant === 'invisible',
+      // Sizes
+      'px-2 py-2': size === 'small',
+      // disabled
+      'border-neural-300 text-disabled ': variant === 'default' && disabled,
     },
-    ref
-  ) => {
-    const buttonClassName = classNames(
-      className,
-      classes.variant[variant],
-      classes.base,
-      classes.size[size],
-      pill && classes.pill,
-      disabled && classes.disabled
-    );
+    className
+  );
 
-    return (
-      <button ref={ref} disabled={disabled} type={type} className={buttonClassName} {...props}>
-        {children}
-      </button>
-    );
-  }
-);
-
-Button.displayName = 'Button';
+  return (
+    <button className={buttonClassName} onClick={onClick} {...props}>
+      {Icon && <Icon size="20px" />}
+      {children}
+    </button>
+  );
+};
