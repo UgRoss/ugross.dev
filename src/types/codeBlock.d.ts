@@ -1,4 +1,5 @@
 export type Language =
+  | 'apex'
   | 'markup'
   | 'bash'
   | 'clike'
