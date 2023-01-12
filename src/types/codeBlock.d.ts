@@ -1,5 +1,5 @@
 export type Language =
-  | 'apex'
+  | 'java'
   | 'markup'
   | 'bash'
   | 'clike'
