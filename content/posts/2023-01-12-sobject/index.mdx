@@ -1,0 +1,106 @@
+---
+title: 'sObject Describe'
+date: '2023-01-12'
+spoiler: sObject Describe Apex is a powerful tool in Salesforce that allows developers to programmatically access metadata about an sObject (Salesforce object).
+image: ./queue.jpeg
+tags: ['datastructures']
+---
+
+sObject Describe Apex is a powerful tool in Salesforce that allows developers to programmatically access metadata about an sObject (Salesforce object). This can be incredibly useful in a variety of situations, such as when building dynamic forms, generating reports, or creating custom user interfaces.
+
+The sObject Describe class provides a number of methods that can be used to retrieve information about an sObject, including its fields, relationships, and child objects. For example, the `getDescribe()` method can be used to get metadata about an sObject, while the `getFields()` method can be used to get information about the fields on an sObject.
+
+### getDescribe()
+
+The getDescribe() method is used to retrieve metadata about an sObject, such as its name, label, and fields. For example, the following code would retrieve metadata about the Account object:
+```java
+SObjectDescribe describe = SObjectDescribe.getDescribe('Account');
+```
+You can then use the describe variable to access properties of the sObject like:
+```java
+//get the object name
+String objectName = describe.getName();
+//get the object label
+String objectLabel = describe.getLabel();
+//get the object plural label
+String objectPluralLabel = describe.getPluralLabel();
+```
+
+### getFields()
+The getFields() method is used to retrieve information about the fields on an sObject. For example, the following code would retrieve information about the fields on the Account object:
+```java
+//get the object name
+String objectName = describe.getName();
+//get the object label
+String objectLabel = describe.getLabel();
+//get the object plural label
+String objectPluralLabel = describe.getPluralLabel();
+```
+You can then iterate over the fields list and access the properties of each field like:
+```java
+for(SObjectField field : fields) {
+    //get the field name
+    String fieldName = field.getName();
+    //get the field label
+    String fieldLabel = field.getLabel();
+    //get the field type
+    String fieldType = field.getType().name();
+}
+```
+Note that the getType() method returns an SObjectFieldType enum which can have the following values : `STRING`, `INTEGER`, `DOUBLE`, `DATE`, `DATETIME`, `BOOLEAN`, `ID`, `REFERENCE`, `PICKLIST`, `MULTIPICKLIST`, `COMBOBOX`, `CURRENCY`, `PERCENT`, `PHONE`, `URL`, `EMAIL`, `ENCRYPTEDSTRING`, `BASE64`, `TIME`, and `LOCATION`.
+
+It's worth noting that these methods are just examples of what you can do with SObjectDescribe, there are more methods available to explore like : `getRecordTypeInfos()`, `getChildRelationships()`, `getPicklistValues()` and many more.
+
+One of the most useful features of sObject Describe is its ability to retrieve information about picklist values. The `getPicklistValues()` method can be used to retrieve the values of a picklist field, along with their labels and active status. This can be very useful for building dynamic forms or generating reports, as it allows developers to display the picklist values in a user-friendly format. For example, the following code would retrieve the picklist values for the Industry field on the Account object:
+
+```java
+SObjectDescribe describe = SObjectDescribe.getDescribe('Account');
+SObjectField field = describe.getField('Industry');
+List<SObjectPicklistValue> picklistValues = field.getPicklistValues();
+```
+You can then iterate over the picklistValues list and access the properties of each picklist value:
+```java
+for(SObjectPicklistValue picklistValue : picklistValues) {
+    //get the picklist value label
+    String picklistValueLabel = picklistValue.getLabel();
+    //get the picklist value
+    String picklistValueValue = picklistValue.getValue();
+    //get the picklist value active status
+    Boolean picklistValueActive = picklistValue.isActive();
+}
+```
+Note that the `isActive()` method return a boolean indicating if the picklist value is active or not. You can use this method to filter out inactive picklist values if needed.
+
+It's also worth noting that, you can use `getPicklistValues(String recordTypeId)` method instead of `getPicklistValues()` if you want to retrieve picklist values for a specific record type.
+
+This is just an example of how you can use `getPicklistValues()` method, this method can be really useful when you want to build dynamic forms, generate reports or creating custom user interfaces that involve picklist fields.
+
+### When to use
+
+sObject Describe Apex is a powerful tool that can be used in a variety of situations when developing on the Salesforce platform. Some common use cases include:
+  -  Building dynamic forms: sObject Describe can be used to retrieve information about fields, picklist values, and child objects, which can be used to dynamically build forms for data entry.
+  -  Generating reports: sObject Describe can be used to retrieve information about fields and picklist values, which can be used to generate reports with user-friendly field labels and picklist values.
+  -  Creating custom user interfaces: sObject Describe can be used to retrieve information about child objects, which can be used to create custom user interfaces that display related data in a more user-friendly format.
+  -  Field level security: sObject Describe can be used to retrieve information about fields on an object, which can be used to implement field level security.
+  -  Validation rules: sObject Describe can be used to retrieve information about fields, picklist values, and child objects, which can be used to implement validation rules for data entry.
+  -  Dynamic SOQL: sObject Describe can be used to retrieve information about fields, which can be used to generate dynamic SOQL queries that can be used to retrieve data from Salesforce.
+  -  Dynamic Apex: sObject Describe can be used to retrieve information about fields and picklist values, which can be used to generate dynamic Apex code that can be used to programmatically manipulate data in Salesforce.
+
+These are just a few examples of how sObject Describe can be used, the possibilities are endless and it's a powerful tool that can help you to improve the functionality and usability of your Salesforce applications.
+
+The complexity of sObject Describe Apex depends on several factors, including the number of fields, picklist values, and child objects on the sObject, as well as the complexity of the logic used to retrieve and process the metadata.
+
+In terms of performance, the `getDescribe()` method and `getFields()` method are relatively lightweight and should not have a significant impact on performance. However, if you use `getPicklistValues()` method to retrieve picklist values for multiple fields or multiple objects, the performance may be affected. This is because the method retrieves all picklist values for a specific field, so the more fields you retrieve picklist values for, the more data will be retrieved, which can slow down performance.
+
+In terms of complexity, the `getDescribe()` method and `getFields()` method are relatively straightforward and should not introduce significant complexity to your code. However, if you use `getPicklistValues()` method, the complexity of your code may increase as you will need to iterate over the picklist values, filter and process them before using them.
+
+In general, it's always a good practice to keep an eye on the number of fields and picklist values that you are retrieving, and make sure that you only retrieve the data that you actually need. Also, make sure to test your code in a sandbox environment with a sizable dataset before deploying it to a production environment to ensure that it performs well.
+
+---
+In summary, sObject Describe Apex is an incredible tool that allows developers to programmatically access metadata about Salesforce objects. It provides a number of methods that can be used to retrieve information about fields, picklist values, and child objects, making it an invaluable tool for building dynamic forms, generating reports, and creating custom user interfaces (my favorite usage of it!).
+
+### Links:
+
+- [sObject Describe Salesforce Docs](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_describe.htm)
+- [getPicklistValues with LWC](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_wire_adapters_picklist_values)
+
