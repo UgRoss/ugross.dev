@@ -103,6 +103,12 @@ $sass-color: #cd6799;
   color: white;
 }
 
+.gatsby-highlight pre[class~='language-apex']:before {
+  content: 'apex';
+  background: $ts-color;
+  color: white;
+}
+
 .gatsby-highlight pre[class~='language-jsx']:before {
   content: 'jsx';
   background: $jsx-color;
