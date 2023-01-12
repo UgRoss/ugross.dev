@@ -70,7 +70,7 @@ module.exports = {
       sans: ['inter', 'Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
       mono: [
-        'Jetbrains Mono',
+        'inter',
         'ui-monospace',
         'SFMono-Regular',
         'Menlo',
