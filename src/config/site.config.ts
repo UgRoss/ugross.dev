@@ -7,7 +7,7 @@ const IS_DEV = process.env.NODE_ENV === 'development';
 
 const NAV_ITEMS = [
   { url: '/', name: 'About', partiallyActive: false },
-  { url: '/blog/', name: 'Articles', partiallyActive: true },
+  { url: '/blog/', name: 'Blog', partiallyActive: true },
   { url: '/uses/', name: 'Uses', partiallyActive: false },
 ];
 
