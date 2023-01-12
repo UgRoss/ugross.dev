@@ -13,11 +13,11 @@ The sObject Describe class provides a number of methods that can be used to retr
 ### getDescribe()
 
 The getDescribe() method is used to retrieve metadata about an sObject, such as its name, label, and fields. For example, the following code would retrieve metadata about the Account object:
-```java
+```js
 SObjectDescribe describe = SObjectDescribe.getDescribe('Account');
 ```
 You can then use the describe variable to access properties of the sObject like:
-```java
+```js
 //get the object name
 String objectName = describe.getName();
 //get the object label
