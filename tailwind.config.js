@@ -58,9 +58,9 @@ module.exports = {
       center: true,
       screens: {
         sm: '100%',
-        md: '100%',
-        lg: '100%',
-        xl: '100%',
+        md: '720px',
+        lg: '720px%',
+        xl: '720px%',
       },
       padding: {
         DEFAULT: '1rem',
