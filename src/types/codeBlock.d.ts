@@ -1,5 +1,4 @@
 export type Language =
-  | 'java'
   | 'markup'
   | 'bash'
   | 'clike'
