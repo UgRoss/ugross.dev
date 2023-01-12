@@ -23,7 +23,7 @@ export const siteConfig = {
   email: 'marc@marccinema.com',
   avatar,
   // SEO
-  siteUrl: IS_DEV ? 'http://localhost:8000' : 'https://ugross.dev',
+  siteUrl: IS_DEV ? 'http://localhost:8000' : 'https://marccinema.io',
   twitter: '@marc_cinema',
   github: 'https://github.com/marceswan',
   rss: '/rss.xml',
