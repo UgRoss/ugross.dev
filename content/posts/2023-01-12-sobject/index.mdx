@@ -28,7 +28,7 @@ String objectPluralLabel = describe.getPluralLabel();
 
 ### getFields()
 The getFields() method is used to retrieve information about the fields on an sObject. For example, the following code would retrieve information about the fields on the Account object:
-```java
+```js
 //get the object name
 String objectName = describe.getName();
 //get the object label
@@ -37,7 +37,7 @@ String objectLabel = describe.getLabel();
 String objectPluralLabel = describe.getPluralLabel();
 ```
 You can then iterate over the fields list and access the properties of each field like:
-```java
+```js
 for(SObjectField field : fields) {
     //get the field name
     String fieldName = field.getName();
@@ -53,13 +53,13 @@ It's worth noting that these methods are just examples of what you can do with S
 
 One of the most useful features of sObject Describe is its ability to retrieve information about picklist values. The `getPicklistValues()` method can be used to retrieve the values of a picklist field, along with their labels and active status. This can be very useful for building dynamic forms or generating reports, as it allows developers to display the picklist values in a user-friendly format. For example, the following code would retrieve the picklist values for the Industry field on the Account object:
 
-```java
+```js
 SObjectDescribe describe = SObjectDescribe.getDescribe('Account');
 SObjectField field = describe.getField('Industry');
 List<SObjectPicklistValue> picklistValues = field.getPicklistValues();
 ```
 You can then iterate over the picklistValues list and access the properties of each picklist value:
-```java
+```js
 for(SObjectPicklistValue picklistValue : picklistValues) {
     //get the picklist value label
     String picklistValueLabel = picklistValue.getLabel();
