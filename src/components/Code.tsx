@@ -60,7 +60,7 @@ export const Code: React.FC<CodeProps> = ({
         <React.Fragment>
           {title && (
             <div className="code-title">
-              <div></div>
+              <div>{title}</div>
             </div>
           )}
           <div className="gatsby-highlight" data-language={language}>
