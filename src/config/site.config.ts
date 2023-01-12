@@ -1,7 +1,7 @@
 import avatar from '~/images/avatar.webp';
 
-const NAME = 'Rostyslav Ugryniuk';
-const JOB_TITLE = 'Front-end Developer';
+const NAME = 'Marc Swan';
+const JOB_TITLE = 'Salesforce Consultant';
 const CURRENT_YEAR = new Date().getFullYear();
 const IS_DEV = process.env.NODE_ENV === 'development';
 
@@ -12,23 +12,23 @@ const NAV_ITEMS = [
 ];
 
 const SOCIAL_LINKS = [
-  { name: 'GitHub', url: 'https://github.com/UgRoss' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/rostyslav-ugryniuk-7b7466102/' },
+  { name: 'GitHub', url: 'https://github.com/marceswan' },
+  
 ];
 
 export const siteConfig = {
   name: NAME,
   jobTitle: JOB_TITLE,
-  shortBio: `${JOB_TITLE} and CS student. Living and coding in Ukraine.`,
-  email: 'contact@ugross.dev',
+  shortBio: `${JOB_TITLE} and Wedding Videographer. Living and working in New Mexico.`,
+  email: 'marc@marccinema.com',
   avatar,
   // SEO
   siteUrl: IS_DEV ? 'http://localhost:8000' : 'https://ugross.dev',
-  twitter: '@ug_ross',
-  github: 'https://github.com/UgRoss',
+  twitter: '@marc_cinema',
+  github: 'https://github.com/marceswan',
   rss: '/rss.xml',
   siteLanguage: 'en',
-  defaultDescription: `${JOB_TITLE} and CS student. Living and coding in Ukraine.`,
+  defaultDescription: `${JOB_TITLE} and Wedding Videographer. Living and working in New Mexico.`,
   defaultTitle: `${NAME} | ${JOB_TITLE}`,
   // Navigation items
   navItems: NAV_ITEMS,
