@@ -72,12 +72,12 @@ export type Asset = Node & {
   width?: Maybe<Scalars['Float']>;
 };
 
-
 /** Asset system model */
 export type AssetAuthorAvatarArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   orderBy?: InputMaybe<AuthorOrderByInput>;
@@ -85,12 +85,12 @@ export type AssetAuthorAvatarArgs = {
   where?: InputMaybe<AuthorWhereInput>;
 };
 
-
 /** Asset system model */
 export type AssetCoverImagePostArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   orderBy?: InputMaybe<PostOrderByInput>;
@@ -98,18 +98,16 @@ export type AssetCoverImagePostArgs = {
   where?: InputMaybe<PostWhereInput>;
 };
 
-
 /** Asset system model */
 export type AssetCreatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
 
-
 /** Asset system model */
 export type AssetCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Asset system model */
 export type AssetDocumentInStagesArgs = {
@@ -118,7 +116,6 @@ export type AssetDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 /** Asset system model */
 export type AssetHistoryArgs = {
   limit?: Scalars['Int'];
@@ -126,43 +123,41 @@ export type AssetHistoryArgs = {
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 /** Asset system model */
 export type AssetLocalizationsArgs = {
   includeCurrent?: Scalars['Boolean'];
   locales?: Array<Locale>;
 };
 
-
 /** Asset system model */
 export type AssetPublishedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
 
-
 /** Asset system model */
 export type AssetPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Asset system model */
 export type AssetScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 /** Asset system model */
 export type AssetSeoImageArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   orderBy?: InputMaybe<SeoOrderByInput>;
@@ -170,18 +165,16 @@ export type AssetSeoImageArgs = {
   where?: InputMaybe<SeoWhereInput>;
 };
 
-
 /** Asset system model */
 export type AssetUpdatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
 
-
 /** Asset system model */
 export type AssetUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Asset system model */
 export type AssetUrlArgs = {
@@ -298,6 +291,9 @@ export type AssetManyWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<AssetWhereStageInput>;
+  documentInStages_none?: InputMaybe<AssetWhereStageInput>;
+  documentInStages_some?: InputMaybe<AssetWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -377,7 +373,7 @@ export enum AssetOrderByInput {
   UpdatedAtAsc = 'updatedAt_ASC',
   UpdatedAtDesc = 'updatedAt_DESC',
   WidthAsc = 'width_ASC',
-  WidthDesc = 'width_DESC'
+  WidthDesc = 'width_DESC',
 }
 
 /** Transformations for Assets */
@@ -520,6 +516,12 @@ export type AssetUpsertWithNestedWhereUniqueInput = {
   where: AssetWhereUniqueInput;
 };
 
+/** This contains a set of filters that can be used to compare values internally */
+export type AssetWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** Identifies documents */
 export type AssetWhereInput = {
   /** Logical AND on all given filters. */
@@ -552,6 +554,9 @@ export type AssetWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<AssetWhereStageInput>;
+  documentInStages_none?: InputMaybe<AssetWhereStageInput>;
+  documentInStages_some?: InputMaybe<AssetWhereStageInput>;
   fileName?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   fileName_contains?: InputMaybe<Scalars['String']>;
@@ -713,6 +718,20 @@ export type AssetWhereInput = {
   width_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
 };
 
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type AssetWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<AssetWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<AssetWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<AssetWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<AssetWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
 /** References Asset record uniquely */
 export type AssetWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']>;
@@ -756,11 +775,10 @@ export type Author = Node & {
   url: Scalars['String'];
 };
 
-
 export type AuthorCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type AuthorDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean'];
@@ -768,23 +786,22 @@ export type AuthorDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 export type AuthorHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 export type AuthorPictureArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type AuthorPostsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   orderBy?: InputMaybe<PostOrderByInput>;
@@ -792,27 +809,27 @@ export type AuthorPostsArgs = {
   where?: InputMaybe<PostWhereInput>;
 };
 
-
 export type AuthorPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type AuthorScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type AuthorTilsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   orderBy?: InputMaybe<TilOrderByInput>;
@@ -820,8 +837,8 @@ export type AuthorTilsArgs = {
   where?: InputMaybe<TilWhereInput>;
 };
 
-
 export type AuthorUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -924,6 +941,9 @@ export type AuthorManyWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<AuthorWhereStageInput>;
+  documentInStages_none?: InputMaybe<AuthorWhereStageInput>;
+  documentInStages_some?: InputMaybe<AuthorWhereStageInput>;
   email?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   email_contains?: InputMaybe<Scalars['String']>;
@@ -1102,7 +1122,7 @@ export enum AuthorOrderByInput {
   UpdatedAtAsc = 'updatedAt_ASC',
   UpdatedAtDesc = 'updatedAt_DESC',
   UrlAsc = 'url_ASC',
-  UrlDesc = 'url_DESC'
+  UrlDesc = 'url_DESC',
 }
 
 export type AuthorUpdateInput = {
@@ -1185,6 +1205,12 @@ export type AuthorUpsertWithNestedWhereUniqueInput = {
   where: AuthorWhereUniqueInput;
 };
 
+/** This contains a set of filters that can be used to compare values internally */
+export type AuthorWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** Identifies documents */
 export type AuthorWhereInput = {
   /** Logical AND on all given filters. */
@@ -1230,6 +1256,9 @@ export type AuthorWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<AuthorWhereStageInput>;
+  documentInStages_none?: InputMaybe<AuthorWhereStageInput>;
+  documentInStages_some?: InputMaybe<AuthorWhereStageInput>;
   email?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   email_contains?: InputMaybe<Scalars['String']>;
@@ -1388,6 +1417,20 @@ export type AuthorWhereInput = {
   url_starts_with?: InputMaybe<Scalars['String']>;
 };
 
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type AuthorWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<AuthorWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<AuthorWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<AuthorWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<AuthorWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
 /** References Author record uniquely */
 export type AuthorWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']>;
@@ -1441,7 +1484,7 @@ export enum DocumentFileTypes {
   Txt = 'txt',
   Webp = 'webp',
   Xls = 'xls',
-  Xlsx = 'xlsx'
+  Xlsx = 'xlsx',
 }
 
 export type DocumentOutputInput = {
@@ -1497,7 +1540,7 @@ export enum ImageFit {
   /** Resizes the image to fit within the parameters, but as opposed to 'fit:clip' will not scale the image if the image is smaller than the output size. */
   Max = 'max',
   /** Resizes the image to fit the specified parameters exactly by scaling the image to the desired size. The aspect ratio of the image is not respected and the image can be distorted using this method. */
-  Scale = 'scale'
+  Scale = 'scale',
 }
 
 export type ImageResizeInput = {
@@ -1518,7 +1561,7 @@ export type ImageTransformationInput = {
 /** Locale system enumeration */
 export enum Locale {
   /** System locale */
-  En = 'en'
+  En = 'en',
 }
 
 /** Representing a geolocation point with latitude and longitude */
@@ -1528,7 +1571,6 @@ export type Location = {
   latitude: Scalars['Float'];
   longitude: Scalars['Float'];
 };
-
 
 /** Representing a geolocation point with latitude and longitude */
 export type LocationDistanceArgs = {
@@ -1820,56 +1862,45 @@ export type Mutation = {
   upsertTil?: Maybe<Til>;
 };
 
-
 export type MutationCreateAssetArgs = {
   data: AssetCreateInput;
 };
-
 
 export type MutationCreateAuthorArgs = {
   data: AuthorCreateInput;
 };
 
-
 export type MutationCreatePageArgs = {
   data: PageCreateInput;
 };
-
 
 export type MutationCreatePostArgs = {
   data: PostCreateInput;
 };
 
-
 export type MutationCreateScheduledReleaseArgs = {
   data: ScheduledReleaseCreateInput;
 };
-
 
 export type MutationCreateSeoArgs = {
   data: SeoCreateInput;
 };
 
-
 export type MutationCreateTilArgs = {
   data: TilCreateInput;
 };
-
 
 export type MutationDeleteAssetArgs = {
   where: AssetWhereUniqueInput;
 };
 
-
 export type MutationDeleteAuthorArgs = {
   where: AuthorWhereUniqueInput;
 };
 
-
 export type MutationDeleteManyAssetsArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
-
 
 export type MutationDeleteManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1880,11 +1911,9 @@ export type MutationDeleteManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-
 export type MutationDeleteManyAuthorsArgs = {
   where?: InputMaybe<AuthorManyWhereInput>;
 };
-
 
 export type MutationDeleteManyAuthorsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1895,11 +1924,9 @@ export type MutationDeleteManyAuthorsConnectionArgs = {
   where?: InputMaybe<AuthorManyWhereInput>;
 };
 
-
 export type MutationDeleteManyPagesArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
-
 
 export type MutationDeleteManyPagesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1910,11 +1937,9 @@ export type MutationDeleteManyPagesConnectionArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
 
-
 export type MutationDeleteManyPostsArgs = {
   where?: InputMaybe<PostManyWhereInput>;
 };
-
 
 export type MutationDeleteManyPostsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1925,11 +1950,9 @@ export type MutationDeleteManyPostsConnectionArgs = {
   where?: InputMaybe<PostManyWhereInput>;
 };
 
-
 export type MutationDeleteManySeosArgs = {
   where?: InputMaybe<SeoManyWhereInput>;
 };
-
 
 export type MutationDeleteManySeosConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1940,11 +1963,9 @@ export type MutationDeleteManySeosConnectionArgs = {
   where?: InputMaybe<SeoManyWhereInput>;
 };
 
-
 export type MutationDeleteManyTilsArgs = {
   where?: InputMaybe<TilManyWhereInput>;
 };
-
 
 export type MutationDeleteManyTilsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1955,36 +1976,29 @@ export type MutationDeleteManyTilsConnectionArgs = {
   where?: InputMaybe<TilManyWhereInput>;
 };
 
-
 export type MutationDeletePageArgs = {
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationDeletePostArgs = {
   where: PostWhereUniqueInput;
 };
 
-
 export type MutationDeleteScheduledOperationArgs = {
   where: ScheduledOperationWhereUniqueInput;
 };
-
 
 export type MutationDeleteScheduledReleaseArgs = {
   where: ScheduledReleaseWhereUniqueInput;
 };
 
-
 export type MutationDeleteSeoArgs = {
   where: SeoWhereUniqueInput;
 };
 
-
 export type MutationDeleteTilArgs = {
   where: TilWhereUniqueInput;
 };
-
 
 export type MutationPublishAssetArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -1994,12 +2008,10 @@ export type MutationPublishAssetArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationPublishAuthorArgs = {
   to?: Array<Stage>;
   where: AuthorWhereUniqueInput;
 };
-
 
 export type MutationPublishManyAssetsArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -2008,7 +2020,6 @@ export type MutationPublishManyAssetsArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
-
 
 export type MutationPublishManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2024,12 +2035,10 @@ export type MutationPublishManyAssetsConnectionArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationPublishManyAuthorsArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<AuthorManyWhereInput>;
 };
-
 
 export type MutationPublishManyAuthorsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2042,12 +2051,10 @@ export type MutationPublishManyAuthorsConnectionArgs = {
   where?: InputMaybe<AuthorManyWhereInput>;
 };
 
-
 export type MutationPublishManyPagesArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<PageManyWhereInput>;
 };
-
 
 export type MutationPublishManyPagesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2060,12 +2067,10 @@ export type MutationPublishManyPagesConnectionArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
 
-
 export type MutationPublishManyPostsArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<PostManyWhereInput>;
 };
-
 
 export type MutationPublishManyPostsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2078,12 +2083,10 @@ export type MutationPublishManyPostsConnectionArgs = {
   where?: InputMaybe<PostManyWhereInput>;
 };
 
-
 export type MutationPublishManySeosArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<SeoManyWhereInput>;
 };
-
 
 export type MutationPublishManySeosConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2096,12 +2099,10 @@ export type MutationPublishManySeosConnectionArgs = {
   where?: InputMaybe<SeoManyWhereInput>;
 };
 
-
 export type MutationPublishManyTilsArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<TilManyWhereInput>;
 };
-
 
 export type MutationPublishManyTilsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2114,30 +2115,25 @@ export type MutationPublishManyTilsConnectionArgs = {
   where?: InputMaybe<TilManyWhereInput>;
 };
 
-
 export type MutationPublishPageArgs = {
   to?: Array<Stage>;
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationPublishPostArgs = {
   to?: Array<Stage>;
   where: PostWhereUniqueInput;
 };
 
-
 export type MutationPublishSeoArgs = {
   to?: Array<Stage>;
   where: SeoWhereUniqueInput;
 };
 
-
 export type MutationPublishTilArgs = {
   to?: Array<Stage>;
   where: TilWhereUniqueInput;
 };
-
 
 export type MutationSchedulePublishAssetArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -2149,14 +2145,12 @@ export type MutationSchedulePublishAssetArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationSchedulePublishAuthorArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
   to?: Array<Stage>;
   where: AuthorWhereUniqueInput;
 };
-
 
 export type MutationSchedulePublishPageArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']>;
@@ -2165,14 +2159,12 @@ export type MutationSchedulePublishPageArgs = {
   where: PageWhereUniqueInput;
 };
 
-
 export type MutationSchedulePublishPostArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
   to?: Array<Stage>;
   where: PostWhereUniqueInput;
 };
-
 
 export type MutationSchedulePublishSeoArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']>;
@@ -2181,14 +2173,12 @@ export type MutationSchedulePublishSeoArgs = {
   where: SeoWhereUniqueInput;
 };
 
-
 export type MutationSchedulePublishTilArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
   to?: Array<Stage>;
   where: TilWhereUniqueInput;
 };
-
 
 export type MutationScheduleUnpublishAssetArgs = {
   from?: Array<Stage>;
@@ -2199,14 +2189,12 @@ export type MutationScheduleUnpublishAssetArgs = {
   where: AssetWhereUniqueInput;
 };
 
-
 export type MutationScheduleUnpublishAuthorArgs = {
   from?: Array<Stage>;
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
   where: AuthorWhereUniqueInput;
 };
-
 
 export type MutationScheduleUnpublishPageArgs = {
   from?: Array<Stage>;
@@ -2215,14 +2203,12 @@ export type MutationScheduleUnpublishPageArgs = {
   where: PageWhereUniqueInput;
 };
 
-
 export type MutationScheduleUnpublishPostArgs = {
   from?: Array<Stage>;
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
   where: PostWhereUniqueInput;
 };
-
 
 export type MutationScheduleUnpublishSeoArgs = {
   from?: Array<Stage>;
@@ -2231,14 +2217,12 @@ export type MutationScheduleUnpublishSeoArgs = {
   where: SeoWhereUniqueInput;
 };
 
-
 export type MutationScheduleUnpublishTilArgs = {
   from?: Array<Stage>;
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
   where: TilWhereUniqueInput;
 };
-
 
 export type MutationUnpublishAssetArgs = {
   from?: Array<Stage>;
@@ -2247,12 +2231,10 @@ export type MutationUnpublishAssetArgs = {
   where: AssetWhereUniqueInput;
 };
 
-
 export type MutationUnpublishAuthorArgs = {
   from?: Array<Stage>;
   where: AuthorWhereUniqueInput;
 };
-
 
 export type MutationUnpublishManyAssetsArgs = {
   from?: Array<Stage>;
@@ -2260,7 +2242,6 @@ export type MutationUnpublishManyAssetsArgs = {
   unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<AssetManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2275,12 +2256,10 @@ export type MutationUnpublishManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-
 export type MutationUnpublishManyAuthorsArgs = {
   from?: Array<Stage>;
   where?: InputMaybe<AuthorManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyAuthorsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2293,12 +2272,10 @@ export type MutationUnpublishManyAuthorsConnectionArgs = {
   where?: InputMaybe<AuthorManyWhereInput>;
 };
 
-
 export type MutationUnpublishManyPagesArgs = {
   from?: Array<Stage>;
   where?: InputMaybe<PageManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyPagesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2311,12 +2288,10 @@ export type MutationUnpublishManyPagesConnectionArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
 
-
 export type MutationUnpublishManyPostsArgs = {
   from?: Array<Stage>;
   where?: InputMaybe<PostManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyPostsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2329,12 +2304,10 @@ export type MutationUnpublishManyPostsConnectionArgs = {
   where?: InputMaybe<PostManyWhereInput>;
 };
 
-
 export type MutationUnpublishManySeosArgs = {
   from?: Array<Stage>;
   where?: InputMaybe<SeoManyWhereInput>;
 };
-
 
 export type MutationUnpublishManySeosConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2347,12 +2320,10 @@ export type MutationUnpublishManySeosConnectionArgs = {
   where?: InputMaybe<SeoManyWhereInput>;
 };
 
-
 export type MutationUnpublishManyTilsArgs = {
   from?: Array<Stage>;
   where?: InputMaybe<TilManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyTilsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2365,48 +2336,40 @@ export type MutationUnpublishManyTilsConnectionArgs = {
   where?: InputMaybe<TilManyWhereInput>;
 };
 
-
 export type MutationUnpublishPageArgs = {
   from?: Array<Stage>;
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationUnpublishPostArgs = {
   from?: Array<Stage>;
   where: PostWhereUniqueInput;
 };
 
-
 export type MutationUnpublishSeoArgs = {
   from?: Array<Stage>;
   where: SeoWhereUniqueInput;
 };
-
 
 export type MutationUnpublishTilArgs = {
   from?: Array<Stage>;
   where: TilWhereUniqueInput;
 };
 
-
 export type MutationUpdateAssetArgs = {
   data: AssetUpdateInput;
   where: AssetWhereUniqueInput;
 };
-
 
 export type MutationUpdateAuthorArgs = {
   data: AuthorUpdateInput;
   where: AuthorWhereUniqueInput;
 };
 
-
 export type MutationUpdateManyAssetsArgs = {
   data: AssetUpdateManyInput;
   where?: InputMaybe<AssetManyWhereInput>;
 };
-
 
 export type MutationUpdateManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2418,12 +2381,10 @@ export type MutationUpdateManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-
 export type MutationUpdateManyAuthorsArgs = {
   data: AuthorUpdateManyInput;
   where?: InputMaybe<AuthorManyWhereInput>;
 };
-
 
 export type MutationUpdateManyAuthorsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2435,12 +2396,10 @@ export type MutationUpdateManyAuthorsConnectionArgs = {
   where?: InputMaybe<AuthorManyWhereInput>;
 };
 
-
 export type MutationUpdateManyPagesArgs = {
   data: PageUpdateManyInput;
   where?: InputMaybe<PageManyWhereInput>;
 };
-
 
 export type MutationUpdateManyPagesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2452,12 +2411,10 @@ export type MutationUpdateManyPagesConnectionArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
 
-
 export type MutationUpdateManyPostsArgs = {
   data: PostUpdateManyInput;
   where?: InputMaybe<PostManyWhereInput>;
 };
-
 
 export type MutationUpdateManyPostsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2469,12 +2426,10 @@ export type MutationUpdateManyPostsConnectionArgs = {
   where?: InputMaybe<PostManyWhereInput>;
 };
 
-
 export type MutationUpdateManySeosArgs = {
   data: SeoUpdateManyInput;
   where?: InputMaybe<SeoManyWhereInput>;
 };
-
 
 export type MutationUpdateManySeosConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2486,12 +2441,10 @@ export type MutationUpdateManySeosConnectionArgs = {
   where?: InputMaybe<SeoManyWhereInput>;
 };
 
-
 export type MutationUpdateManyTilsArgs = {
   data: TilUpdateManyInput;
   where?: InputMaybe<TilManyWhereInput>;
 };
-
 
 export type MutationUpdateManyTilsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2503,66 +2456,55 @@ export type MutationUpdateManyTilsConnectionArgs = {
   where?: InputMaybe<TilManyWhereInput>;
 };
 
-
 export type MutationUpdatePageArgs = {
   data: PageUpdateInput;
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationUpdatePostArgs = {
   data: PostUpdateInput;
   where: PostWhereUniqueInput;
 };
 
-
 export type MutationUpdateScheduledReleaseArgs = {
   data: ScheduledReleaseUpdateInput;
   where: ScheduledReleaseWhereUniqueInput;
 };
-
 
 export type MutationUpdateSeoArgs = {
   data: SeoUpdateInput;
   where: SeoWhereUniqueInput;
 };
 
-
 export type MutationUpdateTilArgs = {
   data: TilUpdateInput;
   where: TilWhereUniqueInput;
 };
-
 
 export type MutationUpsertAssetArgs = {
   upsert: AssetUpsertInput;
   where: AssetWhereUniqueInput;
 };
 
-
 export type MutationUpsertAuthorArgs = {
   upsert: AuthorUpsertInput;
   where: AuthorWhereUniqueInput;
 };
-
 
 export type MutationUpsertPageArgs = {
   upsert: PageUpsertInput;
   where: PageWhereUniqueInput;
 };
 
-
 export type MutationUpsertPostArgs = {
   upsert: PostUpsertInput;
   where: PostWhereUniqueInput;
 };
 
-
 export type MutationUpsertSeoArgs = {
   upsert: SeoUpsertInput;
   where: SeoWhereUniqueInput;
 };
-
 
 export type MutationUpsertTilArgs = {
   upsert: TilUpsertInput;
@@ -2611,11 +2553,10 @@ export type Page = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 export type PageCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PageDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean'];
@@ -2623,36 +2564,35 @@ export type PageDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 export type PageHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 export type PagePublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PageScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type PageSeoArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
-
 export type PageUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -2766,6 +2706,9 @@ export type PageManyWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<PageWhereStageInput>;
+  documentInStages_none?: InputMaybe<PageWhereStageInput>;
+  documentInStages_some?: InputMaybe<PageWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -2896,7 +2839,7 @@ export enum PageOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type PageUpdateInput = {
@@ -2973,6 +2916,12 @@ export type PageUpsertWithNestedWhereUniqueInput = {
   where: PageWhereUniqueInput;
 };
 
+/** This contains a set of filters that can be used to compare values internally */
+export type PageWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** Identifies documents */
 export type PageWhereInput = {
   /** Logical AND on all given filters. */
@@ -3018,6 +2967,9 @@ export type PageWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<PageWhereStageInput>;
+  documentInStages_none?: InputMaybe<PageWhereStageInput>;
+  documentInStages_some?: InputMaybe<PageWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -3132,6 +3084,20 @@ export type PageWhereInput = {
   updatedBy?: InputMaybe<UserWhereInput>;
 };
 
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type PageWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<PageWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<PageWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<PageWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<PageWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
 /** References Page record uniquely */
 export type PageWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']>;
@@ -3180,21 +3146,20 @@ export type Post = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 export type PostAuthorArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PostCoverImageArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PostCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PostDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean'];
@@ -3202,36 +3167,35 @@ export type PostDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 export type PostHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 export type PostPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PostScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type PostSeoArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
-
 export type PostUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -3351,6 +3315,9 @@ export type PostManyWhereInput = {
   date_not?: InputMaybe<Scalars['Date']>;
   /** All values that are not contained in given list. */
   date_not_in?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  documentInStages_every?: InputMaybe<PostWhereStageInput>;
+  documentInStages_none?: InputMaybe<PostWhereStageInput>;
+  documentInStages_some?: InputMaybe<PostWhereStageInput>;
   excerpt?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   excerpt_contains?: InputMaybe<Scalars['String']>;
@@ -3495,7 +3462,7 @@ export enum PostOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type PostUpdateInput = {
@@ -3578,6 +3545,12 @@ export type PostUpsertWithNestedWhereUniqueInput = {
   where: PostWhereUniqueInput;
 };
 
+/** This contains a set of filters that can be used to compare values internally */
+export type PostWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** Identifies documents */
 export type PostWhereInput = {
   /** Logical AND on all given filters. */
@@ -3640,6 +3613,9 @@ export type PostWhereInput = {
   date_not?: InputMaybe<Scalars['Date']>;
   /** All values that are not contained in given list. */
   date_not_in?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  documentInStages_every?: InputMaybe<PostWhereStageInput>;
+  documentInStages_none?: InputMaybe<PostWhereStageInput>;
+  documentInStages_some?: InputMaybe<PostWhereStageInput>;
   excerpt?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   excerpt_contains?: InputMaybe<Scalars['String']>;
@@ -3764,6 +3740,20 @@ export type PostWhereInput = {
   updatedBy?: InputMaybe<UserWhereInput>;
 };
 
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type PostWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<PostWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<PostWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<PostWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<PostWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
 /** References Post record uniquely */
 export type PostWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']>;
@@ -3849,18 +3839,15 @@ export type Query = {
   usersConnection: UserConnection;
 };
 
-
 export type QueryAssetArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: AssetWhereUniqueInput;
 };
 
-
 export type QueryAssetVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryAssetsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -3874,7 +3861,6 @@ export type QueryAssetsArgs = {
   where?: InputMaybe<AssetWhereInput>;
 };
 
-
 export type QueryAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -3887,18 +3873,15 @@ export type QueryAssetsConnectionArgs = {
   where?: InputMaybe<AssetWhereInput>;
 };
 
-
 export type QueryAuthorArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: AuthorWhereUniqueInput;
 };
 
-
 export type QueryAuthorVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryAuthorsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -3912,7 +3895,6 @@ export type QueryAuthorsArgs = {
   where?: InputMaybe<AuthorWhereInput>;
 };
 
-
 export type QueryAuthorsConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -3925,13 +3907,11 @@ export type QueryAuthorsConnectionArgs = {
   where?: InputMaybe<AuthorWhereInput>;
 };
 
-
 export type QueryNodeArgs = {
   id: Scalars['ID'];
   locales?: Array<Locale>;
   stage?: Stage;
 };
-
 
 export type QueryPageArgs = {
   locales?: Array<Locale>;
@@ -3939,11 +3919,9 @@ export type QueryPageArgs = {
   where: PageWhereUniqueInput;
 };
 
-
 export type QueryPageVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryPagesArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -3957,7 +3935,6 @@ export type QueryPagesArgs = {
   where?: InputMaybe<PageWhereInput>;
 };
 
-
 export type QueryPagesConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -3970,18 +3947,15 @@ export type QueryPagesConnectionArgs = {
   where?: InputMaybe<PageWhereInput>;
 };
 
-
 export type QueryPostArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: PostWhereUniqueInput;
 };
 
-
 export type QueryPostVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryPostsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -3995,7 +3969,6 @@ export type QueryPostsArgs = {
   where?: InputMaybe<PostWhereInput>;
 };
 
-
 export type QueryPostsConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -4008,13 +3981,11 @@ export type QueryPostsConnectionArgs = {
   where?: InputMaybe<PostWhereInput>;
 };
 
-
 export type QueryScheduledOperationArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: ScheduledOperationWhereUniqueInput;
 };
-
 
 export type QueryScheduledOperationsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -4028,7 +3999,6 @@ export type QueryScheduledOperationsArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type QueryScheduledOperationsConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -4041,13 +4011,11 @@ export type QueryScheduledOperationsConnectionArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type QueryScheduledReleaseArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: ScheduledReleaseWhereUniqueInput;
 };
-
 
 export type QueryScheduledReleasesArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -4061,7 +4029,6 @@ export type QueryScheduledReleasesArgs = {
   where?: InputMaybe<ScheduledReleaseWhereInput>;
 };
 
-
 export type QueryScheduledReleasesConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -4074,18 +4041,15 @@ export type QueryScheduledReleasesConnectionArgs = {
   where?: InputMaybe<ScheduledReleaseWhereInput>;
 };
 
-
 export type QuerySeoArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: SeoWhereUniqueInput;
 };
 
-
 export type QuerySeoVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QuerySeosArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -4099,7 +4063,6 @@ export type QuerySeosArgs = {
   where?: InputMaybe<SeoWhereInput>;
 };
 
-
 export type QuerySeosConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -4112,18 +4075,15 @@ export type QuerySeosConnectionArgs = {
   where?: InputMaybe<SeoWhereInput>;
 };
 
-
 export type QueryTilArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: TilWhereUniqueInput;
 };
 
-
 export type QueryTilVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryTilsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -4137,7 +4097,6 @@ export type QueryTilsArgs = {
   where?: InputMaybe<TilWhereInput>;
 };
 
-
 export type QueryTilsConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -4150,13 +4109,11 @@ export type QueryTilsConnectionArgs = {
   where?: InputMaybe<TilWhereInput>;
 };
 
-
 export type QueryUserArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: UserWhereUniqueInput;
 };
-
 
 export type QueryUsersArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -4169,7 +4126,6 @@ export type QueryUsersArgs = {
   stage?: Stage;
   where?: InputMaybe<UserWhereInput>;
 };
-
 
 export type QueryUsersConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -4247,23 +4203,22 @@ export type ScheduledOperation = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationAffectedDocumentsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Scheduled Operation system model */
 export type ScheduledOperationDocumentInStagesArgs = {
@@ -4272,21 +4227,21 @@ export type ScheduledOperationDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Scheduled Operation system model */
 export type ScheduledOperationReleaseArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -4467,7 +4422,7 @@ export enum ScheduledOperationOrderByInput {
   StatusAsc = 'status_ASC',
   StatusDesc = 'status_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 /** System Scheduled Operation Status */
@@ -4476,7 +4431,7 @@ export enum ScheduledOperationStatus {
   Completed = 'COMPLETED',
   Failed = 'FAILED',
   InProgress = 'IN_PROGRESS',
-  Pending = 'PENDING'
+  Pending = 'PENDING',
 }
 
 export type ScheduledOperationUpdateManyInlineInput = {
@@ -4664,12 +4619,11 @@ export type ScheduledRelease = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 /** Scheduled Release system model */
 export type ScheduledReleaseCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Scheduled Release system model */
 export type ScheduledReleaseDocumentInStagesArgs = {
@@ -4678,12 +4632,12 @@ export type ScheduledReleaseDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 /** Scheduled Release system model */
 export type ScheduledReleaseOperationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   orderBy?: InputMaybe<ScheduledOperationOrderByInput>;
@@ -4691,15 +4645,15 @@ export type ScheduledReleaseOperationsArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 /** Scheduled Release system model */
 export type ScheduledReleasePublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
-
 /** Scheduled Release system model */
 export type ScheduledReleaseUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -4942,7 +4896,7 @@ export enum ScheduledReleaseOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 /** System Scheduled Release Status */
@@ -4950,7 +4904,7 @@ export enum ScheduledReleaseStatus {
   Completed = 'COMPLETED',
   Failed = 'FAILED',
   InProgress = 'IN_PROGRESS',
-  Pending = 'PENDING'
+  Pending = 'PENDING',
 }
 
 export type ScheduledReleaseUpdateInput = {
@@ -5236,11 +5190,10 @@ export type Seo = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 export type SeoCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type SeoDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean'];
@@ -5248,41 +5201,40 @@ export type SeoDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 export type SeoHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 export type SeoImageArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type SeoParentArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type SeoPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type SeoScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type SeoUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -5382,6 +5334,9 @@ export type SeoManyWhereInput = {
   description_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   description_starts_with?: InputMaybe<Scalars['String']>;
+  documentInStages_every?: InputMaybe<SeoWhereStageInput>;
+  documentInStages_none?: InputMaybe<SeoWhereStageInput>;
+  documentInStages_some?: InputMaybe<SeoWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -5482,7 +5437,7 @@ export enum SeoOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type SeoParent = Page | Post;
@@ -5648,6 +5603,12 @@ export type SeoUpsertWithNestedWhereUniqueInput = {
   where: SeoWhereUniqueInput;
 };
 
+/** This contains a set of filters that can be used to compare values internally */
+export type SeoWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** Identifies documents */
 export type SeoWhereInput = {
   /** Logical AND on all given filters. */
@@ -5693,6 +5654,9 @@ export type SeoWhereInput = {
   description_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   description_starts_with?: InputMaybe<Scalars['String']>;
+  documentInStages_every?: InputMaybe<SeoWhereStageInput>;
+  documentInStages_none?: InputMaybe<SeoWhereStageInput>;
+  documentInStages_some?: InputMaybe<SeoWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -5779,6 +5743,20 @@ export type SeoWhereInput = {
   updatedBy?: InputMaybe<UserWhereInput>;
 };
 
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type SeoWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<SeoWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<SeoWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<SeoWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<SeoWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
 /** References Seo record uniquely */
 export type SeoWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']>;
@@ -5789,13 +5767,13 @@ export enum Stage {
   /** The Draft is the default stage for all your content. */
   Draft = 'DRAFT',
   /** The Published stage is where you can publish your content to. */
-  Published = 'PUBLISHED'
+  Published = 'PUBLISHED',
 }
 
 export enum SystemDateTimeFieldVariation {
   Base = 'BASE',
   Combined = 'COMBINED',
-  Localization = 'LOCALIZATION'
+  Localization = 'LOCALIZATION',
 }
 
 /** Today I Learned entries */
@@ -5833,18 +5811,17 @@ export type Til = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 /** Today I Learned entries */
 export type TilAuthorArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Today I Learned entries */
 export type TilCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Today I Learned entries */
 export type TilDocumentInStagesArgs = {
@@ -5853,7 +5830,6 @@ export type TilDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 /** Today I Learned entries */
 export type TilHistoryArgs = {
   limit?: Scalars['Int'];
@@ -5861,33 +5837,33 @@ export type TilHistoryArgs = {
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 /** Today I Learned entries */
 export type TilPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Today I Learned entries */
 export type TilScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 /** Today I Learned entries */
 export type TilSeoArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
-
 /** Today I Learned entries */
 export type TilUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -6034,6 +6010,9 @@ export type TilManyWhereInput = {
   description_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   description_starts_with?: InputMaybe<Scalars['String']>;
+  documentInStages_every?: InputMaybe<TilWhereStageInput>;
+  documentInStages_none?: InputMaybe<TilWhereStageInput>;
+  documentInStages_some?: InputMaybe<TilWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -6149,7 +6128,7 @@ export enum TilOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type TilUpdateInput = {
@@ -6229,6 +6208,12 @@ export type TilUpsertWithNestedWhereUniqueInput = {
   data: TilUpsertInput;
   /** Unique document search */
   where: TilWhereUniqueInput;
+};
+
+/** This contains a set of filters that can be used to compare values internally */
+export type TilWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Identifies documents */
@@ -6321,6 +6306,9 @@ export type TilWhereInput = {
   description_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   description_starts_with?: InputMaybe<Scalars['String']>;
+  documentInStages_every?: InputMaybe<TilWhereStageInput>;
+  documentInStages_none?: InputMaybe<TilWhereStageInput>;
+  documentInStages_some?: InputMaybe<TilWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -6416,6 +6404,20 @@ export type TilWhereInput = {
   updatedBy?: InputMaybe<UserWhereInput>;
 };
 
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type TilWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<TilWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<TilWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<TilWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<TilWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
 /** References Til record uniquely */
 export type TilWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']>;
@@ -6453,7 +6455,6 @@ export type User = Node & {
   /** The time the document was updated */
   updatedAt: Scalars['DateTime'];
 };
-
 
 /** User system model */
 export type UserDocumentInStagesArgs = {
@@ -6503,7 +6504,7 @@ export enum UserKind {
   Member = 'MEMBER',
   Pat = 'PAT',
   Public = 'PUBLIC',
-  Webhook = 'WEBHOOK'
+  Webhook = 'WEBHOOK',
 }
 
 /** Identifies documents */
@@ -6531,6 +6532,9 @@ export type UserManyWhereInput = {
   createdAt_not?: InputMaybe<Scalars['DateTime']>;
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  documentInStages_every?: InputMaybe<UserWhereStageInput>;
+  documentInStages_none?: InputMaybe<UserWhereStageInput>;
+  documentInStages_some?: InputMaybe<UserWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -6646,7 +6650,7 @@ export enum UserOrderByInput {
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type UserUpdateManyInlineInput = {
@@ -6663,6 +6667,12 @@ export type UserUpdateOneInlineInput = {
   connect?: InputMaybe<UserWhereUniqueInput>;
   /** Disconnect currently connected User document */
   disconnect?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** This contains a set of filters that can be used to compare values internally */
+export type UserWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Identifies documents */
@@ -6690,6 +6700,9 @@ export type UserWhereInput = {
   createdAt_not?: InputMaybe<Scalars['DateTime']>;
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  documentInStages_every?: InputMaybe<UserWhereStageInput>;
+  documentInStages_none?: InputMaybe<UserWhereStageInput>;
+  documentInStages_some?: InputMaybe<UserWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -6789,6 +6802,20 @@ export type UserWhereInput = {
   updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
 };
 
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type UserWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<UserWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<UserWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<UserWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<UserWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
 /** References User record uniquely */
 export type UserWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']>;
@@ -6833,7 +6860,7 @@ export enum _FilterKind {
   RelationalSingle = 'relational_single',
   RelationalSome = 'relational_some',
   Search = 'search',
-  StartsWith = 'starts_with'
+  StartsWith = 'starts_with',
 }
 
 export enum _MutationInputFieldKind {
@@ -6843,7 +6870,7 @@ export enum _MutationInputFieldKind {
   RichTextWithEmbeds = 'richTextWithEmbeds',
   Scalar = 'scalar',
   Union = 'union',
-  Virtual = 'virtual'
+  Virtual = 'virtual',
 }
 
 export enum _MutationKind {
@@ -6858,107 +6885,512 @@ export enum _MutationKind {
   UnpublishMany = 'unpublishMany',
   Update = 'update',
   UpdateMany = 'updateMany',
-  Upsert = 'upsert'
+  Upsert = 'upsert',
 }
 
 export enum _OrderDirection {
   Asc = 'asc',
-  Desc = 'desc'
+  Desc = 'desc',
 }
 
 export enum _RelationInputCardinality {
   Many = 'many',
-  One = 'one'
+  One = 'one',
 }
 
 export enum _RelationInputKind {
   Create = 'create',
-  Update = 'update'
+  Update = 'update',
 }
 
 export enum _RelationKind {
   Regular = 'regular',
-  Union = 'union'
+  Union = 'union',
 }
 
 export enum _SystemDateTimeFieldVariation {
   Base = 'base',
   Combined = 'combined',
-  Localization = 'localization'
+  Localization = 'localization',
 }
 
-export type AuthorDetailsFragment = { __typename?: 'Author', name: string, jobTitle: string, biography?: string | null, url: string, twitterUrl: string, email: string, picture?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null };
+export type AuthorDetailsFragment = {
+  __typename?: 'Author';
+  name: string;
+  jobTitle: string;
+  biography?: string | null;
+  url: string;
+  twitterUrl: string;
+  email: string;
+  picture?: {
+    __typename?: 'Asset';
+    url: string;
+    width?: number | null;
+    height?: number | null;
+  } | null;
+};
 
 export type GetAuthorByIdQueryVariables = Exact<{
   id: Scalars['ID'];
 }>;
 
+export type GetAuthorByIdQuery = {
+  __typename?: 'Query';
+  author?: {
+    __typename?: 'Author';
+    name: string;
+    jobTitle: string;
+    biography?: string | null;
+    url: string;
+    twitterUrl: string;
+    email: string;
+    picture?: {
+      __typename?: 'Asset';
+      url: string;
+      width?: number | null;
+      height?: number | null;
+    } | null;
+  } | null;
+};
 
-export type GetAuthorByIdQuery = { __typename?: 'Query', author?: { __typename?: 'Author', name: string, jobTitle: string, biography?: string | null, url: string, twitterUrl: string, email: string, picture?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null };
+export type PageSeoFragment = {
+  __typename?: 'Seo';
+  description: string;
+  title: string;
+  keywords: Array<string>;
+  image?: {
+    __typename?: 'Asset';
+    url: string;
+    width?: number | null;
+    height?: number | null;
+  } | null;
+};
 
-export type PageSeoFragment = { __typename?: 'Seo', description: string, title: string, keywords: Array<string>, image?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null };
-
-export type PageFragment = { __typename?: 'Page', title: string, subtitle?: string | null, slug: string, content: string, seo?: { __typename?: 'Seo', description: string, title: string, keywords: Array<string>, image?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null };
+export type PageFragment = {
+  __typename?: 'Page';
+  title: string;
+  subtitle?: string | null;
+  slug: string;
+  content: string;
+  seo?: {
+    __typename?: 'Seo';
+    description: string;
+    title: string;
+    keywords: Array<string>;
+    image?: {
+      __typename?: 'Asset';
+      url: string;
+      width?: number | null;
+      height?: number | null;
+    } | null;
+  } | null;
+};
 
 export type GetPageBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
+export type GetPageBySlugQuery = {
+  __typename?: 'Query';
+  page?: {
+    __typename?: 'Page';
+    title: string;
+    subtitle?: string | null;
+    slug: string;
+    content: string;
+    seo?: {
+      __typename?: 'Seo';
+      description: string;
+      title: string;
+      keywords: Array<string>;
+      image?: {
+        __typename?: 'Asset';
+        url: string;
+        width?: number | null;
+        height?: number | null;
+      } | null;
+    } | null;
+  } | null;
+};
 
-export type GetPageBySlugQuery = { __typename?: 'Query', page?: { __typename?: 'Page', title: string, subtitle?: string | null, slug: string, content: string, seo?: { __typename?: 'Seo', description: string, title: string, keywords: Array<string>, image?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null } | null };
+export type PostSeoFragment = {
+  __typename?: 'Seo';
+  title: string;
+  description: string;
+  keywords: Array<string>;
+  image?: {
+    __typename?: 'Asset';
+    url: string;
+    width?: number | null;
+    height?: number | null;
+  } | null;
+};
 
-export type PostSeoFragment = { __typename?: 'Seo', title: string, description: string, keywords: Array<string>, image?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null };
+export type PostFragment = {
+  __typename?: 'Post';
+  title: string;
+  slug: string;
+  date: any;
+  excerpt: string;
+  content: string;
+  tags: Array<string>;
+  seo?: {
+    __typename?: 'Seo';
+    title: string;
+    description: string;
+    keywords: Array<string>;
+    image?: {
+      __typename?: 'Asset';
+      url: string;
+      width?: number | null;
+      height?: number | null;
+    } | null;
+  } | null;
+  coverImage?: {
+    __typename?: 'Asset';
+    url: string;
+    width?: number | null;
+    height?: number | null;
+  } | null;
+  author?: {
+    __typename?: 'Author';
+    name: string;
+    biography?: string | null;
+    id: string;
+    url: string;
+    picture?: {
+      __typename?: 'Asset';
+      url: string;
+      width?: number | null;
+      height?: number | null;
+    } | null;
+  } | null;
+};
 
-export type PostFragment = { __typename?: 'Post', title: string, slug: string, date: any, excerpt: string, content: string, tags: Array<string>, seo?: { __typename?: 'Seo', title: string, description: string, keywords: Array<string>, image?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null, coverImage?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null, author?: { __typename?: 'Author', name: string, biography?: string | null, id: string, url: string, picture?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null };
+export type GetAllPostsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetAllPostsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetAllPostsQuery = {
+  __typename?: 'Query';
+  posts: Array<{
+    __typename?: 'Post';
+    title: string;
+    slug: string;
+    date: any;
+    excerpt: string;
+    content: string;
+    tags: Array<string>;
+    seo?: {
+      __typename?: 'Seo';
+      title: string;
+      description: string;
+      keywords: Array<string>;
+      image?: {
+        __typename?: 'Asset';
+        url: string;
+        width?: number | null;
+        height?: number | null;
+      } | null;
+    } | null;
+    coverImage?: {
+      __typename?: 'Asset';
+      url: string;
+      width?: number | null;
+      height?: number | null;
+    } | null;
+    author?: {
+      __typename?: 'Author';
+      name: string;
+      biography?: string | null;
+      id: string;
+      url: string;
+      picture?: {
+        __typename?: 'Asset';
+        url: string;
+        width?: number | null;
+        height?: number | null;
+      } | null;
+    } | null;
+  }>;
+};
 
+export type GetAllPostsWithTagsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetAllPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', title: string, slug: string, date: any, excerpt: string, content: string, tags: Array<string>, seo?: { __typename?: 'Seo', title: string, description: string, keywords: Array<string>, image?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null, coverImage?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null, author?: { __typename?: 'Author', name: string, biography?: string | null, id: string, url: string, picture?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null }> };
-
-export type GetAllPostsWithTagsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetAllPostsWithTagsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', tags: Array<string> }> };
+export type GetAllPostsWithTagsQuery = {
+  __typename?: 'Query';
+  posts: Array<{ __typename?: 'Post'; tags: Array<string> }>;
+};
 
 export type GetPostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
-
-export type GetPostBySlugQuery = { __typename?: 'Query', post?: { __typename?: 'Post', title: string, slug: string, date: any, excerpt: string, content: string, tags: Array<string>, seo?: { __typename?: 'Seo', title: string, description: string, keywords: Array<string>, image?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null, coverImage?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null, author?: { __typename?: 'Author', name: string, biography?: string | null, id: string, url: string, picture?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null } | null };
+export type GetPostBySlugQuery = {
+  __typename?: 'Query';
+  post?: {
+    __typename?: 'Post';
+    title: string;
+    slug: string;
+    date: any;
+    excerpt: string;
+    content: string;
+    tags: Array<string>;
+    seo?: {
+      __typename?: 'Seo';
+      title: string;
+      description: string;
+      keywords: Array<string>;
+      image?: {
+        __typename?: 'Asset';
+        url: string;
+        width?: number | null;
+        height?: number | null;
+      } | null;
+    } | null;
+    coverImage?: {
+      __typename?: 'Asset';
+      url: string;
+      width?: number | null;
+      height?: number | null;
+    } | null;
+    author?: {
+      __typename?: 'Author';
+      name: string;
+      biography?: string | null;
+      id: string;
+      url: string;
+      picture?: {
+        __typename?: 'Asset';
+        url: string;
+        width?: number | null;
+        height?: number | null;
+      } | null;
+    } | null;
+  } | null;
+};
 
 export type GetPostsByTagQueryVariables = Exact<{
   tag: Scalars['String'];
 }>;
 
+export type GetPostsByTagQuery = {
+  __typename?: 'Query';
+  posts: Array<{
+    __typename?: 'Post';
+    title: string;
+    slug: string;
+    date: any;
+    excerpt: string;
+    content: string;
+    tags: Array<string>;
+    seo?: {
+      __typename?: 'Seo';
+      title: string;
+      description: string;
+      keywords: Array<string>;
+      image?: {
+        __typename?: 'Asset';
+        url: string;
+        width?: number | null;
+        height?: number | null;
+      } | null;
+    } | null;
+    coverImage?: {
+      __typename?: 'Asset';
+      url: string;
+      width?: number | null;
+      height?: number | null;
+    } | null;
+    author?: {
+      __typename?: 'Author';
+      name: string;
+      biography?: string | null;
+      id: string;
+      url: string;
+      picture?: {
+        __typename?: 'Asset';
+        url: string;
+        width?: number | null;
+        height?: number | null;
+      } | null;
+    } | null;
+  }>;
+};
 
-export type GetPostsByTagQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', title: string, slug: string, date: any, excerpt: string, content: string, tags: Array<string>, seo?: { __typename?: 'Seo', title: string, description: string, keywords: Array<string>, image?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null, coverImage?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null, author?: { __typename?: 'Author', name: string, biography?: string | null, id: string, url: string, picture?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null }> };
+export type TilSeoFragment = {
+  __typename?: 'Seo';
+  title: string;
+  description: string;
+  keywords: Array<string>;
+  image?: {
+    __typename?: 'Asset';
+    url: string;
+    width?: number | null;
+    height?: number | null;
+  } | null;
+};
 
-export type TilSeoFragment = { __typename?: 'Seo', title: string, description: string, keywords: Array<string>, image?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null };
+export type TilFragment = {
+  __typename?: 'Til';
+  title: string;
+  description: string;
+  slug: string;
+  date: any;
+  content: string;
+  categories: Array<string>;
+  seo?: {
+    __typename?: 'Seo';
+    title: string;
+    description: string;
+    keywords: Array<string>;
+    image?: {
+      __typename?: 'Asset';
+      url: string;
+      width?: number | null;
+      height?: number | null;
+    } | null;
+  } | null;
+  author?: {
+    __typename?: 'Author';
+    name: string;
+    biography?: string | null;
+    id: string;
+    url: string;
+    picture?: {
+      __typename?: 'Asset';
+      url: string;
+      width?: number | null;
+      height?: number | null;
+    } | null;
+  } | null;
+};
 
-export type TilFragment = { __typename?: 'Til', title: string, description: string, slug: string, date: any, content: string, categories: Array<string>, seo?: { __typename?: 'Seo', title: string, description: string, keywords: Array<string>, image?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null, author?: { __typename?: 'Author', name: string, biography?: string | null, id: string, url: string, picture?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null };
+export type GetAllTilsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetAllTilsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetAllTilsQuery = {
+  __typename?: 'Query';
+  tils: Array<{
+    __typename?: 'Til';
+    title: string;
+    description: string;
+    slug: string;
+    date: any;
+    content: string;
+    categories: Array<string>;
+    seo?: {
+      __typename?: 'Seo';
+      title: string;
+      description: string;
+      keywords: Array<string>;
+      image?: {
+        __typename?: 'Asset';
+        url: string;
+        width?: number | null;
+        height?: number | null;
+      } | null;
+    } | null;
+    author?: {
+      __typename?: 'Author';
+      name: string;
+      biography?: string | null;
+      id: string;
+      url: string;
+      picture?: {
+        __typename?: 'Asset';
+        url: string;
+        width?: number | null;
+        height?: number | null;
+      } | null;
+    } | null;
+  }>;
+};
 
+export type GetAllTilsWithCategoriesQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetAllTilsQuery = { __typename?: 'Query', tils: Array<{ __typename?: 'Til', title: string, description: string, slug: string, date: any, content: string, categories: Array<string>, seo?: { __typename?: 'Seo', title: string, description: string, keywords: Array<string>, image?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null, author?: { __typename?: 'Author', name: string, biography?: string | null, id: string, url: string, picture?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null }> };
-
-export type GetAllTilsWithCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetAllTilsWithCategoriesQuery = { __typename?: 'Query', tils: Array<{ __typename?: 'Til', categories: Array<string> }> };
+export type GetAllTilsWithCategoriesQuery = {
+  __typename?: 'Query';
+  tils: Array<{ __typename?: 'Til'; categories: Array<string> }>;
+};
 
 export type GetTilBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
-
-export type GetTilBySlugQuery = { __typename?: 'Query', til?: { __typename?: 'Til', title: string, description: string, slug: string, date: any, content: string, categories: Array<string>, seo?: { __typename?: 'Seo', title: string, description: string, keywords: Array<string>, image?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null, author?: { __typename?: 'Author', name: string, biography?: string | null, id: string, url: string, picture?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null } | null };
+export type GetTilBySlugQuery = {
+  __typename?: 'Query';
+  til?: {
+    __typename?: 'Til';
+    title: string;
+    description: string;
+    slug: string;
+    date: any;
+    content: string;
+    categories: Array<string>;
+    seo?: {
+      __typename?: 'Seo';
+      title: string;
+      description: string;
+      keywords: Array<string>;
+      image?: {
+        __typename?: 'Asset';
+        url: string;
+        width?: number | null;
+        height?: number | null;
+      } | null;
+    } | null;
+    author?: {
+      __typename?: 'Author';
+      name: string;
+      biography?: string | null;
+      id: string;
+      url: string;
+      picture?: {
+        __typename?: 'Asset';
+        url: string;
+        width?: number | null;
+        height?: number | null;
+      } | null;
+    } | null;
+  } | null;
+};
 
 export type GetTilsByTagQueryVariables = Exact<{
   tag: Scalars['String'];
 }>;
 
-
-export type GetTilsByTagQuery = { __typename?: 'Query', tils: Array<{ __typename?: 'Til', title: string, description: string, slug: string, date: any, content: string, categories: Array<string>, seo?: { __typename?: 'Seo', title: string, description: string, keywords: Array<string>, image?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null, author?: { __typename?: 'Author', name: string, biography?: string | null, id: string, url: string, picture?: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null } | null } | null }> };
+export type GetTilsByTagQuery = {
+  __typename?: 'Query';
+  tils: Array<{
+    __typename?: 'Til';
+    title: string;
+    description: string;
+    slug: string;
+    date: any;
+    content: string;
+    categories: Array<string>;
+    seo?: {
+      __typename?: 'Seo';
+      title: string;
+      description: string;
+      keywords: Array<string>;
+      image?: {
+        __typename?: 'Asset';
+        url: string;
+        width?: number | null;
+        height?: number | null;
+      } | null;
+    } | null;
+    author?: {
+      __typename?: 'Author';
+      name: string;
+      biography?: string | null;
+      id: string;
+      url: string;
+      picture?: {
+        __typename?: 'Asset';
+        url: string;
+        width?: number | null;
+        height?: number | null;
+      } | null;
+    } | null;
+  }>;
+};
