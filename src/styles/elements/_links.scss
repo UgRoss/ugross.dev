@@ -1,9 +1,0 @@
-a {
-  @apply font-semibold transition-all duration-300;
-  @apply border-b-2 border-gray-300;
-}
-
-a:hover,
-a:active {
-  @apply border-primary;
-}
