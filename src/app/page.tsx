@@ -1,7 +1,4 @@
-import { GetStaticProps } from 'next';
-import Image from 'next/image';
-import { Inter, Pacifico } from '@next/font/google';
-import styles from './page.module.css';
+import { Pacifico } from '@next/font/google';
 import { Button } from '@/ui/Button';
 import ArticlePreview from '@/components/ArticlePreview';
 import { getRecentPosts, getRecentTILs } from '@/lib/posts';
@@ -22,7 +19,7 @@ export default function Home() {
     <main className="container mt-32 flex flex-col gap-20">
       <section>
         <Avatar size="lg" className="mb-6" initials="RU" imgUrl="/memoji-avatar.png" status="🎉" />
-        <div className="prose">
+        <div className="prose dark:prose-invert">
           <h1 style={pacifico.style}>{`Hi, I'm Rostyslav Ugryniuk`}</h1>
           <p>
             {`I'm a software developer who creates open-source projects. I like accordions, board games, and stand-up comedy.`}

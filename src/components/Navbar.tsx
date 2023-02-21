@@ -6,7 +6,8 @@ import Image from 'next/image';
 import profilePic from '../../public/avatar.png';
 import { Button } from '@/ui/Button';
 import { Dropdown } from '@/ui/Dropdown';
-import { FiArrowUpRight, FiMoon, FiMenu, FiX } from 'react-icons/fi';
+import { FiArrowUpRight, FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi';
+import { Theme, useDarkMode } from '@/hooks/useDarkMode';
 
 export const navigationItems = [
   { label: 'About', href: '/', current: true },
@@ -52,8 +53,11 @@ export const navigationItems = [
 ];
 
 export function Navbar() {
+  const [theme, , toggleTheme] = useDarkMode();
+  const isDarkTheme = theme === Theme.DARK;
+
   return (
-    <nav className="bg-transparent border-b border-slate-100 z-40 fixed top-0 left-0 w-full bg-white">
+    <nav className="border-b border-slate-100 z-40 fixed top-0 left-0 w-full bg-white dark:border-gray-600 dark:bg-gray-900">
       <div className="relative flex h-16 items-center justify-between">
         <div className="container grid gap-4 grid-flow-col auto-cols-max sm:grid-cols-[auto_1fr_auto] justify-between sm:justify-start auto-cols-fr items-center">
           {/* Mobile Nav */}
@@ -89,7 +93,13 @@ export function Navbar() {
             </div>
           </div>
           <div className="flex justify-end">
-            <Button size="sm" variant="subtle" icon={FiMoon} aria-label="Toggle dark mode">
+            <Button
+              size="sm"
+              variant="subtle"
+              icon={isDarkTheme ? FiMoon : FiSun}
+              aria-label="Toggle dark mode"
+              onClick={toggleTheme}
+            >
               <span className="sr-only">Toggle dark mode</span>
             </Button>
           </div>
