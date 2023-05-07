@@ -7,6 +7,7 @@ import React from 'react';
 interface MDXContentProps {
   content: string;
 }
+
 export const MDXContent = ({ content }: MDXContentProps) => {
   const MDXContent = useMDXComponent(content);
 
