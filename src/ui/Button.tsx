@@ -11,12 +11,19 @@ const buttonVariants = cva(
       variant: {
         default: 'bg-slate-900 text-white hover:bg-slate-700 dark:bg-slate-50 dark:text-slate-900',
         destructive: 'bg-red-500 text-white hover:bg-red-600 dark:hover:bg-red-600',
-        outline:
-          'bg-transparent border border-slate-200 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-100',
-        subtle:
-          'bg-slate-100 text-slate-900 hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-100',
-        ghost:
-          'bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 dark:text-slate-100 dark:hover:text-slate-100 data-[state=open]:bg-transparent dark:data-[state=open]:bg-transparent',
+        outline: cn(
+          'bg-transparent border',
+          'border-slate-200 hover:bg-slate-100',
+          'dark:text-slate-100 dark:border-zinc-700 dark:hover:bg-zinc-800'
+        ),
+        ghost: cn(
+          'bg-transparent data-[state=open]:bg-transparent hover:bg-base-content-100',
+          'dark:text-slate-100 dark:hover:text-slate-100 dark:hover:bg-zinc-800 dark:data-[state=open]:bg-transparent'
+        ),
+        subtle: cn(
+          'bg-slate-100 text-slate-900 hover:bg-slate-200',
+          'dark:bg-zinc-800 dark:text-slate-100'
+        ),
         link: 'bg-transparent dark:bg-transparent underline-offset-4 hover:underline text-slate-900 dark:text-slate-100 hover:bg-transparent dark:hover:bg-transparent',
       },
       active: {
@@ -29,7 +36,7 @@ const buttonVariants = cva(
         lg: 'h-11 px-8 rounded-md',
       },
     },
-    compoundVariants: [{ variant: 'ghost', active: true, class: 'bg-slate-100' }],
+    compoundVariants: [{ variant: 'ghost', active: true, class: 'bg-slate-100 dark:bg-zinc-800' }],
     defaultVariants: {
       variant: 'default',
       size: 'default',
@@ -61,7 +68,7 @@ const Button = <T extends string | React.ComponentType<any>>({
       className={cn(buttonVariants({ variant, size, active, className }))}
       {...(props as any)}
     >
-      {Icon && <Icon className="w-5 h-5" />}
+      {Icon && <Icon className="h-5 w-5" />}
       {children}
     </Component>
   );

@@ -6,9 +6,9 @@ const ArticlePage = (props: any) => {
   const blogPost = getPostByUrl(`/blog/${slug}`);
 
   return (
-    <main className="mt-32 container">
+    <main className="container mt-32">
       <div>{slug || 'No Slug??'}</div>
-      <div className="prose">
+      <div className="prose dark:prose-invert">
         <MDXContent content={blogPost?.body.code} />
       </div>
     </main>

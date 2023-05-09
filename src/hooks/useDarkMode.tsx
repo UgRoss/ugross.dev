@@ -29,7 +29,7 @@ export const useDarkMode = (): [
   useEffect(() => {
     const action = activeTheme === Theme.DARK ? 'add' : 'remove';
 
-    document.documentElement.classList[action]('bg-gray-900');
+    document.documentElement.classList[action]('bg-zinc-900');
     document.documentElement.classList[action]('dark');
     document.documentElement.setAttribute('data-mode', activeTheme);
   }, [activeTheme]);

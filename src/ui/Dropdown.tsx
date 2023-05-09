@@ -29,7 +29,7 @@ export function Dropdown({ label, options, onSelect }: DropdownProps) {
               <span>{label}</span>
               <FiChevronDown
                 className={`-mr-1 ml-2 h-5 w-5 transition-transform duration-300 ${
-                  isOpen ? 'transform rotate-180' : ''
+                  isOpen ? 'rotate-180 transform' : ''
                 }`}
               />
             </Button>
@@ -43,7 +43,7 @@ export function Dropdown({ label, options, onSelect }: DropdownProps) {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <Menu.Items className="absolute left-0 z-40 mt-2 w-auto origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <Menu.Items className="absolute left-0 z-40 mt-2 w-auto origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-zinc-800">
               <Menu.Item
                 as="div"
                 className="py-1"

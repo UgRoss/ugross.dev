@@ -11,12 +11,12 @@ export default function Blog() {
   const articles = getAllPosts();
 
   return (
-    <main className="mt-32 container flex flex-col gap-20">
-      <div>
-        <h2 style={pacifico.style} className="text-5xl text-center leading-[64px] mb-5">
+    <main className="container mt-32 flex flex-col gap-20">
+      <div className="prose text-center dark:prose-invert">
+        <h2 style={pacifico.style} className="mb-8 text-center text-5xl leading-[64px]">
           Blog
         </h2>
-        <p className="prose text-center">
+        <p>
           Writing about frontend development, React, Chakra UI, UI design, SaaS, and indie hacking.
           Here are some of the most recent thoughts, learnings.
         </p>

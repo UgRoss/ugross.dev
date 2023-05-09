@@ -27,19 +27,23 @@ export function DropdownItem({
   console.log('withSeparator', withSeparator);
   return (
     <Fragment>
-      {withSeparator && <div className="border-t border-t-slate-200 my-2 w-full" />}
+      {withSeparator && (
+        <div className="my-2 w-full border-t border-t-slate-200 dark:border-t-zinc-700" />
+      )}
       <button
         type="button"
         disabled={disabled}
         className={clsx(
-          'border border-transparent flex items-center w-52 px-4 py-2 text-sm text-left text-gray-900 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900'
+          'flex w-52 items-center border border-transparent px-4 py-2 text-left text-sm text-gray-700 transition hover:bg-slate-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none dark:text-gray-200 dark:hover:bg-zinc-700 dark:hover:text-white'
         )}
         onClick={onClick}
       >
-        {LeftIcon && <LeftIcon className="flex-shrink-0 mr-2 h-4 w-4" />}
-        <span className="flex-1 truncate font-medium mr-4">{label}</span>
-        {secondaryText && <span className="flex-shrink-0 text-gray-500">{secondaryText}</span>}
-        {RightIcon && <RightIcon className="flex-shrink-0 ml-2 w-4 h-4" />}
+        {LeftIcon && <LeftIcon className="mr-2 h-4 w-4 flex-shrink-0" />}
+        <span className="mr-4 flex-1 truncate font-medium">{label}</span>
+        {secondaryText && (
+          <span className="flex-shrink-0 text-gray-500 dark:text-gray-400">{secondaryText}</span>
+        )}
+        {RightIcon && <RightIcon className="ml-2 h-4 w-4 flex-shrink-0" />}
       </button>
     </Fragment>
   );

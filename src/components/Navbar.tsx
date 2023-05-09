@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
-import { Fragment } from 'react';
+import { usePathname } from 'next/navigation';
+import { Fragment, useEffect } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import Image from 'next/image';
 import profilePic from '../../public/avatar.png';
@@ -55,30 +56,45 @@ export const navigationItems = [
 export function Navbar() {
   const [theme, , toggleTheme] = useDarkMode();
   const isDarkTheme = theme === Theme.DARK;
+  const pathname = usePathname();
+  const isRootRoute = pathname === '/';
+  console.log('pathname', pathname);
+
+  useEffect(() => {
+    return () => console.log('unmounted');
+  }, []);
 
   return (
-    <nav className="border-b border-slate-100 z-40 fixed top-0 left-0 w-full bg-white dark:border-gray-600 dark:bg-gray-900">
+    <nav className="fixed top-0 left-0 z-40 w-full border-b border-slate-100 bg-white dark:border-zinc-800 dark:bg-zinc-900">
       <div className="relative flex h-16 items-center justify-between">
-        <div className="container grid gap-4 grid-flow-col auto-cols-max sm:grid-cols-[auto_1fr_auto] justify-between sm:justify-start auto-cols-fr items-center">
+        <div className="container grid auto-cols-max auto-cols-fr grid-flow-col items-center justify-between gap-4 sm:grid-cols-[auto_1fr_auto] sm:justify-start">
           {/* Mobile Nav */}
           <div className="sm:hidden">
             <Dropdown label="Menu" options={navigationItems} onSelect={() => console.log('slec')} />
           </div>
-          <div className="flex justify-center">
+          <Transition
+            show={!isRootRoute}
+            enter="transition-width duration-500 ease-in-out"
+            enterFrom="opacity-0 w-0"
+            enterTo="opacity-100 w-[32px]"
+            leave="transition-width duration-500 ease-in-out"
+            leaveFrom="opacity-100 w-[32px]"
+            leaveTo="opacity-0 w-0"
+          >
             <Image src={profilePic} alt="Ross's Avatar" width={32} height={32} />
-          </div>
-          {/* Desktop Nav */}
+          </Transition>
           <div className="hidden sm:block">
             <div className="flex space-x-4">
               {navigationItems.map((item) => {
+                const isCurrentPage = item.href === pathname;
                 return item.href ? (
                   <Button
                     variant="ghost"
-                    active={item.current}
+                    active={isCurrentPage}
                     as={Link}
                     href={item.href}
                     key={item.label}
-                    aria-current={item.current ? 'page' : undefined}
+                    aria-current={isCurrentPage ? 'page' : undefined}
                   >
                     {item.label}
                   </Button>

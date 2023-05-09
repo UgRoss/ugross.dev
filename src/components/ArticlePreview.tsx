@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { FiArrowRight } from 'react-icons/fi';
+import { Prose } from '@/components/Prose';
 
 interface ArticlePreviewProps {
   title: string;
@@ -12,12 +13,16 @@ function ArticlePreview({ title, description, link }: ArticlePreviewProps) {
   return (
     <article className="overflow-hidden">
       <Link href={link}>
-        <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">{title}</h3>
+        <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-gray-100">{title}</h3>
       </Link>
-      <p className="text-gray-600 dark:text-gray-400 mb-4 prose">{description}</p>
-      <Link href={link} className="text-indigo-600 flex items-center font-semibold">
+      <Prose as="p">{description}</Prose>
+      {/*<p className="prose mb-4 text-gray-600 dark:text-gray-400">{description}</p>*/}
+      <Link
+        href={link}
+        className="inline-flex items-center font-semibold text-indigo-600 hover:underline dark:text-blue-500"
+      >
         <span>Read More</span>
-        <FiArrowRight className="w-4 h-4 ml-2" />
+        <FiArrowRight className="ml-2 h-4 w-4" />
       </Link>
     </article>
   );

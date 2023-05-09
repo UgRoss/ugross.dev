@@ -12,12 +12,12 @@ export default function Blog() {
   const tilItems = getAllTILs();
 
   return (
-    <main className="mt-32 container flex flex-col gap-20">
-      <div>
-        <h2 style={pacifico.style} className="text-5xl text-center leading-[64px] mb-5">
+    <main className="container mt-32 flex flex-col gap-20">
+      <div className="prose text-center dark:prose-invert">
+        <h2 style={pacifico.style} className="mb-8 text-5xl leading-[64px]">
           Today I Learned
         </h2>
-        <p className="prose text-center">
+        <p>
           A collection of concise write-ups on small things I learn day to day across a variety of
           languages and technologies
         </p>
