@@ -18,7 +18,7 @@ export default function StackItem({ title, description, imgUrl }: StackItemProps
               alt={title}
               width={40}
               height={40}
-              className="rounded-full brightness-85 transition-all duration-500 hover:brightness-100"
+              className="rounded-full brightness-90 transition-all duration-500 hover:brightness-100"
             />
           </TooltipTrigger>
           <TooltipContent>

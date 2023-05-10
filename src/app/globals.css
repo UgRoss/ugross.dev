@@ -27,19 +27,7 @@ body {
 } */
 
 body {
-  background: linear-gradient(
-    0deg,
-    var(--token-b51ef5c2-aa9a-430c-a5f7-c49146f35812, #fdfdfc) 0%,
-    rgba(22, 22, 22, 0) 100%
-  );
   min-height: 100vh;
-}
-
-.bg-overlay {
-  background: linear-gradient(rgb(28, 28, 28) 2px, rgba(0, 0, 0, 0) 2px),
-    linear-gradient(90deg, rgb(28, 28, 28) 2px, rgba(0, 0, 0, 0) 2px),
-    linear-gradient(rgb(28, 28, 28) 1px, rgba(0, 0, 0, 0) 1px),
-    linear-gradient(90deg, rgb(28, 28, 28) 1px, rgb(22, 22, 22) 1px);
 }
 
 @layer base {
@@ -77,26 +65,29 @@ body {
   }
 
   .dark {
-    --background: 224 71% 4%;
+    --background: 0 0% 9%;
     --foreground: 213 31% 91%;
 
-    --muted: 223 47% 11%;
+    --muted: 0 0% 40%;
     --muted-foreground: 215.4 16.3% 56.9%;
 
     --popover: 224 71% 4%;
     --popover-foreground: 215 20.2% 65.1%;
 
-    --card: 224 71% 4%;
+    --card: 0 0% 11%;
     --card-foreground: 213 31% 91%;
 
-    --border: 216 34% 17%;
+    --border: 0 0% 18%;
     --input: 216 34% 17%;
 
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 1.2%;
 
-    --secondary: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 93%;
     --secondary-foreground: 210 40% 98%;
+
+    --secondary-light: 0 0% 93%;
+    --secondary-light-foreground: 210 40% 98%;
 
     --accent: 216 34% 17%;
     --accent-foreground: 210 40% 98%;

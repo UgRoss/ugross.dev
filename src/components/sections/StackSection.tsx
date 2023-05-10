@@ -15,8 +15,8 @@ interface StackSectionProps {
 
 export default function StackSection({ items }: StackSectionProps): JSX.Element {
   return (
-    <Card>
-      <CardHeader>
+    <section>
+      <div>
         <div className="align-center flex justify-between">
           <CardTitle>Stack</CardTitle>
           <Link href="/stack" className="text-xs font-semibold">
@@ -24,17 +24,12 @@ export default function StackSection({ items }: StackSectionProps): JSX.Element 
           </Link>
         </div>
         <CardDescription>Software and tools I use regularly.</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="flex gap-4">
-          {items.map(({ title, description, imgUrl }) => (
-            <StackItem title={title} description={description} imgUrl={imgUrl} key={title} />
-          ))}
-        </div>
-      </CardContent>
-      {/* <CardFooter>
-            <p>Card Footer</p>
-          </CardFooter> */}
-    </Card>
+      </div>
+      <div className="flex gap-4 mt-4">
+        {items.map(({ title, description, imgUrl }) => (
+          <StackItem title={title} description={description} imgUrl={imgUrl} key={title} />
+        ))}
+      </div>
+    </section>
   );
 }

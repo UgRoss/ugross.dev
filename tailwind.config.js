@@ -70,7 +70,7 @@ module.exports = {
         mono: ['var(--font-roboto-mono)', 'ui-monospace', 'SFMono-Regular'],
       },
       brightness: {
-        85: '.85',
+        90: '.90',
       }
     },
     container: {

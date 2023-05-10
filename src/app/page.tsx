@@ -1,5 +1,6 @@
 import ProfileHero from '~/components/ProfileHero';
 import LatestPosts from '~/components/sections/LatestPosts';
+import LatestTILs from '~/components/sections/LatestTILs';
 import StackSection from '~/components/sections/StackSection';
 
 const items = [
@@ -14,9 +15,10 @@ export default function Home() {
     <main className="pt-12">
       <ProfileHero />
 
-      <div className="container mt-20 flex flex-col gap-10">
+      <div className="container mt-20 flex flex-col gap-10 px-10">
         <StackSection items={items} />
         <LatestPosts />
+        <LatestTILs />
       </div>
     </main>
   );
