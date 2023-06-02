@@ -9,7 +9,7 @@ interface ProseProps {
 
 export const Prose = ({ children, className, as: Component = 'div' }: ProseProps) => {
   return (
-    <Component className={cn('prose-sm  dark:prose-invert sm:prose', className)}>
+    <Component className={cn('prose dark:prose-invert sm:prose', className)}>
       {children}
     </Component>
   );

@@ -30,10 +30,10 @@ const TodayILearnedPreview = ({
   }).format(new Date(date));
 
   return (
-    <Card className="group p-1">
+    <div className="group p-1">
       <a
         href={url}
-        className="grid w-full grid-cols-[auto_1fr_auto_auto] items-center justify-between gap-2 rounded-lg px-2 py-1 sm:gap-3"
+        className="grid w-full grid-cols-[auto_1fr_auto_auto] items-center justify-between gap-2 px-2 py-1 sm:gap-3"
       >
         <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-neutral-200 bg-neutral-100 p-1 dark:bg-slate-600">
           <span>{emoji}</span>
@@ -59,7 +59,7 @@ const TodayILearnedPreview = ({
           {formattedDate}
         </time>
       </a>
-    </Card>
+    </div>
   );
 };
 
