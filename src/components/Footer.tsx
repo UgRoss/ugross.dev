@@ -1,39 +1,34 @@
-import React from 'react';
-import classNames from 'classnames';
-import { Rss, GitHub } from 'react-feather';
+import { cn } from '~/utils';
 
-interface FooterProps {
-  copyrightText: string;
-  githubURL: string;
-  rssURL: string;
-}
-
-export const Footer: React.FC<FooterProps> = ({ copyrightText, githubURL, rssURL }) => {
-  const footerButtonClassName = classNames(
-    'font-medium text-gray-800 dark:text-gray-300 rounded-md px-2 py-2 transition duration-500 ease select-none border-0',
-    'hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none'
+export const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  const footerWrapperClassName = cn(
+    'container border-t border-slate-200 dark:border-zinc-800 py-5',
+    'text-center text-sm text-gray-600 dark:text-gray-400',
+    'flex flex-col items-center gap-4',
+    'sm:flex-row-reverse sm:justify-between sm:items-start sm:py-10'
   );
+  const linksClassName = cn('font-semibold hover:underline', 'text-gray-500 dark:text-gray-400');
 
   return (
-    <footer className="text-muted text-sm text-center pb-5 pt-14 mt-auto">
-      <div className="container flex flex-col sm:flex-row items-center justify-between">
-        <div>
-          <p className="m-xs">{copyrightText}</p>
-        </div>
-        <div className="flex items-center mt-3 sm:mt-0 gap-2">
-          <a href={rssURL} aria-label="RSS Feed" className={footerButtonClassName}>
-            <Rss size="1.2rem" aria-hidden="true" />
-            <span className="sr-only">RSS Feed</span>
+    <footer className="mt-32">
+      <div className={footerWrapperClassName}>
+        <p>© {currentYear} Rostyslav Ugryniuk</p>
+        <div className="inline-flex items-center gap-2">
+          <a href="#" className={linksClassName}>
+            Colophon
           </a>
-          <a
-            href={githubURL}
-            aria-label="Github Profile"
-            target="_blank"
-            rel="noreferrer noopener"
-            className={footerButtonClassName}
-          >
-            <GitHub size="1.2rem" aria-hidden="true" />
-            <span className="sr-only">Github Profile</span>
+          <small>•</small>
+          <a href="#" className={linksClassName}>
+            Uses
+          </a>
+          <small>•</small>
+          <a href="#" className={linksClassName}>
+            Github
+          </a>
+          <small>•</small>
+          <a href="#" className={linksClassName}>
+            RSS
           </a>
         </div>
       </div>
