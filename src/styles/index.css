@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+
   :root {
     --body-bg: #fff;
 
@@ -26,7 +26,6 @@
     --color-card-background: 224 71% 4%;
     --color-card-foreground: 213 31% 91%;
   }
-}
 
 @layer base {
   * {

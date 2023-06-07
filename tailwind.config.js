@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        border: 'hsl(var(--border) / <alpha-value>)',
+        border: 'hsl(var(--color-border))',
         muted: 'hsl(var(--color-text-muted) / <alpha-value>)',
         'card-foreground': 'hsl(var(--color-card-foreground) / <alpha-value>)',
         card: {

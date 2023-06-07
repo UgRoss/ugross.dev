@@ -3,12 +3,7 @@ import '../src/styles/index.css';
 import './style.css';
 
 const preview: Preview = {
-  // decorators: [
-  //   (Story) => (
-  //     <div>
-  //     </div>
-  //   )
-  // ],
+  decorators: [],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     darkMode: {
