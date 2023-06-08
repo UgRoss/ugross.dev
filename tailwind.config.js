@@ -1,9 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
+  darkMode: ['class', '[data-mode="dark"]'],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/stories/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
@@ -15,6 +16,10 @@ module.exports = {
         card: {
           DEFAULT: 'hsl(var(--color-card-background))',
           foreground: 'hsl(var(--color-card-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--color-popover-background))',
+          foreground: 'hsl(var(--color-popover-foreground))',
         },
       },
     },

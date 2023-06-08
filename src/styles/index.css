@@ -2,30 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --body-bg: #fff;
 
-  :root {
-    --body-bg: #fff;
+  --header-color: #000;
+  --color-text: #000;
+  --color-text-muted: 215.4 16.3% 46.9%;
+  --color-border: 214.3 31.8% 91.4%;
 
-    --header-color: #000;
-    --color-text: #000;
-    --color-text-muted: 215.4 16.3% 46.9%;
-    --color-border: 214.3 31.8% 91.4%;
+  --color-card-foreground: 222.2 47.4% 11.2%;
+  --color-card-background: 0 0% 100%;
 
-    --color-card-foreground: 222.2 47.4% 11.2%;
-    --color-card-background: 0 0% 100%;
-  }
+  --color-popover-background: 0 0% 100%;
+  --color-popover-foreground: 222.2 47.4% 11.2%;
+}
 
-  .dark {
-    --body-bg: #000;
+.dark,
+[data-mode='dark'] {
+  --body-bg: #000;
 
-    --header-color: #fff;
-    --color-text: #fff;
-    --color-text-muted: 215.4 16.3% 56.9%;
-    --color-border: 216 34% 17%;
+  --header-color: #fff;
+  --color-text: #fff;
+  --color-text-muted: 215.4 16.3% 56.9%;
+  --color-border: 216 34% 17%;
 
-    --color-card-background: 224 71% 4%;
-    --color-card-foreground: 213 31% 91%;
-  }
+  --color-card-background: 224 71% 4%;
+  --color-card-foreground: 213 31% 91%;
+
+  --color-popover-background: 224 71% 4%;
+  --color-popover-foreground: 220 15% 70%;
+}
 
 @layer base {
   * {
