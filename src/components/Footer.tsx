@@ -8,7 +8,6 @@ interface FooterProps {
   }[];
 }
 
-
 export function Footer({ links = [] }: FooterProps) {
   const currentYear = new Date().getFullYear();
   const hasLinks = links.length > 0;
