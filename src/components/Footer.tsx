@@ -8,23 +8,6 @@ interface FooterProps {
   }[];
 }
 
-/**
-<Link href="#" className={linksClassName}>
-  Colophon
-</Link>
-<small>•</small>
-<Link href="#" className={linksClassName}>
-  Uses
-</Link>
-<small>•</small>
-<Link href="#" className={linksClassName}>
-  Github
-</Link>
-<small>•</small>
-<Link href="#" className={linksClassName}>
-  RSS
-</Link>
-*/
 
 export function Footer({ links = [] }: FooterProps) {
   const currentYear = new Date().getFullYear();
