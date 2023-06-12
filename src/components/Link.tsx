@@ -32,6 +32,7 @@ type AnchorProps = React.DetailedHTMLProps<
 
 type LinkProps = {
   children: ReactNode;
+  href: string;
   className?: string;
   iconClassName?: string;
   endIcon?: Icon;
