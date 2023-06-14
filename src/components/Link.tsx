@@ -4,12 +4,12 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { Icon } from '@phosphor-icons/react';
 import { cn, isExternalLink } from '~/utils';
 
-const linkVariants = cva('font-semibold flex items-center transition-all duration-300', {
+const linkVariants = cva('font-medium inline-flex items-center transition-all duration-300', {
   variants: {
     withUnderline: {
       true: [
         'no-underline relative',
-        'after:content-[""] after:absolute after:w-full after:h-0.5 after:-bottom-0.5 after:left-0 after:transition-all after:duration-300 after:rounded',
+        'after:content-[""] after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-300 after:rounded',
         'after:bg-gray-300 dark:after:bg-gray-600 hover:cursor-pointer hover:dark:after:bg-primary hover:after:bg-primary',
       ],
       false: '',

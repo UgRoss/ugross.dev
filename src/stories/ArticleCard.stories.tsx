@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ArticleCard } from '../../components/ArticleCard';
+import { ArticleCard } from '~/components/ArticleCard';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof ArticleCard> = {
-  title: 'Example/ArticleCard',
+  title: 'Components/ArticleCard',
   component: ArticleCard,
   tags: ['autodocs'],
   decorators: [
@@ -14,9 +14,7 @@ const meta: Meta<typeof ArticleCard> = {
     ),
   ],
   argTypes: {
-    title: {
-      control: 'text',
-    },
+    title: { control: 'text' },
   },
 };
 
@@ -29,6 +27,6 @@ export const Default: Story = {
     title: 'Data Structures: Queue',
     description: `A Queue is a linear data structure that keeps its elements in a queue. It uses FIFO (first-in-first-out) ordering in which elements are added to the "end" and are removed from the "front".`,
     imageSrc: '/storybook/article-image-demo.avif',
-    tags: ['TypeScript'],
+    tags: [{ title: 'TypeScript', href: '#ts' }],
   },
 };

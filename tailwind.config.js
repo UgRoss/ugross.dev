@@ -10,6 +10,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        heading: 'var(--color-heading)',
+        text: 'var(--color-text)',
         border: 'hsl(var(--color-border))',
         muted: 'hsl(var(--color-text-muted) / <alpha-value>)',
         'card-foreground': 'hsl(var(--color-card-foreground) / <alpha-value>)',
@@ -24,6 +26,13 @@ module.exports = {
         primary: {
           DEFAULT: 'hsl(var(--color-primary))',
         },
+        accent: {
+          DEFAULT: 'hsl(var(--color-accent))',
+          foreground: 'hsl(var(--color-accent-foreground))',
+        },
+      },
+      backgroundColor: {
+        body: 'hsl(var(--body-background))',
       },
     },
     container: {

@@ -1,4 +1,4 @@
 [data-mode='dark'],
 [data-mode='dark'] .docs-story {
-  background: rgba(51, 51, 51);
+  @apply bg-body;
 }
