@@ -1,8 +1,12 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import { Badge } from './Badge';
+
 interface ArticleCardProps {
   imageSrc: string;
   title: string;
   description: string;
-  tags: string[];
+  tags: { title: string; href: string }[];
 }
 
 export const ArticleCard = ({
@@ -11,21 +15,28 @@ export const ArticleCard = ({
   description,
   tags,
 }: ArticleCardProps): JSX.Element => {
+  const hasTags = Array.isArray(tags) && tags.length > 0;
+
+  // TODO: convert into proper clickable card using Link
   return (
-    <div className="flex cursor-pointer rounded-lg border bg-card shadow-sm transition hover:scale-[1.01]">
-      <div className="flex-shrink-0">
-        <img src={imageSrc} alt="Article" className="h-full w-44 rounded-l-lg object-cover" />
-      </div>
+    <div className="flex cursor-pointer items-stretch rounded-lg border bg-card shadow-sm transition hover:scale-[1.01]">
+      {imageSrc && (
+        <div className="relative hidden w-40 flex-shrink-0 sm:flex">
+          <Image src={imageSrc} alt={title} className=" rounded-l-lg object-cover" fill />
+        </div>
+      )}
       <div className="p-4">
         <h2 className="mb-2 text-lg font-bold text-card-foreground">{title}</h2>
         <p className="line-clamp-3 text-sm text-muted">{description}</p>
-        <div className="mt-4">
-          {tags.map((tag, index) => (
-            <span className="mr-2 rounded px-2 py-1 text-xs text-muted" key={index}>
-              {tag}
-            </span>
-          ))}
-        </div>
+        {hasTags && (
+          <div className="mt-4">
+            {tags.map(({ title, href }) => (
+              <Badge key={title} variant="secondary" clickable as={Link} href={href}>
+                {title}
+              </Badge>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -27,6 +27,6 @@ export const Default: Story = {
     title: 'Data Structures: Queue',
     description: `A Queue is a linear data structure that keeps its elements in a queue. It uses FIFO (first-in-first-out) ordering in which elements are added to the "end" and are removed from the "front".`,
     imageSrc: '/storybook/article-image-demo.avif',
-    tags: ['TypeScript'],
+    tags: [{ title: 'TypeScript', href: '#ts' }],
   },
 };
