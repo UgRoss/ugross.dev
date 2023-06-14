@@ -24,6 +24,10 @@ module.exports = {
         primary: {
           DEFAULT: 'hsl(var(--color-primary))',
         },
+        accent: {
+          DEFAULT: 'hsl(var(--color-accent))',
+          foreground: 'hsl(var(--color-accent-foreground))',
+        },
       },
     },
     container: {

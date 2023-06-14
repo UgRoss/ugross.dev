@@ -17,6 +17,9 @@
   --color-popover-foreground: 222.2 47.4% 11.2%;
 
   --color-primary: 207 66% 45%;
+
+  --color-accent: 210 40% 96.1%;
+  --color-accent-foreground: 222.2 47.4% 11.2%;
 }
 
 .dark,
@@ -35,6 +38,9 @@
   --color-popover-foreground: 220 15% 70%;
 
   --color-primary: 207 66% 45%;
+
+  --color-accent: 216 34% 17%;
+  --color-accent-foreground: 210 40% 98%;
 }
 
 @layer base {
