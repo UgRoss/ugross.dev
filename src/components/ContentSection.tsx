@@ -3,19 +3,18 @@ import { ArrowRight } from '@phosphor-icons/react';
 
 interface ContentSectionProps {
   title: string;
-  description: string;
   link: string;
-  children: React.ReactElement;
+  children: React.ReactElement | React.ReactElement[];
 }
 
 export function ContentSection({ title, link, children }: ContentSectionProps) {
   return (
     <div>
-      <div className="flex items-center justify-between">
-        <h3 className="text-md font-semibold leading-none tracking-tight">{title}</h3>
+      <div className="flex items-center justify-between text-heading">
+        <h3 className="text-xl font-semibold leading-none tracking-tight">{title}</h3>
         <Link
           href={link}
-          className="text-xs hover:text-primary"
+          className="text-sm hover:text-primary"
           withUnderline={false}
           endIcon={ArrowRight}
         >
