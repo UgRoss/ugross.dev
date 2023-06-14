@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ArticleCard } from '../../components/ArticleCard';
+import { ArticleCard } from '~/components/ArticleCard';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof ArticleCard> = {
-  title: 'Example/ArticleCard',
+  title: 'Components/ArticleCard',
   component: ArticleCard,
   tags: ['autodocs'],
   decorators: [
@@ -14,9 +14,7 @@ const meta: Meta<typeof ArticleCard> = {
     ),
   ],
   argTypes: {
-    title: {
-      control: 'text',
-    },
+    title: { control: 'text' },
   },
 };
 

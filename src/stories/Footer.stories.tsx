@@ -9,7 +9,7 @@ const defaultFooterLinks = [
 ];
 
 const meta: Meta<typeof Footer> = {
-  title: 'Example/Footer',
+  title: 'Components/Footer',
   component: Footer,
   tags: [],
 };

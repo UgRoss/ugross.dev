@@ -3,7 +3,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../../
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof TooltipProvider> = {
-  title: 'Example/Tooltip',
+  title: 'Components/Tooltip',
   component: TooltipProvider,
   decorators: [
     (Story) => (

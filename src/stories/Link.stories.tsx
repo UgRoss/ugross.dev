@@ -3,14 +3,12 @@ import { Link } from '~/components/Link';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Link> = {
-  title: 'Example/Link',
+  title: 'Components/Link',
   component: Link,
   tags: [],
   argTypes: {
     href: {
-      control: {
-        type: 'text',
-      },
+      control: { type: 'text' },
     },
   },
 };
