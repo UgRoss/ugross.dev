@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --body-bg: #fff;
+  --body-background: 255 255 255;
 
-  --header-color: #000;
-  --color-text: #000;
+  --color-heading: #000;
+  --color-text: #706f6c;
   --color-text-muted: 215.4 16.3% 46.9%;
   --color-border: 214.3 31.8% 91.4%;
 
@@ -24,9 +24,9 @@
 
 .dark,
 [data-mode='dark'] {
-  --body-bg: #000;
+  --body-background: 0, 0%, 6%;
 
-  --header-color: #fff;
+  --color-heading: #ededec;
   --color-text: #fff;
   --color-text-muted: 215.4 16.3% 56.9%;
   --color-border: 216 34% 17%;
@@ -50,5 +50,15 @@
   body {
     /* @apply bg-background text-foreground; */
     font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+}
+
+@media (hover: hover) {
+  .animated-list:hover li {
+    opacity: 0.5;
+  }
+
+  .animated-list:hover li:hover {
+    opacity: 1;
   }
 }
