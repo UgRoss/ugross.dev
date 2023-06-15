@@ -1,10 +1,8 @@
 'use client';
-import { useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { CaretDown, Sun } from '@phosphor-icons/react';
-import { Avatar } from './Avatar';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,10 +27,6 @@ const navItems = [
     ],
   },
 ];
-
-function Container({ className, ...props }: any) {
-  return <div className={cn('container', className)} {...props} />;
-}
 
 function NavItem({ href, children }: any) {
   const isActive = usePathname() === href;
@@ -94,18 +88,6 @@ function NavDropdown({ items }: any) {
   );
 }
 
-function DesktopNavDivider() {
-  return <div className="h-full w-[1px] border border-zinc-800/5 py-2" />;
-}
-
-function ThemeToggle(props: any) {
-  return (
-    <span {...props}>
-      <Sun weight="bold" size={16} />
-    </span>
-  );
-}
-
 function DesktopNavigation(props: any) {
   return (
     <nav
@@ -128,23 +110,10 @@ function DesktopNavigation(props: any) {
 }
 
 export function Header() {
-  let isHomePage = usePathname() === '/';
-  let headerRef = useRef<HTMLDivElement>(null);
-  let avatarRef = useRef<HTMLDivElement>(null);
-  let isInitial = useRef(true);
-
   return (
     <>
-      <header className=" relative z-50 flex flex-col">
-        <div className="top-0 z-10 h-16 pt-6">
-          <Container className="w-full">
-            <div className="relative flex gap-4">
-              <div className="flex flex-1 justify-end md:justify-center">
-                <DesktopNavigation className="pointer-events-auto hidden md:block" />
-              </div>
-            </div>
-          </Container>
-        </div>
+      <header className="relative z-50 flex justify-center pt-6">
+        <DesktopNavigation />
       </header>
     </>
   );
