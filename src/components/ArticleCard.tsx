@@ -6,7 +6,7 @@ interface ArticleCardProps {
   imageSrc: string;
   title: string;
   description: string;
-  tags: { title: string; href: string }[];
+  tags?: { title: string; href: string }[];
 }
 
 export const ArticleCard = ({
@@ -25,9 +25,9 @@ export const ArticleCard = ({
           <Image src={imageSrc} alt={title} className=" rounded-l-lg object-cover" fill />
         </div>
       )}
-      <div className="p-4">
-        <h2 className="mb-2 text-lg font-bold text-card-foreground">{title}</h2>
-        <p className="line-clamp-3 text-sm text-muted">{description}</p>
+      <div className="prose prose-page p-4">
+        <h2 className="mb-2 text-lg font-bold text-heading">{title}</h2>
+        <p className="line-clamp-3 text-sm">{description}</p>
         {hasTags && (
           <div className="mt-4">
             {tags.map(({ title, href }) => (

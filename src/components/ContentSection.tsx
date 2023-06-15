@@ -1,5 +1,5 @@
 import { Link } from './Link';
-import { ArrowRight } from '@phosphor-icons/react';
+import { ArrowRight } from './PhosphorIcons';
 
 interface ContentSectionProps {
   title: string;
@@ -11,7 +11,7 @@ export function ContentSection({ title, link, children }: ContentSectionProps) {
   return (
     <div>
       <div className="flex items-center justify-between text-heading">
-        <h3 className="text-xl font-semibold leading-none tracking-tight">{title}</h3>
+        <h3 className="text-lg font-semibold leading-none tracking-tight">{title}</h3>
         <Link
           href={link}
           className="text-sm hover:text-primary"
@@ -22,7 +22,7 @@ export function ContentSection({ title, link, children }: ContentSectionProps) {
         </Link>
       </div>
 
-      <div className="mt-5 flex flex-col gap-5">{children}</div>
+      <div className="mt-6 flex flex-col gap-5">{children}</div>
     </div>
   );
 }
