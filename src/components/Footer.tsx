@@ -2,13 +2,14 @@ import { cn } from '~/utils';
 import { Link } from '~/components/Link';
 
 interface FooterProps {
+  copyright?: string;
   links?: {
     title: string;
     href: string;
   }[];
 }
 
-export function Footer({ links = [] }: FooterProps) {
+export function Footer({ links = [], copyright = '© All rights reserved' }: FooterProps) {
   const currentYear = new Date().getFullYear();
   const hasLinks = links.length > 0;
 
@@ -26,7 +27,7 @@ export function Footer({ links = [] }: FooterProps) {
   return (
     <footer className="mt-32">
       <div className={footerWrapperClassName}>
-        <p>© {currentYear} Rostyslav Ugryniuk</p>
+        <p>{copyright}</p>
         {hasLinks && (
           <div className="inline-flex items-center gap-2">
             {links.map(({ title, href }) => (
