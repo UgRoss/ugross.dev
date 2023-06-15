@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ['class', '[data-mode="dark"]'],
+  darkMode: ['class'],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -31,6 +31,16 @@ module.exports = {
           foreground: 'hsl(var(--color-accent-foreground))',
         },
       },
+      typography: (theme) => ({
+        page: {
+          css: {
+            '--tw-prose-headings': theme('colors.heading'),
+            '--tw-prose-body': theme('colors.text'),
+            '--tw-prose-invert-body': theme('colors.text'),
+            '--tw-prose-invert-headings': theme('colors.heading'),
+          },
+        },
+      }),
       backgroundColor: {
         body: 'hsl(var(--body-background))',
       },
