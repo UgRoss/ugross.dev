@@ -4,6 +4,7 @@ import { Badge } from './Badge';
 
 interface ArticleCardProps {
   imageSrc: string;
+  url: string;
   title: string;
   description: string;
   tags?: { title: string; href: string }[];
@@ -11,23 +12,26 @@ interface ArticleCardProps {
 
 export const ArticleCard = ({
   imageSrc,
+  url,
   title,
   description,
   tags,
 }: ArticleCardProps): JSX.Element => {
   const hasTags = Array.isArray(tags) && tags.length > 0;
 
-  // TODO: convert into proper clickable card using Link
   return (
-    <div className="flex cursor-pointer items-stretch rounded-lg border bg-card shadow-sm transition hover:scale-[1.01]">
+    <div className="relative flex cursor-pointer items-stretch rounded-lg border bg-card shadow-sm transition hover:scale-[1.01]">
       {imageSrc && (
         <div className="relative hidden w-40 flex-shrink-0 sm:flex">
           <Image src={imageSrc} alt={title} className=" rounded-l-lg object-cover" fill />
         </div>
       )}
-      <div className="prose prose-page p-4">
-        <h2 className="mb-2 text-lg font-bold text-heading">{title}</h2>
-        <p className="line-clamp-3 text-sm">{description}</p>
+      <div className="p-4">
+        <Link href={url}>
+          <span className="absolute inset-0 z-10" />
+          <h2 className="mb-2 text-lg font-bold text-heading">{title}</h2>
+        </Link>
+        <p className="prose prose-page line-clamp-3 text-sm">{description}</p>
         {hasTags && (
           <div className="mt-4">
             {tags.map(({ title, href }) => (
