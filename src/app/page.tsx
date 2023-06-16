@@ -3,6 +3,7 @@ import { ContentSection } from '~/components/ContentSection';
 import { ArticleCard } from '~/components/ArticleCard';
 import { TILPreviewItem } from '~/components/TILPreviewItem';
 import { Link } from '~/components/Link';
+import { getRecentPosts, getRecentTILs } from '~/contentlayer';
 
 const stack = [
   { title: 'TypeScript', href: '#', description: 'Typed JavaScript' },
@@ -12,6 +13,10 @@ const stack = [
 ];
 
 export default function Home() {
+  const recentArticles = getRecentPosts(2);
+  const recentTILs = getRecentTILs(3);
+  // console.log('recentArticles', recentArticles);
+
   return (
     <main className="container mt-16 flex flex-col gap-16">
       <section>
@@ -42,34 +47,26 @@ export default function Home() {
       </ContentSection>
 
       <ContentSection title="Recent Articles" link="/blog">
-        <ArticleCard
-          title="Data Structures: Queue"
-          description={`A Queue is a linear data structure that keeps its elements in a queue. It uses FIFO (first-in-first-out) ordering in which elements are added to the "end" and are removed from the "front".`}
-          imageSrc="/storybook/article-image-demo.avif"
-        />
-        <ArticleCard
-          title="Data Structures: Queue"
-          description={`A Queue is a linear data structure that keeps its elements in a queue. It uses FIFO (first-in-first-out) ordering in which elements are added to the "end" and are removed from the "front".`}
-          imageSrc="/storybook/article-image-demo.avif"
-        />
+        {recentArticles.map((article) => (
+          <ArticleCard
+            key={article.slug}
+            url={`/blog/${article.slug}`}
+            title={article.title}
+            description={article.description}
+            imageSrc={article.img || '/storybook/article-image-demo.avif'}
+          />
+        ))}
       </ContentSection>
       <ContentSection title="Today I Learned" link="/til">
         <ul className="animated-list">
-          <TILPreviewItem
-            title="Using the Strava API with Next.js"
-            tag={{ title: 'TypeScript', href: '#' }}
-            href="#"
-          />
-          <TILPreviewItem
-            title="URLSearchParams"
-            tag={{ title: 'JavaScript', href: '#' }}
-            href="#"
-          />
-          <TILPreviewItem
-            title="Signed vs Unsigned Numbers"
-            tag={{ title: 'Data Science', href: '#' }}
-            href="#"
-          />
+          {recentTILs.map(({ slug, title, category, categorySlug }) => (
+            <TILPreviewItem
+              key={slug}
+              title={title}
+              tag={{ title: category, href: `/til/category/${categorySlug}` }}
+              href={`/til/${slug}`}
+            />
+          ))}
         </ul>
       </ContentSection>
     </main>
