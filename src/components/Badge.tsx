@@ -2,7 +2,7 @@ import React, { PropsWithChildren, createElement } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '~/utils';
 
-const badgeVariants = cva('font-medium inline-flex', {
+const badgeVariants = cva('font-medium inline-flex transition-all duration-300', {
   variants: {
     size: {
       default: 'text-xs px-2.5 py-0.5',
