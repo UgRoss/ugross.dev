@@ -35,7 +35,14 @@ export const ArticleCard = ({
         {hasTags && (
           <div className="mt-4">
             {tags.map(({ title, href }) => (
-              <Badge key={title} variant="secondary" clickable as={Link} href={href}>
+              <Badge
+                key={title}
+                className="relative z-20"
+                variant="secondary"
+                clickable
+                as={Link}
+                href={href}
+              >
                 {title}
               </Badge>
             ))}
