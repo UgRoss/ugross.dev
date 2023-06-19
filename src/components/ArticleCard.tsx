@@ -31,9 +31,11 @@ export const ArticleCard = ({
           <span className="absolute inset-0 z-10" />
           <h2 className="mb-2 text-lg font-bold text-heading">{title}</h2>
         </Link>
-        <p className="prose prose-page line-clamp-3 text-sm">{description}</p>
+        <div className="prose prose-page dark:prose-invert">
+          <p className=" line-clamp-3 text-sm dark:prose-invert">{description}</p>
+        </div>
         {hasTags && (
-          <div className="mt-4">
+          <div className="mt-3">
             {tags.map(({ title, href }) => (
               <Badge
                 key={title}
