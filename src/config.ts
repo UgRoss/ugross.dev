@@ -44,3 +44,12 @@ export const siteConfig = {
     showCopyButton: true,
   },
 };
+
+export const messages = {
+  til: {
+    title: 'Today I Learned',
+    description: `A collection of concise write-ups on small things I learn day to day across a variety of
+    languages and technologies. These are things that don't really warrant a full blog post.`,
+    emptySearch: 'No results found',
+  },
+};
