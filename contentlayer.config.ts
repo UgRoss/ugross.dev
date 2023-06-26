@@ -1,10 +1,13 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import { Client } from '@notionhq/client';
 import slugify from 'slugify';
 // Remark & Rehype plugins
 import remarkGfm from 'remark-gfm';
 import remarkToc from 'remark-toc';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeSlug from 'rehype-slug';
+
+const client = new Client({ auth: process.env.NOTION_TOKEN });
 
 const slugifyOptions = {
   trim: true,
