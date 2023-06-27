@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'highlight.js/styles/github.css';
-
 :root {
   --body-background: 255 255 255;
 
