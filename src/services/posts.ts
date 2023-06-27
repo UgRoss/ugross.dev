@@ -1,5 +1,5 @@
 import { cache } from 'react';
-import { notion, getToday, fetchPageBlocks, PageObjectResponse } from '~/notion';
+import { notion, getToday, fetchPageBlocks, PageObjectResponse, n2m } from '~/notion';
 import { Post, PostWithContent } from '~/types/Post';
 
 export const getAllPostsFromNotion = cache(async () => {
@@ -46,10 +46,13 @@ export const getPostBySlugFromNotion = cache(
       }
 
       const blocks = await fetchPageBlocks(notionPost.id);
+      const mdblocks = await n2m.pageToMarkdown(notionPost.id);
+      const mdString = n2m.toMarkdownString(mdblocks);
 
       return {
         ...transformNotionPageIntoBlogPost(notionPost),
         blocks,
+        markdown: mdString.parent,
       };
     } catch (err) {
       return undefined;

@@ -13,9 +13,6 @@
     "copy-images": "node ./scripts/copyContentImagesToPublicFolder.mjs"
   },
   "dependencies": {
-    "@notion-render/bookmark-plugin": "^0.0.2",
-    "@notion-render/client": "^0.0.2",
-    "@notion-render/hljs-plugin": "^0.0.2",
     "@notionhq/client": "^2.2.5",
     "@phosphor-icons/react": "^2.0.9",
     "@radix-ui/react-dropdown-menu": "^2.0.5",
@@ -32,11 +29,13 @@
     "match-sorter": "^6.3.1",
     "next": "13.4.7",
     "next-themes": "^0.2.1",
+    "notion-to-md": "^3.1.0",
     "postcss": "8.4.24",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-markdown": "^8.0.7",
     "rehype-external-links": "^2.1.0",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",

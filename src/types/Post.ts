@@ -8,4 +8,4 @@ export type Post = {
   img?: string | null;
 };
 
-export type PostWithContent = Post & { blocks: any };
+export type PostWithContent = Post & { blocks: any; markdown: string };

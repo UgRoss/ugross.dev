@@ -1,8 +1,5 @@
 import { notFound } from 'next/navigation';
-import { notion } from '~/notion';
-import bookmarkPlugin from '@notion-render/bookmark-plugin';
-import { NotionRenderer } from '@notion-render/client';
-import hljsPlugin from '@notion-render/hljs-plugin';
+import ReactMarkdown from 'react-markdown';
 import { Link } from '~/components/Link';
 import { ArrowLeft } from '~/components/PhosphorIcons';
 import { getTILBySlugFromNotion } from '~/services/tils';
@@ -10,13 +7,6 @@ import { getTILBySlugFromNotion } from '~/services/tils';
 export default async function Page({ params }: { params: { slug: string } }) {
   const post = await getTILBySlugFromNotion(params.slug);
   if (!post) notFound();
-
-  const renderer = new NotionRenderer({ client: notion });
-
-  renderer.use(hljsPlugin());
-  renderer.use(bookmarkPlugin());
-
-  const html = await renderer.render(...post.blocks);
 
   return (
     <main className="container mt-16">
@@ -29,7 +19,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <h1 className="mb-4 text-center text-5xl leading-[64px]">{post.title}</h1>
       </div>
       <div className="prose dark:prose-invert">
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <ReactMarkdown>{post.markdown}</ReactMarkdown>
+        {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}
       </div>
     </main>
   );

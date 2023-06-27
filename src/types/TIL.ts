@@ -7,4 +7,4 @@ export type TIL = {
   slug: string;
 };
 
-export type TILWithContent = TIL & { blocks: any };
+export type TILWithContent = TIL & { blocks: any; markdown: string };

@@ -1,5 +1,5 @@
 import { cache } from 'react';
-import { notion, getToday, fetchPageBlocks, PageObjectResponse } from '~/notion';
+import { notion, getToday, fetchPageBlocks, PageObjectResponse, n2m } from '~/notion';
 import { TIL, TILWithContent } from '~/types/TIL';
 
 export const getAllTILsFromNotion = cache(async () => {
@@ -44,10 +44,13 @@ export const getTILBySlugFromNotion = cache(
       }
 
       const blocks = await fetchPageBlocks(notionPost.id);
+      const mdblocks = await n2m.pageToMarkdown(notionPost.id);
+      const mdString = n2m.toMarkdownString(mdblocks);
 
       return {
         ...transformNotionPageIntoTIL(notionPost),
         blocks,
+        markdown: mdString.parent,
       };
     } catch (err) {
       return undefined;

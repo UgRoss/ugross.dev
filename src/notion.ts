@@ -2,6 +2,7 @@ import 'server-only';
 
 import { Client } from '@notionhq/client';
 import React from 'react';
+import { NotionToMarkdown } from 'notion-to-md';
 import { BlockObjectResponse, PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
 export type {
@@ -13,6 +14,8 @@ export type {
 export const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
+
+export const n2m = new NotionToMarkdown({ notionClient: notion });
 
 function getTextValue(property: any): string | undefined {
   return property?.rich_text?.[0]?.plain_text ?? undefined;
@@ -49,6 +52,8 @@ export const fetchPageBlocks = React.cache((pageId: string) => {
     .list({ block_id: pageId })
     .then((res) => res.results as BlockObjectResponse[]);
 });
+
+export const notionBlocksToHTML = (blocks: BlockObjectResponse[]) => {};
 
 export function getToday(datestring: any) {
   const months = [
