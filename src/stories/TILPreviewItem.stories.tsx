@@ -15,8 +15,8 @@ const meta: Meta<typeof TILPreviewItem> = {
   ],
   tags: ['autodocs'],
   parameters: {
-      docsOnly: true,
-    },
+    docsOnly: true,
+  },
   argTypes: {},
 };
 
@@ -26,7 +26,7 @@ type Story = StoryObj<typeof TILPreviewItem>;
 export const Default: Story = {
   args: {
     title: 'Fixed vs Growth Mindset',
-    tag: { title: 'Personal Growth', href: '#' },
+    tags: [{ title: 'Personal Growth', href: '#' }],
     href: '/til/fixed-vs-growth-mindset',
   },
 };
@@ -36,17 +36,17 @@ export const WithAnimatedList: Story = {
     <ul className="animated-list">
       <TILPreviewItem
         title="Fixed vs Growth Mindset"
-        tag={{ title: 'Personal Growth', href: '#' }}
+        tags={[{ title: 'Personal Growth', href: '#' }]}
         href="/til/fixed-vs-growth-mindset"
       />
       <TILPreviewItem
         title="The unknown type"
-        tag={{ title: 'TypeScript', href: '#' }}
+        tags={[{ title: 'TypeScript', href: '#' }]}
         href="/til/the-unknown-type"
       />
       <TILPreviewItem
         title="Maps & @each directive"
-        tag={{ title: 'SASS', href: '#' }}
+        tags={[{ title: 'SASS', href: '#' }]}
         href="/til/maps-and-each-directive"
       />
     </ul>

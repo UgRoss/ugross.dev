@@ -6,7 +6,6 @@ import { Input } from '~/components/Input';
 import { MagnifyingGlass } from '~/components/PhosphorIcons';
 
 export default function TILsList({ allTILs, emptyMessage }: any) {
-  console.log('allTiles', allTILs);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredTILs, setFilteredTILs] = useState(allTILs);
   const isSearchResultEmpty = searchTerm.length > 0 && filteredTILs.length === 0;
