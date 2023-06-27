@@ -6,6 +6,7 @@ import { Input } from '~/components/Input';
 import { MagnifyingGlass } from '~/components/PhosphorIcons';
 
 export default function TILsList({ allTILs, emptyMessage }: any) {
+  console.log('allTiles', allTILs);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredTILs, setFilteredTILs] = useState(allTILs);
   const isSearchResultEmpty = searchTerm.length > 0 && filteredTILs.length === 0;
@@ -44,13 +45,8 @@ export default function TILsList({ allTILs, emptyMessage }: any) {
       <div className="mt-10 flex flex-col gap-5">
         <ul className="animated-list">
           {isSearchResultEmpty && <p className="text-center text-muted">{emptyMessage}</p>}
-          {filteredTILs.map(({ slug, title, category, categorySlug }: any) => (
-            <TILPreviewItem
-              key={slug}
-              title={title}
-              tag={{ title: category, href: `/til/category/${categorySlug}` }}
-              href={`/til/${slug}`}
-            />
+          {filteredTILs.map(({ slug, title, tags }: any) => (
+            <TILPreviewItem key={slug} title={title} tags={tags} href={`/til/${slug}`} />
           ))}
         </ul>
       </div>
