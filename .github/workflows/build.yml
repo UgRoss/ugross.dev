@@ -10,7 +10,7 @@ on:
       - nextjs
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   build:
@@ -30,6 +30,13 @@ jobs:
 
       - name: Install Dependencies
         run: npm ci
-        
+
+      - name: Create ENV File
+        run: |
+          touch .env
+          echo "NOTION_TOKEN=${{ vars.NOTION_TOKEN }}" >> .env
+          echo "NOTION_TIL_DATABASE_ID=${{ vars.NOTION_TIL_DATABASE_ID }}" >> .env
+          echo "NOTION_BLOG_DATABASE_ID=${{ vars.NOTION_BLOG_DATABASE_ID }}" >> .env
+
       - name: Build
         run: npm run build

@@ -36,6 +36,7 @@ type LinkProps = {
   className?: string;
   iconClassName?: string;
   endIcon?: Icon;
+  startIcon?: Icon;
 } & VariantProps<typeof linkVariants> &
   (AnchorProps | NextLinkProps);
 
@@ -43,6 +44,7 @@ export function Link({
   withUnderline,
   textColor,
   endIcon: EndIcon,
+  startIcon: StartIcon,
   className,
   iconClassName,
   children,
@@ -52,6 +54,7 @@ export function Link({
   const linkClassName = cn(linkVariants({ withUnderline, textColor, className }));
   const content = (
     <>
+    {StartIcon && <StartIcon className={cn('ml-1', iconClassName)} weight="bold" />}
       {children}
       {EndIcon && <EndIcon className={cn('ml-1', iconClassName)} weight="bold" />}
     </>

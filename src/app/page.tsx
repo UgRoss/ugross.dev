@@ -1,9 +1,10 @@
+import { getRecentPostsFromNotion } from '~/services/posts';
+import { getRecentTILsFromNotion } from '~/services/tils';
 import { Avatar } from '~/components/Avatar';
 import { ContentSection } from '~/components/ContentSection';
 import { ArticleCard } from '~/components/ArticleCard';
 import { TILPreviewItem } from '~/components/TILPreviewItem';
 import { Link } from '~/components/Link';
-import { getRecentPosts, getRecentTILs } from '~/contentlayer';
 
 const stack = [
   { title: 'TypeScript', href: '#', description: 'Typed JavaScript' },
@@ -12,10 +13,9 @@ const stack = [
   { title: 'GraphQL', href: '#', description: 'Query language for APIs' },
 ];
 
-export default function Home() {
-  const recentArticles = getRecentPosts(2);
-  const recentTILs = getRecentTILs(3);
-  // console.log('recentArticles', recentArticles);
+export default async function Home() {
+  const recentArticles = await getRecentPostsFromNotion(2);
+  const recentTILs = await getRecentTILsFromNotion(3);
 
   return (
     <main className="container mt-16 flex flex-col gap-16">
@@ -59,11 +59,11 @@ export default function Home() {
       </ContentSection>
       <ContentSection title="Today I Learned" link="/til">
         <ul className="animated-list">
-          {recentTILs.map(({ slug, title, category, categorySlug }) => (
+          {recentTILs.map(({ slug, title, tags }) => (
             <TILPreviewItem
               key={slug}
               title={title}
-              tag={{ title: category, href: `/til/category/${categorySlug}` }}
+              tags={tags.map((tag) => ({ title: tag, href: `/til/category/${tag}` }))}
               href={`/til/${slug}`}
             />
           ))}
