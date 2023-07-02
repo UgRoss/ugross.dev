@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import ReactMarkdown from 'react-markdown';
 import { getPostBySlugFromNotion } from '~/services/posts';
+import ReactMarkdown from '~/components/ReactMarkdown';
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const post = await getPostBySlugFromNotion(params.slug);
