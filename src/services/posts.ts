@@ -72,6 +72,7 @@ function transformNotionPageIntoBlogPost(page: any): Post {
   return {
     id: page.id,
     title: page.properties.Name.title[0].plain_text,
+    img: page.cover?.external?.url || null,
     tags: getTags(page.properties.Tags.multi_select),
     description: page.properties.Description.rich_text[0].plain_text,
     date: getToday(page.properties.Date.last_edited_time),
