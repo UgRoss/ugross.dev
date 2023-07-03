@@ -1,0 +1,127 @@
+.prism-code {
+  @apply mb-5 mt-0 pb-5 pl-5 pr-5 pt-10;
+  @apply min-w-full overflow-auto bg-transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gatsby-highlight[data-language=''] .prism-code,
+.gatsby-highlight[data-language='noLineNumbers'] .prism-code {
+  @apply pt-5;
+}
+
+.token {
+  @apply inline-block;
+}
+
+.highlight-line {
+  background-color: rgb(2, 55, 81);
+}
+
+/* === Code Container */
+.gatsby-highlight {
+  @apply relative lg:-ml-16 lg:-mr-16;
+}
+
+.gatsby-highlight .token-line {
+  @apply -ml-5 -mr-5 min-w-full;
+}
+
+.gatsby-highlight pre code {
+  @apply float-left min-w-full;
+}
+
+/* === Scrollbar */
+.gatsby-highlight pre code::-webkit-scrollbar {
+  @apply h-2.5;
+}
+.gatsby-highlight pre code::-webkit-scrollbar-thumb {
+  @apply bg-gray-400;
+}
+.gatsby-highlight pre code::-webkit-scrollbar-track {
+  @apply bg-gray-700;
+}
+
+/* === Inline Code */
+:not(pre) > code {
+  @apply bg-inline-code rounded-md px-2 py-0.5 text-black dark:text-gray-100;
+  white-space: pre;
+  word-break: normal;
+  word-wrap: normal;
+}
+
+/* === Line Numbers */
+.line-number-style {
+  @apply relative inline-block w-12 text-center;
+  @apply select-none;
+  opacity: 0.3;
+}
+
+/* === CodeCopyButton Button */
+pre .code-copy-button {
+  @apply absolute right-0 top-0 px-2 py-1;
+  @apply transition hover:bg-blue-500 hover:text-white;
+  border-bottom-left-radius: 5px;
+}
+
+pre .code-copy-button:disabled {
+  @apply cursor-not-allowed text-gray-400 hover:bg-transparent;
+}
+
+/* === Code Title */
+.code-title {
+  @apply -mb-1.5 px-4 pb-3 pt-2 lg:-ml-16 lg:-mr-16;
+  @apply bg-gray-700 text-white;
+  @apply rounded-md;
+}
+
+/*  === Code Badges */
+:root {
+  --js-color: #f7df1e;
+  --ts-color: #3178c6;
+  --jsx-color: #61dafb;
+  --css-color: #2965f1;
+  --sass-color: #cd6799;
+}
+
+.gatsby-highlight pre[class*='language-']:before {
+  @apply absolute left-4 top-0;
+  @apply rounded-b-md px-2 py-1;
+  @apply text-left text-sm uppercase tracking-wide;
+  @apply bg-gray-300 text-black;
+}
+
+.gatsby-highlight pre[class~='language-js']:before,
+.gatsby-highlight pre[class~='language-javascript']:before {
+  content: 'js';
+  background: var(--js-color);
+  color: black;
+}
+
+.gatsby-highlight pre[class~='language-typescript']:before {
+  content: 'ts';
+  background: var(--ts-color);
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-jsx']:before {
+  content: 'jsx';
+  background: var(--jsx-color);
+  color: black;
+}
+
+.gatsby-highlight pre[class~='language-scss']:before,
+.gatsby-highlight pre[class~='language-sass']:before {
+  content: 'sass';
+  background: var(--sass-color);
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-css']:before {
+  content: 'css';
+  background: var(--css-color);
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-text']:before {
+  content: 'text';
+}

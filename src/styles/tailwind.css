@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --body-background: 255 255 255;
+
+  --color-heading: #000;
+  --color-text: #706f6c;
+  --color-text-muted: 215.4 16.3% 46.9%;
+  --color-border: 214.3 31.8% 91.4%;
+
+  --color-card-foreground: 222.2 47.4% 11.2%;
+  --color-card-background: 0 0% 100%;
+
+  --color-popover-background: 0 0% 100%;
+  --color-popover-foreground: 222.2 47.4% 11.2%;
+
+  --color-primary: 207 66% 45%;
+
+  --color-accent: 210 40% 96.1%;
+  --color-accent-foreground: 222.2 47.4% 11.2%;
+
+  --color-inline-code-background: #edf2f7;
+}
+
+.dark,
+[data-mode='dark'] {
+  --body-background: 0, 0%, 6%;
+
+  --color-heading: #ededec;
+  --color-text: #a1a09a;
+  --color-text-muted: 215.4 16.3% 56.9%;
+  --color-border: 216 34% 17%;
+
+  --color-card-background: 224 71% 4%;
+  --color-card-foreground: 213 31% 91%;
+
+  --color-popover-background: 224 71% 4%;
+  --color-popover-foreground: 220 15% 70%;
+
+  --color-primary: 207 66% 45%;
+
+  --color-accent: 216 34% 17%;
+  --color-accent-foreground: 210 40% 98%;
+
+  --color-inline-code-background: theme('colors.gray.700');
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    /* @apply bg-background text-foreground; */
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+}

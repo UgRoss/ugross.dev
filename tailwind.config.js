@@ -40,9 +40,19 @@ module.exports = {
             '--tw-prose-invert-headings': theme('colors.heading'),
           },
         },
+        DEFAULT: {
+          css: {
+            pre: false,
+            code: false,
+            'pre code': false,
+            'code::before': false,
+            'code::after': false,
+          },
+        },
       }),
       backgroundColor: {
         body: 'hsl(var(--body-background))',
+        'inline-code': 'var(--color-inline-code-background)',
       },
     },
     container: {
