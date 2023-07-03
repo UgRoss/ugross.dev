@@ -54,7 +54,7 @@ export function Link({
   const linkClassName = cn(linkVariants({ withUnderline, textColor, className }));
   const content = (
     <>
-    {StartIcon && <StartIcon className={cn('ml-1', iconClassName)} weight="bold" />}
+      {StartIcon && <StartIcon className={cn('mr-1', iconClassName)} weight="bold" />}
       {children}
       {EndIcon && <EndIcon className={cn('ml-1', iconClassName)} weight="bold" />}
     </>
