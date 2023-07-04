@@ -4,7 +4,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 import { Code } from './Code';
 import { Language } from '~/types/CodeBlock';
 
-export default function ReactMarkdown({ children }: { children: string }) {
+export function ReactMarkdown({ children }: { children: string }) {
   return (
     <ReactMarkdownRender
       remarkPlugins={[remarkGfm]}
