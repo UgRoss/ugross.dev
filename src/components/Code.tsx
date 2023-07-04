@@ -68,7 +68,7 @@ export const Code: React.FC<CodeProps> = ({
               <div>{title}</div>
             </div>
           )}
-          <div className="gatsby-highlight" data-language={language}>
+          <div className="code-highlight" data-language={language}>
             <pre className={className} style={style} data-linenumber={true}>
               {showCopyButton && <CodeCopyButton content={codeString} fileName={title} />}
               <code className={`language-${language}`}>

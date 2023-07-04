@@ -4,8 +4,8 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.gatsby-highlight[data-language=''] .prism-code,
-.gatsby-highlight[data-language='noLineNumbers'] .prism-code {
+.code-highlight[data-language=''] .prism-code,
+.code-highlight[data-language='noLineNumbers'] .prism-code {
   @apply pt-5;
 }
 
@@ -18,32 +18,32 @@
 }
 
 /* === Code Container */
-.gatsby-highlight {
+.code-highlight {
   @apply relative lg:-ml-16 lg:-mr-16;
 }
 
-.gatsby-highlight .token-line {
+.code-highlight .token-line {
   @apply -ml-5 -mr-5 min-w-full;
 }
 
-.gatsby-highlight pre code {
+.code-highlight pre code {
   @apply float-left min-w-full;
 }
 
 /* === Scrollbar */
-.gatsby-highlight pre code::-webkit-scrollbar {
+.code-highlight pre code::-webkit-scrollbar {
   @apply h-2.5;
 }
-.gatsby-highlight pre code::-webkit-scrollbar-thumb {
+.code-highlight pre code::-webkit-scrollbar-thumb {
   @apply bg-gray-400;
 }
-.gatsby-highlight pre code::-webkit-scrollbar-track {
+.code-highlight pre code::-webkit-scrollbar-track {
   @apply bg-gray-700;
 }
 
 /* === Inline Code */
 :not(pre) > code {
-  @apply bg-inline-code rounded-md px-2 py-0.5 text-black dark:text-gray-100;
+  @apply rounded-md bg-inline-code px-2 py-0.5 text-black dark:text-gray-100;
   white-space: pre;
   word-break: normal;
   word-wrap: normal;
@@ -54,17 +54,6 @@
   @apply relative inline-block w-12 text-center;
   @apply select-none;
   opacity: 0.3;
-}
-
-/* === CodeCopyButton Button */
-pre .code-copy-button {
-  @apply absolute right-0 top-0 px-2 py-1;
-  @apply transition hover:bg-blue-500 hover:text-white;
-  border-bottom-left-radius: 5px;
-}
-
-pre .code-copy-button:disabled {
-  @apply cursor-not-allowed text-gray-400 hover:bg-transparent;
 }
 
 /* === Code Title */
@@ -83,45 +72,45 @@ pre .code-copy-button:disabled {
   --sass-color: #cd6799;
 }
 
-.gatsby-highlight pre[class*='language-']:before {
+.code-highlight pre[class*='language-']:before {
   @apply absolute left-4 top-0;
   @apply rounded-b-md px-2 py-1;
   @apply text-left text-sm uppercase tracking-wide;
   @apply bg-gray-300 text-black;
 }
 
-.gatsby-highlight pre[class~='language-js']:before,
-.gatsby-highlight pre[class~='language-javascript']:before {
+.code-highlight pre[class~='language-js']:before,
+.code-highlight pre[class~='language-javascript']:before {
   content: 'js';
   background: var(--js-color);
   color: black;
 }
 
-.gatsby-highlight pre[class~='language-typescript']:before {
+.code-highlight pre[class~='language-typescript']:before {
   content: 'ts';
   background: var(--ts-color);
   color: white;
 }
 
-.gatsby-highlight pre[class~='language-jsx']:before {
+.code-highlight pre[class~='language-jsx']:before {
   content: 'jsx';
   background: var(--jsx-color);
   color: black;
 }
 
-.gatsby-highlight pre[class~='language-scss']:before,
-.gatsby-highlight pre[class~='language-sass']:before {
+.code-highlight pre[class~='language-scss']:before,
+.code-highlight pre[class~='language-sass']:before {
   content: 'sass';
   background: var(--sass-color);
   color: white;
 }
 
-.gatsby-highlight pre[class~='language-css']:before {
+.code-highlight pre[class~='language-css']:before {
   content: 'css';
   background: var(--css-color);
   color: white;
 }
 
-.gatsby-highlight pre[class~='language-text']:before {
+.code-highlight pre[class~='language-text']:before {
   content: 'text';
 }
