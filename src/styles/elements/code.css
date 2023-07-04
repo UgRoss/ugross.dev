@@ -1,5 +1,5 @@
 .prism-code {
-  @apply mb-5 mt-0 pb-5 pl-5 pr-5 pt-10;
+  @apply mb-5 mt-0 pb-5 pl-5 pr-5 pt-10 rounded-md;
   @apply min-w-full overflow-auto bg-transparent;
   -webkit-overflow-scrolling: touch;
 }

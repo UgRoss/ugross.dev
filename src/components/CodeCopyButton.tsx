@@ -26,7 +26,7 @@ export function CodeCopyButton({
 
   const className = cn(
     `absolute right-0 top-0`,
-    `text-slate-200 text-sm rounded-bl-md px-2 py-1`,
+    `text-slate-200 text-sm rounded-bl-md rounded-tr-md px-2 py-1`,
     `transition hover:bg-blue-500 hover:text-white`,
     `disabled:cursor-not-allowed disabled:text-gray-400 disabled:hover:bg-transparent`
   );
