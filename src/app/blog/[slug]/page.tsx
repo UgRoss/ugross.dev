@@ -25,9 +25,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <div className="mt-8">
         <ArticleMetaLine
           author={{ name: 'Rostyslav Ugryniuk', image: siteConfig.avatarUrl }}
-          date="Mar 16, 2023"
-          lastUpdateDate="Mar 16, 2023"
-          timeToRead={3}
+          date={post.date}
+          lastUpdateDate={post.lastUpdateDate}
         />
       </div>
       <div className="relative mt-8 h-36 w-full overflow-hidden rounded-lg sm:h-52 md:h-96">

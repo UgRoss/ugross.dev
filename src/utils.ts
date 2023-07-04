@@ -13,3 +13,18 @@ export function isExternalLink(href: string): boolean {
 export function supportsDarkMode(): boolean {
   return window && window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
+
+export function formatDateStringToShortDate(dateStr: string): string {
+  const date = new Date(dateStr);
+  const isInvalidDate = isNaN(date.getTime());
+
+  if (isInvalidDate) {
+    return '';
+  }
+
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+}

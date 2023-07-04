@@ -75,7 +75,10 @@ function transformNotionPageIntoBlogPost(page: any): Post {
     img: page.cover?.external?.url || null,
     tags: getTags(page.properties.Tags.multi_select),
     description: page.properties.Description.rich_text[0].plain_text,
-    date: getToday(page.properties.Date.last_edited_time),
+    date: page.properties.Date.date.start,
+    lastUpdateDate: page.properties.Updated?.date
+      ? getToday(page.properties.Updated.date.start)
+      : undefined,
     slug: page.properties.Slug.rich_text[0].plain_text,
   };
 }
