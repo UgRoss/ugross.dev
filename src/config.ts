@@ -31,7 +31,7 @@ export const siteConfig = {
   defaultTitle: `${INFO.name} | ${INFO.title}`,
 
   footer: {
-    copyright: `© ${new Date().getFullYear()} ${INFO.title}`,
+    copyright: `© ${new Date().getFullYear()} ${INFO.name}`,
     links: [
       { title: 'Colophon', href: '/colophon' },
       { title: 'Uses', href: '/uses' },
