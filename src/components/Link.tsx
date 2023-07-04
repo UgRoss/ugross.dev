@@ -19,6 +19,13 @@ const linkVariants = cva('font-medium inline-flex items-center transition-all du
       primary: 'text-primary hover:text-white',
     },
   },
+  compoundVariants: [
+    {
+      withUnderline: false,
+      textColor: 'default',
+      className: 'hover:text-primary dark:hover:text-primary',
+    },
+  ],
   defaultVariants: {
     withUnderline: true,
     textColor: 'default',
