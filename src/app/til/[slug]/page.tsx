@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
-import ReactMarkdown from 'react-markdown';
 import { Link } from '~/components/Link';
 import { ArrowLeft } from '~/components/PhosphorIcons';
+import { ReactMarkdown } from '~/components/ReactMarkdown';
 import { getTILBySlugFromNotion } from '~/services/tils';
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -10,8 +10,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <main className="container mt-16">
-      <div className="mb-4">
-        <Link href="/til" startIcon={ArrowLeft} withUnderline={false}>
+      <div className="mb-8">
+        <Link href="/til" startIcon={ArrowLeft} withUnderline={false} className="text-sm">
           All TILs
         </Link>
       </div>
@@ -20,7 +20,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </div>
       <div className="prose dark:prose-invert">
         <ReactMarkdown>{post.markdown}</ReactMarkdown>
-        {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}
       </div>
     </main>
   );

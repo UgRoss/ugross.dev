@@ -19,7 +19,8 @@ export const siteConfig = {
   jobTitle: INFO.title,
   shortBio: `${INFO.title} and CS student. Living and coding in Ukraine.`,
   email: 'contact@ugross.dev',
-  avatarUrl: '/emoji-avatar.png',
+  avatarUrl: '/memoji-avatar.png',
+  defaultArticleImage: '/default-article-image.jpg',
 
   url: 'https://ugross.dev',
   twitter: '@ug_ross',
@@ -30,7 +31,7 @@ export const siteConfig = {
   defaultTitle: `${INFO.name} | ${INFO.title}`,
 
   footer: {
-    copyright: `© ${new Date().getFullYear()} ${INFO.title}`,
+    copyright: `© ${new Date().getFullYear()} ${INFO.name}`,
     links: [
       { title: 'Colophon', href: '/colophon' },
       { title: 'Uses', href: '/uses' },

@@ -4,6 +4,7 @@ export type Post = {
   tags: string[];
   description: string;
   date: string;
+  lastUpdateDate?: string;
   slug: string;
   img?: string | null;
 };

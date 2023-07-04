@@ -19,6 +19,13 @@ const linkVariants = cva('font-medium inline-flex items-center transition-all du
       primary: 'text-primary hover:text-white',
     },
   },
+  compoundVariants: [
+    {
+      withUnderline: false,
+      textColor: 'default',
+      className: 'hover:text-primary dark:hover:text-primary',
+    },
+  ],
   defaultVariants: {
     withUnderline: true,
     textColor: 'default',
@@ -54,7 +61,7 @@ export function Link({
   const linkClassName = cn(linkVariants({ withUnderline, textColor, className }));
   const content = (
     <>
-    {StartIcon && <StartIcon className={cn('ml-1', iconClassName)} weight="bold" />}
+      {StartIcon && <StartIcon className={cn('mr-1', iconClassName)} weight="bold" />}
       {children}
       {EndIcon && <EndIcon className={cn('ml-1', iconClassName)} weight="bold" />}
     </>

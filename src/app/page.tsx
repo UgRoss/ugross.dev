@@ -20,7 +20,7 @@ export default async function Home() {
   return (
     <main className="container mt-16 flex flex-col gap-16">
       <section>
-        <Avatar large className="mb-6" src="/memoji-avatar.png" alt="My Avatar" />
+        <Avatar className="mb-6" src="/memoji-avatar.png" alt="My Avatar" size="lg" />
         <div className="prose prose-page dark:prose-invert">
           <h1>{`Hi, I'm Rostyslav Ugryniuk`}</h1>
           <p>
