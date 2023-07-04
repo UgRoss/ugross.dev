@@ -1,6 +1,7 @@
 import { cache } from 'react';
 import { notion, getToday, fetchPageBlocks, PageObjectResponse, n2m } from '~/notion';
 import { Post, PostWithContent } from '~/types/Post';
+import { siteConfig } from '~/config';
 
 export const getAllPostsFromNotion = cache(async () => {
   const notionPostsDB = await notion.databases.query({
@@ -72,7 +73,7 @@ function transformNotionPageIntoBlogPost(page: any): Post {
   return {
     id: page.id,
     title: page.properties.Name.title[0].plain_text,
-    img: page.cover?.external?.url || null,
+    img: page.cover?.external?.url || siteConfig.defaultArticleImage,
     tags: getTags(page.properties.Tags.multi_select),
     description: page.properties.Description.rich_text[0].plain_text,
     date: page.properties.Date.date.start,

@@ -19,7 +19,8 @@ export const siteConfig = {
   jobTitle: INFO.title,
   shortBio: `${INFO.title} and CS student. Living and coding in Ukraine.`,
   email: 'contact@ugross.dev',
-  avatarUrl: '/emoji-avatar.png',
+  avatarUrl: '/memoji-avatar.png',
+  defaultArticleImage: '/default-article-image.jpg',
 
   url: 'https://ugross.dev',
   twitter: '@ug_ross',
