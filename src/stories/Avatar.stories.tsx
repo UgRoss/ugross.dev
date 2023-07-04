@@ -19,8 +19,8 @@ const meta: Meta<typeof Avatar> = {
     alt: {
       control: { type: 'text' },
     },
-    large: {
-      control: { type: 'boolean' },
+    size: {
+      control: { type: 'select', options: ['sm', 'md', 'lg'] },
     },
   },
 };
@@ -32,6 +32,7 @@ export const Default: Story = {
   args: {
     src: '/me.webp',
     alt: 'Me',
+    size: 'md',
   },
 };
 
@@ -39,6 +40,6 @@ export const Large: Story = {
   args: {
     alt: 'Me',
     src: '/me.webp',
-    large: true,
+    size: 'lg',
   },
 };
