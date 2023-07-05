@@ -1,0 +1,13 @@
+.callout {
+  @apply flex items-start gap-4;
+  @apply rounded-lg bg-callout p-4;
+  @apply border border-dashed border-gray-300 dark:border-gray-600;
+}
+
+.callout__icon {
+  @apply text-xl;
+}
+
+.callout__content > p:first-child {
+  @apply my-0;
+}

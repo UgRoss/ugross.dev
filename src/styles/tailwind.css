@@ -16,6 +16,8 @@
   --color-popover-background: 0 0% 100%;
   --color-popover-foreground: 222.2 47.4% 11.2%;
 
+  --color-callout-background: 210, 48%, 97%;
+
   --color-primary: 207 66% 45%;
 
   --color-accent: 210 40% 96.1%;
@@ -38,6 +40,8 @@
 
   --color-popover-background: 224 71% 4%;
   --color-popover-foreground: 220 15% 70%;
+
+  --color-callout-background: 240, 5%, 16%;
 
   --color-primary: 42 100% 64%;
 

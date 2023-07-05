@@ -1,6 +1,7 @@
 @import './tailwind.css';
 @import './elements/code.css';
 @import './elements/animated-list.css';
+@import './elements/callout.css';
 
 * {
   box-sizing: border-box;
