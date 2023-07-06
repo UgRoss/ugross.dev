@@ -14,7 +14,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <main className="container mt-16">
       <div className="mb-8">
-        <Link href="/til" startIcon={ArrowLeft} withUnderline={false} className="text-sm">
+        <Link href="/blog" startIcon={ArrowLeft} withUnderline={false} className="text-sm">
           All articles
         </Link>
       </div>
