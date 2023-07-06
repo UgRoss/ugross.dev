@@ -56,7 +56,6 @@ export const Code: React.FC<CodeProps> = ({
 
   return (
     <Highlight
-      // {...defaultProps}
       code={codeString}
       language={language as Language}
       theme={themes.oceanicNext}

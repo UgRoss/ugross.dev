@@ -10,7 +10,6 @@ import { siteConfig } from '~/config';
 export default async function Page({ params }: { params: { slug: string } }) {
   const post = await getPostBySlugFromNotion(params.slug);
   if (!post) notFound();
-  console.log(post.date, post.lastUpdateDate);
 
   return (
     <main className="container mt-16">

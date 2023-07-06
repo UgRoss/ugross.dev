@@ -17,6 +17,41 @@ export const notion = new Client({
 
 export const n2m = new NotionToMarkdown({ notionClient: notion });
 
+n2m.setCustomTransformer('callout', async (block) => {
+  const { has_children, callout } = block as any;
+  const emoji = callout?.icon?.emoji || '💡';
+
+  if (has_children) {
+    // TODO: change to just return false once notion-to-md typings are fixed
+    const returnValue: unknown = false;
+    return returnValue as string;
+  }
+
+  const mdContent = await n2m.blockToMarkdown({
+    ...callout,
+    type: 'paragraph',
+    paragraph: {
+      rich_text: callout?.rich_text,
+      color: 'default',
+    },
+  });
+
+  /**
+   * NOTE: do not change indentation/spacing as it might break
+   * the whole markdown rendering 🤷‍♂️
+   */
+  return `<div className="callout">
+  <div className="callout__icon">
+      ${emoji}
+    </div>
+  <div className="callout__content">
+
+${mdContent}
+
+  </div>
+</div>`;
+});
+
 function getTextValue(property: any): string | undefined {
   return property?.rich_text?.[0]?.plain_text ?? undefined;
 }

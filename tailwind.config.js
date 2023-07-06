@@ -26,6 +26,9 @@ module.exports = {
         primary: {
           DEFAULT: 'hsl(var(--color-primary))',
         },
+        callout: {
+          DEFAULT: 'hsl(var(--color-callout-background))',
+        },
         accent: {
           DEFAULT: 'hsl(var(--color-accent))',
           foreground: 'hsl(var(--color-accent-foreground))',
