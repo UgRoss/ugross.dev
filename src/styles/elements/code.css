@@ -1,5 +1,5 @@
 .prism-code {
-  @apply mb-5 mt-0 pb-5 pl-5 pr-5 pt-10 rounded-md;
+  @apply mb-5 mt-0 rounded-md pb-5 pl-5 pr-5 pt-10;
   @apply min-w-full overflow-auto bg-transparent;
   -webkit-overflow-scrolling: touch;
 }
@@ -43,7 +43,8 @@
 
 /* === Inline Code */
 :not(pre) > code {
-  @apply rounded-md bg-inline-code px-2 py-0.5 text-black dark:text-gray-100;
+  @apply rounded-md px-2 py-0.5 text-black dark:text-gray-100;
+  @apply border border-gray-300 bg-inline-code;
   white-space: pre;
   word-break: normal;
   word-wrap: normal;
