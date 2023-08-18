@@ -22,9 +22,7 @@ n2m.setCustomTransformer('callout', async (block) => {
   const emoji = callout?.icon?.emoji || '💡';
 
   if (has_children) {
-    // TODO: change to just return false once notion-to-md typings are fixed
-    const returnValue: unknown = false;
-    return returnValue as string;
+    return false;
   }
 
   const mdContent = await n2m.blockToMarkdown({
