@@ -1,3 +1,5 @@
+const currentYear = new Date().getFullYear();
+
 export const INFO = {
   name: 'Rostyslav Ugryniuk',
   title: 'Software Developer',
@@ -31,7 +33,7 @@ export const siteConfig = {
   defaultTitle: `${INFO.name} | ${INFO.title}`,
 
   footer: {
-    copyright: `© ${new Date().getFullYear()} ${INFO.name}`,
+    copyright: `© ${currentYear} ${INFO.name}`,
     links: [
       { title: 'Colophon', href: '/colophon' },
       { title: 'Uses', href: '/uses' },
@@ -39,7 +41,7 @@ export const siteConfig = {
       { title: 'RSS', href: '/rss.xml' },
     ],
   },
-  footerText: `© Copyright ${new Date().getFullYear()} ${INFO.title}`,
+  footerText: `© Copyright ${currentYear} ${INFO.title}`,
   codeBlocks: {
     showLineNumbers: true,
     showCopyButton: true,
@@ -52,5 +54,9 @@ export const messages = {
     description: `A collection of concise write-ups on small things I learn day to day across a variety of
     languages and technologies. These are things that don't really warrant a full blog post.`,
     emptySearch: 'No results found',
+  },
+  uses: {
+    title: 'Uses',
+    description: `All of the gear and software I use daily as of ${currentYear}`,
   },
 };
