@@ -16,6 +16,20 @@ const SOCIAL_LINKS = {
   twitter: 'https://twitter.com/ug_ross',
 };
 
+export const HEADER_ITEMS = [
+  { name: 'Home', href: '/' },
+  { name: 'Articles', href: '/blog' },
+  { name: 'Uses', href: '/uses' },
+  {
+    name: 'More',
+    items: [
+      { name: 'Today I Learned', href: '/til' },
+      { name: 'Books', href: '/books' },
+      { name: 'Bookmarks', href: '/bookmarks' },
+    ],
+  },
+];
+
 export const siteConfig = {
   name: INFO.name,
   jobTitle: INFO.title,
