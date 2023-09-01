@@ -24,7 +24,7 @@ export function Header() {
       if (windowY > 50) {
         header.classList.add('is-hidden');
       } else {
-        header.classList.remove('is-hidden', 'can-animate');
+        header.classList.remove('is-hidden');
       }
 
       if (windowY < lastScroll) {
