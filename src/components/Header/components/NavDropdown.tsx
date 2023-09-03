@@ -1,9 +1,8 @@
 import { useMemo } from 'react';
+import { CaretDown, MoonStars, Sun } from '@phosphor-icons/react';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
-import Link from 'next/link';
-import { CaretDown, Sun, MoonStars } from '@phosphor-icons/react';
-import { cn } from '~/utils';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,10 +10,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '~/components/DropdownMenu';
+import { cn } from '~/utils';
+import { HeaderNavItemLink } from '../HeaderNavItem';
 import { ActiveNavItemHighlighter } from './ActiveNavItemHighlighter';
 
-export function NavDropdown({ items }: any) {
-  const { theme, setTheme } = useTheme();
+interface NavDropdownProps {
+  items: HeaderNavItemLink[];
+}
+
+export function NavDropdown({ items }: NavDropdownProps) {
+  const { setTheme, theme } = useTheme();
   const pathname = usePathname();
   const isLightTheme = theme === 'light';
   const ThemeIcon = isLightTheme ? MoonStars : Sun;
@@ -45,15 +50,15 @@ export function NavDropdown({ items }: any) {
         {hasActiveItem && <ActiveNavItemHighlighter className="right-1.5" />}
       </DropdownMenuTrigger>
       <DropdownMenuContent className="mt-2 w-56 rounded-lg p-2">
-        {items.map((item: any) => (
-          <DropdownMenuItem key={item.href} asChild>
+        {items.map((item) => (
+          <DropdownMenuItem asChild key={item.href}>
             <Link
-              href={item.href}
               className={cn('w-full cursor-pointer px-2 text-sm font-medium hover:text-primary', {
                 'text-primary': pathname === item.href,
               })}
+              href={item.href}
             >
-              {item.name}
+              {item.label}
             </Link>
           </DropdownMenuItem>
         ))}
