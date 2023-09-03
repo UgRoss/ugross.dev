@@ -1,10 +1,11 @@
 'use client';
-import { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import throttle from 'lodash.throttle';
-import { NavDropdown } from './components/NavDropdown';
-import { NavItem } from './components/NavItem';
 import { HEADER_ITEMS } from '~/config';
 import './Header.css';
+import { NavDropdown } from './components/NavDropdown';
+import { NavItem } from './components/NavItem';
+import { isHeaderNavItemDropdown } from './utils';
 
 export function Header() {
   const headerRef = useRef<HTMLElement>(null);
@@ -15,7 +16,7 @@ export function Header() {
     const validateHeader = () => {
       const windowY = window.scrollY;
       const header = headerRef.current;
-      const isHeaderExist = header !== null && header !== undefined;
+      const isHeaderExist = header !== null;
 
       if (!isHeaderExist) {
         return false;
@@ -36,7 +37,7 @@ export function Header() {
       lastScroll = windowY;
     };
 
-    window.addEventListener('scroll', throttle(validateHeader, 300));
+    window.addEventListener('scroll', throttle(validateHeader, 500));
   }, []);
 
   return (
@@ -44,11 +45,11 @@ export function Header() {
       <nav className="flex items-center rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
         <ul className="flex items-stretch">
           {HEADER_ITEMS.map((item) => (
-            <li key={item.name}>
-              {Array.isArray(item.items) ? (
+            <li key={item.label}>
+              {isHeaderNavItemDropdown(item) ? (
                 <NavDropdown items={item.items} />
               ) : (
-                <NavItem href={item.href || ''}>{item.name}</NavItem>
+                <NavItem href={item.href}>{item.label}</NavItem>
               )}
             </li>
           ))}
