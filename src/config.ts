@@ -1,3 +1,5 @@
+import { HeaderNavItem } from '~/components/Header/HeaderNavItem.d';
+
 const currentYear = new Date().getFullYear();
 
 export const INFO = {
@@ -6,8 +8,8 @@ export const INFO = {
 };
 
 export const DEFAULT_META = {
-  title: `${INFO.name} | ${INFO.title}`,
   description: `${INFO.title} and CS student. Living and coding in Ukraine.`,
+  title: `${INFO.name} | ${INFO.title}`,
 };
 
 const SOCIAL_LINKS = {
@@ -16,61 +18,61 @@ const SOCIAL_LINKS = {
   twitter: 'https://twitter.com/ug_ross',
 };
 
-export const HEADER_ITEMS = [
-  { name: 'Home', href: '/' },
-  { name: 'Articles', href: '/blog' },
-  { name: 'Uses', href: '/uses' },
+export const HEADER_ITEMS: HeaderNavItem[] = [
+  { href: '/', label: 'Home' },
+  { href: '/blog', label: 'Articles' },
+  { href: '/uses', label: 'Uses' },
   {
-    name: 'More',
     items: [
-      { name: 'Today I Learned', href: '/til' },
-      { name: 'Books', href: '/books' },
-      { name: 'Bookmarks', href: '/bookmarks' },
+      { href: '/til', label: 'Today I Learned' },
+      { href: '/books', label: 'Books' },
+      { href: '/bookmarks', label: 'Bookmarks' },
     ],
+    label: 'More',
   },
 ];
 
 export const siteConfig = {
-  name: INFO.name,
-  jobTitle: INFO.title,
-  shortBio: `${INFO.title} and CS student. Living and coding in Ukraine.`,
-  email: 'contact@ugross.dev',
   avatarUrl: '/memoji-avatar.png',
+  codeBlocks: {
+    showCopyButton: true,
+    showLineNumbers: true,
+  },
   defaultArticleImage: '/default-article-image.jpg',
-
-  url: 'https://ugross.dev',
-  twitter: '@ug_ross',
-  github: SOCIAL_LINKS.github,
-  rss: '/rss.xml',
-  language: 'en',
   defaultDescription: `${INFO.title} and CS student. Living and coding in Ukraine.`,
   defaultTitle: `${INFO.name} | ${INFO.title}`,
+  email: 'contact@ugross.dev',
 
   footer: {
     copyright: `© ${currentYear} ${INFO.name}`,
     links: [
-      { title: 'Colophon', href: '/colophon' },
-      { title: 'Uses', href: '/uses' },
-      { title: 'Github', href: SOCIAL_LINKS.github },
-      { title: 'RSS', href: '/rss.xml' },
+      { href: '/colophon', title: 'Colophon' },
+      { href: '/uses', title: 'Uses' },
+      { href: SOCIAL_LINKS.github, title: 'Github' },
+      { href: '/rss.xml', title: 'RSS' },
     ],
   },
   footerText: `© Copyright ${currentYear} ${INFO.title}`,
-  codeBlocks: {
-    showLineNumbers: true,
-    showCopyButton: true,
-  },
+  github: SOCIAL_LINKS.github,
+  jobTitle: INFO.title,
+  language: 'en',
+  name: INFO.name,
+  rss: '/rss.xml',
+
+  shortBio: `${INFO.title} and CS student. Living and coding in Ukraine.`,
+  twitter: '@ug_ross',
+  url: 'https://ugross.dev',
 };
 
 export const messages = {
   til: {
-    title: 'Today I Learned',
     description: `A collection of concise write-ups on small things I learn day to day across a variety of
     languages and technologies. These are things that don't really warrant a full blog post.`,
     emptySearch: 'No results found',
+    title: 'Today I Learned',
   },
   uses: {
-    title: 'Uses',
     description: `All of the gear and software I use daily as of ${currentYear}`,
+    title: 'Uses',
   },
 };
