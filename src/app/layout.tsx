@@ -1,23 +1,23 @@
-import '../styles/index.css';
 import { ReactNode } from 'react';
 import { Inter } from 'next/font/google';
-import { Header } from '~/components/Header';
 import { Footer } from '~/components/Footer';
+import { Header } from '~/components/Header';
+import { DEFAULT_META, siteConfig } from '~/config';
+import '../styles/index.css';
 import Providers from './Providers';
-import { siteConfig, DEFAULT_META } from '~/config';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: DEFAULT_META.title,
   description: DEFAULT_META.description,
+  title: DEFAULT_META.title,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const { language, footer } = siteConfig;
+  const { footer, language } = siteConfig;
 
   return (
-    <html lang={language} className={inter.className}>
+    <html className={inter.className} lang={language}>
       <body>
         <Providers>
           <Header />

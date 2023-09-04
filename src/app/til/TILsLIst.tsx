@@ -1,9 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { matchSorter } from 'match-sorter';
-import { TILPreviewItem } from '~/components/TILPreviewItem';
 import { Input } from '~/components/Input';
 import { MagnifyingGlass } from '~/components/PhosphorIcons';
+import { TILPreviewItem } from '~/components/TILPreviewItem';
 
 export default function TILsList({ allTILs, emptyMessage }: any) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -30,22 +30,22 @@ export default function TILsList({ allTILs, emptyMessage }: any) {
     <div>
       <div>
         <Input
-          id="search"
-          type="text"
-          label="Search..."
-          placeholder="Search"
           beforeIcon={MagnifyingGlass}
+          id="search"
+          label="Search..."
           onChange={handleSearchInputChange}
-          showClearButton={!!searchTerm}
           onClearButtonClick={handleClearButtonClick}
+          placeholder="Search"
+          showClearButton={!!searchTerm}
+          type="text"
           value={searchTerm}
         />
       </div>
       <div className="mt-10 flex flex-col gap-5">
         <ul className="animated-list">
           {isSearchResultEmpty && <p className="text-center text-muted">{emptyMessage}</p>}
-          {filteredTILs.map(({ slug, title, tags }: any) => (
-            <TILPreviewItem key={slug} title={title} tags={tags} href={`/til/${slug}`} />
+          {filteredTILs.map(({ slug, tags, title }: any) => (
+            <TILPreviewItem href={`/til/${slug}`} key={slug} tags={tags} title={title} />
           ))}
         </ul>
       </div>
