@@ -1,6 +1,7 @@
 import { cache } from 'react';
-import { notion, getToday, fetchPageBlocks, PageObjectResponse, n2m } from '~/notion';
-import { TIL, TILWithContent } from '~/types/TIL';
+import type { PageObjectResponse } from '~/notion';
+import type { TIL, TILWithContent } from '~/types/TIL';
+import { fetchPageBlocks, getToday, n2m, notion } from '~/notion';
 
 export const getAllTILsFromNotion = cache(async () => {
   return notion.databases
@@ -21,7 +22,7 @@ export const getRecentTILsFromNotion = cache(async (numberOfItems: number) => {
     .query({
       database_id: process.env.NOTION_TIL_DATABASE_ID!,
       page_size: numberOfItems,
-      sorts: [{ property: 'Date', direction: 'ascending' }],
+      sorts: [{ direction: 'ascending', property: 'Date' }],
     })
     .then((res) => res.results.map((page) => transformNotionPageIntoTIL(page)));
 });
@@ -68,11 +69,11 @@ function transformNotionPageIntoTIL(page: any): TIL {
   };
 
   return {
-    id: page.id,
-    title: page.properties.Name.title[0].plain_text,
-    tags: getTags(page.properties.Tags.multi_select),
-    description: page.properties.Description.rich_text[0].plain_text,
     date: getToday(page.properties.Date.last_edited_time),
+    description: page.properties.Description.rich_text[0].plain_text,
+    id: page.id,
     slug: page.properties.Slug.rich_text[0].plain_text,
+    tags: getTags(page.properties.Tags.multi_select),
+    title: page.properties.Name.title[0].plain_text,
   };
 }
