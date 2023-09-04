@@ -1,4 +1,4 @@
-import { HeaderNavItem } from '~/components/Header/HeaderNavItem.d';
+import type { HeaderNavItem } from '~/components/Header/HeaderNavItem';
 
 const currentYear = new Date().getFullYear();
 
