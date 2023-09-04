@@ -3,19 +3,19 @@ import Link from 'next/link';
 import { Badge } from './Badge';
 
 interface ArticleCardProps {
-  imageSrc: string;
-  url: string;
-  title: string;
   description: string;
-  tags?: { title: string; href: string }[];
+  imageSrc: string;
+  tags?: { href: string; title: string }[];
+  title: string;
+  url: string;
 }
 
 export const ArticleCard = ({
-  imageSrc,
-  url,
-  title,
   description,
+  imageSrc,
   tags,
+  title,
+  url,
 }: ArticleCardProps): JSX.Element => {
   const hasTags = Array.isArray(tags) && tags.length > 0;
 
@@ -23,7 +23,7 @@ export const ArticleCard = ({
     <div className="relative flex cursor-pointer items-stretch rounded-lg border bg-card shadow-sm transition hover:scale-[1.01]">
       {imageSrc && (
         <div className="relative hidden w-40 flex-shrink-0 sm:flex">
-          <Image src={imageSrc} alt={title} className=" rounded-l-lg object-cover" fill />
+          <Image alt={title} className=" rounded-l-lg object-cover" fill src={imageSrc} />
         </div>
       )}
       <div className="p-4">
@@ -36,14 +36,14 @@ export const ArticleCard = ({
         </div>
         {hasTags && (
           <div className="mt-3">
-            {tags.map(({ title, href }) => (
+            {tags.map(({ href, title }) => (
               <Badge
-                key={title}
-                className="relative z-20"
-                variant="secondary"
-                clickable
                 as={Link}
+                className="relative z-20"
+                clickable
                 href={href}
+                key={title}
+                variant="secondary"
               >
                 {title}
               </Badge>

@@ -33,19 +33,19 @@ export function CodeCopyButton({
 
   return (
     <button
-      type="button"
-      name={label}
-      disabled={copied}
-      className={className}
       onClick={async () => {
         await copyToClipboard(trim ? content.trim() : content);
         setCopied(true);
         await wait(duration);
         setCopied(false);
       }}
+      className={className}
+      disabled={copied}
+      name={label}
+      type="button"
     >
       {copied ? `Copied` : `Copy`}
-      <span className="sr-only" aria-roledescription="status">
+      <span aria-roledescription="status" className="sr-only">
         {label}
       </span>
     </button>

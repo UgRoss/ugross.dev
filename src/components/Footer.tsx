@@ -1,16 +1,15 @@
-import { cn } from '~/utils';
 import { Link } from '~/components/Link';
+import { cn } from '~/utils';
 
 interface FooterProps {
   copyright?: string;
   links?: {
-    title: string;
     href: string;
+    title: string;
   }[];
 }
 
-export function Footer({ links = [], copyright = '© All rights reserved' }: FooterProps) {
-  const currentYear = new Date().getFullYear();
+export function Footer({ copyright = '© All rights reserved', links = [] }: FooterProps) {
   const hasLinks = links.length > 0;
 
   const footerWrapperClassName = cn(
@@ -30,8 +29,8 @@ export function Footer({ links = [], copyright = '© All rights reserved' }: Foo
         <p>{copyright}</p>
         {hasLinks && (
           <div className="inline-flex items-center gap-2">
-            {links.map(({ title, href }) => (
-              <Link href="#" className={linksClassName} key={href}>
+            {links.map(({ href, title }) => (
+              <Link className={linksClassName} href="#" key={href}>
                 {title}
               </Link>
             ))}
