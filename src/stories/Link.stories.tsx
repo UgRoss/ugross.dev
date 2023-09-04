@@ -3,14 +3,14 @@ import { Link } from '~/components/Link';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Link> = {
-  title: 'Components/Link',
-  component: Link,
-  tags: [],
   argTypes: {
     href: {
       control: { type: 'text' },
     },
   },
+  component: Link,
+  tags: [],
+  title: 'Components/Link',
 };
 
 export default meta;
@@ -18,6 +18,10 @@ type Story = StoryObj<typeof Link>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Default: Story = {
+  args: {
+    children: 'Simply dummy text',
+    href: '#',
+  },
   render: (args) => {
     return (
       <article className="prose dark:prose-invert">
@@ -29,13 +33,14 @@ export const Default: Story = {
       </article>
     );
   },
-  args: {
-    href: '#',
-    children: 'Simply dummy text',
-  },
 };
 
 export const ExternalLink: Story = {
+  args: {
+    children: 'External link',
+    href: 'https://google.com',
+    target: '_blank',
+  },
   render: (args) => {
     return (
       <article className="prose dark:prose-invert">
@@ -46,10 +51,5 @@ export const ExternalLink: Story = {
         </p>
       </article>
     );
-  },
-  args: {
-    href: 'https://google.com',
-    target: '_blank',
-    children: 'External link',
   },
 };
