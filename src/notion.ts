@@ -1,14 +1,13 @@
-import 'server-only';
-
-import { Client } from '@notionhq/client';
 import React from 'react';
-import { NotionToMarkdown } from 'notion-to-md';
+import { Client } from '@notionhq/client';
 import { BlockObjectResponse, PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
+import { NotionToMarkdown } from 'notion-to-md';
+import 'server-only';
 
 export type {
   BlockObjectResponse,
-  PageObjectResponse,
   GetPageResponse,
+  PageObjectResponse,
 } from '@notionhq/client/build/src/api-endpoints';
 
 export const notion = new Client({
@@ -18,7 +17,7 @@ export const notion = new Client({
 export const n2m = new NotionToMarkdown({ notionClient: notion });
 
 n2m.setCustomTransformer('callout', async (block) => {
-  const { has_children, callout } = block as any;
+  const { callout, has_children } = block as any;
   const emoji = callout?.icon?.emoji || '💡';
 
   if (has_children) {
@@ -27,11 +26,11 @@ n2m.setCustomTransformer('callout', async (block) => {
 
   const mdContent = await n2m.blockToMarkdown({
     ...callout,
-    type: 'paragraph',
     paragraph: {
-      rich_text: callout?.rich_text,
       color: 'default',
+      rich_text: callout?.rich_text,
     },
+    type: 'paragraph',
   });
 
   /**
