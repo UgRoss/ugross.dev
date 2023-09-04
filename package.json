@@ -13,7 +13,7 @@
     "copy-images": "node ./scripts/copyContentImagesToPublicFolder.mjs"
   },
   "lint-staged": {
-    "*.+(js|ts|tsx|css)": [
+    "*.+(js|ts|tsx)": [
       "prettier --list-different",
       "eslint"
     ]
