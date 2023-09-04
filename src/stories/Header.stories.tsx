@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Header } from '~/components/Header';
 
 const meta: Meta<typeof Header> = {
-  title: 'Components/Header',
   component: Header,
   decorators: [
     (Story) => (
@@ -42,10 +41,11 @@ const meta: Meta<typeof Header> = {
       </div>
     ),
   ],
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },
+  tags: ['autodocs'],
+  title: 'Components/Header',
 };
 
 export default meta;

@@ -3,7 +3,7 @@ import { ArrowLeft } from '~/components/PhosphorIcons';
 
 export default async function LoadingPage() {
   return (
-    <main role="status" className="container mt-16">
+    <main className="container mt-16" role="status">
       <div className="mb-4">
         <Link href="/til" startIcon={ArrowLeft} withUnderline={false}>
           All TILs

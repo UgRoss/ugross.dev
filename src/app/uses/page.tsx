@@ -1,11 +1,11 @@
 import { notFound } from 'next/navigation';
 import { ReactMarkdown } from '~/components/ReactMarkdown';
-import { getUsesPageContentFromNotion } from '~/services/uses';
 import { messages } from '~/config';
+import { getUsesPageContentFromNotion } from '~/services/uses';
 
 export default async function UsesPage() {
   const usesPage = await getUsesPageContentFromNotion();
-  const { title, description } = messages.uses;
+  const { description, title } = messages.uses;
 
   if (!usesPage) {
     notFound();

@@ -1,11 +1,11 @@
 import { messages } from '~/config';
-import TILsList from './TILsLIst';
 import { getAllTILsFromNotion } from '~/services/tils';
+import TILsList from './TILsLIst';
 
 export default async function TodayILearnedPage() {
   const allTILs = (await getAllTILsFromNotion()).map((page) => ({
     ...page,
-    tags: page.tags.map((tag) => ({ title: tag, href: `/tils/tag/${tag}` })),
+    tags: page.tags.map((tag) => ({ href: `/tils/tag/${tag}`, title: tag })),
   }));
 
   return (

@@ -16,7 +16,7 @@ export function ArticleMetaLine({ author, date, lastUpdateDate }: ArticleMetaLin
     <div className="flex flex-wrap items-center gap-2 text-sm text-muted">
       <div className="flex items-center gap-2">
         {author.image && (
-          <Avatar src={author.image} alt={author.name} className="h-6 w-6" size="sm" />
+          <Avatar alt={author.name} className="h-6 w-6" size="sm" src={author.image} />
         )}
         <span className="">
           Written by <b>{author.name}</b>

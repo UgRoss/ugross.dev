@@ -23,8 +23,8 @@ export function formatDateStringToShortDate(dateStr: string): string {
   }
 
   return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
     day: 'numeric',
+    month: 'short',
+    year: 'numeric',
   });
 }

@@ -3,15 +3,6 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../../
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof TooltipProvider> = {
-  title: 'Components/Tooltip',
-  component: TooltipProvider,
-  decorators: [
-    (Story) => (
-      <div className="container py-5">
-        <Story />
-      </div>
-    ),
-  ],
   argTypes: {
     delayDuration: {
       control: 'number',
@@ -20,12 +11,24 @@ const meta: Meta<typeof TooltipProvider> = {
       control: 'number',
     },
   },
+  component: TooltipProvider,
+  decorators: [
+    (Story) => (
+      <div className="container py-5">
+        <Story />
+      </div>
+    ),
+  ],
+  title: 'Components/Tooltip',
 };
 
 export default meta;
 type Story = StoryObj<typeof TooltipProvider>;
 
 export const Default: Story = {
+  args: {
+    delayDuration: 50,
+  },
   render: (args) => (
     <TooltipProvider {...args}>
       <Tooltip>
@@ -38,7 +41,4 @@ export const Default: Story = {
       </Tooltip>
     </TooltipProvider>
   ),
-  args: {
-    delayDuration: 50,
-  },
 };

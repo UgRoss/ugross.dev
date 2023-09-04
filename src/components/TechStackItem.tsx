@@ -2,23 +2,23 @@ import Image from 'next/image';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './Tooltip';
 
 interface TechStackItemProps {
-  title: string;
   description: string;
   imgUrl: string;
+  title: string;
 }
 
-export function TechStackItem({ title, description, imgUrl }: TechStackItemProps): JSX.Element {
+export function TechStackItem({ description, imgUrl, title }: TechStackItemProps) {
   return (
     <div>
       <TooltipProvider delayDuration={50}>
         <Tooltip>
           <TooltipTrigger>
             <Image
-              src={imgUrl}
               alt={title}
-              width={40}
-              height={40}
               className="rounded-full brightness-90 transition-all duration-500 hover:brightness-100"
+              height={40}
+              src={imgUrl}
+              width={40}
             />
           </TooltipTrigger>
           <TooltipContent>

@@ -1,7 +1,8 @@
 import { cache } from 'react';
-import { notion, getToday, fetchPageBlocks, PageObjectResponse, n2m } from '~/notion';
-import { Post, PostWithContent } from '~/types/Post';
+import type { PageObjectResponse } from '~/notion';
+import type { Post, PostWithContent } from '~/types/Post';
 import { siteConfig } from '~/config';
+import { fetchPageBlocks, getToday, n2m, notion } from '~/notion';
 
 export const getAllPostsFromNotion = cache(async () => {
   const notionPostsDB = await notion.databases.query({
@@ -24,7 +25,7 @@ export const getRecentPostsFromNotion = cache(async (numberOfItems: number) => {
     .query({
       database_id: process.env.NOTION_BLOG_DATABASE_ID!,
       page_size: numberOfItems,
-      sorts: [{ property: 'Date', direction: 'ascending' }],
+      sorts: [{ direction: 'ascending', property: 'Date' }],
     })
     .then((res) => res.results.map((page) => transformNotionPageIntoBlogPost(page)));
 });
@@ -71,15 +72,15 @@ function transformNotionPageIntoBlogPost(page: any): Post {
   };
 
   return {
-    id: page.id,
-    title: page.properties.Name.title[0].plain_text,
-    img: page.cover?.external?.url || siteConfig.defaultArticleImage,
-    tags: getTags(page.properties.Tags.multi_select),
-    description: page.properties.Description.rich_text[0].plain_text,
     date: page.properties.Date.date.start,
+    description: page.properties.Description.rich_text[0].plain_text,
+    id: page.id,
+    img: page.cover?.external?.url || siteConfig.defaultArticleImage,
     lastUpdateDate: page.properties.Updated?.date
       ? getToday(page.properties.Updated.date.start)
       : undefined,
     slug: page.properties.Slug.rich_text[0].plain_text,
+    tags: getTags(page.properties.Tags.multi_select),
+    title: page.properties.Name.title[0].plain_text,
   };
 }

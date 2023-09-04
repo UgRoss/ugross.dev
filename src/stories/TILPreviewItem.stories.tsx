@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TILPreviewItem } from '~/components/TILPreviewItem';
 
 const meta: Meta<typeof TILPreviewItem> = {
-  title: 'Components/TILPreviewItem',
+  argTypes: {},
   component: TILPreviewItem,
   decorators: [
     (Story) => (
@@ -13,11 +13,11 @@ const meta: Meta<typeof TILPreviewItem> = {
       </div>
     ),
   ],
-  tags: ['autodocs'],
   parameters: {
     docsOnly: true,
   },
-  argTypes: {},
+  tags: ['autodocs'],
+  title: 'Components/TILPreviewItem',
 };
 
 export default meta;
@@ -25,9 +25,9 @@ type Story = StoryObj<typeof TILPreviewItem>;
 
 export const Default: Story = {
   args: {
-    title: 'Fixed vs Growth Mindset',
-    tags: [{ title: 'Personal Growth', href: '#' }],
     href: '/til/fixed-vs-growth-mindset',
+    tags: [{ href: '#', title: 'Personal Growth' }],
+    title: 'Fixed vs Growth Mindset',
   },
 };
 
@@ -35,19 +35,19 @@ export const WithAnimatedList: Story = {
   render: () => (
     <ul className="animated-list">
       <TILPreviewItem
-        title="Fixed vs Growth Mindset"
-        tags={[{ title: 'Personal Growth', href: '#' }]}
         href="/til/fixed-vs-growth-mindset"
+        tags={[{ href: '#', title: 'Personal Growth' }]}
+        title="Fixed vs Growth Mindset"
       />
       <TILPreviewItem
-        title="The unknown type"
-        tags={[{ title: 'TypeScript', href: '#' }]}
         href="/til/the-unknown-type"
+        tags={[{ href: '#', title: 'TypeScript' }]}
+        title="The unknown type"
       />
       <TILPreviewItem
-        title="Maps & @each directive"
-        tags={[{ title: 'SASS', href: '#' }]}
         href="/til/maps-and-each-directive"
+        tags={[{ href: '#', title: 'SASS' }]}
+        title="Maps & @each directive"
       />
     </ul>
   ),

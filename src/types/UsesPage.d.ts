@@ -1,7 +1,7 @@
 export type UsesPageContent = {
-  id: string;
-  title: string;
-  lastEditedTime: string;
   createdTime: string;
+  id: string;
+  lastEditedTime: string;
   markdown: string;
+  title: string;
 };

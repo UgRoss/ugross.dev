@@ -1,25 +1,23 @@
 import ReactMarkdownRender from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 import rehypeExternalLinks from 'rehype-external-links';
-import rehypeRaw from 'rehype-raw'
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
+import type { Language } from '~/types/CodeBlock';
 import { Code } from './Code';
-import { Language } from '~/types/CodeBlock';
 
 export function ReactMarkdown({ children }: { children: string }) {
   return (
     <ReactMarkdownRender
-      remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeExternalLinks, rehypeRaw]}
       components={{
-        code: function codeBlock({ node, inline, className = '', children, ...props }) {
+        code: function codeBlock({ children, className = '', inline, node, ...props }) {
           const match = /language-(\w+)/.exec(className || '');
 
           return !inline && match ? (
             <Code
               {...props}
-              language={match[1] as Language}
               className={className}
               codeString={String(children).replace(/\n$/, '').trim()}
+              language={match[1] as Language}
             />
           ) : (
             <code {...props} className={className}>
@@ -28,6 +26,8 @@ export function ReactMarkdown({ children }: { children: string }) {
           );
         },
       }}
+      rehypePlugins={[rehypeExternalLinks, rehypeRaw]}
+      remarkPlugins={[remarkGfm]}
     >
       {children}
     </ReactMarkdownRender>

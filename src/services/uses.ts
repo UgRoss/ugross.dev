@@ -1,6 +1,7 @@
 import { cache } from 'react';
-import { n2m, notion, GetPageResponse } from '~/notion';
-import { UsesPageContent } from '~/types/UsesPage';
+import type { GetPageResponse } from '~/notion';
+import type { UsesPageContent } from '~/types/UsesPage';
+import { n2m, notion } from '~/notion';
 
 export const getUsesPageContentFromNotion = cache(async (): Promise<UsesPageContent | null> => {
   try {
@@ -15,12 +16,12 @@ export const getUsesPageContentFromNotion = cache(async (): Promise<UsesPageCont
       const mdString = n2m.toMarkdownString(mdBlocks);
 
       return {
+        createdTime: page.created_time,
         id: page.id,
+        lastEditedTime: page.last_edited_time,
+        markdown: mdString.parent,
         title:
           page.properties.title.type === 'title' ? page.properties?.title.title[0].plain_text : '',
-        lastEditedTime: page.last_edited_time,
-        createdTime: page.created_time,
-        markdown: mdString.parent,
       };
     } else {
       throw new Error('Uses page does not have properties. Check your Notion page.');

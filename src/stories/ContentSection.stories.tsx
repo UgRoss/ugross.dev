@@ -3,7 +3,10 @@ import { ContentSection } from '~/components/ContentSection';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof ContentSection> = {
-  title: 'Components/ContentSection',
+  argTypes: {
+    link: { control: 'text' },
+    title: { control: 'text' },
+  },
   component: ContentSection,
   decorators: [
     (Story) => (
@@ -13,10 +16,7 @@ const meta: Meta<typeof ContentSection> = {
     ),
   ],
   tags: ['autodocs'],
-  argTypes: {
-    title: { control: 'text' },
-    link: { control: 'text' },
-  },
+  title: 'Components/ContentSection',
 };
 
 export default meta;
@@ -25,8 +25,6 @@ type Story = StoryObj<typeof ContentSection>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Default: Story = {
   args: {
-    title: 'Content Section Title',
-    link: '#',
     children: (
       <>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
@@ -35,5 +33,7 @@ export const Default: Story = {
         centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
       </>
     ),
+    link: '#',
+    title: 'Content Section Title',
   },
 };
