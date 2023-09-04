@@ -1,12 +1,12 @@
 export type Post = {
-  id: string;
-  title: string;
-  tags: string[];
-  description: string;
   date: string;
+  description: string;
+  id: string;
+  img?: null | string;
   lastUpdateDate?: string;
   slug: string;
-  img?: string | null;
+  tags: string[];
+  title: string;
 };
 
 export type PostWithContent = Post & { blocks: any; markdown: string };
