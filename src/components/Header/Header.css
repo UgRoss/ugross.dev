@@ -1,0 +1,29 @@
+header.is-hidden {
+  animation: hideHeader 0.3s ease;
+  animation-fill-mode: forwards;
+}
+
+header.is-visible {
+  animation: showHeader 0.3s ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes hideHeader {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: -100px;
+  }
+}
+
+@keyframes showHeader {
+  0% {
+    top: -100px;
+  }
+
+  100% {
+    top: 0;
+  }
+}

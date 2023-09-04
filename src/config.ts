@@ -1,3 +1,5 @@
+import type { HeaderNavItem } from '~/components/Header/HeaderNavItem';
+
 const currentYear = new Date().getFullYear();
 
 export const INFO = {
@@ -15,6 +17,20 @@ const SOCIAL_LINKS = {
   linkedin: 'https://www.linkedin.com/in/rostyslav-ugryniuk-7b7466102/',
   twitter: 'https://twitter.com/ug_ross',
 };
+
+export const HEADER_ITEMS: HeaderNavItem[] = [
+  { href: '/', label: 'Home' },
+  { href: '/blog', label: 'Articles' },
+  { href: '/uses', label: 'Uses' },
+  {
+    items: [
+      { href: '/til', label: 'Today I Learned' },
+      { href: '/books', label: 'Books' },
+      { href: '/bookmarks', label: 'Bookmarks' },
+    ],
+    label: 'More',
+  },
+];
 
 export const siteConfig = {
   avatarUrl: '/memoji-avatar.png',
