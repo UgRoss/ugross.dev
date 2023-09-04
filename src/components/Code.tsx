@@ -1,17 +1,16 @@
 'use client';
 import React from 'react';
 import { Highlight, themes } from 'prism-react-renderer';
-
 import { siteConfig } from '~/config';
 import { Language } from '~/types/CodeBlock';
 import { CodeCopyButton } from './CodeCopyButton';
 
 type CodeProps = {
+  className: string;
   codeString: string;
   language: Language;
-  noLineNumbers?: boolean;
   metastring?: string;
-  className: string;
+  noLineNumbers?: boolean;
 };
 
 function getLangAndParams(className = ``): [string, { [key: string]: string }] {
@@ -44,23 +43,19 @@ const calculateLinesToHighlight = (meta: string) => {
 };
 
 export const Code: React.FC<CodeProps> = ({
-  codeString,
-  noLineNumbers = false,
   className: blockClassName,
+  codeString,
   metastring = ``,
+  noLineNumbers = false,
 }) => {
-  const { showLineNumbers, showCopyButton } = siteConfig.codeBlocks;
+  const { showCopyButton, showLineNumbers } = siteConfig.codeBlocks;
   const [language, { title = `` }] = getLangAndParams(blockClassName);
   const shouldHighlightLine = calculateLinesToHighlight(metastring);
   const hasLineNumbers = !noLineNumbers && language !== `noLineNumbers` && showLineNumbers;
 
   return (
-    <Highlight
-      code={codeString}
-      language={language as Language}
-      theme={themes.oceanicNext}
-    >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+    <Highlight code={codeString} language={language as Language} theme={themes.oceanicNext}>
+      {({ className, getLineProps, getTokenProps, style, tokens }) => (
         <React.Fragment>
           {title && (
             <div className="code-title">
@@ -68,11 +63,11 @@ export const Code: React.FC<CodeProps> = ({
             </div>
           )}
           <div className="code-highlight" data-language={language}>
-            <pre className={className} style={style} data-linenumber={true}>
+            <pre className={className} data-linenumber={true} style={style}>
               {showCopyButton && <CodeCopyButton content={codeString} fileName={title} />}
               <code className={`language-${language}`}>
                 {tokens.map((line, i) => {
-                  const lineProps = getLineProps({ line, key: i });
+                  const lineProps = getLineProps({ key: i, line });
 
                   if (shouldHighlightLine(i)) {
                     lineProps.className = `${lineProps.className} highlight-line`;
@@ -82,7 +77,7 @@ export const Code: React.FC<CodeProps> = ({
                     <div {...lineProps} key={`line-${i}`}>
                       {hasLineNumbers && <span className="line-number-style">{i + 1}</span>}
                       {line.map((token, key) => (
-                        <span {...getTokenProps({ token, key })} key={`token-${key}`} />
+                        <span {...getTokenProps({ key, token })} key={`token-${key}`} />
                       ))}
                     </div>
                   );

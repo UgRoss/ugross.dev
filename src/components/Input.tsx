@@ -1,33 +1,33 @@
-import { X, Icon } from '~/components/PhosphorIcons';
+import { Icon, X } from '~/components/PhosphorIcons';
 
 interface InputProps {
+  beforeIcon?: Icon;
   id: string;
   label: string;
-  placeholder: string;
-  type: string;
-  value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClearButtonClick?: () => void;
+  placeholder: string;
   required?: boolean;
   showClearButton?: boolean;
-  onClearButtonClick?: () => void;
-  beforeIcon?: Icon;
+  type: string;
+  value: string;
 }
 
 export function Input({
+  beforeIcon: BeforeIcon,
   id,
   label,
-  placeholder,
-  type,
-  value,
   onChange,
+  onClearButtonClick,
+  placeholder,
   required,
   showClearButton,
-  onClearButtonClick,
-  beforeIcon: BeforeIcon,
+  type,
+  value,
 }: InputProps) {
   return (
     <>
-      <label htmlFor={id} className="sr-only">
+      <label className="sr-only" htmlFor={id}>
         {label}
       </label>
       <div className="relative w-full">
@@ -37,19 +37,19 @@ export function Input({
           </div>
         )}
         <input
-          value={value}
-          onChange={onChange}
-          type={type}
-          id={id}
           className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 outline-0 focus:border-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500"
+          id={id}
+          onChange={onChange}
           placeholder={placeholder}
           required={required}
+          type={type}
+          value={value}
         />
         {showClearButton && (
           <button
-            type="button"
             className="absolute inset-y-0 right-0 flex cursor-pointer items-center pr-3"
             onClick={onClearButtonClick}
+            type="button"
           >
             <X
               className="h-4 w-4 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"

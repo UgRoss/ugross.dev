@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Badge } from '~/components/Badge';
 
 const meta: Meta<typeof Badge> = {
-  title: 'Components/Badge',
+  argTypes: {},
   component: Badge,
   decorators: [
     (Story) => (
@@ -12,7 +12,7 @@ const meta: Meta<typeof Badge> = {
     ),
   ],
   tags: ['autodocs'],
-  argTypes: {},
+  title: 'Components/Badge',
 };
 
 export default meta;
@@ -28,28 +28,28 @@ export const Variants: Story = {
   render: () => {
     return (
       <div className="flex flex-wrap gap-3">
-        <Badge variant="primary" clickable>
+        <Badge clickable variant="primary">
           Badge
         </Badge>
-        <Badge variant="secondary" clickable>
+        <Badge clickable variant="secondary">
           Badge
         </Badge>
-        <Badge variant="red" clickable>
+        <Badge clickable variant="red">
           Badge
         </Badge>
-        <Badge variant="green" clickable>
+        <Badge clickable variant="green">
           Badge
         </Badge>
-        <Badge variant="yellow" clickable>
+        <Badge clickable variant="yellow">
           Badge
         </Badge>
-        <Badge variant="indigo" clickable>
+        <Badge clickable variant="indigo">
           Badge
         </Badge>
-        <Badge variant="purple" clickable>
+        <Badge clickable variant="purple">
           Badge
         </Badge>
-        <Badge variant="pink" clickable>
+        <Badge clickable variant="pink">
           Badge
         </Badge>
       </div>

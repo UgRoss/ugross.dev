@@ -1,44 +1,44 @@
 'use client';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-import { useTheme } from 'next-themes';
 import { CaretDown, Sun } from '@phosphor-icons/react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useTheme } from 'next-themes';
+import { cn } from '~/utils';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
   DropdownMenuShortcut,
+  DropdownMenuTrigger,
 } from './DropdownMenu';
-import { cn } from '~/utils';
 
 const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Articles', href: '/blog' },
-  { name: 'Uses', href: '/uses' },
+  { href: '/', name: 'Home' },
+  { href: '/blog', name: 'Articles' },
+  { href: '/uses', name: 'Uses' },
   {
-    name: 'More',
     items: [
-      { name: 'Today I Learned', href: '/til' },
-      { name: 'Books', href: '/books' },
-      { name: 'Bookmarks', href: '/bookmarks' },
+      { href: '/til', name: 'Today I Learned' },
+      { href: '/books', name: 'Books' },
+      { href: '/bookmarks', name: 'Bookmarks' },
     ],
+    name: 'More',
   },
 ];
 
-function NavItem({ href, children }: any) {
+function NavItem({ children, href }: any) {
   const isActive = usePathname() === href;
 
   return (
     <li>
       <Link
-        href={href}
         className={cn(
           'relative block px-3 py-2 font-medium transition',
           isActive ? 'text-primary' : 'hover:text-primary'
         )}
+        href={href}
       >
         {children}
         {isActive && (
@@ -50,7 +50,7 @@ function NavItem({ href, children }: any) {
 }
 
 function NavDropdown({ items }: any) {
-  const { theme, setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
 
   const handleToggleThemeClick = () => {
     if (theme === 'light') {
@@ -69,8 +69,8 @@ function NavDropdown({ items }: any) {
         {items.map((item: any) => (
           <DropdownMenuItem className="p-0" key={item.href}>
             <Link
-              href={item.href}
               className="w-full cursor-pointer px-2 py-1.5 text-sm font-medium hover:text-primary"
+              href={item.href}
             >
               {item.name}
             </Link>
@@ -99,7 +99,7 @@ function DesktopNavigation(props: any) {
           Array.isArray(item.items) ? (
             <NavDropdown items={item.items} key={item.name} />
           ) : (
-            <NavItem key={item.name} href={item.href || ''}>
+            <NavItem href={item.href || ''} key={item.name}>
               {item.name}
             </NavItem>
           )

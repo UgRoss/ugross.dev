@@ -1,16 +1,16 @@
-import { getRecentPostsFromNotion } from '~/services/posts';
-import { getRecentTILsFromNotion } from '~/services/tils';
+import { ArticleCard } from '~/components/ArticleCard';
 import { Avatar } from '~/components/Avatar';
 import { ContentSection } from '~/components/ContentSection';
-import { ArticleCard } from '~/components/ArticleCard';
-import { TILPreviewItem } from '~/components/TILPreviewItem';
 import { Link } from '~/components/Link';
+import { TILPreviewItem } from '~/components/TILPreviewItem';
+import { getRecentPostsFromNotion } from '~/services/posts';
+import { getRecentTILsFromNotion } from '~/services/tils';
 
 const stack = [
-  { title: 'TypeScript', href: '#', description: 'Typed JavaScript' },
-  { title: 'React', href: '#', description: 'JavaScript UI Library' },
-  { title: 'Next.js', href: '#', description: 'Framework for React apps' },
-  { title: 'GraphQL', href: '#', description: 'Query language for APIs' },
+  { description: 'Typed JavaScript', href: '#', title: 'TypeScript' },
+  { description: 'JavaScript UI Library', href: '#', title: 'React' },
+  { description: 'Framework for React apps', href: '#', title: 'Next.js' },
+  { description: 'Query language for APIs', href: '#', title: 'GraphQL' },
 ];
 
 export default async function Home() {
@@ -20,7 +20,7 @@ export default async function Home() {
   return (
     <main className="container mt-16 flex flex-col gap-16">
       <section>
-        <Avatar className="mb-6" src="/memoji-avatar.png" alt="My Avatar" size="lg" />
+        <Avatar alt="My Avatar" className="mb-6" size="lg" src="/memoji-avatar.png" />
         <div className="prose prose-page dark:prose-invert">
           <h1>{`Hi, I'm Rostyslav Ugryniuk`}</h1>
           <p>
@@ -31,12 +31,12 @@ export default async function Home() {
           </p>
         </div>
       </section>
-      <ContentSection title="Stack" link="/uses">
+      <ContentSection link="/uses" title="Stack">
         <div className="prose prose-page dark:prose-invert">
           <ul>
-            {stack.map(({ title, description, href }) => (
+            {stack.map(({ description, href, title }) => (
               <li key={href}>
-                <Link href={href} className="m-0">
+                <Link className="m-0" href={href}>
                   {title}
                 </Link>{' '}
                 - {description}
@@ -46,25 +46,25 @@ export default async function Home() {
         </div>
       </ContentSection>
 
-      <ContentSection title="Recent Articles" link="/blog">
+      <ContentSection link="/blog" title="Recent Articles">
         {recentArticles.map((article) => (
           <ArticleCard
-            key={article.slug}
-            url={`/blog/${article.slug}`}
-            title={article.title}
             description={article.description}
             imageSrc={article.img || '/storybook/article-image-demo.avif'}
+            key={article.slug}
+            title={article.title}
+            url={`/blog/${article.slug}`}
           />
         ))}
       </ContentSection>
-      <ContentSection title="Today I Learned" link="/til">
+      <ContentSection link="/til" title="Today I Learned">
         <ul className="animated-list">
-          {recentTILs.map(({ slug, title, tags }) => (
+          {recentTILs.map(({ slug, tags, title }) => (
             <TILPreviewItem
-              key={slug}
-              title={title}
-              tags={tags.map((tag) => ({ title: tag, href: `/til/category/${tag}` }))}
               href={`/til/${slug}`}
+              key={slug}
+              tags={tags.map((tag) => ({ href: `/til/category/${tag}`, title: tag }))}
+              title={title}
             />
           ))}
         </ul>

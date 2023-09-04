@@ -1,13 +1,13 @@
-import { Badge } from './Badge';
 import Link from 'next/link';
+import { Badge } from './Badge';
 
 interface TILPreviewProps {
-  title: string;
-  tags?: { title: string; href: string }[];
   href: string;
+  tags?: { href: string; title: string }[];
+  title: string;
 }
 
-export function TILPreviewItem({ title, tags = [], href }: TILPreviewProps) {
+export function TILPreviewItem({ href, tags = [], title }: TILPreviewProps) {
   return (
     <li className="group relative py-2.5">
       <div className="transition-opacity">
@@ -15,12 +15,12 @@ export function TILPreviewItem({ title, tags = [], href }: TILPreviewProps) {
           <div className="text-secondary shrink-0 md:w-36">
             {tags.map((tag) => (
               <Badge
-                key={tag.href}
-                className="relative z-20"
-                variant="secondary"
-                clickable
                 as={Link}
+                className="relative z-20"
+                clickable
                 href={tag.href}
+                key={tag.href}
+                variant="secondary"
               >
                 {tag.title}
               </Badge>
