@@ -3,7 +3,7 @@ import { Rating } from './Rating';
 
 interface BookItemProps {
   author: string;
-  image: string;
+  image?: string;
   rating: number;
   title: string;
   url: string;

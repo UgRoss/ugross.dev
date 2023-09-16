@@ -1,7 +1,9 @@
-import { booksMock } from './booksMock';
+import { getAllBooksFromNotion } from '~/services/books';
 import { BookItem } from './components/BookItem';
 
-export default function BooksPage() {
+export default async function BooksPage() {
+  const books = await getAllBooksFromNotion();
+
   return (
     <main className="container mt-16">
       <div className="prose prose-page mb-12 text-center dark:prose-invert">
@@ -9,10 +11,10 @@ export default function BooksPage() {
         <p className="text-sm">My bookshelf</p>
       </div>
       <div className="grid grid-cols-2 gap-5">
-        {booksMock.map(({ author, image, rating, title, url }) => (
+        {books.map(({ author, img, rating, title, url }) => (
           <BookItem
             author={author}
-            image={image}
+            image={img}
             key={title}
             rating={rating}
             title={title}
