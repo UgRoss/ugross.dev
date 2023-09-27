@@ -20,11 +20,11 @@ export function BookItem({ author, image, rating, title, url }: BookItemProps) {
           <img alt="Book Preview" className=" w-full object-cover h-full" src={image} />
         </div>
       </div>
-      <div className="flex flex-col gap-1">
-        <p className="font-bold text-md line-clamp-3">{title}</p>
+      <div className="flex flex-col gap-2">
+        <p className="font-bold text-base line-clamp-3">{title}</p>
         <p className="text-muted text-sm line-clamp-1">{author}</p>
 
-        <Rating value={rating} />
+        <Rating className="mt-auto" value={rating} />
       </div>
     </LinkUnstyled>
   );
