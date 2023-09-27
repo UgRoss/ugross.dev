@@ -10,7 +10,7 @@ export default async function BooksPage() {
         <h2 className="mb-4 text-center text-5xl leading-[64px]">📚 Books</h2>
         <p className="text-sm">My bookshelf</p>
       </div>
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 gap-5">
         {books.map(({ author, img, rating, title, url }) => (
           <BookItem
             author={author}
