@@ -37,6 +37,8 @@ jobs:
           echo "NOTION_TOKEN=${{ vars.NOTION_TOKEN }}" >> .env
           echo "NOTION_TIL_DATABASE_ID=${{ vars.NOTION_TIL_DATABASE_ID }}" >> .env
           echo "NOTION_BLOG_DATABASE_ID=${{ vars.NOTION_BLOG_DATABASE_ID }}" >> .env
+          echo "NOTION_USES_PAGE_ID=${{ vars.NOTION_USES_PAGE_ID }}" >> .env
+          echo "NOTION_BOOKS_DATABASE_ID=${{ vars.NOTION_BOOKS_DATABASE_ID }}" >> .env
 
       - name: Build
         run: npm run build
