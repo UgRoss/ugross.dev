@@ -17,7 +17,7 @@ export function BookItem({ author, image, rating, title, url }: BookItemProps) {
     >
       <div className="w-20 flex-shrink-0">
         <div className="w-20 h-[120px] group-hover:-rotate-3 group-hover:scale-[1.05] transition duration-300 shadow-md border overflow-hidden">
-          <img alt="Book Preview" className=" w-full object-cover h-full" src={image} />
+          {image && <img alt="Book Preview" className=" w-full object-cover h-full" src={image} />}
         </div>
       </div>
       <div className="flex flex-col gap-2">

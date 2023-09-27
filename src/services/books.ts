@@ -23,7 +23,7 @@ function transformNotionPageIntoBookItem(page: any): Book {
   return {
     author: page.properties.Author.rich_text[0].plain_text,
     id: page.id,
-    img: page.properties.cover.files[0].file.url, // TODO: add default image
+    img: page.properties.cover.files[0].file.url,
     rating: page.properties.Rating.number,
     title: page.properties.Name.title[0].plain_text,
     url: page.properties.URL.url,
