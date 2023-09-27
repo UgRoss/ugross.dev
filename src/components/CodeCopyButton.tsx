@@ -33,15 +33,15 @@ export function CodeCopyButton({
 
   return (
     <button
+      className={className}
+      disabled={copied}
+      name={label}
       onClick={async () => {
         await copyToClipboard(trim ? content.trim() : content);
         setCopied(true);
         await wait(duration);
         setCopied(false);
       }}
-      className={className}
-      disabled={copied}
-      name={label}
       type="button"
     >
       {copied ? `Copied` : `Copy`}
