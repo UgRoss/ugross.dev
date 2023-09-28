@@ -1,3 +1,5 @@
+import type { ReactElement, ReactNode } from 'react';
+import { isValidElement } from 'react';
 import { ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -27,4 +29,8 @@ export function formatDateStringToShortDate(dateStr: string): string {
     month: 'short',
     year: 'numeric',
   });
+}
+
+export function isReactElement(element: ReactNode): element is ReactElement {
+  return isValidElement(element);
 }

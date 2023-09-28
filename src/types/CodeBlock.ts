@@ -27,6 +27,7 @@ export type Language =
   | 'scss'
   | 'sql'
   | 'stylus'
+  | 'text'
   | 'tsx'
   | 'typescript'
   | 'wasm'
