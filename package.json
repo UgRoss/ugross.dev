@@ -10,7 +10,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky install",
-    "copy-images": "node ./scripts/copyContentImagesToPublicFolder.mjs"
+    "copy-images": "node ./scripts/copyContentImagesToPublicFolder.mjs",
+    "copy-notion": "node -r dotenv/config ./scripts/copyNotionToContentFolder.mjs dotenv_config_path=.env.local"
   },
   "lint-staged": {
     "*.+(js|ts|tsx)": [
@@ -28,6 +29,8 @@
     "autoprefixer": "10.4.16",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "contentlayer": "^0.3.4",
+    "contentlayer-source-notion": "^0.0.1-alpha.26",
     "date-fns": "^2.30.0",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.3",
@@ -35,6 +38,7 @@
     "lodash.throttle": "^4.1.1",
     "match-sorter": "^6.3.1",
     "next": "13.5.3",
+    "next-contentlayer": "0.3.2",
     "next-themes": "^0.2.1",
     "notion-to-md": "^3.1.1",
     "postcss": "8.4.30",
@@ -71,12 +75,15 @@
     "@types/node": "20.7.0",
     "@types/react": "18.2.23",
     "@types/react-dom": "18.2.8",
+    "axios": "^1.5.1",
+    "chalk": "^5.3.0",
     "encoding": "^0.1.13",
     "eslint-plugin-perfectionist": "^2.1.0",
     "eslint-plugin-storybook": "^0.6.14",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "storybook": "^7.4.5",
-    "tsconfig-paths-webpack-plugin": "^4.1.0"
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
+    "yaml": "^2.3.2"
   }
 }
