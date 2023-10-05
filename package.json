@@ -87,7 +87,7 @@
     "gatsby-plugin-postcss": "^5.12.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.4.0",
-    "postcss": "^8.4.12",
+    "postcss": "^8.4.31",
     "postcss-scss": "^4.0.3",
     "prettier": "^2.6.2",
     "sass": "^1.50.1",
