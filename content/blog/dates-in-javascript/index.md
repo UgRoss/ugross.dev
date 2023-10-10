@@ -1,33 +1,31 @@
 ---
-title: 'Dates in JavaScript'
-date: '2019-03-12'
-description: ''
-image: ./code.png
-tags: ['javascript']
+date: 2019-03-12
+description: Working with dates in JS can be a complicated task. Personally, it
+  always has been my weak part, so I decided to write a post about dates…
+id: 0b11140c-99af-4692-a9cd-d655b094f521
+img: https://res.cloudinary.com/dbyawhwud/image/upload/v1688491965/personal-site/blog/dates-in-javascript/cover-image.jpg
+slug: dates-in-javascript
+tags:
+  - javascript
+title: Dates in JavaScript
+
 ---
-
-import { Alert, AlertTypes } from '../../../src/components/Alert';
-
-![Code](./code.png)
 
 Working with dates in JS can be a complicated task. Personally, it always has been my weak part, so I decided to write a post about dates.
 This article doesn't cover everything about dates in JavaScript, but it should give a good understanding of the available tools, and how to solve some common tasks.
 
+
 The first half of the article can be pretty boring, but we need to understand tooling we have. The next half of the article is focused more on solving different tasks that can appear when you work with dates in JavaScript.
+
 
 Now it's time to break the ice! 😀
 
-## Table of Contents
-
-```toc
-exclude: Table of Contents
-```
-
----
 
 ## Initialization
 
+
 There are 4 ways to create a `Date` object:
+
 
 ```javascript
 new Date(); // Now
@@ -36,17 +34,30 @@ new Date(milliseconds); // milliseconds since Jan 1, 1970, 00:00:00 UTC
 new Date('date string'); // date string to parse
 ```
 
-##### new Date()
+
+### new Date()
+
 
 The first way to create date is to use the `new Date()`, it simply creates a date object with the current date and time by default.
 
-<Alert type="info">
-  <p>Small tip: In some cases, it might be better to use `Date.now()` instead.</p>
-</Alert>
 
-##### new Date(year, month...)
+<div className="callout">
+  <div className="callout__icon">
+      💡
+    </div>
+  <div className="callout__content">
+
+Small tip: In some cases, it might be better to use `Date.now()` instead.
+
+  </div>
+</div>
+
+
+### new Date(year, month...)
+
 
 This approach allows us to create a concrete date by specifying values one by one.
+
 
 ```javascript
 new Date(2019, 3, 12, 22); // Fri Apr 12 2019 22:00:00 ....
@@ -54,32 +65,41 @@ new Date(2019, 2, 21); // Thu Mar 21 2019 00:00:00 ....
 new Date(2019, 2); // Fri Mar 01 2019 00:00:00...
 ```
 
+
 ℹ️ Things to know:
 
 - It's not required to pass all of the parameters, but it should be at least year and month, otherwise `new Date(2019)` will be created using milliseconds (`new Date(milliseconds)`)
 - Month count starts from 0 and ends at 11.
 
-##### new Date(milliseconds)
+### new Date(milliseconds)
+
 
 Internally, in JavaScript time is expressed in the number of milliseconds that have elapsed since **Jan 1, 1970, 00:00:00 UTC**.
+
 
 ```javascript
 new Date(0); // is the same as Jan 1, 1970, 00:00:00 UTC
 ```
 
+
 Any other value is just a difference of milliseconds starting from this date.
 
-You've probably heard about the <a href="https://en.wikipedia.org/wiki/Unix_time" rel="nofollow">UNIX timestamp</a>, it uses second from that date to express the dates.
+
+You've probably heard about the [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time), it uses second from that date to express the dates.
 Since JavaScript uses milliseconds we need to multiply a UNIX timestamp by `1000` to convert it into milliseconds.
+
 
 ```javascript
 const unixTimestamp = 1552413600;
 new Date(unixTimestamp * 1000); // Tue Mar 12 2019 20:00:00 GMT+0200
 ```
 
-##### new Date('date string')
+
+### new Date('date string')
+
 
 We can also create dates using a string. To parse a string JavaScript uses the `Date.parse()` method.
+
 
 ```javascript
 new Date('2018-07'); //July 1st 2018, 00:00:00
@@ -90,13 +110,22 @@ new Date('2018 March'); //Mar 1st 2018, 00:00:00
 new Date('2018 march');
 ```
 
-<Alert type="info">
-  <p>
-    Remember that if you do not set timezone explicitly, the result date is relative to your current timezone.
-  </p>
-</Alert>
+
+<div className="callout">
+  <div className="callout__icon">
+      💡
+    </div>
+  <div className="callout__content">
+
+Remember that if you do not set timezone explicitly, the result date is relative to your current
+timezone.
+
+  </div>
+</div>
+
 
 This adds us a lot of flexibility but at the same time adds more problems. For example, if we omit the leading zero you will get an invalid date value in Safari, while in Firefox and Chrome it's working. Here are examples of the invalid date in Safari:
+
 
 ```javascript
 new Date('2018-7-22');
@@ -104,9 +133,12 @@ new Date('2018 march');
 new Date('2018-07-2');
 ```
 
+
 ℹ️ To save your own time the best variant is just to use [ISO format](http://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.15) for dates where it's possible.
 
+
 As mentioned above JavaScript uses `Date.parse()` to parse date string, this method returns timestamp as a result, and you can use it too when needed:
+
 
 ```javascript
 Date.parse('2018-07'); //July 1st 2018, 00:00:00
@@ -116,11 +148,15 @@ Date.parse('July 22, 2018 07:22:13');
 Date.parse('2018-07-22T07:22:13');
 ```
 
+
 ---
+
 
 ## Get a date
 
+
 There are a lot of methods available to get a date by components or to get it as a formatted string.
+
 
 | Method                | Description                                                              |
 | --------------------- | ------------------------------------------------------------------------ |
@@ -135,9 +171,12 @@ There are a lot of methods available to get a date by components or to get it as
 | `getDay()`            | Get the weekday as a number (0-6)                                        |
 | `getTimezoneOffset()` | Get timezone difference in minutes between current date timezone and UTC |
 
+
 There are also available equivalent methods for UTC timezone. All of them return date in UTC timezone: `getUTCFullYear()`, `getUTCMonth()`, `getUTCDate()`, `getUTCHours()`, `setUTCMinutes()`, `getUTCSeconds()`, `getUTCMilliseconds()`, `getUTCDay()`.
 
+
 In the table below you can find methods that can help you to convert date into a string format:
+
 
 | Method           | Description                                     |
 | ---------------- | ----------------------------------------------- |
@@ -146,6 +185,7 @@ In the table below you can find methods that can help you to convert date into a
 | `toUTCString()`  | converts a date to a string, using UTC timezone |
 | `toDateString()` | converts only date (without time) to a string   |
 | `toISOString()`  | converts a date to a string in ISO standart     |
+
 
 ```javascript
 const date = new Date('July 22, 2018 07:22:13');
@@ -157,13 +197,18 @@ date.toDateString(); // "Sun Jul 22 2018"
 date.toISOString(); // "2018-07-22T05:22:13.000Z" (ISO 8601 format)
 ```
 
+
 Later in this article, we will learn about dates localization, and there I will open one more method `toLocaleDateString()`.
+
 
 ---
 
+
 ## Edit a Date
 
+
 To work effectively with the dates we should be able to modify them. JavaScript offers `set` methods that allow us to edit date components, they are similar to the `get` methods explained above.
+
 
 | Method              | Description                                    |
 | ------------------- | ---------------------------------------------- |
@@ -176,6 +221,7 @@ To work effectively with the dates we should be able to modify them. JavaScript 
 | `setSeconds()`      | Sets the seconds (0-59)                        |
 | `setTime()`         | Sets the time (milliseconds since Jan 1, 1970) |
 
+
 ```javascript
 const d = new Date('2019-01-12'); // 🕓 Jan 12 2019 ...
 
@@ -183,21 +229,31 @@ d.setMonth(2); // 🕓 Mar 12 2019 ...
 d.setDate(1); // 🕓 Mar 01 2019 ...
 ```
 
-<Alert type="info">
-  <p>
-    Using only the <code>setFullYear()</code> it's possible to change year, month, and day together. For
-    example: <code>date.setFullYear(2019, 3, 20)</code>
-  </p>
-</Alert>
+
+<div className="callout">
+  <div className="callout__icon">
+      💡
+    </div>
+  <div className="callout__content">
+
+Using only the `setFullYear()` it's possible to change year, month, and day together.
+
+  </div>
+</div>
+
 
 ---
 
+
 ## Format and Localize a Date
+
 
 Now, we are getting closer to a bit more interesting way of dates usage.
 
+
 What if I ask you to create a code which will convert a string into the date in the following format: `dd/mm/yyyy` (14/03/2019)?
 Probably, you will think about combining the get methods of the date object and then returning them.
+
 
 ```javascript
 /** Adds leading zero */
@@ -209,9 +265,12 @@ const convertDate = (dateString) => {
 };
 ```
 
+
 OK, what about displaying the name of a month? Let's say I want to receive a date in the format like "14 July 2019".
 
+
 After a few seconds of thinking, you can realize that it's possible to create an array of the months and then get a month by its index with the help of `getMonth()`.
+
 
 ```javascript
 /** Adds leading zero */
@@ -238,7 +297,9 @@ const convertDate = (dateString) => {
 };
 ```
 
+
 Looks pretty long and complicated, isn't? But we can make it simpler, let's rewrite our functions using the `toLocaleDateString()` method. This method allows us to format and localize a date using different options.
+
 
 ```javascript
 const convertDate = (dateString) =>
@@ -251,6 +312,7 @@ const convertDate = (dateString) =>
 console.log(convertDate('2019-02-12')); // -> 12/02/2019
 ```
 
+
 ```javascript
 const convertDate = (dateString) =>
   new Date(dateString).toLocaleDateString('en-GB', {
@@ -262,13 +324,18 @@ const convertDate = (dateString) =>
 console.log(convertDate('2019-02-12')); // -> 12 February 2019
 ```
 
-Now, it looks neat 🎉. It might not be the direct usage case, but I think it's a good example to demonstrate possible ways of date formatting. You can learn more about the `toLocaleDateString` on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString" target="_blank" rel="nofollow">MDN</a>.
+
+Now, it looks neat 🎉. It might not be the direct usage case, but I think it's a good example to demonstrate possible ways of date formatting. You can learn more about the `toLocaleDateString` on [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString).
+
 
 ---
 
+
 ## Compare dates
 
+
 The easiest way to compare dates is to use equality operators (`<`, `>`, `<=`, `>=`):
+
 
 ```javascript
 const date1 = new Date('2005-07-20');
@@ -281,12 +348,22 @@ if (date1 > date2) {
 }
 ```
 
-<Alert type={AlertTypes.INFO}>
-  Since <code>Date</code> is an object, it's not possible to simply compare two different dates using{' '}
-  <code>===</code> or <code>==</code>. JS will compare dates by their reference and not values.
-</Alert>
+
+<div className="callout">
+  <div className="callout__icon">
+      💡
+    </div>
+  <div className="callout__content">
+
+Since `Date` is an object, it's not possible to simply compare two different dates using `===` or `==`. JS will compare dates by their reference and not
+values.
+
+  </div>
+</div>
+
 
 Use `getTime()` to compare dates by their values in milliseconds:
+
 
 ```javascript
 const date1 = new Date('2019-03-12T10:10:10');
@@ -300,34 +377,17 @@ if (date1.getTime() === date2.getTime()) {
 console.log(`Dates difference: ${date1.getTime() - date2.getTime()}`); // --> Dates difference: 0
 ```
 
-It's also possible to compare dates by parts using methods explained in the "[Get a date](#get-a-date)" section
+
+It's also possible to compare dates by parts using methods explained in the "[Get a date](notion://www.notion.so/ugross/b1839606dc2045caacda08ecc2d6a7ab?v=933419f6a7e9425dbdd0eea9c911f534&p=0b11140c99af4692a9cdd655b094f521&pm=s#get-a-date)" section
+
 
 ---
+
 
 ## Questions/Tasks
 
 1. What year will give this: `new Date(0)`?
-
-<details>
-  <summary>Answer (1)</summary>
-
-We will get the 1970 year. JS is calculation date in milliseconds starting from the 1st Jan 1970.
-
-</details>
-
 2. Change month to be October and year to be 2018 in this date `new Date(2012, 1)`
-
-<details>
-  <summary>Answer (2)</summary>
-
-Do you remember that month order starts from 0?
-
-```javascript
-new Date(2012, 1).setFullYear(2018, 9);
-```
-
-</details>
-
 3. Can you sort the following array in order from oldest to newest date?
 
 ```javascript
@@ -340,18 +400,7 @@ const usersArr = [
 ];
 ```
 
-<details>
-  <summary>Answer (3)</summary>
-
-We can use the `Array.sort()` here:
-
-```javascript
-usersArr.sort((firstEl, secondEl) => new Date(firstEl.date) - new Date(secondEl.date));
-```
-
-</details>
-
-4. Create a simple timeago function
+1. Create a simple `timeago` function
 
 ```javascript
 // - Function should work with UNIX timestamps.
@@ -369,10 +418,45 @@ console.log(timeAgo(unixTimestamp - 60)); // -> "1m"
 console.log(timeAgo(unixTimestamp - 4 * 60 * 60)); // -> "4h"
 console.log(timeAgo(unixTimestamp - 5 * 24 * 60 * 60)); // -> "Mar 9"
 console.log(timeAgo(unixTimestamp - 365 * 24 * 60 * 60)); // -> "Mar 14, 2018"
+
 ```
 
+
+### Answers
+
 <details>
-<summary>Answer (4)</summary>
+<summary>Answer(1)</summary>
+
+We will get the 1970 year. JS is calculation date in milliseconds starting from the 1st Jan 1970.
+
+
+</details>
+
+<details>
+<summary>Answer (2)</summary>
+
+Do you remember that month order starts from 0?
+
+
+```javascript
+new Date(2012, 1).setFullYear(2018, 9);
+```
+
+
+</details>
+
+<details>
+<summary>Answer (3)</summary>
+
+```javascript
+usersArr.sort((firstEl, secondEl) => new Date(firstEl.date) - new Date(secondEl.date));
+```
+
+
+</details>
+
+<details>
+<summary>Answer(4)</summary>
 
 ```javascript
 /**
@@ -414,4 +498,6 @@ const timeAgo = (unixDate) => {
 };
 ```
 
+
 </details>
+
