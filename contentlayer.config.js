@@ -37,6 +37,7 @@ export const TIL = defineDocumentType(() => ({
 export const Book = defineDocumentType(() => ({
   fields: {
     author: { required: true, type: 'string' },
+    date: { required: true, type: 'date' },
     id: { required: true, type: 'string' },
     img: { required: true, type: 'string' },
     rating: { required: true, type: 'number' },
