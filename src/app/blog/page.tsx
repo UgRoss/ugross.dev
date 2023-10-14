@@ -1,8 +1,9 @@
+import { allPosts } from 'contentlayer/generated';
+import { compareByDate } from '~/app/utils';
 import { ArticleCard } from '~/components/ArticleCard';
-import { getAllPostsFromNotion } from '~/services/posts';
 
 export default async function BlogPage() {
-  const allPosts = await getAllPostsFromNotion();
+  const allPostsSorted = allPosts.sort(compareByDate);
 
   return (
     <main className="container mt-16">
@@ -11,7 +12,7 @@ export default async function BlogPage() {
         <p className="text-sm">I write about JavaScript, TypeScript, React, Algorithms and more.</p>
       </div>
       <div className="mt-10 flex flex-col gap-5">
-        {allPosts.map((article) => (
+        {allPostsSorted.map((article) => (
           <ArticleCard
             description={article.description}
             imageSrc={article.img || '/storybook/article-image-demo.avif'}
