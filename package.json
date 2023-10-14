@@ -11,7 +11,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky install",
-    "copy-images": "node ./scripts/copyContentImagesToPublicFolder.mjs"`
+    "copy-images": "node ./scripts/copyContentImagesToPublicFolder.mjs"
   },
   "lint-staged": {
     "*.+(js|ts|tsx)": [
