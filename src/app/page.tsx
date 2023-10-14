@@ -3,8 +3,7 @@ import { Avatar } from '~/components/Avatar';
 import { ContentSection } from '~/components/ContentSection';
 import { Link } from '~/components/Link';
 import { TILPreviewItem } from '~/components/TILPreviewItem';
-import { getRecentPostsFromNotion } from '~/services/posts';
-import { getRecentTILsFromNotion } from '~/services/tils';
+import { getRecentPosts, getRecentTILs } from './content';
 
 const stack = [
   { description: 'Typed JavaScript', href: '#', title: 'TypeScript' },
@@ -14,8 +13,8 @@ const stack = [
 ];
 
 export default async function Home() {
-  const recentArticles = await getRecentPostsFromNotion(2);
-  const recentTILs = await getRecentTILsFromNotion(3);
+  const recentArticles = getRecentPosts(2);
+  const recentTILs = getRecentTILs(3);
 
   return (
     <main className="container mt-16 flex flex-col gap-16">
