@@ -1,11 +1,11 @@
+import { allPosts } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import { Link } from '~/components/Link';
 import { ArrowLeft } from '~/components/PhosphorIcons';
 import { ReactMarkdown } from '~/components/ReactMarkdown';
-import { getTILBySlugFromNotion } from '~/services/tils';
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const post = await getTILBySlugFromNotion(params.slug);
+  const post = allPosts.find((post) => post.slug === params.slug);
   if (!post) notFound();
 
   return (
@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <h1 className="mb-4 text-center text-5xl leading-[64px]">{post.title}</h1>
       </div>
       <div className="prose dark:prose-invert">
-        <ReactMarkdown>{post.markdown}</ReactMarkdown>
+        <ReactMarkdown>{post.body.raw}</ReactMarkdown>
       </div>
     </main>
   );
