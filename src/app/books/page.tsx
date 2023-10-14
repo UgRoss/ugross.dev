@@ -1,9 +1,7 @@
-import { getAllBooksFromNotion } from '~/services/books';
+import { allBooks } from '~/app/content';
 import { BookItem } from './components/BookItem';
 
 export default async function BooksPage() {
-  const books = await getAllBooksFromNotion();
-
   return (
     <main className="container mt-16">
       <div className="prose prose-page mb-12 text-center dark:prose-invert">
@@ -11,7 +9,7 @@ export default async function BooksPage() {
         <p className="text-sm">My bookshelf</p>
       </div>
       <div className="grid sm:grid-cols-2 gap-5">
-        {books.map(({ author, img, rating, title, url }) => (
+        {allBooks.map(({ author, img, rating, title, url }) => (
           <BookItem
             author={author}
             image={img}
