@@ -1,10 +1,7 @@
-import { allPosts } from 'contentlayer/generated';
-import { compareByDate } from '~/app/utils';
 import { ArticleCard } from '~/components/ArticleCard';
+import { allPosts } from '~/content';
 
 export default async function BlogPage() {
-  const allPostsSorted = allPosts.sort(compareByDate);
-
   return (
     <main className="container mt-16">
       <div className="prose prose-page mb-12 text-center dark:prose-invert">
@@ -12,7 +9,7 @@ export default async function BlogPage() {
         <p className="text-sm">I write about JavaScript, TypeScript, React, Algorithms and more.</p>
       </div>
       <div className="mt-10 flex flex-col gap-5">
-        {allPostsSorted.map((article) => (
+        {allPosts.map((article) => (
           <ArticleCard
             description={article.description}
             imageSrc={article.img || '/storybook/article-image-demo.avif'}

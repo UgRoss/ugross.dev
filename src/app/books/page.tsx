@@ -1,4 +1,4 @@
-import { allBooks } from '~/app/content';
+import { allBooks } from '~/content';
 import { BookItem } from './components/BookItem';
 
 export default async function BooksPage() {

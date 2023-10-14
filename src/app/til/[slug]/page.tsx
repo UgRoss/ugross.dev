@@ -1,8 +1,8 @@
-import { allPosts } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import { Link } from '~/components/Link';
 import { ArrowLeft } from '~/components/PhosphorIcons';
 import { ReactMarkdown } from '~/components/ReactMarkdown';
+import { allPosts } from '~/content';
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const post = allPosts.find((post) => post.slug === params.slug);

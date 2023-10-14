@@ -3,7 +3,7 @@ import { Avatar } from '~/components/Avatar';
 import { ContentSection } from '~/components/ContentSection';
 import { Link } from '~/components/Link';
 import { TILPreviewItem } from '~/components/TILPreviewItem';
-import { getRecentPosts, getRecentTILs } from './content';
+import { getRecentPosts, getRecentTILs } from '~/content';
 
 const stack = [
   { description: 'Typed JavaScript', href: '#', title: 'TypeScript' },

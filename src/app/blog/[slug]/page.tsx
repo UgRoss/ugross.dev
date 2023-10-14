@@ -1,4 +1,3 @@
-import { allPosts } from 'contentlayer/generated';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ArticleMetaLine } from '~/components/ArticleMetaLine';
@@ -6,6 +5,7 @@ import { Link } from '~/components/Link';
 import { ArrowLeft } from '~/components/PhosphorIcons';
 import { ReactMarkdown } from '~/components/ReactMarkdown';
 import { siteConfig } from '~/config';
+import { allPosts } from '~/content';
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const post = allPosts.find((post) => post.slug === params.slug);
