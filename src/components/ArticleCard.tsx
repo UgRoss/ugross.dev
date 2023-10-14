@@ -23,7 +23,7 @@ export const ArticleCard = ({
     <div className="relative flex cursor-pointer items-stretch rounded-lg border bg-card shadow-sm transition hover:scale-[1.01]">
       {imageSrc && (
         <div className="relative hidden w-40 flex-shrink-0 sm:flex">
-          <Image alt={title} className=" rounded-l-lg object-cover" fill src={imageSrc} />
+          <Image alt={title} className=" rounded-l-lg object-cover" src={imageSrc} fill />
         </div>
       )}
       <div className="p-4">
@@ -40,10 +40,10 @@ export const ArticleCard = ({
               <Badge
                 as={Link}
                 className="relative z-20"
-                clickable
                 href={href}
                 key={title}
                 variant="secondary"
+                clickable
               >
                 {title}
               </Badge>
