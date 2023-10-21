@@ -26,7 +26,8 @@ export const HEADER_ITEMS: HeaderNavItem[] = [
     items: [
       { href: '/til', label: 'Today I Learned' },
       { href: '/books', label: 'Books' },
-      { href: '/bookmarks', label: 'Bookmarks' },
+      // TODO: Implement bookmarks page
+      // { href: '/bookmarks', label: 'Bookmarks' },
     ],
     label: 'More',
   },
