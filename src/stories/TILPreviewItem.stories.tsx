@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TILPreviewItem } from '~/components/TILPreviewItem';
+import { TILPreviewItem } from '~/app/til/components/TILPreviewItem';
 
 const meta: Meta<typeof TILPreviewItem> = {
   argTypes: {},
@@ -26,7 +26,7 @@ type Story = StoryObj<typeof TILPreviewItem>;
 export const Default: Story = {
   args: {
     href: '/til/fixed-vs-growth-mindset',
-    tags: [{ href: '#', title: 'Personal Growth' }],
+    tags: ['Personal Growth'],
     title: 'Fixed vs Growth Mindset',
   },
 };
@@ -36,17 +36,13 @@ export const WithAnimatedList: Story = {
     <ul className="animated-list">
       <TILPreviewItem
         href="/til/fixed-vs-growth-mindset"
-        tags={[{ href: '#', title: 'Personal Growth' }]}
+        tags={['Personal Growth']}
         title="Fixed vs Growth Mindset"
       />
-      <TILPreviewItem
-        href="/til/the-unknown-type"
-        tags={[{ href: '#', title: 'TypeScript' }]}
-        title="The unknown type"
-      />
+      <TILPreviewItem href="/til/the-unknown-type" tags={['TypeScript']} title="The unknown type" />
       <TILPreviewItem
         href="/til/maps-and-each-directive"
-        tags={[{ href: '#', title: 'SASS' }]}
+        tags={['SASS']}
         title="Maps & @each directive"
       />
     </ul>
