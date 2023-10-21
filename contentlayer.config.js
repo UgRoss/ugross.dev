@@ -51,6 +51,7 @@ export const Book = defineDocumentType(() => ({
 
 export const Page = defineDocumentType(() => ({
   fields: {
+    date: { required: true, type: 'date' },
     description: { required: true, type: 'string' },
     id: { required: true, type: 'string' },
     slug: { required: true, type: 'string' },
@@ -64,4 +65,5 @@ export default makeSource({
   contentDirExclude: ['node_modules', '.git', 'package.json', 'package-lock.json', 'README.md'],
   contentDirPath: 'content',
   documentTypes: [Post, TIL, Book, Page],
+  onExtraFieldData: 'ignore',
 });
