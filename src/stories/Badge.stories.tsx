@@ -28,28 +28,28 @@ export const Variants: Story = {
   render: () => {
     return (
       <div className="flex flex-wrap gap-3">
-        <Badge clickable variant="primary">
+        <Badge variant="primary" clickable>
           Badge
         </Badge>
-        <Badge clickable variant="secondary">
+        <Badge variant="secondary" clickable>
           Badge
         </Badge>
-        <Badge clickable variant="red">
+        <Badge variant="red" clickable>
           Badge
         </Badge>
-        <Badge clickable variant="green">
+        <Badge variant="green" clickable>
           Badge
         </Badge>
-        <Badge clickable variant="yellow">
+        <Badge variant="yellow" clickable>
           Badge
         </Badge>
-        <Badge clickable variant="indigo">
+        <Badge variant="indigo" clickable>
           Badge
         </Badge>
-        <Badge clickable variant="purple">
+        <Badge variant="purple" clickable>
           Badge
         </Badge>
-        <Badge clickable variant="pink">
+        <Badge variant="pink" clickable>
           Badge
         </Badge>
       </div>
