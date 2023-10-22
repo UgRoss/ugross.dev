@@ -4,7 +4,7 @@ import { TILPreviewItem } from './TILPreviewItem';
 
 interface TILsListProps {
   emptyMessage?: string;
-  items: TIL[];
+  readonly items: TIL[];
 }
 
 export function TILsList({ emptyMessage = messages.til.noItems, items }: TILsListProps) {

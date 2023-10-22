@@ -6,7 +6,7 @@ import { Input } from '~/components/Input';
 import { MagnifyingGlass } from '~/components/PhosphorIcons';
 
 interface TILSearchProps {
-  allTILs: any[];
+  readonly allTILs: any[];
   emptyMessage: string;
 }
 

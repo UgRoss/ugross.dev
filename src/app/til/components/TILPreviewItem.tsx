@@ -3,7 +3,7 @@ import { Badge } from '~/components/Badge';
 
 interface TILPreviewProps {
   href: string;
-  tags?: string[];
+  readonly tags?: string[];
   title: string;
 }
 
