@@ -1,14 +1,18 @@
 'use client';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { matchSorter } from 'match-sorter';
+import { TILsList } from '~/app/til/components/TILsList';
 import { Input } from '~/components/Input';
 import { MagnifyingGlass } from '~/components/PhosphorIcons';
-import { TILPreviewItem } from '~/components/TILPreviewItem';
 
-export default function TILsList({ allTILs, emptyMessage }: any) {
+interface TILSearchProps {
+  allTILs: any[];
+  emptyMessage: string;
+}
+
+export function TILsListWithSearch({ allTILs, emptyMessage }: TILSearchProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredTILs, setFilteredTILs] = useState(allTILs);
-  const isSearchResultEmpty = searchTerm.length > 0 && filteredTILs.length === 0;
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.currentTarget.value);
@@ -19,12 +23,8 @@ export default function TILsList({ allTILs, emptyMessage }: any) {
   };
 
   useEffect(() => {
-    setFilteredTILs(
-      matchSorter(allTILs, searchTerm, {
-        keys: ['title', 'category'],
-      })
-    );
-  }, [searchTerm]);
+    setFilteredTILs(matchSorter(allTILs, searchTerm, { keys: ['title', 'category'] }));
+  }, [allTILs, searchTerm]);
 
   return (
     <div>
@@ -42,12 +42,7 @@ export default function TILsList({ allTILs, emptyMessage }: any) {
         />
       </div>
       <div className="mt-10 flex flex-col gap-5">
-        <ul className="animated-list">
-          {isSearchResultEmpty && <p className="text-center text-muted">{emptyMessage}</p>}
-          {filteredTILs.map(({ slug, tags, title }: any) => (
-            <TILPreviewItem href={`/til/${slug}`} key={slug} tags={tags} title={title} />
-          ))}
-        </ul>
+        <TILsList emptyMessage={emptyMessage} items={filteredTILs} />
       </div>
     </div>
   );
