@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation';
 import { ReactMarkdown } from '~/components/ReactMarkdown';
 import { messages } from '~/config';
-import { allPages } from '~/content';
+import { pages } from '~/services/contentfulContent';
 
 export default async function UsesPage() {
-  const usesPage = allPages.find((page) => page.slug === 'uses');
+  const usesPage = pages.getBySlug('uses');
   const { description, title } = messages.uses;
 
   if (!usesPage) {

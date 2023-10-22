@@ -1,5 +1,5 @@
 import { ArticleCard } from '~/components/ArticleCard';
-import { allPosts } from '~/content';
+import { posts } from '~/services/contentfulContent';
 
 export default async function BlogPage() {
   return (
@@ -9,7 +9,7 @@ export default async function BlogPage() {
         <p className="text-sm">I write about JavaScript, TypeScript, React, Algorithms and more.</p>
       </div>
       <div className="mt-10 flex flex-col gap-5">
-        {allPosts.map((article) => (
+        {posts.getAll().map((article) => (
           <ArticleCard
             description={article.description}
             imageSrc={article.img || '/storybook/article-image-demo.avif'}

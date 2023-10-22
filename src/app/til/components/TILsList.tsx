@@ -1,12 +1,13 @@
 import { TIL } from 'contentlayer/generated';
+import { messages } from '~/config';
 import { TILPreviewItem } from './TILPreviewItem';
 
 interface TILsListProps {
-  emptyMessage: string;
+  emptyMessage?: string;
   items: TIL[];
 }
 
-export function TILsList({ emptyMessage, items }: TILsListProps) {
+export function TILsList({ emptyMessage = messages.til.noItems, items }: TILsListProps) {
   const isEmpty = items.length === 0;
 
   return (

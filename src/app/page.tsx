@@ -2,8 +2,8 @@ import { ArticleCard } from '~/components/ArticleCard';
 import { Avatar } from '~/components/Avatar';
 import { ContentSection } from '~/components/ContentSection';
 import { Link } from '~/components/Link';
-import { TILPreviewItem } from '~/components/TILPreviewItem';
-import { getRecentPosts, getRecentTILs } from '~/content';
+import { posts, tilPosts } from '~/services/contentfulContent';
+import { TILsList } from './til/components/TILsList';
 
 const stack = [
   { description: 'Typed JavaScript', href: '#', title: 'TypeScript' },
@@ -13,8 +13,8 @@ const stack = [
 ];
 
 export default async function Home() {
-  const recentArticles = getRecentPosts(2);
-  const recentTILs = getRecentTILs(3);
+  const recentArticles = posts.getLastItems(2);
+  const recentTILs = tilPosts.getLastItems(3);
 
   return (
     <main className="container mt-16 flex flex-col gap-16">
@@ -49,6 +49,7 @@ export default async function Home() {
         {recentArticles.map((article) => (
           <ArticleCard
             description={article.description}
+            // TODO: create default image & probably, add it on contentful step
             imageSrc={article.img || '/storybook/article-image-demo.avif'}
             key={article.slug}
             title={article.title}
@@ -57,16 +58,7 @@ export default async function Home() {
         ))}
       </ContentSection>
       <ContentSection link="/til" title="Today I Learned">
-        <ul className="animated-list">
-          {recentTILs.map(({ slug, tags, title }) => (
-            <TILPreviewItem
-              href={`/til/${slug}`}
-              key={slug}
-              tags={tags.map((tag) => ({ href: `/til/category/${tag}`, title: tag }))}
-              title={title}
-            />
-          ))}
-        </ul>
+        <TILsList items={recentTILs} />
       </ContentSection>
     </main>
   );

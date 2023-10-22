@@ -1,7 +1,9 @@
-import { allBooks } from '~/content';
+import { books } from '~/services/contentfulContent';
 import { BookItem } from './components/BookItem';
 
 export default async function BooksPage() {
+  const allBooks = books.getAll();
+
   return (
     <main className="container mt-16">
       <div className="prose prose-page mb-12 text-center dark:prose-invert">

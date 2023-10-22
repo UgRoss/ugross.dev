@@ -5,10 +5,10 @@ import { Link } from '~/components/Link';
 import { ArrowLeft } from '~/components/PhosphorIcons';
 import { ReactMarkdown } from '~/components/ReactMarkdown';
 import { siteConfig } from '~/config';
-import { allPosts } from '~/content';
+import { posts } from '~/services/contentfulContent';
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const post = allPosts.find((post) => post.slug === params.slug);
+  const post = posts.getBySlug(params.slug);
 
   if (!post) notFound();
 
@@ -20,7 +20,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </Link>
       </div>
       <div>
-        <h1 className="text-3xl font-extrabold">Data Structures: Linked List</h1>
+        <h1 className="text-3xl font-extrabold">{post.title}</h1>
       </div>
       <div className="mt-8">
         <ArticleMetaLine
