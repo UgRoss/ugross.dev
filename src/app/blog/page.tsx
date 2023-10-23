@@ -12,7 +12,7 @@ export default async function BlogPage() {
         {posts.getAll().map((article) => (
           <ArticleCard
             description={article.description}
-            imageSrc={article.img || '/storybook/article-image-demo.avif'}
+            imageSrc={article.img}
             key={article.slug}
             tags={article.tags?.map((tag) => ({ href: `#${tag}`, title: tag })) ?? []}
             title={article.title}
