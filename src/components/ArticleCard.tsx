@@ -16,7 +16,7 @@ export const ArticleCard = ({
   tags,
   title,
   url,
-}: ArticleCardProps): JSX.Element => {
+}: Readonly<ArticleCardProps>) => {
   const hasTags = Array.isArray(tags) && tags.length > 0;
 
   return (
@@ -35,7 +35,7 @@ export const ArticleCard = ({
           <p className=" line-clamp-3 text-sm dark:prose-invert">{description}</p>
         </div>
         {hasTags && (
-          <div className="mt-3">
+          <div className="mt-3 flex gap-2">
             {tags.map(({ href, title }) => (
               <Badge
                 as={Link}
