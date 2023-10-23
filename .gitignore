@@ -40,4 +40,6 @@ next-env.d.ts
 # contentlayer
 .contentlayer
 
-content
+# content
+/content
+public/content-images
