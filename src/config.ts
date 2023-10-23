@@ -26,8 +26,6 @@ export const HEADER_ITEMS: HeaderNavItem[] = [
     items: [
       { href: '/til', label: 'Today I Learned' },
       { href: '/books', label: 'Books' },
-      // TODO: Implement bookmarks page
-      // { href: '/bookmarks', label: 'Bookmarks' },
     ],
     label: 'More',
   },
@@ -39,7 +37,6 @@ export const siteConfig = {
     showCopyButton: true,
     showLineNumbers: true,
   },
-  defaultArticleImage: '/default-article-image.jpg',
   defaultDescription: `${INFO.title} and CS student. Living and coding in Ukraine.`,
   defaultTitle: `${INFO.name} | ${INFO.title}`,
   email: 'contact@ugross.dev',
