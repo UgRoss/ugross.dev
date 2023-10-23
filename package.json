@@ -11,7 +11,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky install",
-    "copy-images": "node ./scripts/copyContentImagesToPublic.mjs"
+    "copy-images": "node ./scripts/copyContentImagesToPublic.mjs",
+    "update-submodules": "git submodule update --remote --merge && npm run copy-images"
   },
   "lint-staged": {
     "*.+(js|ts|tsx)": [
