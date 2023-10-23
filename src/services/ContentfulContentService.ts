@@ -9,7 +9,7 @@ interface BaseContent {
 }
 
 export class ContentfulContentService<T extends BaseContent> {
-  private records: T[];
+  private readonly records: T[];
   constructor(records: T[]) {
     this.records = [...records].sort(compareByDate);
   }
