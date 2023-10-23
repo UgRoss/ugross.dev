@@ -25,8 +25,21 @@ type Story = StoryObj<typeof ArticleCard>;
 export const Default: Story = {
   args: {
     description: `A Queue is a linear data structure that keeps its elements in a queue. It uses FIFO (first-in-first-out) ordering in which elements are added to the "end" and are removed from the "front".`,
-    imageSrc: '/storybook/article-image-demo.avif',
-    tags: [{ href: '#ts', title: 'TypeScript' }],
+    imageSrc: '/default/article.jpg',
     title: 'Data Structures: Queue',
+    url: '#',
+  },
+};
+
+export const WithTags: Story = {
+  args: {
+    description: `A Queue is a linear data structure that keeps its elements in a queue. It uses FIFO (first-in-first-out) ordering in which elements are added to the "end" and are removed from the "front".`,
+    imageSrc: '/default/article.jpg',
+    tags: [
+      { href: '#ts', title: 'TypeScript' },
+      { href: '#ts', title: 'Data Structures' },
+    ],
+    title: 'Data Structures: Queue',
+    url: '#',
   },
 };
