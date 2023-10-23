@@ -2,6 +2,7 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 
 export const Post = defineDocumentType(() => ({
   computedFields: {
+    img: { resolve: (post) => post.img || '/default/article.jpg' },
     url: { resolve: (post) => `/blog/${post.slug}`, type: 'string' },
   },
   fields: {
