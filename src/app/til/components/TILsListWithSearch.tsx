@@ -10,7 +10,7 @@ interface TILSearchProps {
   emptyMessage: string;
 }
 
-export function TILsListWithSearch({ allTILs, emptyMessage }: TILSearchProps) {
+export function TILsListWithSearch({ allTILs, emptyMessage }: Readonly<TILSearchProps>) {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredTILs, setFilteredTILs] = useState(allTILs);
 

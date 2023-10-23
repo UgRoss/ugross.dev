@@ -3,11 +3,11 @@ import { Badge } from '~/components/Badge';
 
 interface TILPreviewProps {
   href: string;
-  readonly tags?: string[];
+  tags?: string[];
   title: string;
 }
 
-export function TILPreviewItem({ href, tags = [], title }: TILPreviewProps) {
+export function TILPreviewItem({ href, tags = [], title }: Readonly<TILPreviewProps>) {
   return (
     <li className="group relative py-2.5">
       <div className="transition-opacity">

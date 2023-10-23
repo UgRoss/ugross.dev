@@ -49,8 +49,7 @@ export default async function Home() {
         {recentArticles.map((article) => (
           <ArticleCard
             description={article.description}
-            // TODO: create default image & probably, add it on contentful step
-            imageSrc={article.img || '/storybook/article-image-demo.avif'}
+            imageSrc={article.img}
             key={article.slug}
             title={article.title}
             url={`/blog/${article.slug}`}

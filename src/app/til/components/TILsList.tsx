@@ -4,10 +4,10 @@ import { TILPreviewItem } from './TILPreviewItem';
 
 interface TILsListProps {
   emptyMessage?: string;
-  readonly items: TIL[];
+  items: TIL[];
 }
 
-export function TILsList({ emptyMessage = messages.til.noItems, items }: TILsListProps) {
+export function TILsList({ emptyMessage = messages.til.noItems, items }: Readonly<TILsListProps>) {
   const isEmpty = items.length === 0;
 
   return (
