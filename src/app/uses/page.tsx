@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation';
 import { ReactMarkdown } from '~/components/ReactMarkdown';
 import { messages } from '~/config';
-import { getUsesPageContentFromNotion } from '~/services/uses';
+import { pages } from '~/services/contentfulContent';
 
 export default async function UsesPage() {
-  const usesPage = await getUsesPageContentFromNotion();
+  const usesPage = pages.getBySlug('uses');
   const { description, title } = messages.uses;
 
   if (!usesPage) {
@@ -19,7 +19,7 @@ export default async function UsesPage() {
       </div>
       <div className="mt-8">
         <div className="prose mt-8 dark:prose-invert">
-          <ReactMarkdown>{usesPage.markdown}</ReactMarkdown>
+          <ReactMarkdown>{usesPage.body.raw}</ReactMarkdown>
         </div>
       </div>
     </main>

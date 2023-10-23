@@ -51,7 +51,7 @@ export function NavDropdown({ items }: NavDropdownProps) {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="mt-2 w-56 rounded-lg p-2">
         {items.map((item) => (
-          <DropdownMenuItem asChild key={item.href}>
+          <DropdownMenuItem key={item.href} asChild>
             <Link
               className={cn('w-full cursor-pointer px-2 text-sm font-medium hover:text-primary', {
                 'text-primary': pathname === item.href,

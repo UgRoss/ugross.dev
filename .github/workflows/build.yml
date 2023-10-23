@@ -20,25 +20,19 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ vars.ACCESS_TOKEN }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           cache: 'npm'
 
       - name: Install Dependencies
         run: npm ci
-
-      - name: Create ENV File
-        run: |
-          touch .env
-          echo "NOTION_TOKEN=${{ vars.NOTION_TOKEN }}" >> .env
-          echo "NOTION_TIL_DATABASE_ID=${{ vars.NOTION_TIL_DATABASE_ID }}" >> .env
-          echo "NOTION_BLOG_DATABASE_ID=${{ vars.NOTION_BLOG_DATABASE_ID }}" >> .env
-          echo "NOTION_USES_PAGE_ID=${{ vars.NOTION_USES_PAGE_ID }}" >> .env
-          echo "NOTION_BOOKS_DATABASE_ID=${{ vars.NOTION_BOOKS_DATABASE_ID }}" >> .env
 
       - name: Build
         run: npm run build

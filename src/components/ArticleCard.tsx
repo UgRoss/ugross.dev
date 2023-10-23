@@ -16,14 +16,14 @@ export const ArticleCard = ({
   tags,
   title,
   url,
-}: ArticleCardProps): JSX.Element => {
+}: Readonly<ArticleCardProps>) => {
   const hasTags = Array.isArray(tags) && tags.length > 0;
 
   return (
     <div className="relative flex cursor-pointer items-stretch rounded-lg border bg-card shadow-sm transition hover:scale-[1.01]">
       {imageSrc && (
         <div className="relative hidden w-40 flex-shrink-0 sm:flex">
-          <Image alt={title} className=" rounded-l-lg object-cover" fill src={imageSrc} />
+          <Image alt={title} className=" rounded-l-lg object-cover" src={imageSrc} fill />
         </div>
       )}
       <div className="p-4">
@@ -35,15 +35,15 @@ export const ArticleCard = ({
           <p className=" line-clamp-3 text-sm dark:prose-invert">{description}</p>
         </div>
         {hasTags && (
-          <div className="mt-3">
+          <div className="mt-3 flex gap-2">
             {tags.map(({ href, title }) => (
               <Badge
                 as={Link}
                 className="relative z-20"
-                clickable
                 href={href}
                 key={title}
                 variant="secondary"
+                clickable
               >
                 {title}
               </Badge>

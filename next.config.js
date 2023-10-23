@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
+const { withContentlayer } = require('next-contentlayer');
 
 const nextConfig = {
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
   reactStrictMode: true,
   swcMinify: true,
-  images: {
-    domains: ["res.cloudinary.com"],
-  }
 };
 
-module.exports = nextConfig;
+module.exports = withContentlayer(nextConfig);

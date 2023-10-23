@@ -26,7 +26,6 @@ export const HEADER_ITEMS: HeaderNavItem[] = [
     items: [
       { href: '/til', label: 'Today I Learned' },
       { href: '/books', label: 'Books' },
-      { href: '/bookmarks', label: 'Bookmarks' },
     ],
     label: 'More',
   },
@@ -38,7 +37,6 @@ export const siteConfig = {
     showCopyButton: true,
     showLineNumbers: true,
   },
-  defaultArticleImage: '/default-article-image.jpg',
   defaultDescription: `${INFO.title} and CS student. Living and coding in Ukraine.`,
   defaultTitle: `${INFO.name} | ${INFO.title}`,
   email: 'contact@ugross.dev',
@@ -69,6 +67,7 @@ export const messages = {
     description: `A collection of concise write-ups on small things I learn day to day across a variety of
     languages and technologies. These are things that don't really warrant a full blog post.`,
     emptySearch: 'No results found',
+    noItems: 'No TIL posts',
     title: 'Today I Learned',
   },
   uses: {

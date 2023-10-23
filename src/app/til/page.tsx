@@ -1,12 +1,10 @@
 import { messages } from '~/config';
-import { getAllTILsFromNotion } from '~/services/tils';
-import TILsList from './TILsLIst';
+import { tilPosts } from '~/services/contentfulContent';
+import { TILsListWithSearch } from './components/TILsListWithSearch';
 
-export default async function TodayILearnedPage() {
-  const allTILs = (await getAllTILsFromNotion()).map((page) => ({
-    ...page,
-    tags: page.tags.map((tag) => ({ href: `/tils/tag/${tag}`, title: tag })),
-  }));
+export default async function TodayILearnedPage({ searchParams }: any) {
+  const tag = searchParams.tag;
+  const allTILsData = tag ? tilPosts.getByTag(tag) : tilPosts.getAll();
 
   return (
     <main className="container mt-16">
@@ -14,7 +12,7 @@ export default async function TodayILearnedPage() {
         <h2 className="mb-4 text-center text-5xl leading-[64px]">{messages.til.title}</h2>
         <p className="text-sm">{messages.til.description}</p>
       </div>
-      <TILsList allTILs={allTILs} emptyMessage={messages.til.emptySearch} />
+      <TILsListWithSearch allTILs={allTILsData} emptyMessage={messages.til.emptySearch} />
     </main>
   );
 }

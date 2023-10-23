@@ -25,9 +25,9 @@ export function Avatar({ alt, className, size = 'md', src }: AvatarProps) {
       alt={alt}
       className={cn('rounded-full bg-zinc-100 object-cover dark:bg-zinc-800', className)}
       height={sizeInPixels}
-      priority
       src={src}
       width={sizeInPixels}
+      priority
     />
   );
 }
