@@ -4,6 +4,16 @@ const currentYear = new Date().getFullYear();
 
 export const INFO = {
   name: 'Rostyslav Ugryniuk',
+  stack: [
+    {
+      description: 'Typed JavaScript',
+      href: 'https://www.typescriptlang.org/',
+      title: 'TypeScript',
+    },
+    { description: 'JavaScript UI Library', href: 'https://react.dev/', title: 'React' },
+    { description: 'Framework for React apps', href: 'https://nextjs.org/', title: 'Next.js' },
+    { description: 'Query language for APIs', href: 'https://graphql.org/', title: 'GraphQL' },
+  ],
   title: 'Software Developer',
 };
 
@@ -44,10 +54,8 @@ export const siteConfig = {
   footer: {
     copyright: `© ${currentYear} ${INFO.name}`,
     links: [
-      { href: '/colophon', title: 'Colophon' },
       { href: '/uses', title: 'Uses' },
       { href: SOCIAL_LINKS.github, title: 'Github' },
-      { href: '/rss.xml', title: 'RSS' },
     ],
   },
   footerText: `© Copyright ${currentYear} ${INFO.title}`,

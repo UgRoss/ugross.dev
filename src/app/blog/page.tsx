@@ -14,7 +14,7 @@ export default async function BlogPage() {
             description={article.description}
             imageSrc={article.img}
             key={article.slug}
-            tags={article.tags?.map((tag) => ({ href: `#${tag}`, title: tag })) ?? []}
+            tags={article.tagsWithLinks}
             title={article.title}
             url={`/blog/${article.slug}`}
           />

@@ -2,14 +2,23 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 
 export const Post = defineDocumentType(() => ({
   computedFields: {
-    img: { resolve: (post) => post.img || '/default/article.jpg' },
+    img: { resolve: (post) => post.img || '/default/article.jpg', type: 'string' },
+    tagsWithLinks: {
+      resolve: (post) =>
+        post.tags?._array.map((tag) => ({
+          href: `/blog/tags/${tag}`,
+          title: tag,
+        })) || [],
+      // FIX when https://github.com/contentlayerdev/contentlayer/issues/149
+      // + use defineNestedType
+      type: '{ href: string, title: string }[]',
+    },
     url: { resolve: (post) => `/blog/${post.slug}`, type: 'string' },
   },
   fields: {
     date: { required: true, type: 'date' },
     description: { required: true, type: 'string' },
     id: { required: true, type: 'string' },
-    img: { required: true, type: 'string' },
     lastUpdateDate: { required: false, type: 'date' },
     slug: { required: true, type: 'string' },
     tags: { of: { type: 'string' }, required: true, type: 'list' },
