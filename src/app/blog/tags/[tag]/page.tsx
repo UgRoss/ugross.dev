@@ -10,7 +10,7 @@ interface BlogByTagPageProps {
   };
 }
 
-export default async function BlogByTagPage({ params }: BlogByTagPageProps) {
+export default async function BlogByTagPage({ params }: Readonly<BlogByTagPageProps>) {
   const tag = params.tag;
   const postsByTag = posts.getByTag(tag);
 
@@ -28,8 +28,7 @@ export default async function BlogByTagPage({ params }: BlogByTagPageProps) {
 
       <div>
         <h1 className="text-3xl font-extrabold flex gap-2 items-center">
-          Posts tagged:
-          <code>{tag}</code>
+          Posts tagged: <code>{tag}</code>
         </h1>
 
         <p className="text-sm mt-2">{postsByTag.length} post(s) found</p>
