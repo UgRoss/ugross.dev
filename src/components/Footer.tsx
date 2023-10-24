@@ -13,10 +13,10 @@ export function Footer({ copyright = '© All rights reserved', links = [] }: Foo
   const hasLinks = links.length > 0;
 
   const footerWrapperClassName = cn(
-    'container border-t border-slate-200 dark:border-zinc-800 py-5',
+    'container border-t border-slate-200 dark:border-zinc-800 py-4',
     'text-center text-sm text-muted',
     'flex flex-col items-center gap-4',
-    'sm:flex-row-reverse sm:justify-center sm:items-start sm:py-10',
+    'sm:flex-row-reverse sm:justify-center sm:items-start sm:py-6',
     { 'sm:justify-between': hasLinks }
   );
   const linksClassName = cn(
@@ -30,7 +30,7 @@ export function Footer({ copyright = '© All rights reserved', links = [] }: Foo
         {hasLinks && (
           <div className="inline-flex items-center gap-2">
             {links.map(({ href, title }) => (
-              <Link className={linksClassName} href="#" key={href}>
+              <Link className={linksClassName} href={href} key={href}>
                 {title}
               </Link>
             ))}
