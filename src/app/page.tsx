@@ -2,15 +2,9 @@ import { ArticleCard } from '~/components/ArticleCard';
 import { Avatar } from '~/components/Avatar';
 import { ContentSection } from '~/components/ContentSection';
 import { Link } from '~/components/Link';
+import { INFO } from '~/config';
 import { posts, tilPosts } from '~/services/contentfulContent';
 import { TILsList } from './til/components/TILsList';
-
-const stack = [
-  { description: 'Typed JavaScript', href: '#', title: 'TypeScript' },
-  { description: 'JavaScript UI Library', href: '#', title: 'React' },
-  { description: 'Framework for React apps', href: '#', title: 'Next.js' },
-  { description: 'Query language for APIs', href: '#', title: 'GraphQL' },
-];
 
 export default async function Home() {
   const recentArticles = posts.getLastItems(2);
@@ -33,7 +27,7 @@ export default async function Home() {
       <ContentSection link="/uses" title="Stack">
         <div className="prose prose-page dark:prose-invert">
           <ul>
-            {stack.map(({ description, href, title }) => (
+            {INFO.stack.map(({ description, href, title }) => (
               <li key={href}>
                 <Link className="m-0" href={href}>
                   {title}
