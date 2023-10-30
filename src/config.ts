@@ -19,6 +19,7 @@ export const INFO = {
 
 export const DEFAULT_META = {
   description: `${INFO.title} and CS student. Living and coding in Ukraine.`,
+  template: `%s | ${INFO.name}`,
   title: `${INFO.name} | ${INFO.title}`,
 };
 
