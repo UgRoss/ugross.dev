@@ -3,6 +3,7 @@ import { compareByDate } from '~/app/utils';
 interface BaseContent {
   date: string;
   id: string;
+  lastUpdateDate?: string;
   slug: string;
   tags?: string[];
   title: string;
