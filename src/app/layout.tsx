@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Footer } from '~/components/Footer';
 import { Header } from '~/components/Header';
@@ -8,9 +9,12 @@ import Providers from './Providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata = {
+export const metadata: Metadata = {
   description: DEFAULT_META.description,
-  title: DEFAULT_META.title,
+  title: {
+    default: DEFAULT_META.title,
+    template: DEFAULT_META.template,
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
