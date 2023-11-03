@@ -21,7 +21,7 @@ export default function manifest(): MetadataRoute.Manifest {
         src: '/pwa/pwa-icon.png',
         type: 'image/png',
       },
-      ...(maskableIcons || []),
+      ...(maskableIcons ?? []),
     ],
     lang: 'en-US',
     name: 'Ross Blog',
