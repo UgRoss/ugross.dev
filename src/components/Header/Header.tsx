@@ -1,13 +1,16 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import throttle from 'lodash.throttle';
-import { HEADER_ITEMS } from '~/config';
+import { siteConfig } from '~/config';
 import './Header.css';
 import { NavDropdown } from './components/NavDropdown';
 import { NavItem } from './components/NavItem';
 import { isHeaderNavItemDropdown } from './utils';
 
 export function Header() {
+  const {
+    header: { items: headerItems },
+  } = siteConfig;
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -44,7 +47,7 @@ export function Header() {
     <header className="sticky flex top-0 z-50 justify-center pt-6" ref={headerRef}>
       <nav className="flex items-center rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
         <ul className="flex items-stretch">
-          {HEADER_ITEMS.map((item) => (
+          {headerItems.map((item) => (
             <li key={item.label}>
               {isHeaderNavItemDropdown(item) ? (
                 <NavDropdown items={item.items} />

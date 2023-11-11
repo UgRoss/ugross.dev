@@ -2,7 +2,7 @@ import { ArticleCard } from '~/components/ArticleCard';
 import { Avatar } from '~/components/Avatar';
 import { ContentSection } from '~/components/ContentSection';
 import { Link } from '~/components/Link';
-import { INFO } from '~/config';
+import { siteConfig } from '~/config';
 import { posts, tilPosts } from '~/services/contentfulContent';
 import { TILsList } from './til/components/TILsList';
 
@@ -27,7 +27,7 @@ export default async function Home() {
       <ContentSection link="/uses" title="Stack">
         <div className="prose prose-page dark:prose-invert">
           <ul>
-            {INFO.stack.map(({ description, href, title }) => (
+            {siteConfig.stack.map(({ description, href, title }) => (
               <li key={href}>
                 <Link className="m-0" href={href}>
                   {title}

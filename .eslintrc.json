@@ -39,6 +39,7 @@
         "order": "asc",
         "groups": ["multiline", "unknown", "shorthand"]
       }
-    ]
+    ],
+    "perfectionist/sort-objects": [0]
   }
 }

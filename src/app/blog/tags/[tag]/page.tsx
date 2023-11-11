@@ -1,16 +1,33 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArticleCard } from '~/components/ArticleCard';
 import { Link } from '~/components/Link';
 import { ArrowLeft } from '~/components/PhosphorIcons';
 import { posts } from '~/services/contentfulContent';
 
-interface BlogByTagPageProps {
+interface Props {
   params: {
     tag: string;
   };
 }
 
-export default async function BlogByTagPage({ params }: Readonly<BlogByTagPageProps>) {
+export async function generateMetadata({ params }: Readonly<Props>): Promise<Metadata> {
+  const postsByTag = posts.getByTag(params.tag);
+
+  if (postsByTag.length <= 0) {
+    return {};
+  }
+
+  return {
+    description: 'Blog posts tagged with ' + params.tag,
+    openGraph: {
+      images: ['/default/page.jpg'],
+    },
+    title: `Blog`,
+  };
+}
+
+export default async function BlogByTagPage({ params }: Readonly<Props>) {
   const tag = params.tag;
   const postsByTag = posts.getByTag(tag);
 

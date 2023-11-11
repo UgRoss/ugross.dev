@@ -1,20 +1,22 @@
 import { ReactNode } from 'react';
+import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Footer } from '~/components/Footer';
 import { Header } from '~/components/Header';
-import { DEFAULT_META, siteConfig } from '~/config';
+import { messagesConfig, siteConfig } from '~/config';
 import '../styles/index.css';
 import Providers from './Providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata = {
-  description: DEFAULT_META.description,
-  title: DEFAULT_META.title,
+export const metadata: Metadata = {
+  description: siteConfig.seo.defaultDescription,
+  title: siteConfig.seo.title,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const { footer, language } = siteConfig;
+  const { copyright } = messagesConfig;
 
   return (
     <html className={inter.className} lang={language}>
@@ -22,7 +24,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Providers>
           <Header />
           {children}
-          <Footer copyright={footer.copyright} links={footer.links} />
+          <Footer copyright={copyright} links={footer.links} />
         </Providers>
       </body>
     </html>

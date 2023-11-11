@@ -1,11 +1,20 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ReactMarkdown } from '~/components/ReactMarkdown';
-import { messages } from '~/config';
+import { messagesConfig } from '~/config';
 import { pages } from '~/services/contentfulContent';
+
+export const metadata: Metadata = {
+  description: messagesConfig.uses.description,
+  openGraph: {
+    images: ['/default/page.jpg'],
+  },
+  title: messagesConfig.uses.title,
+};
 
 export default async function UsesPage() {
   const usesPage = pages.getBySlug('uses');
-  const { description, title } = messages.uses;
+  const { description, title } = messagesConfig.uses;
 
   if (!usesPage) {
     notFound();

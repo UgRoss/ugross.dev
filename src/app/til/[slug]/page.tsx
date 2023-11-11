@@ -1,10 +1,36 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Link } from '~/components/Link';
 import { ArrowLeft } from '~/components/PhosphorIcons';
 import { ReactMarkdown } from '~/components/ReactMarkdown';
+import { siteConfig } from '~/config';
 import { tilPosts } from '~/services/contentfulContent';
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: Readonly<Props>): Promise<Metadata> {
+  const post = tilPosts.getBySlug(params.slug);
+
+  if (!post) {
+    return {};
+  }
+
+  return {
+    authors: {
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    description: post.description,
+    openGraph: {
+      images: ['/default/til.jpg'],
+    },
+    title: post.title,
+  };
+}
+
+interface Props {
+  params: { slug: string };
+}
+
+export default async function Page({ params }: Readonly<Props>) {
   const tilPost = tilPosts.getBySlug(params.slug);
   if (!tilPost) notFound();
 
