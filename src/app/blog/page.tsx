@@ -6,7 +6,6 @@ export const metadata: Metadata = {
   description: 'I write about JavaScript, TypeScript, React, Algorithms and more.',
   openGraph: {
     images: ['/default/page.jpg'],
-    siteName: 'ugross.dev',
   },
   title: 'Blog',
 };
