@@ -5,6 +5,9 @@ import { TILsListWithSearch } from './components/TILsListWithSearch';
 
 export const metadata: Metadata = {
   description: messages.til.description,
+  openGraph: {
+    images: ['/default/page.jpg'],
+  },
   title: messages.til.title,
 };
 
