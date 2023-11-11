@@ -3,15 +3,15 @@ import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Footer } from '~/components/Footer';
 import { Header } from '~/components/Header';
-import { messagesConfig, seoConfig, siteConfig } from '~/config';
+import { messagesConfig, siteConfig } from '~/config';
 import '../styles/index.css';
 import Providers from './Providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  description: seoConfig.defaultDescription,
-  title: seoConfig.title,
+  description: siteConfig.seo.defaultDescription,
+  title: siteConfig.seo.title,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

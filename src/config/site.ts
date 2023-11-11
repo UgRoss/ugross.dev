@@ -8,10 +8,10 @@ export const siteConfig = {
   url: 'https://ugross.dev',
   language: 'en',
   name: 'Rostyslav Ugryniuk',
-  title: 'Software Developer',
+  title: 'Software Engineer',
   avatarUrl: '/memoji-avatar.png',
   currentYear: new Date().getFullYear(),
-  shortBio: `Software Developer and CS student. Living and coding in Ukraine.`,
+  shortBio: `Software Engineer and CS student. Living and coding in Ukraine.`,
   stack: [
     {
       description: 'Typed JavaScript',
@@ -24,6 +24,13 @@ export const siteConfig = {
   ],
   socialLinks,
   twitter: '@ug_ross',
+  seo: {
+    defaultDescription: `Software Engineer and CS student. Living and coding in Ukraine.`,
+    title: {
+      default: 'Rostyslav Ugryniuk | Software Engineer',
+      template: `%s | Rostyslav Ugryniuk`,
+    },
+  },
   codeBlocks: {
     showCopyButton: true,
     showLineNumbers: true,
