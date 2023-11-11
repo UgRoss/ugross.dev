@@ -1,5 +1,5 @@
 import { TIL } from 'contentlayer/generated';
-import { messages } from '~/config';
+import { messagesConfig } from '~/config';
 import { TILPreviewItem } from './TILPreviewItem';
 
 interface TILsListProps {
@@ -7,7 +7,10 @@ interface TILsListProps {
   items: TIL[];
 }
 
-export function TILsList({ emptyMessage = messages.til.noItems, items }: Readonly<TILsListProps>) {
+export function TILsList({
+  emptyMessage = messagesConfig.til.noItems,
+  items,
+}: Readonly<TILsListProps>) {
   const isEmpty = items.length === 0;
 
   return (

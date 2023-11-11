@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
-import { messages } from '~/config';
+import { messagesConfig } from '~/config';
 import { tilPosts } from '~/services/contentfulContent';
 import { TILsListWithSearch } from './components/TILsListWithSearch';
 
 export const metadata: Metadata = {
-  description: messages.til.description,
+  description: messagesConfig.til.description,
   openGraph: {
     images: ['/default/page.jpg'],
   },
-  title: messages.til.title,
+  title: messagesConfig.til.title,
 };
 
 interface Props {
@@ -22,10 +22,10 @@ export default async function TodayILearnedPage({ searchParams }: Readonly<Props
   return (
     <main className="container mt-16">
       <div className="prose prose-page mb-12 text-center dark:prose-invert">
-        <h2 className="mb-4 text-center text-5xl leading-[64px]">{messages.til.title}</h2>
-        <p className="text-sm">{messages.til.description}</p>
+        <h2 className="mb-4 text-center text-5xl leading-[64px]">{messagesConfig.til.title}</h2>
+        <p className="text-sm">{messagesConfig.til.description}</p>
       </div>
-      <TILsListWithSearch allTILs={allTILsData} emptyMessage={messages.til.emptySearch} />
+      <TILsListWithSearch allTILs={allTILsData} emptyMessage={messagesConfig.til.emptySearch} />
     </main>
   );
 }

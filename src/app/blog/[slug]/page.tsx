@@ -5,7 +5,7 @@ import { ArticleMetaLine } from '~/components/ArticleMetaLine';
 import { Link } from '~/components/Link';
 import { ArrowLeft } from '~/components/PhosphorIcons';
 import { ReactMarkdown } from '~/components/ReactMarkdown';
-import { INFO, siteConfig } from '~/config';
+import { siteConfig } from '~/config';
 import { posts } from '~/services/contentfulContent';
 
 interface Props {
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Readonly<Props>): Promise<Met
 
   return {
     authors: {
-      name: INFO.name,
+      name: siteConfig.name,
       url: siteConfig.url,
     },
     description: post.description,
@@ -50,7 +50,7 @@ export default async function Page({ params }: Readonly<Props>) {
       </div>
       <div className="mt-8">
         <ArticleMetaLine
-          author={{ image: siteConfig.avatarUrl, name: INFO.name }}
+          author={{ image: siteConfig.avatarUrl, name: siteConfig.name }}
           date={post.date}
           lastUpdateDate={post.lastUpdateDate}
         />

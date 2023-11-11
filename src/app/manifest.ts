@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { DEFAULT_META } from '~/config';
+import { seoConfig } from '~/config';
 
 const maskableIconSizes = [512, 384, 192, 128, 96, 72];
 const maskableIcons: MetadataRoute.Manifest['icons'] = maskableIconSizes.map((size) => ({
@@ -13,7 +13,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     background_color: '#222',
     categories: ['blog', 'technology'],
-    description: DEFAULT_META.description,
+    description: seoConfig.defaultDescription,
     display: 'minimal-ui',
     icons: [
       {

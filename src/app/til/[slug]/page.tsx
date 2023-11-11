@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Link } from '~/components/Link';
 import { ArrowLeft } from '~/components/PhosphorIcons';
 import { ReactMarkdown } from '~/components/ReactMarkdown';
-import { INFO, siteConfig } from '~/config';
+import { siteConfig } from '~/config';
 import { tilPosts } from '~/services/contentfulContent';
 
 export async function generateMetadata({ params }: Readonly<Props>): Promise<Metadata> {
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Readonly<Props>): Promise<Met
 
   return {
     authors: {
-      name: INFO.name,
+      name: siteConfig.name,
       url: siteConfig.url,
     },
     description: post.description,
