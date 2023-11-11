@@ -1,5 +1,14 @@
+import { Metadata } from 'next';
 import { ArticleCard } from '~/components/ArticleCard';
 import { posts } from '~/services/contentfulContent';
+
+export const metadata: Metadata = {
+  description: 'I write about JavaScript, TypeScript, React, Algorithms and more.',
+  openGraph: {
+    siteName: 'ugross.dev',
+  },
+  title: 'Blog',
+};
 
 export default async function BlogPage() {
   return (

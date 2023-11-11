@@ -1,7 +1,13 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ReactMarkdown } from '~/components/ReactMarkdown';
 import { messages } from '~/config';
 import { pages } from '~/services/contentfulContent';
+
+export const metadata: Metadata = {
+  description: messages.uses.description,
+  title: messages.uses.title,
+};
 
 export default async function UsesPage() {
   const usesPage = pages.getBySlug('uses');

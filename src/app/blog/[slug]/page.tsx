@@ -1,11 +1,11 @@
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ArticleMetaLine } from '~/components/ArticleMetaLine';
 import { Link } from '~/components/Link';
 import { ArrowLeft } from '~/components/PhosphorIcons';
 import { ReactMarkdown } from '~/components/ReactMarkdown';
-import { siteConfig } from '~/config';
+import { INFO, siteConfig } from '~/config';
 import { posts } from '~/services/contentfulContent';
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
   searchParams: string;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Readonly<Props>): Promise<Metadata> {
   const post = posts.getBySlug(params.slug);
 
   if (!post) {
@@ -21,6 +21,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
+    authors: {
+      name: INFO.name,
+      url: siteConfig.url,
+    },
     description: post.description,
     openGraph: {
       images: [post.img],
@@ -29,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page({ params }: Readonly<Props>) {
   const post = posts.getBySlug(params.slug);
 
   if (!post) notFound();
@@ -46,7 +50,7 @@ export default async function Page({ params }: Props) {
       </div>
       <div className="mt-8">
         <ArticleMetaLine
-          author={{ image: siteConfig.avatarUrl, name: 'Rostyslav Ugryniuk' }}
+          author={{ image: siteConfig.avatarUrl, name: INFO.name }}
           date={post.date}
           lastUpdateDate={post.lastUpdateDate}
         />

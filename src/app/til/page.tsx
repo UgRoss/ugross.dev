@@ -1,8 +1,18 @@
+import { Metadata } from 'next';
 import { messages } from '~/config';
 import { tilPosts } from '~/services/contentfulContent';
 import { TILsListWithSearch } from './components/TILsListWithSearch';
 
-export default async function TodayILearnedPage({ searchParams }: any) {
+export const metadata: Metadata = {
+  description: messages.til.description,
+  title: messages.til.title,
+};
+
+interface Props {
+  searchParams: { tag?: string };
+}
+
+export default async function TodayILearnedPage({ searchParams }: Readonly<Props>) {
   const tag = searchParams.tag;
   const allTILsData = tag ? tilPosts.getByTag(tag) : tilPosts.getAll();
 
