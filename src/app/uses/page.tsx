@@ -6,6 +6,9 @@ import { pages } from '~/services/contentfulContent';
 
 export const metadata: Metadata = {
   description: messages.uses.description,
+  openGraph: {
+    images: ['/default/page.jpg'],
+  },
   title: messages.uses.title,
 };
 
