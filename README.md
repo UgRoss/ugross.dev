@@ -1,7 +1,15 @@
-#### ⚠️ New version is currently progress
+### ⚠️ New version is currently progress
+
+Status: paused / slow-moving while I'm busy. I'll resume and publish when I can.
+
+### ⚠️ Domain notice:
+
+The old domain is no longer under my control and is being used for ads. Please do not visit it.
+
+New site: [WIP]
 
 
-# [ugross.dev](https://ugross.dev)
+# ugross.dev
 
 ![license](https://img.shields.io/github/license/ugross/ugross.dev)
 ![GitHub CI](https://github.com/ugross/ugross.dev/actions/workflows/build.yml/badge.svg)
